@@ -26,8 +26,8 @@ Gem::Specification.new do |spec|
   spec.email         = [ "serdar@chef.io" ]
   spec.license       = "Apache-2.0"
 
-  spec.summary       = "Discovers license files of a projects and its dependencies."
-  spec.description   = "Discovers license files of a projects and its dependencies."
+  spec.summary       = "Discovers license files of a project's dependencies."
+  spec.description   = "Discovers license files of a project's dependencies."
   spec.homepage      = "https://github.com/chef/license_scout"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -35,6 +35,9 @@ Gem::Specification.new do |spec|
   spec.executables   = %w{license_scout}
   spec.require_paths = %w{lib}
 
+  spec.add_dependency "ffi-yajl",         "~> 2.2"
+
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec"
 end

@@ -16,4 +16,17 @@
 #
 
 module LicenseScout
+  module Exceptions
+    class Error < RuntimeError; end
+
+    class ProjectDirectoryMissing < Error
+      def initialize(project_dir)
+        @project_dir = project_dir
+      end
+
+      def to_s
+        "Could not locate or access the provided project directory '#{@project_dir}'."
+      end
+    end
+  end
 end
