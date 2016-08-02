@@ -227,6 +227,7 @@ RSpec.describe(LicenseScout::Collector) do
       end
 
       context "and the dependency's license is manually specified" do
+
         it "copies the license info specified in the override"
       end
 
