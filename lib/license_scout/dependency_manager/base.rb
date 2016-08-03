@@ -16,28 +16,15 @@
 #
 
 module LicenseScout
-  module Exceptions
-    class Error < RuntimeError; end
+  module DependencyManager
+    class Base
 
-    class ProjectDirectoryMissing < Error
-      def initialize(project_dir)
-        @project_dir = project_dir
+      attr_reader :overrides
+
+      def initialize(overrides)
+        @overrides = overrides
       end
 
-      def to_s
-        "Could not locate or access the provided project directory '#{@project_dir}'."
-      end
     end
-
-    class UnsupportedProjectType < Error
-      def initialize(project_dir)
-        @project_dir = project_dir
-      end
-
-      def to_s
-        "Could not find a supported dependency manager for the project in the provided directory '#{@project_dir}'."
-      end
-    end
-
   end
 end
