@@ -102,7 +102,7 @@ module LicenseScout
 
     def all_dependency_managers
       DependencyManager.implementations.map do |implementation|
-        implementation.new(overrides)
+        implementation.new(project_dir, overrides)
       end
     end
   end

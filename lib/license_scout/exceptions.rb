@@ -39,5 +39,19 @@ module LicenseScout
       end
     end
 
+    class DependencyManagerNotRun < Error
+      def initialize(project_dir, dependency_manager_name)
+        @project_dir = project_dir
+        @dependency_manager_name = dependency_manager_name
+      end
+
+      def to_s
+        "Dependency manager '#{dependency_manager_name}' is not yet run for project at '#{@project_dir}'."
+      end
+    end
+
+    class InaccessibleDependency < Error; end
+    class InvalidOverride < Error; end
+
   end
 end

@@ -1,0 +1,47 @@
+#
+# Copyright:: Copyright 2016, Chef Software Inc.
+# License:: Apache License, Version 2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# When using LicenseScout with Omnibus, LicenseScout is run from the bundled
+# omnibus process which has a different ruby executable and rubygems directory
+# than the project we want to collect licenses for. Bundler will end up loading
+# the gemspecs for the gems we are inspecting, so we need to run our query for
+# version and license information from a separate process that executes inside
+# the target ruby+bundler environment. This script is the thing that runs that
+# query; it's intended to be run like
+# `/opt/chef/embedded/bin/ruby /path/to/script`. It returns the data
+# LicenseScout needs as JSON on stdout.
+
+# We need to load the target project's bundler config, so we have to do a full
+# bundler setup:
+require "bundler/setup"
+
+# We're only using things that are in the stdlib.
+require "json"
+
+definition = ::Bundler::Definition.build("./Gemfile", "./Gemfile.lock", nil)
+dependencies = []
+
+definition.specs_for(definition.groups).each do |gem_spec|
+  dependencies << {
+    name: gem_spec.name,
+    version: gem_spec.version,
+    license: gem_spec.license,
+    path: gem_spec.full_gem_path,
+  }
+end
+
+puts JSON.generate(dependencies)

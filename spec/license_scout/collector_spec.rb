@@ -21,8 +21,6 @@ require "license_scout/dependency_manager/base"
 module LicenseScout
   module DependencyManager
 
-    Dependency = Struct.new(:name, :version, :license, :license_files)
-
     class TestDepManager < Base
 
       def name

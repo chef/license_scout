@@ -15,13 +15,17 @@
 # limitations under the License.
 #
 
+require "license_scout/dependency"
+
 module LicenseScout
   module DependencyManager
     class Base
 
+      attr_reader :project_dir
       attr_reader :overrides
 
-      def initialize(overrides)
+      def initialize(project_dir, overrides)
+        @project_dir = project_dir
         @overrides = overrides
       end
 
