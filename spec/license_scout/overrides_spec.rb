@@ -24,7 +24,7 @@ RSpec.describe(LicenseScout::Overrides) do
       override_license "test_dep_manager", "example1" do |version|
         {
           license: "BSD",
-          license_files: [ "BSD-LICENSE" ]
+          license_files: [ "BSD-LICENSE" ],
         }
       end
     end

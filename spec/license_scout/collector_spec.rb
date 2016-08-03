@@ -79,8 +79,9 @@ RSpec.describe(LicenseScout::Collector) do
   let(:project_dir) { File.join(tmpdir, "project_dir") }
   let(:output_dir) { File.join(tmpdir, "output_dir") }
   let(:project_name) { "example-project" }
+  let(:overrides) { LicenseScout::Overrides.new }
 
-  subject(:collector) { described_class.new(project_name, project_dir, output_dir) }
+  subject(:collector) { described_class.new(project_name, project_dir, output_dir, overrides) }
 
   after do
     FileUtils.rm_rf(tmpdir)
@@ -227,8 +228,63 @@ RSpec.describe(LicenseScout::Collector) do
       end
 
       context "and the dependency's license is manually specified" do
+        let(:overrides) do
+          LicenseScout::Overrides.new() do
+            override_license "test_dep_manager", "example1" do |version|
+              {
+                license: "BSD",
+                license_files: [ "BSD-LICENSE" ],
+              }
+            end
+          end
+        end
 
-        it "copies the license info specified in the override"
+        let(:expected_license_file_names) do
+          %w{
+            missing_license_dep_manager-example1-1.0.0-BSD_LICENSE
+          }
+        end
+
+        let(:expected_machine_readable_licenses_content) do
+          {
+            "license_manifest_version" => 1,
+            "project_name" => "example-project",
+            "dependency_managers" => {
+              "missing_license_dep_manager" => [
+                {
+                  "name" => "example1",
+                  "version" => "1.0.0",
+                  "license" => "BSD",
+                  "license_files" => [
+                    "missing_license_dep_manager-example1-1.0.0-BSD_LICENSE",
+                   ],
+                },
+                {
+                  "name" => "example2",
+                  "version" => "1.2.3",
+                  "license" => nil,
+                  "license_files" => [
+                   ],
+                },
+
+              ],
+            },
+          }
+        end
+
+        it "copies the license info specified in the override" do
+          collector.run
+          expected_license_file_paths.each do |path|
+            expect(File).to exist(path)
+          end
+        end
+
+        it "includes the info specified in the override file, in the license manifest file" do
+          collector.run
+          expect(File).to exist(expected_machine_readable_licenses_file)
+          content = FFI_Yajl::Parser.parse(File.read(expected_machine_readable_licenses_file))
+          expect(content).to eq(expected_machine_readable_licenses_content)
+        end
       end
 
     end

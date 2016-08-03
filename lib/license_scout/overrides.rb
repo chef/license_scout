@@ -40,11 +40,14 @@ module LicenseScout
       license_data.nil? ? [] : license_data[:license_files]
     end
 
+    def have_override_for?(dependency_manager, dependency_name, dependency_version)
+      override_rules.key?(dependency_manager) && override_rules[dependency_manager].key?(dependency_name)
+    end
+
     private
 
     def license_data_for(dependency_manager, dependency_name, dependency_version)
-      return nil unless override_rules.key?(dependency_manager) &&
-       override_rules[dependency_manager].key?(dependency_name)
+      return nil unless have_override_for?(dependency_manager, dependency_name, dependency_version)
       override_rules[dependency_manager][dependency_name].call(dependency_version)
     end
   end

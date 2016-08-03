@@ -26,11 +26,13 @@ module LicenseScout
     attr_reader :project_dir
     attr_reader :output_dir
     attr_reader :license_manifest_data
+    attr_reader :overrides
 
-    def initialize(project_name, project_dir, output_dir)
+    def initialize(project_name, project_dir, output_dir, overrides)
       @project_name = project_name
       @project_dir = project_dir
       @output_dir = output_dir
+      @overrides = overrides
     end
 
     def dependency_managers
