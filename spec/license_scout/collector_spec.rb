@@ -16,13 +16,14 @@
 #
 
 require "license_scout/collector"
+require "license_scout/dependency_manager/base"
 
 module LicenseScout
   module DependencyManager
 
     Dependency = Struct.new(:name, :version, :license, :license_files)
 
-    class TestDepManager
+    class TestDepManager < Base
 
       def name
         "test_dep_manager"
@@ -42,7 +43,7 @@ module LicenseScout
       end
     end
 
-    class MissingLicenseDepManager
+    class MissingLicenseDepManager < Base
 
       def name
         "missing_license_dep_manager"
@@ -56,9 +57,21 @@ module LicenseScout
         license = File.join(SPEC_FIXTURES_DIR, "test_licenses/LICENSE")
         copying = File.join(SPEC_FIXTURES_DIR, "test_licenses/COPYING")
         [
-          Dependency.new("example1", "1.0.0", "MIT", [license, copying]),
-          Dependency.new("example2", "1.2.3", nil, []),
-        ]
+          { name: "example1", version: "1.0.0", license: "MIT", files: [license, copying] },
+          { name: "example2", version: "1.2.3", license: nil, files: [] },
+        ].map do |dependency|
+          license = overrides.license_for(name, dependency[:name], dependency[:version]) || dependency[:license]
+          license_files = []
+
+          override_files = overrides.license_files_for(name, dependency[:name], dependency[:version])
+          if !override_files.empty?
+            license_files = override_files.map { |f| File.join(SPEC_FIXTURES_DIR, "test_licenses/#{f}") }
+          else
+            license_files = dependency[:files]
+          end
+
+          Dependency.new(dependency[:name], dependency[:version], license, license_files)
+        end
       end
     end
 
@@ -230,7 +243,7 @@ RSpec.describe(LicenseScout::Collector) do
       context "and the dependency's license is manually specified" do
         let(:overrides) do
           LicenseScout::Overrides.new() do
-            override_license "test_dep_manager", "example1" do |version|
+            override_license "missing_license_dep_manager", "example1" do |version|
               {
                 license: "BSD",
                 license_files: [ "BSD-LICENSE" ],
@@ -241,7 +254,7 @@ RSpec.describe(LicenseScout::Collector) do
 
         let(:expected_license_file_names) do
           %w{
-            missing_license_dep_manager-example1-1.0.0-BSD_LICENSE
+            missing_license_dep_manager-example1-1.0.0-BSD-LICENSE
           }
         end
 
@@ -256,7 +269,7 @@ RSpec.describe(LicenseScout::Collector) do
                   "version" => "1.0.0",
                   "license" => "BSD",
                   "license_files" => [
-                    "missing_license_dep_manager-example1-1.0.0-BSD_LICENSE",
+                    "missing_license_dep_manager-example1-1.0.0-BSD-LICENSE",
                    ],
                 },
                 {
