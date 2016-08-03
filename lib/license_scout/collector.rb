@@ -36,15 +36,22 @@ module LicenseScout
     end
 
     def dependency_managers
-      all_dependency_managers.select { |m| m.detected? }
+      @dependency_managers ||= all_dependency_managers.select { |m| m.detected? }
     end
 
     def run
       reset_license_manifest
+
       if !File.exists?(project_dir)
         raise LicenseScout::Exceptions::ProjectDirectoryMissing.new(project_dir)
       end
+      FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
+
+      if dependency_managers.empty?
+        raise LicenseScout::Exceptions::UnsupportedProjectType.new(project_dir)
+      end
       dependency_managers.each { |d| collect_licenses_from(d) }
+
       File.open(license_manifest_path, "w+") do |file|
         file.print(FFI_Yajl::Encoder.encode(license_manifest_data, pretty: true))
       end
@@ -65,8 +72,6 @@ module LicenseScout
     end
 
     def collect_licenses_from(dependency_manager)
-      FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
-
       license_manifest_data[:dependency_managers][dependency_manager.name] = []
 
       dependency_manager.dependencies.each do |dep|

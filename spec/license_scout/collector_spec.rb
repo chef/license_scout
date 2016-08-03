@@ -75,6 +75,21 @@ module LicenseScout
       end
     end
 
+    class UnsupportedProjectTypeDepManager < Base
+
+      def name
+        "unsupported_dep_manager"
+      end
+
+      def detected?
+        false
+      end
+
+      def dependencies
+        []
+      end
+    end
+
     def self.implementations
       raise "FIXME"
     end
@@ -304,7 +319,16 @@ RSpec.describe(LicenseScout::Collector) do
   end
 
   describe "when run on an unsupported project type" do
-    it "fails when it cannot find a supported dependency manager"
+
+    before do
+      allow(LicenseScout::DependencyManager).to receive(:implementations).
+        and_return([LicenseScout::DependencyManager::UnsupportedProjectTypeDepManager])
+      Dir.mkdir(project_dir)
+    end
+
+    it "fails when it cannot find a supported dependency manager" do
+      expect { collector.run }.to raise_error(LicenseScout::Exceptions::UnsupportedProjectType)
+    end
   end
 
 end
