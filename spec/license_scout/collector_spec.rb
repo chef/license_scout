@@ -202,6 +202,11 @@ RSpec.describe(LicenseScout::Collector) do
       expect(content).to eq(expected_machine_readable_licenses_content)
     end
 
+    it "does not report any missing license information" do
+      collector.run
+      expect(collector.issue_report).to be_nil
+    end
+
     context "when a dependency's license cannot be detected" do
 
       before do
@@ -246,6 +251,13 @@ RSpec.describe(LicenseScout::Collector) do
           expect(File).to exist(expected_machine_readable_licenses_file)
           content = FFI_Yajl::Parser.parse(File.read(expected_machine_readable_licenses_file))
           expect(content).to eq(expected_machine_readable_licenses_content)
+        end
+
+        it "reports missing licenses and license files" do
+          collector.run
+          report = collector.issue_report
+          expect(report).to include("Dependency 'example2' version '1.2.3' under 'missing_license_dep_manager' is missing license information.")
+          expect(report).to include("Dependency 'example2' version '1.2.3' under 'missing_license_dep_manager' is missing license files information.")
         end
       end
 
