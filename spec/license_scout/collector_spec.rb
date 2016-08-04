@@ -88,10 +88,6 @@ module LicenseScout
       end
     end
 
-    def self.implementations
-      raise "FIXME"
-    end
-
   end
 end
 

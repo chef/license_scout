@@ -16,6 +16,7 @@
 #
 
 require "license_scout/exceptions"
+require "license_scout/dependency_manager"
 
 require "ffi_yajl"
 
@@ -101,7 +102,7 @@ module LicenseScout
     end
 
     def all_dependency_managers
-      DependencyManager.implementations.map do |implementation|
+      LicenseScout::DependencyManager.implementations.map do |implementation|
         implementation.new(project_dir, overrides)
       end
     end
