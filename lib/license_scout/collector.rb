@@ -58,6 +58,33 @@ module LicenseScout
       end
     end
 
+    def issue_report
+      report = []
+      license_report = FFI_Yajl::Parser.parse(File.read(license_manifest_path))
+
+      license_report["dependency_managers"].each do |dependency_manager, dependencies|
+        dependencies.each do |dependency|
+          if dependency["name"].nil? || dependency["name"].empty?
+            report << "There is a dependency with a missing name in '#{dependency_manager}'."
+          end
+
+          if dependency["version"].nil? || dependency["version"].empty?
+            report << "Dependency '#{dependency["name"]}' under '#{dependency_manager}' is missing version information."
+          end
+
+          if dependency["license"].nil? || dependency["license"].empty?
+            report << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license information."
+          end
+
+          if dependency["license_files"].empty?
+            report << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license files information."
+          end
+        end
+      end
+
+      report.empty? ? nil : report.join("\n")
+    end
+
     private
 
     def reset_license_manifest
