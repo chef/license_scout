@@ -99,6 +99,29 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
       expect(mixlib_install_info.license_files.first).to end_with("spec/fixtures/bundler/vendor/bundle/ruby/2.1.0/gems/mixlib-install-1.1.0/LICENSE")
     end
 
+    describe "when only license files are overridden." do
+      let(:overrides) {
+        LicenseScout::Overrides.new() do
+          override_license "ruby_bundler", "mixlib-install" do |version|
+            {
+              license_files: [ "CHANGELOG.md" ], # pick any file from mixlib-install
+            }
+          end
+        end
+      }
+
+      it "only uses license file overrides and reports the original license" do
+        dependencies = bundler.dependencies
+        expect(dependencies.length).to eq(10)
+
+        mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
+        expect(mixlib_install_info.version).to eq("1.1.0")
+        expect(mixlib_install_info.license).to eq("Apache-2.0")
+        expect(mixlib_install_info.license_files.length).to eq(1)
+        expect(mixlib_install_info.license_files.first).to end_with("spec/fixtures/bundler/vendor/bundle/ruby/2.1.0/gems/mixlib-install-1.1.0/CHANGELOG.md")
+      end
+    end
+
     describe "when correct overrides are provided." do
       let(:overrides) {
         LicenseScout::Overrides.new() do
