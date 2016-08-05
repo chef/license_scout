@@ -21,6 +21,7 @@ require "license_scout/exceptions"
 require "bundler"
 require "mixlib/shellout"
 require "ffi_yajl"
+require "pathname"
 
 module LicenseScout
   module DependencyManager
@@ -59,7 +60,7 @@ module LicenseScout
       end
 
       def dependency_data
-        bundler_script = File.join(File.dirname(__FILE__), "_bundler_script.rb")
+        bundler_script = File.join(File.dirname(__FILE__), "bundler/_bundler_script.rb")
 
         Dir.chdir(project_dir) do
 
@@ -91,9 +92,7 @@ module LicenseScout
             # Additionally, rubygems reports the gem path as a path inside
             # bundler's lib/ dir, so we have to munge it.
             dependency_license = "MIT"
-
-            munged_path = File.expand_path("../../..", gem_data["path"])
-            dependency_license_files = auto_detect_license_files(munged_path)
+            dependency_license_files = [File.join(File.dirname(__FILE__), "bundler/LICENSE.md")]
           else
             # Check license override and license_files override separately since
             # only one might be set in the overrides.
@@ -134,7 +133,7 @@ module LicenseScout
         license_files = []
 
         override_license_files.each do |filepath|
-          potential_path = File.join(gem_path, filepath)
+          potential_path = Pathname.new(filepath).absolute? ? filepath : File.join(gem_path, filepath)
           unless File.exists?(potential_path)
             raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected gem path '#{gem_path}'."
           end
