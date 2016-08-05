@@ -33,13 +33,17 @@ module LicenseScout
         LICENSE.rdoc
         License
         License.text
+        License.txt
         License.md
         License.rdoc
         Licence.rdoc
+        Licence.md
         MIT-LICENSE
         MIT-LICENSE.txt
         LICENSE.MIT
         LGPL-2.1
+        COPYING.txt
+        COPYING
       }
 
       def name
@@ -81,10 +85,7 @@ module LicenseScout
           dependency_license = nil
           dependency_license_files = []
 
-          if overrides.have_override_for?(name, dependency_name, dependency_version)
-            dependency_license = overrides.license_for(name, dependency_name, dependency_version)
-            dependency_license_files = check_override_files(gem_data["path"], overrides.license_files_for(name, dependency_name, dependency_version))
-          elsif dependency_name == "bundler"
+          if dependency_name == "bundler"
             # Bundler is weird. It inserts itself as a dependency, but is a
             # special case, so rubygems cannot correctly report the license.
             # Additionally, rubygems reports the gem path as a path inside
@@ -94,8 +95,16 @@ module LicenseScout
             munged_path = File.expand_path("../../..", gem_data["path"])
             dependency_license_files = auto_detect_license_files(munged_path)
           else
-            dependency_license = gem_data["license"]
-            dependency_license_files = auto_detect_license_files(gem_data["path"])
+            # Check license override and license_files override separately since
+            # only one might be set in the overrides.
+            dependency_license = overrides.license_for(name, dependency_name, dependency_version) || gem_data["license"]
+
+            override_license_files = overrides.license_files_for(name, dependency_name, dependency_version)
+            if override_license_files.nil? || override_license_files.empty?
+              dependency_license_files = auto_detect_license_files(gem_data["path"])
+            else
+              dependency_license_files = check_override_files(gem_data["path"], override_license_files)
+            end
           end
 
           dependencies << Dependency.new(
@@ -113,7 +122,7 @@ module LicenseScout
 
       def auto_detect_license_files(gem_path)
         unless File.exist?(gem_path)
-          raise Exceptions::InaccessibleDependency "Autodetected gem path '#{gem_path}' does not exist"
+          raise LicenseScout::Exceptions::InaccessibleDependency.new "Autodetected gem path '#{gem_path}' does not exist"
         end
 
         Dir.glob("#{gem_path}/*").select do |f|
@@ -126,7 +135,6 @@ module LicenseScout
 
         override_license_files.each do |filepath|
           potential_path = File.join(gem_path, filepath)
-
           unless File.exists?(potential_path)
             raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected gem path '#{gem_path}'."
           end
