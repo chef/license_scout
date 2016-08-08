@@ -53,5 +53,18 @@ module LicenseScout
     class InaccessibleDependency < Error; end
     class InvalidOverride < Error; end
 
+    class NetworkError < Error
+      def initialize(from_url, network_error)
+        @from_url = from_url
+        @network_error = network_error
+      end
+
+      def to_s
+        [
+          "Network error while fetching '#{from_url}'",
+          network_error.to_s,
+        ].join("\n")
+      end
+    end
   end
 end
