@@ -32,6 +32,14 @@ overrides = LicenseScout::Overrides.new do
     ["chef-rewind", "MIT", nil],
     ["ubuntu_ami", "Apache-2.0", nil],
     ["net-telnet", "Ruby", nil],
+    # Internet overrides
+    ["sfl", "Ruby", ["https://raw.githubusercontent.com/ujihisa/spawn-for-legacy/master/LICENCE.md"]],
+    ["json_pure", nil, ["https://raw.githubusercontent.com/flori/json/master/README.md"]],
+    ["aws-sdk-core", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
+    ["aws-sdk-resources", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
+    ["aws-sdk", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
+    ["fuzzyurl", nil, ["https://raw.githubusercontent.com/gamache/fuzzyurl/master/LICENSE.txt"]],
+    ["jwt", nil, ["https://github.com/jwt/ruby-jwt/blob/master/LICENSE"]],
   ].each do |override_data|
     override_license "ruby_bundler", override_data[0] do |version|
       {}.tap do |d|
@@ -40,14 +48,6 @@ overrides = LicenseScout::Overrides.new do
       end
     end
   end
-
-  # sfl, https://github.com/ujihisa/spawn-for-legacy/blob/master/LICENCE.md
-  # json_pure, https://github.com/flori/json/blob/master/README.md
-  # aws-sdk-core, aws-sdk-resources, aws-sdk
-  #   https://github.com/aws/aws-sdk-ruby/blob/master/README.md
-  #   http://www.apache.org/licenses/LICENSE-2.0.html
-  # fuzzyurl, https://github.com/gamache/fuzzyurl/blob/master/LICENSE.txt
-  # jwt, https://github.com/jwt/ruby-jwt/blob/master/LICENSE
 end
 
 collector = LicenseScout::Collector.new("chef", chef_directory, output_directory, overrides)

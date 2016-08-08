@@ -16,6 +16,7 @@
 #
 
 require "license_scout/dependency_manager/base"
+require "license_scout/net_fetcher"
 require "license_scout/exceptions"
 
 require "bundler"
@@ -133,12 +134,18 @@ module LicenseScout
         license_files = []
 
         override_license_files.each do |filepath|
-          potential_path = Pathname.new(filepath).absolute? ? filepath : File.join(gem_path, filepath)
-          unless File.exists?(potential_path)
-            raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected gem path '#{gem_path}'."
-          end
+          if uri?(filepath)
+            fetcher = LicenseScout::NetFetcher.new(filepath)
+            fetcher.fetch!
+            license_files << fetcher.cache_path
+          else
+            potential_path = Pathname.new(filepath).absolute? ? filepath : File.join(gem_path, filepath)
+            unless File.exists?(potential_path)
+              raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected gem path '#{gem_path}'."
+            end
 
-          license_files << potential_path
+            license_files << potential_path
+          end
         end
 
         license_files
@@ -150,6 +157,10 @@ module LicenseScout
 
       def lockfile_path
         File.join(project_dir, "Gemfile.lock")
+      end
+
+      def uri?(license_path)
+        !URI(license_path).scheme.nil?
       end
     end
   end
