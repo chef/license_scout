@@ -1,5 +1,11 @@
 language: ruby
 sudo: false
+
+# do not run expensive spec tests on PRs, only on branches
+branches:
+  only:
+  - master
+
 before_install: gem install bundler
 rvm:
   - 2.1
