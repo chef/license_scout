@@ -46,6 +46,7 @@ module LicenseScout
         LGPL-2.1
         COPYING.txt
         COPYING
+        BSD-2-Clause
       }
 
       def name
