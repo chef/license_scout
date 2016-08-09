@@ -24,11 +24,11 @@ RSpec.describe(LicenseScout::LicenseFileAnalyzer) do
   end
 
   it "detects an unmodified Apache 2.0 License" do
-    expect(described_class.find_by_text(license_file("ej-apache2-license")).short_name).to eq("Apache2")
+    expect(described_class.find_by_text(license_file("ej-apache2-license")).short_name).to eq("Apache-2.0")
   end
 
   it "detects the short version of the Apache 2.o License" do
-    expect(described_class.find_by_text(license_file("hoax-apache2-short")).short_name).to eq("Apache2")
+    expect(described_class.find_by_text(license_file("hoax-apache2-short")).short_name).to eq("Apache-2.0")
   end
 
   it "detects a MIT license with copyright holder filled in" do

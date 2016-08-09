@@ -76,7 +76,7 @@ module LicenseScout
         )
 
         License.new(
-          short_name:  "Apache2",
+          short_name:  "Apache-2.0",
           matcher:     matcher
         )
       end
@@ -89,13 +89,13 @@ module LicenseScout
 
       def gplv2
         License.new(
-          short_name:  "GPLv2"
+          short_name:  "GPL-2.0"
         )
       end
 
       def gplv3
         License.new(
-          short_name:  "GPLv3"
+          short_name:  "GPL-3.0"
         )
       end
 
@@ -107,7 +107,7 @@ module LicenseScout
 
       def lgpl
         License.new(
-          short_name:  "LGPL"
+          short_name:  "LGPL-3.0"
         )
       end
 
@@ -138,7 +138,7 @@ module LicenseScout
         )
 
         License.new(
-          short_name:  "MPL2",
+          short_name:  "MPL-2.0",
           matcher:     matcher
         )
       end
@@ -170,7 +170,7 @@ module LicenseScout
 
       def python
         License.new(
-          short_name:  "Python"
+          short_name:  "Python-2.0"
         )
       end
 
