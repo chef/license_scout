@@ -63,6 +63,7 @@ module LicenseScout
           python,
           ruby,
           bsd_2_clause,
+          erlang_public,
         ]
       end
 
@@ -199,6 +200,14 @@ module LicenseScout
           matcher:     matcher
         )
       end
+
+      def erlang_public
+        License.new(
+          short_name: "Erlang-Public",
+          matcher:    Matcher.from_template(Template.named("EPLICENSE"))
+        )
+      end
+
     end
   end
 end

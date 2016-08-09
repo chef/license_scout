@@ -54,4 +54,8 @@ RSpec.describe(LicenseScout::LicenseFileAnalyzer) do
   it "detects gen_smtp's 2 clause BSD" do
     expect(described_class.find_by_text(license_file("gen_smtp-BSD-2-clause")).short_name).to eq("BSD-2-Clause")
   end
+
+  it "detects an Erlang Public License" do
+    expect(described_class.find_by_text(license_file("gproc-eplicense")).short_name).to eq("Erlang-Public")
+  end
 end
