@@ -26,7 +26,7 @@ module LicenseScout
   module LicenseFileAnalyzer
     HeaderMatcher = Struct.new(:base_matcher) do
       def matches_text?(text)
-        header = text.split("\n").first || ''
+        header = text.split("\n").first || ""
         base_matcher.matches_text?(header)
       end
     end

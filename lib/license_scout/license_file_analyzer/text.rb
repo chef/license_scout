@@ -30,7 +30,7 @@ module LicenseScout
       PLACEHOLDERS = /<[^<>]+>/
 
       def self.normalize_punctuation(text)
-        text.gsub(SPACES, ' ')
+        text.gsub(SPACES, " ")
             .gsub(QUOTES, '"')
             .strip
       end
@@ -38,10 +38,9 @@ module LicenseScout
       def self.compile_to_regex(text)
         text = normalize_punctuation(text)
         regex_source = Regexp.escape(text)
-        regex_source = regex_source.gsub(PLACEHOLDERS, '(.*)')
+        regex_source = regex_source.gsub(PLACEHOLDERS, "(.*)")
         Regexp.new(regex_source, Regexp::IGNORECASE)
       end
     end
   end
 end
-

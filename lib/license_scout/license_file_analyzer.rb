@@ -24,4 +24,3 @@ module LicenseScout
     end
   end
 end
-

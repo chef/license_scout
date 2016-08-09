@@ -189,7 +189,6 @@ module LicenseScout
       end
 
       def bsd_2_clause
-
         matcher = AnyMatcher.new(
           Matcher.from_template(Template.named("BSD-2-Clause")),
           Matcher.from_template(Template.named("BSD-2-Clause-bullets"))
