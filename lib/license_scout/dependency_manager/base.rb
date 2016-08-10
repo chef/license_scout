@@ -23,10 +23,12 @@ module LicenseScout
 
       attr_reader :project_dir
       attr_reader :overrides
+      attr_reader :environment
 
-      def initialize(project_dir, overrides)
+      def initialize(project_dir, overrides, environment)
         @project_dir = project_dir
         @overrides = overrides
+        @environment = environment
       end
 
     end
