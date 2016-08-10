@@ -30,6 +30,10 @@ RSpec.describe(LicenseScout::Overrides) do
     end
   end
 
+  it "contains default overrides for ruby_bundler" do
+    expect(overrides.license_for("ruby_bundler", "pry-remote", "1.0.0")).to eq("MIT")
+  end
+
   describe "when an override exists for a dependency" do
     it "finds the license for a given dependency manager, dep name, and dep version" do
       expect(overrides.license_for("test_dep_manager", "example1", "1.0.0")).to eq("BSD")
