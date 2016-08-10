@@ -1,0 +1,9 @@
+ebin/*.beam
+ebin/neotoma.app
+extra/*.beam
+*#*
+.eunit
+*#*
+.DS_Store
+._*
+neotoma.plt

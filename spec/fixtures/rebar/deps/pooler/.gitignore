@@ -1,0 +1,13 @@
+ebin
+*.beam
+doc/*.html
+.eunit
+/doc/stylesheet.css
+/doc/erlang.png
+/doc/edoc-info
+/bench/tests
+/bench/deps
+
+/.concrete/
+/.rebar/
+/deps/

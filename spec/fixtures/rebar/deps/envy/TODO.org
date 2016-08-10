@@ -1,0 +1,2 @@
+* Use more general error logging, or find something other than lager
+* Handle case where we want to do something radically different for undefined.

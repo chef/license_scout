@@ -1,0 +1,9 @@
+TAGS
+ebin/*
+*.beam
+.eunit
+deps
+doc/*.css
+doc/*.html
+/doc/edoc-info
+/doc/erlang.png

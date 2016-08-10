@@ -1,0 +1,12 @@
+%% -*- mode: erlang;erlang-indent-level: 2;indent-tabs-mode: nil -*-
+%% vim: set ft=erlang ts=2 sw=2:
+
+KeyAppend = fun(Tag,[],E,_)         ->[{Tag,[E]}];
+               (Tag,[{Tag,O}|T],E,_)->[{Tag,[E|O]}|T];
+               (Tag,[H|T],E,G)      ->[H|G(Tag,T,E,G)]
+            end,
+code:ensure_loaded(crypto),
+case erlang:function_exported(crypto,block_encrypt,3) of
+  true  -> KeyAppend(erl_opts,CONFIG,{d,'CRYPTO_R16'},KeyAppend);
+  false -> CONFIG
+end.

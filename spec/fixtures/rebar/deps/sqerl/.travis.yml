@@ -1,0 +1,15 @@
+language: erlang
+
+otp_release:
+  - 17.0
+  - R16B03-1
+  - R16B03
+  - R16B02
+  - R16B01
+
+addons:
+  postgresql: "9.3"
+
+install: true
+
+script: "make get-rebar all"

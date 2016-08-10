@@ -1,0 +1,28 @@
+*.beam
+ebin/*.beam
+ebin/bcrypt.app
+_build/
+priv/bcrypt
+priv/bcrypt_nif.so
+logs/*
+.eunit
+
+## libtool
+.deps
+.erl
+.libs
+
+## Intermediate compilation files
+*.la
+*.lo
+*.loT
+*.o
+*.so
+*.dSYM*
+
+## Distribution files
+*.gz
+*.zip
+
+## Temporary script for compiling the port
+build_port.sh

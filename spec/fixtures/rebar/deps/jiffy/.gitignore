@@ -1,0 +1,9 @@
+.jiffy.dev
+*.app
+*.beam
+*.o
+*.so
+.eunit
+deps
+erln8.config
+jiffy.plt

@@ -1,0 +1,7 @@
+ebin/*
+*.beam
+deps/*
+rel/opscoderl_folsom
+.concrete/DEV_MODE
+deps.plt
+.eunit

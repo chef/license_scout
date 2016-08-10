@@ -1,0 +1,140 @@
+* ej helps you work with Erlang terms representing JSON
+
+The ej module makes it easier to work with Erlang terms representing
+[[http://json.org][JSON]] in the format returned by [[https://github.com/davisp/jiffy][jiffy]], [[https://github.com/mochi/mochiweb][mochijson2]], or [[https://github.com/benoitc/ejson][ejson]].  You can use
+=ej:get/2= to walk an object and return a particular value, =ej:set/3=
+to update a value within an object, or =ej:delete/2= to remove a value
+from an object.
+
+In ej, paths into JSON objects are expressed using a tuple of keys
+like so:
+
+| Javascript              | ej                                         |
+| =Obj.author.name.first= | =ej:get({"author", "name", "first"}, Obj)= |
+
+To get started using ej, see [[ej by example]] below.
+
+ej also provides a means of validating a JSON object according to a
+specification you provide. This feature is useful if you need to
+process JSON request bodies. As a brief example, here's a
+specification for a JSON object describing a person and their favorite
+foods:
+
+#+BEGIN_SRC erlang
+{[
+  {<<"name">>, {string_match, regex_for(name)}},
+  {{opt, <<"nick_name">>}, {string_match, regex_for(name)}},
+  {<<"foods">>, {array_map, string}}
+ ]}
+#+END_SRC
+
+
+ej is independent of the library used for JSON serialization and
+has no dependencies.
+
+** ej by example
+
+ej is best explained by example.  Consider the following JSON data
+(borrowed from http://www.json.org/example.html):
+
+#+BEGIN_SRC js
+  {"menu": {
+    "id": "file",
+    "value": "File",
+    "popup": {
+      "menuitem": [
+        {"value": "New", "onclick": "CreateNewDoc()"},
+        {"value": "Open", "onclick": "OpenDoc()"},
+        {"value": "Close", "onclick": "CloseDoc()"}
+      ]
+    }
+  }}
+#+END_SRC
+
+=mochijson2:decode/1= translates the JSON into Erlang terms like this:
+
+#+BEGIN_SRC erlang
+  {struct,
+   [{<<"menu">>,
+     {struct,
+      [{<<"id">>,<<"file">>},
+       {<<"value">>,<<"File">>},
+       {<<"popup">>,
+        {struct,
+         [{<<"menuitem">>,
+           [{struct,[{<<"value">>,<<"New">>},
+                     {<<"onclick">>,<<"CreateNewDoc()">>}]},
+            {struct,[{<<"value">>,<<"Open">>},
+                     {<<"onclick">>,<<"OpenDoc()">>}]},
+            {struct,[{<<"value">>,<<"Close">>},
+                     {<<"onclick">>,<<"CloseDoc()">>}]}]}]}}]}}]}
+#+END_SRC
+
+And here's ej in action:
+
+#+BEGIN_SRC txt
+% specify the path you want to access as a tuple of keys (you can use
+% strings or binaries)
+4> ej:get({"menu", "value"}, Obj).
+<<"File">>
+
+% you can access list elements by index
+> ej:get({"menu", "popup", "menuitem", 2, "onclick"}, Obj).
+<<"OpenDoc()">>
+
+% The atoms 'first' and 'last' can be used for lists as well
+> ej:get({"menu", "popup", "menuitem", first, "value"}, Obj).  
+<<"New">>
+
+% you can filter a list of objects by specifying a property (key/value
+% pair) to match on:
+ej:get({"menu", "popup", "menuitem", {select, {"value", "New"}}}, Obj).
+
+% set a value
+Obj2 = ej:set({"menu", "id"}, Obj, <<"abc123">>).
+
+% add a value
+Obj3 = ej:set({"menu", "new_key"}, Obj, <<"something">>).
+
+% add a value to a list
+NewItem = {struct,[{<<"value">>,<<"Save">>}, {<<"onclick">>,<<"SaveDoc()">>}]}.
+Obj4 = ej:set({"menu", "popup", "menuitem", new}, Obj, NewItem).
+
+#+END_SRC
+
+The idea for this helper module was inspired by [[http://groups.google.com/group/erlang-programming/browse_thread/thread/7af6f99e740df979/97c50c0df25502cd?lnk=gst&q=Javascript+parse+transform#97c50c0df25502cd][this thread on the
+Erlang Questions]] mailing list and, in particular, by the reply from
+Richard O'Keefe.  Additional motivation from the very similar helper
+module =struct= included in the [[http://beebole.com/en/blog/erlang/tutorial-web-application-erlang/][sticky notes example application]] from
+the folks at BeeBole.
+
+** THANKS
+
+- Christopher Brown
+- Christopher Maier
+- John Keiser
+- Sebastian Probst Eide
+
+** Build status
+
+#+ATTR_HTML: alt="Build status images" title="Build status on Travis-CI"
+[[https://travis-ci.org/seth/ej.png]]
+
+
+** License
+
+ej is available under the Apache License, Version 2.0.
+
+#+BEGIN_EXAMPLE
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#+END_EXAMPLE

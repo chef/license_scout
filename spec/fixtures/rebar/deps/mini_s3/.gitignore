@@ -1,0 +1,10 @@
+*.beam
+deps
+*.tmproj
+_build
+*.plt
+ebin/*.beam
+ebin/*.app
+.eunit
+/.concrete/DEV_MODE
+.rebar

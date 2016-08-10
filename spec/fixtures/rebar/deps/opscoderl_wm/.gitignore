@@ -1,0 +1,8 @@
+ebin/*
+*.beam
+deps/*
+rel/opscoderl_wm
+.concrete/DEV_MODE
+deps.plt
+.eunit
+.rebar

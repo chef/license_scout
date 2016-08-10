@@ -1,0 +1,13 @@
+/deps
+/ebin
+/.eunit
+*~
+*.beam
+logfile
+sqerl.plt
+deps.plt
+/.concrete/
+/.rebar
+/test_kitchen/.kitchen
+common_test/logs
+.DS_Store
