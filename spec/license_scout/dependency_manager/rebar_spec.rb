@@ -16,6 +16,7 @@
 #
 
 require "license_scout/dependency_manager/rebar"
+require "license_scout/overrides"
 
 
 RSpec.describe(LicenseScout::DependencyManager::Rebar) do
@@ -63,4 +64,174 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
     }
   end
 
+  subject(:rebar) { described_class.new(project_dir, overrides, {}) }
+
+  let(:tmpdir) { Dir.mktmpdir }
+
+  let(:overrides) { LicenseScout::Overrides.new }
+  let(:project_dir) { File.join(tmpdir, "rebar_project") }
+
+  after do
+    FileUtils.rm_rf(tmpdir)
+  end
+
+  it "has a name" do
+    expect(rebar.name).to eq("erlang_rebar")
+  end
+
+  it "has a project directory" do
+    expect(rebar.project_dir).to eq(project_dir)
+  end
+
+  describe "when provided a rebar project" do
+    before do
+      Dir.mkdir(project_dir)
+      FileUtils.touch(File.join(project_dir, "rebar.config"))
+    end
+
+    it "detects a rebar project correctly" do
+      expect(rebar.detected?).to eq(true)
+    end
+  end
+
+  describe "when provided a non-rebar project" do
+    before do
+      Dir.mkdir(project_dir)
+    end
+
+    it "does not detect the project" do
+      expect(rebar.detected?).to eq(false)
+    end
+  end
+
+  describe "when provided a real rebar project" do
+
+    let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "rebar") }
+
+    def mock_git_rev_parse_for(name, sha)
+      dep_dir = File.join(project_dir, "deps", name)
+      mock = instance_double("Mixlib::ShellOut")
+
+      allow(Mixlib::ShellOut).to receive(:new).
+        with("git rev-parse HEAD", cwd: dep_dir).
+        and_return(mock)
+
+      allow(mock).to receive(:run_command)
+      allow(mock).to receive(:error!)
+      allow(mock).to receive(:stdout).and_return("#{sha}\n")
+    end
+
+    def expand_fixture_path(relpath)
+      File.join(project_dir, relpath)
+    end
+
+    before do
+      dependency_git_shas.each do |name, sha|
+        mock_git_rev_parse_for(name, sha)
+      end
+    end
+
+    it "detects the licenses of the transitive dependencies correctly" do
+      deps = rebar.dependencies
+      expect(deps.size).to eq(dependency_git_shas.size)
+
+      expected_names = dependency_git_shas.keys
+
+      expect(deps.map(&:name)).to match_array(expected_names)
+
+      deps.each do |dep|
+        expect(dep.version).to eq(dependency_git_shas[dep.name])
+      end
+
+      # Make sure we detected all of the license types, except for bcrypt,
+      # bcrypt's license file is non-standard:
+      deps_with_license_files = deps.select { |d| !d.license_files.empty? }
+      expect(deps_with_license_files.size).to eq(29)
+
+      undetected_licenses = deps_with_license_files.select { |d| d.license.nil? }
+      expect(undetected_licenses.size).to eq(1)
+      expect(undetected_licenses.first.name).to eq("bcrypt")
+
+      # Spot check some licenses:
+      ej = deps.find { |d| d.name == "ej" }
+      expect(ej.license_files).to eq([expand_fixture_path("deps/ej/LICENSE")])
+      expect(ej.license).to eq("Apache-2.0")
+
+      gen_bunny = deps.find { |d| d.name == "gen_bunny" }
+      expect(gen_bunny.license_files).to eq([expand_fixture_path("deps/gen_bunny/LICENSE")])
+      expect(gen_bunny.license).to eq("MIT")
+
+      bcrypt = deps.find { |d| d.name == "bcrypt" }
+      expect(bcrypt.license_files).to eq([expand_fixture_path("deps/bcrypt/LICENSE")])
+      expect(bcrypt.license).to be_nil
+    end
+
+    describe "when only license files are overridden." do
+      let(:overrides) {
+        LicenseScout::Overrides.new() do
+          override_license "erlang_rebar", "ej" do |version|
+            {
+              license_files: [ "Makefile" ], # pick any file from ej
+            }
+          end
+        end
+      }
+
+      it "only uses license file overrides and reports the original license" do
+        dependencies = rebar.dependencies
+        expect(dependencies.length).to eq(38)
+
+        ej = dependencies.find { |d| d.name == "ej" }
+        expect(ej.version).to eq("132a9a3c0662a2377eaf7ebee694a496a0957160")
+
+        # We detect license type from the license file. This is applied before
+        # we scan the licenses. Since we set the license file to a file that's
+        # not a license in this test, we should not detect its type
+        expect(ej.license).to be_nil
+        expect(ej.license_files.length).to eq(1)
+        expect(ej.license_files.first).to eq(expand_fixture_path("deps/ej/Makefile"))
+      end
+    end
+
+    describe "when overrides for both license file and type are given" do
+      let(:overrides) {
+        LicenseScout::Overrides.new() do
+          override_license "erlang_rebar", "ej" do |version|
+            {
+              license: "example-license",
+              license_files: [ "Makefile" ],
+            }
+          end
+        end
+      }
+
+      it "uses the given overrides" do
+        dependencies = rebar.dependencies
+        expect(dependencies.length).to eq(38)
+
+        ej = dependencies.find { |d| d.name == "ej" }
+        expect(ej.version).to eq("132a9a3c0662a2377eaf7ebee694a496a0957160")
+        expect(ej.license).to eq("example-license")
+        expect(ej.license_files.length).to eq(1)
+        expect(ej.license_files.first).to eq(expand_fixture_path("deps/ej/Makefile"))
+      end
+    end
+
+    describe "when overrides with missing license file paths are provided" do
+      let(:overrides) {
+        LicenseScout::Overrides.new() do
+          override_license "erlang_rebar", "ej" do |version|
+            {
+              license: "Apache",
+              license_files: [ "NOPE-LICENSE" ],
+            }
+          end
+        end
+      }
+
+      it "raises an error" do
+        expect { rebar.dependencies }.to raise_error(LicenseScout::Exceptions::InvalidOverride)
+      end
+    end
+  end
 end
