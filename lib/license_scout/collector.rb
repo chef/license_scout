@@ -28,12 +28,14 @@ module LicenseScout
     attr_reader :output_dir
     attr_reader :license_manifest_data
     attr_reader :overrides
+    attr_reader :environment
 
-    def initialize(project_name, project_dir, output_dir, overrides)
+    def initialize(project_name, project_dir, output_dir, overrides, environment)
       @project_name = project_name
       @project_dir = project_dir
       @output_dir = output_dir
       @overrides = overrides
+      @environment = environment
     end
 
     def dependency_managers
@@ -82,7 +84,7 @@ module LicenseScout
         end
       end
 
-      report.empty? ? nil : report.join("\n")
+      report
     end
 
     private
@@ -130,7 +132,7 @@ module LicenseScout
 
     def all_dependency_managers
       LicenseScout::DependencyManager.implementations.map do |implementation|
-        implementation.new(project_dir, overrides)
+        implementation.new(project_dir, overrides, environment)
       end
     end
   end

@@ -52,4 +52,4 @@ end
 
 collector = LicenseScout::Collector.new("chef", chef_directory, output_directory, overrides)
 collector.run
-puts collector.issue_report
+puts collector.issue_report.join("\n")

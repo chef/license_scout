@@ -103,7 +103,7 @@ RSpec.describe(LicenseScout::Collector) do
   let(:project_name) { "example-project" }
   let(:overrides) { LicenseScout::Overrides.new }
 
-  subject(:collector) { described_class.new(project_name, project_dir, output_dir, overrides) }
+  subject(:collector) { described_class.new(project_name, project_dir, output_dir, overrides, {}) }
 
   after do
     FileUtils.rm_rf(tmpdir)
@@ -204,7 +204,7 @@ RSpec.describe(LicenseScout::Collector) do
 
     it "does not report any missing license information" do
       collector.run
-      expect(collector.issue_report).to be_nil
+      expect(collector.issue_report).to be_empty
     end
 
     context "when a dependency's license cannot be detected" do
