@@ -52,12 +52,33 @@ EOS
     expect(fetcher.cache_path).to end_with(File.basename(url))
   end
 
+  describe "static methods" do
+
+    it "detects whether a String is a URI or not" do
+      expect(described_class.remote?("https://foo.example/path/to/License.txt")).to be(true)
+      expect(described_class.remote?("License.txt")).to be(false)
+      expect(described_class.remote?("/full/path/to/License.txt")).to be(false)
+      expect(described_class.remote?("relative/path/to/License.txt")).to be(false)
+    end
+
+  end
+
   describe "when the file on the internet is accessible" do
 
     it "puts the file in the cache" do
       fetcher.fetch!
       expect(File).to exist(expected_cache_path)
       expect(File.read(expected_cache_path)).to eq(expected_download_content)
+    end
+
+    describe "convenience method for fetching and returning the cache path" do
+
+      it "fetches the file and returns the path" do
+        returned_cache_path = described_class.cache(url)
+        expect(returned_cache_path).to eq(expected_cache_path)
+        expect(File.read(returned_cache_path)).to eq(expected_download_content)
+      end
+
     end
 
     context "when the cache already contains the file" do

@@ -24,6 +24,16 @@ require "license_scout/exceptions"
 module LicenseScout
   class NetFetcher
 
+    def self.remote?(uri_or_path)
+      !URI(uri_or_path).scheme.nil?
+    end
+
+    def self.cache(uri)
+      fetcher = new(uri)
+      fetcher.fetch!
+      fetcher.cache_path
+    end
+
     attr_reader :from_url
 
     def initialize(from_url)

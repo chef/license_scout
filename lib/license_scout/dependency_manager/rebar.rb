@@ -65,10 +65,8 @@ module LicenseScout
 
       def verify_and_normalize_license_file_paths(dep_dir, override_files)
         override_files.map do |filepath|
-          if uri?(filepath)
-            fetcher = LicenseScout::NetFetcher.new(filepath)
-            fetcher.fetch!
-            fetcher.cache_path
+          if NetFetcher.remote?(filepath)
+            NetFetcher.cache(filepath)
           else
             candidate_path = File.expand_path(filepath, dep_dir)
 
@@ -103,10 +101,6 @@ module LicenseScout
           found_license = LicenseScout::LicenseFileAnalyzer.find_by_text(IO.read(license_files.first))
           found_license ? found_license.short_name : nil
         end
-      end
-
-      def uri?(license_path)
-        !URI(license_path).scheme.nil?
       end
 
     end

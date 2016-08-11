@@ -150,10 +150,8 @@ module LicenseScout
         license_files = []
 
         override_license_files.each do |filepath|
-          if uri?(filepath)
-            fetcher = LicenseScout::NetFetcher.new(filepath)
-            fetcher.fetch!
-            license_files << fetcher.cache_path
+          if NetFetcher.remote?(filepath)
+            license_files << NetFetcher.cache(filepath)
           else
             potential_path = Pathname.new(filepath).absolute? ? filepath : File.join(gem_path, filepath)
             unless File.exists?(potential_path)
@@ -175,9 +173,6 @@ module LicenseScout
         File.join(project_dir, "Gemfile.lock")
       end
 
-      def uri?(license_path)
-        !URI(license_path).scheme.nil?
-      end
     end
   end
 end
