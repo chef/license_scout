@@ -6,6 +6,7 @@ dependencies, including transitive dependencies.
 Currently supported project types are:
 
 * Ruby - bundler
+* Erlang - rebar
 
 ## Usage
 
