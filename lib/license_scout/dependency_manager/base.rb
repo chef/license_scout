@@ -21,6 +21,27 @@ module LicenseScout
   module DependencyManager
     class Base
 
+      POSSIBLE_LICENSE_FILES = %w{
+        LICENSE
+        LICENSE.txt
+        LICENSE.md
+        LICENSE.rdoc
+        License
+        License.text
+        License.txt
+        License.md
+        License.rdoc
+        Licence.rdoc
+        Licence.md
+        MIT-LICENSE
+        MIT-LICENSE.txt
+        LICENSE.MIT
+        LGPL-2.1
+        COPYING.txt
+        COPYING
+        BSD_LICENSE
+      }
+
       attr_reader :project_dir
       attr_reader :overrides
       attr_reader :environment

@@ -28,27 +28,6 @@ module LicenseScout
   module DependencyManager
     class Bundler < Base
 
-      POSSIBLE_LICENSE_FILES = %w{
-        LICENSE
-        LICENSE.txt
-        LICENSE.md
-        LICENSE.rdoc
-        License
-        License.text
-        License.txt
-        License.md
-        License.rdoc
-        Licence.rdoc
-        Licence.md
-        MIT-LICENSE
-        MIT-LICENSE.txt
-        LICENSE.MIT
-        LGPL-2.1
-        COPYING.txt
-        COPYING
-        BSD-2-Clause
-      }
-
       def name
         "ruby_bundler"
       end

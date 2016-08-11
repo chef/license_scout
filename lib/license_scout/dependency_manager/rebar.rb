@@ -26,28 +26,6 @@ module LicenseScout
   module DependencyManager
     class Rebar < Base
 
-      # TODO: de-dup with bundler
-      POSSIBLE_LICENSE_FILES = %w{
-        LICENSE
-        LICENSE.txt
-        LICENSE.md
-        LICENSE.rdoc
-        License
-        License.text
-        License.txt
-        License.md
-        License.rdoc
-        Licence.rdoc
-        Licence.md
-        MIT-LICENSE
-        MIT-LICENSE.txt
-        LICENSE.MIT
-        LGPL-2.1
-        COPYING.txt
-        COPYING
-        BSD_LICENSE
-      }
-
       def name
         "erlang_rebar"
       end
@@ -73,9 +51,7 @@ module LicenseScout
               verify_and_normalize_license_file_paths(dep_dir, override_license_files)
             end
 
-
           license_name = overrides.license_for(name, dep_name, dep_version) || scan_licenses(license_files)
-
 
           dep = Dependency.new(dep_name, dep_version, license_name, license_files)
 
