@@ -80,10 +80,10 @@ module LicenseScout
             dependency_license = overrides.license_for(name, dependency_name, dependency_version) || gem_data["license"]
 
             override_license_files = overrides.license_files_for(name, dependency_name, dependency_version)
-            if override_license_files.nil? || override_license_files.empty?
+            if override_license_files.empty?
               dependency_license_files = auto_detect_license_files(gem_data["path"])
             else
-              dependency_license_files = check_override_files(gem_data["path"], override_license_files)
+              dependency_license_files = override_license_files.resolve_locations(gem_data["path"])
             end
           end
 
@@ -144,21 +144,6 @@ module LicenseScout
         Dir.glob("#{gem_path}/*").select do |f|
           POSSIBLE_LICENSE_FILES.include?(File.basename(f))
         end
-      end
-
-      def check_override_files(gem_path, override_license_files)
-        license_files = []
-
-        override_license_files.each do |filepath|
-          potential_path = Pathname.new(filepath).absolute? ? filepath : File.join(gem_path, filepath)
-          unless File.exists?(potential_path)
-            raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected gem path '#{gem_path}'."
-          end
-
-          license_files << potential_path
-        end
-
-        license_files
       end
 
       def gemfile_path

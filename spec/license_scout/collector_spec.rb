@@ -63,7 +63,8 @@ module LicenseScout
 
           override_files = overrides.license_files_for(name, dependency[:name], dependency[:version])
           if !override_files.empty?
-            license_files = override_files.map { |f| File.join(SPEC_FIXTURES_DIR, "test_licenses/#{f}") }
+            #license_files = override_files.map { |f| File.join(SPEC_FIXTURES_DIR, "test_licenses/#{f}") }
+            license_files = override_files.resolve_locations(File.join(SPEC_FIXTURES_DIR, "test_licenses"))
           else
             license_files = dependency[:files]
           end

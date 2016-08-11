@@ -17,8 +17,43 @@
 
 require "license_scout/net_fetcher"
 
+require "pathname"
+
 module LicenseScout
   class Overrides
+
+    class OverrideLicenseSet
+
+      attr_reader :license_locations
+
+      def initialize(license_locations)
+        @license_locations = license_locations || []
+      end
+
+      def empty?
+        license_locations.empty?
+      end
+
+      def resolve_locations(dependency_root_dir)
+        license_locations.map do |license_location|
+          if NetFetcher.remote?(license_location)
+            NetFetcher.cache(license_location)
+          else
+            normalize_and_verify_path(license_location, dependency_root_dir)
+          end
+        end
+      end
+
+      def normalize_and_verify_path(license_location, dependency_root_dir)
+        full_path = File.expand_path(license_location, dependency_root_dir)
+        if File.exists?(full_path)
+          full_path
+        else
+          raise Exceptions::InvalidOverride, "Provided license file path '#{license_location}' can not be found under detected dependency path '#{dependency_root_dir}'."
+        end
+      end
+
+    end
 
     attr_reader :override_rules
 
@@ -41,11 +76,7 @@ module LicenseScout
 
     def license_files_for(dependency_manager, dependency_name, dependency_version)
       license_data = license_data_for(dependency_manager, dependency_name, dependency_version)
-      if license_data.nil?
-        []
-      else
-        license_data[:license_files].map { |f| fetch_if_remote(f) }
-      end
+      OverrideLicenseSet.new(license_data && license_data[:license_files])
     end
 
     def have_override_for?(dependency_manager, dependency_name, dependency_version)
@@ -101,14 +132,6 @@ module LicenseScout
             d[:license_files] = override_data[2] if override_data[2]
           end
         end
-      end
-    end
-
-    def fetch_if_remote(license_file)
-      if NetFetcher.remote?(license_file)
-        NetFetcher.cache(license_file)
-      else
-        license_file
       end
     end
 

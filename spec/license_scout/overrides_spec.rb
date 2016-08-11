@@ -17,6 +17,91 @@
 
 require "license_scout/overrides"
 
+RSpec.describe(LicenseScout::Overrides::OverrideLicenseSet) do
+
+  let(:override_license_set) { described_class.new(license_locations) }
+
+  let(:dep_dir) { File.join(SPEC_FIXTURES_DIR, "test_licenses") }
+
+  context "when created with an empty array" do
+
+    let(:license_locations) { [] }
+
+    it "has no license locations" do
+      expect(override_license_set.license_locations).to eq([])
+    end
+
+    it "resolves the license locations to an empty array" do
+      expect(override_license_set.resolve_locations(dep_dir)).to eq([])
+    end
+
+    it "is empty" do
+      expect(override_license_set).to be_empty
+    end
+  end
+
+  context "when created with nil" do
+
+    let(:license_locations) { nil }
+
+    it "has no license locations" do
+      expect(override_license_set.license_locations).to eq([])
+    end
+
+    it "resolves the license locations to an empty array" do
+      expect(override_license_set.resolve_locations(dep_dir)).to eq([])
+    end
+
+    it "is empty" do
+      expect(override_license_set).to be_empty
+    end
+  end
+
+  context "when created with a license location" do
+
+    context "when override license files are relative paths" do
+
+      context "and the license exists" do
+
+        let(:license_locations) { [ "BSD-LICENSE" ] }
+
+        it "resolves the full path to the license" do
+          expected_path = File.join(dep_dir, "BSD-LICENSE")
+          expect(override_license_set.resolve_locations(dep_dir)).to eq( [ expected_path ] )
+        end
+
+      end
+
+      context "and the license file doesn't exist" do
+
+        let(:license_locations) { [ "NOPE-LICENSE" ] }
+
+        it "raises InvalidOverride" do
+          expect { override_license_set.resolve_locations(dep_dir) }.
+            to raise_error(LicenseScout::Exceptions::InvalidOverride)
+        end
+
+      end
+
+    end
+
+    context "when override license files are remote" do
+
+      let(:url) { "https://content.example/project/LICENSE.txt" }
+
+      let(:cache_path) { "/var/cache/licenses/foo/LICENSE.txt" }
+
+      let(:license_locations) { [ url ] }
+
+      it "fetches the license file from the web and gives the cached path" do
+        expect(LicenseScout::NetFetcher).to receive(:cache).with(url).and_return(cache_path)
+        expect(override_license_set.resolve_locations(dep_dir)).to eq([cache_path])
+      end
+
+    end
+  end
+end
+
 RSpec.describe(LicenseScout::Overrides) do
 
   subject(:overrides) do
@@ -40,31 +125,10 @@ RSpec.describe(LicenseScout::Overrides) do
     end
 
     it "finds the license files for a given dep manager name, dep name and dep version" do
-      expect(overrides.license_files_for("test_dep_manager", "example1", "1.0.0")).to eq(["BSD-LICENSE"])
+      set = overrides.license_files_for("test_dep_manager", "example1", "1.0.0")
+      expect(set.license_locations).to eq(["BSD-LICENSE"])
     end
 
-    context "when override license files are remote" do
-
-      let(:url) { "https://content.example/project/LICENSE.txt" }
-
-      let(:cache_path) { "/var/cache/licenses/foo/LICENSE.txt" }
-
-      before do
-        overrides.override_license("test_dep_manager", "example2") do |version|
-          {
-            license: "MIT",
-            license_files: [ url ],
-          }
-        end
-      end
-
-      it "fetches the license file from the web and gives the cached path" do
-        expect(LicenseScout::NetFetcher).to receive(:cache).with(url).and_return(cache_path)
-
-        expect(overrides.license_files_for("test_dep_manager", "example2", "1.0.0")).to eq([cache_path])
-      end
-
-    end
   end
 
   describe "when an override doesn't exist for a dependency" do
@@ -72,8 +136,8 @@ RSpec.describe(LicenseScout::Overrides) do
       expect(overrides.license_for("test_dep_manager", "example99", "1.0.0")).to eq(nil)
     end
 
-    it "return an empty array for the dependency's license files" do
-      expect(overrides.license_files_for("test_dep_manager", "example99", "1.0.0")).to eq([])
+    it "returns an empty license set" do
+      expect(overrides.license_files_for("test_dep_manager", "example99", "1.0.0")).to be_empty
     end
   end
 
@@ -83,7 +147,7 @@ RSpec.describe(LicenseScout::Overrides) do
     end
 
     it "return an empty array for the dependency's license files" do
-      expect(overrides.license_files_for("nope_dep_manager", "example99", "1.0.0")).to eq([])
+      expect(overrides.license_files_for("nope_dep_manager", "example99", "1.0.0")).to be_empty
     end
   end
 

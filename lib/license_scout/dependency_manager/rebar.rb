@@ -45,10 +45,10 @@ module LicenseScout
 
           override_license_files = overrides.license_files_for(name, dep_name, dep_version)
           license_files =
-            if override_license_files.nil? || override_license_files.empty?
+            if override_license_files.empty?
               Dir.glob("#{dep_dir}/*").select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
             else
-              verify_and_normalize_license_file_paths(dep_dir, override_license_files)
+              override_license_files.resolve_locations(dep_dir)
             end
 
           license_name = overrides.license_for(name, dep_name, dep_version) || scan_licenses(license_files)
@@ -62,18 +62,6 @@ module LicenseScout
       end
 
       private
-
-      def verify_and_normalize_license_file_paths(dep_dir, override_files)
-        override_files.map do |filepath|
-          candidate_path = File.expand_path(filepath, dep_dir)
-
-          unless File.exists?(candidate_path)
-            raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected deps path '#{dep_dir}'."
-          end
-
-          candidate_path
-        end
-      end
 
       def git_rev_parse(dependency_dir)
         s = Mixlib::ShellOut.new("git rev-parse HEAD", cwd: dependency_dir)

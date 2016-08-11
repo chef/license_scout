@@ -19,6 +19,7 @@ require "tmpdir"
 require "fileutils"
 
 require "license_scout/dependency_manager/bundler"
+require "license_scout/overrides"
 
 RSpec.describe(LicenseScout::DependencyManager::Bundler) do
   subject(:bundler) { described_class.new(project_dir, overrides, {}) }
