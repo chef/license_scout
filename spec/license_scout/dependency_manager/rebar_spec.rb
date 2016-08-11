@@ -18,7 +18,6 @@
 require "license_scout/dependency_manager/rebar"
 require "license_scout/overrides"
 
-
 RSpec.describe(LicenseScout::DependencyManager::Rebar) do
 
   let(:dependency_git_shas) do
@@ -60,7 +59,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
       "stats_hero"              => "ff000415e5ca71d7ffcfea15153bd696a386455a",
       "sync"                    => "ae7dbd4e6e2c08d77d96fc4c2bc2b6a3b266492b",
       "uuid"                    => "f7c141c8359cd690faba0d2684b449a07db8e915",
-      "webmachine"              => "7677c240f4a7ed020f4bab48278224966bb42311"
+      "webmachine"              => "7677c240f4a7ed020f4bab48278224966bb42311",
     }
   end
 
