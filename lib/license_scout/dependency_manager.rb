@@ -16,11 +16,12 @@
 #
 
 require "license_scout/dependency_manager/bundler"
+require "license_scout/dependency_manager/rebar"
 
 module LicenseScout
   module DependencyManager
     def self.implementations
-      [Bundler]
+      [Bundler, Rebar]
     end
   end
 end
