@@ -42,6 +42,29 @@ RSpec.describe(LicenseScout::Overrides) do
     it "finds the license files for a given dep manager name, dep name and dep version" do
       expect(overrides.license_files_for("test_dep_manager", "example1", "1.0.0")).to eq(["BSD-LICENSE"])
     end
+
+    context "when override license files are remote" do
+
+      let(:url) { "https://content.example/project/LICENSE.txt" }
+
+      let(:cache_path) { "/var/cache/licenses/foo/LICENSE.txt" }
+
+      before do
+        overrides.override_license("test_dep_manager", "example2") do |version|
+          {
+            license: "MIT",
+            license_files: [ url ],
+          }
+        end
+      end
+
+      it "fetches the license file from the web and gives the cached path" do
+        expect(LicenseScout::NetFetcher).to receive(:cache).with(url).and_return(cache_path)
+
+        expect(overrides.license_files_for("test_dep_manager", "example2", "1.0.0")).to eq([cache_path])
+      end
+
+    end
   end
 
   describe "when an override doesn't exist for a dependency" do

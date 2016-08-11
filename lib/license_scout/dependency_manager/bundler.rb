@@ -150,16 +150,12 @@ module LicenseScout
         license_files = []
 
         override_license_files.each do |filepath|
-          if NetFetcher.remote?(filepath)
-            license_files << NetFetcher.cache(filepath)
-          else
-            potential_path = Pathname.new(filepath).absolute? ? filepath : File.join(gem_path, filepath)
-            unless File.exists?(potential_path)
-              raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected gem path '#{gem_path}'."
-            end
-
-            license_files << potential_path
+          potential_path = Pathname.new(filepath).absolute? ? filepath : File.join(gem_path, filepath)
+          unless File.exists?(potential_path)
+            raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected gem path '#{gem_path}'."
           end
+
+          license_files << potential_path
         end
 
         license_files

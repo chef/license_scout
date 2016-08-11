@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+require "license_scout/net_fetcher"
+
 module LicenseScout
   class Overrides
 
@@ -39,7 +41,11 @@ module LicenseScout
 
     def license_files_for(dependency_manager, dependency_name, dependency_version)
       license_data = license_data_for(dependency_manager, dependency_name, dependency_version)
-      license_data.nil? ? [] : license_data[:license_files]
+      if license_data.nil?
+        []
+      else
+        license_data[:license_files].map { |f| fetch_if_remote(f) }
+      end
     end
 
     def have_override_for?(dependency_manager, dependency_name, dependency_version)
@@ -97,5 +103,14 @@ module LicenseScout
         end
       end
     end
+
+    def fetch_if_remote(license_file)
+      if NetFetcher.remote?(license_file)
+        NetFetcher.cache(license_file)
+      else
+        license_file
+      end
+    end
+
   end
 end

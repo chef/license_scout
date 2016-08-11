@@ -65,17 +65,13 @@ module LicenseScout
 
       def verify_and_normalize_license_file_paths(dep_dir, override_files)
         override_files.map do |filepath|
-          if NetFetcher.remote?(filepath)
-            NetFetcher.cache(filepath)
-          else
-            candidate_path = File.expand_path(filepath, dep_dir)
+          candidate_path = File.expand_path(filepath, dep_dir)
 
-            unless File.exists?(candidate_path)
-              raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected deps path '#{dep_dir}'."
-            end
-
-            candidate_path
+          unless File.exists?(candidate_path)
+            raise Exceptions::InvalidOverride, "Provided license file path '#{filepath}' can not be found under detected deps path '#{dep_dir}'."
           end
+
+          candidate_path
         end
       end
 

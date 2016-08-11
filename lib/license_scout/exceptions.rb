@@ -54,6 +54,10 @@ module LicenseScout
     class InvalidOverride < Error; end
 
     class NetworkError < Error
+
+      attr_reader :from_url
+      attr_reader :network_error
+
       def initialize(from_url, network_error)
         @from_url = from_url
         @network_error = network_error
