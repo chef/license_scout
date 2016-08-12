@@ -18,6 +18,8 @@
 require "tmpdir"
 require "fileutils"
 
+# Gem.ruby_api_version
+
 require "license_scout/dependency_manager/bundler"
 require "license_scout/overrides"
 
@@ -79,10 +81,32 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
   end
 
   describe "when provided a real bundler project" do
-    let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "bundler") }
+
+    # We want to use a "real" bundler project for the tests to get deeper
+    # coverage and avoid mocks. However, gem paths include the ruby api version
+    # in them. So we construct a vendored bundler project from a dir containing
+    # the Gemfiles and bundler config and another dir with the gems (which are
+    # stripped of content).
+
+    let(:bundler_project_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_top_level_project") }
+    let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_gems_dir") }
+    let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", project_dir) }
+
+    before do
+      FileUtils.cp_r(bundler_project_fixture, project_dir)
+      FileUtils.mkdir_p(bundler_gems_dir)
+      FileUtils.cp_r("#{bundler_gems_fixture}/.", bundler_gems_dir)
+    end
+
+    def gem_rel_path(path)
+      # tmpdir when running as non-root on OS X is a symlink which we have to
+      # resolve
+      Pathname(File.join(bundler_gems_dir, path)).realpath.to_s
+    end
 
     it "detects the licenses of the transitive dependencies correctly" do
       dependencies = bundler.dependencies
+
       expect(dependencies.length).to eq(10)
 
       # We check the bundler intentionally because we are munging with its
@@ -97,7 +121,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
       expect(mixlib_install_info.version).to eq("1.1.0")
       expect(mixlib_install_info.license).to eq("Apache-2.0")
       expect(mixlib_install_info.license_files.length).to eq(1)
-      expect(mixlib_install_info.license_files.first).to end_with("spec/fixtures/bundler/vendor/bundle/ruby/2.1.0/gems/mixlib-install-1.1.0/LICENSE")
+      expect(mixlib_install_info.license_files.first).to eq(gem_rel_path("/gems/mixlib-install-1.1.0/LICENSE"))
     end
 
     describe "when only license files are overridden." do
@@ -119,7 +143,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
         expect(mixlib_install_info.version).to eq("1.1.0")
         expect(mixlib_install_info.license).to eq("Apache-2.0")
         expect(mixlib_install_info.license_files.length).to eq(1)
-        expect(mixlib_install_info.license_files.first).to end_with("spec/fixtures/bundler/vendor/bundle/ruby/2.1.0/gems/mixlib-install-1.1.0/CHANGELOG.md")
+        expect(mixlib_install_info.license_files.first).to eq(gem_rel_path("gems/mixlib-install-1.1.0/CHANGELOG.md"))
       end
     end
 
@@ -143,7 +167,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
         expect(mixlib_install_info.version).to eq("1.1.0")
         expect(mixlib_install_info.license).to eq("Apache")
         expect(mixlib_install_info.license_files.length).to eq(1)
-        expect(mixlib_install_info.license_files.first).to end_with("spec/fixtures/bundler/vendor/bundle/ruby/2.1.0/gems/mixlib-install-1.1.0/README.md")
+        expect(mixlib_install_info.license_files.first).to eq(gem_rel_path("gems/mixlib-install-1.1.0/README.md"))
       end
     end
 
