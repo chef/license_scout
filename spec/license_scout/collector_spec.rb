@@ -58,10 +58,10 @@ module LicenseScout
           { name: "example1", version: "1.0.0", license: "MIT", files: [license, copying] },
           { name: "example2", version: "1.2.3", license: nil, files: [] },
         ].map do |dependency|
-          license = overrides.license_for(name, dependency[:name], dependency[:version]) || dependency[:license]
+          license = options.overrides.license_for(name, dependency[:name], dependency[:version]) || dependency[:license]
           license_files = []
 
-          override_files = overrides.license_files_for(name, dependency[:name], dependency[:version])
+          override_files = options.overrides.license_files_for(name, dependency[:name], dependency[:version])
           if !override_files.empty?
             #license_files = override_files.map { |f| File.join(SPEC_FIXTURES_DIR, "test_licenses/#{f}") }
             license_files = override_files.resolve_locations(File.join(SPEC_FIXTURES_DIR, "test_licenses"))
@@ -104,7 +104,11 @@ RSpec.describe(LicenseScout::Collector) do
   let(:project_name) { "example-project" }
   let(:overrides) { LicenseScout::Overrides.new }
 
-  subject(:collector) { described_class.new(project_name, project_dir, output_dir, overrides, {}) }
+  subject(:collector) do
+    described_class.new(project_name, project_dir, output_dir, LicenseScout::Options.new(
+      overrides: overrides
+    ))
+  end
 
   after do
     FileUtils.rm_rf(tmpdir)

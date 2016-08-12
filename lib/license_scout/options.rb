@@ -15,41 +15,31 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency"
+require "license_scout/overrides"
 
 module LicenseScout
-  module DependencyManager
-    class Base
+  class Options
+    SUPPORTED_OPTIONS = [:overrides, :environment, :ruby_bin]
 
-      POSSIBLE_LICENSE_FILES = %w{
-        LICENSE
-        LICENSE.txt
-        LICENSE.md
-        LICENSE.rdoc
-        License
-        License.text
-        License.txt
-        License.md
-        License.rdoc
-        Licence.rdoc
-        Licence.md
-        MIT-LICENSE
-        MIT-LICENSE.txt
-        LICENSE.MIT
-        LGPL-2.1
-        COPYING.txt
-        COPYING
-        BSD_LICENSE
-      }
+    SUPPORTED_OPTIONS.each do |o|
+      self.send(:attr_reader, o)
+    end
 
-      attr_reader :project_dir
-      attr_reader :options
-
-      def initialize(project_dir, options)
-        @project_dir = project_dir
-        @options = options
+    def initialize(options = {})
+      SUPPORTED_OPTIONS.each do |o|
+        data = options[o] || defaults[o]
+        instance_variable_set("@#{o}".to_sym, data)
       end
+    end
 
+    private
+
+    def defaults
+      {
+        overrides: Overrides.new,
+        environment: {},
+        ruby_bin: nil,
+      }
     end
   end
 end

@@ -63,7 +63,11 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
     }
   end
 
-  subject(:rebar) { described_class.new(project_dir, overrides, {}) }
+  subject(:rebar) do
+    described_class.new(project_dir, LicenseScout::Options.new(
+      overrides: overrides
+    ))
+  end
 
   let(:tmpdir) { Dir.mktmpdir }
 

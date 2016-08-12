@@ -44,9 +44,9 @@ module LicenseScout
         bundler_script = File.join(File.dirname(__FILE__), "bundler/_bundler_script.rb")
 
         Dir.chdir(project_dir) do
-
           json_dep_data = with_clean_env do
-            s = Mixlib::ShellOut.new("ruby #{bundler_script}", environment: environment)
+            ruby_bin_path = options.ruby_bin || "ruby"
+            s = Mixlib::ShellOut.new("#{ruby_bin_path} #{bundler_script}", environment: options.environment)
             s.run_command
             s.error!
             s.stdout
@@ -77,9 +77,9 @@ module LicenseScout
           else
             # Check license override and license_files override separately since
             # only one might be set in the overrides.
-            dependency_license = overrides.license_for(name, dependency_name, dependency_version) || gem_data["license"]
+            dependency_license = options.overrides.license_for(name, dependency_name, dependency_version) || gem_data["license"]
 
-            override_license_files = overrides.license_files_for(name, dependency_name, dependency_version)
+            override_license_files = options.overrides.license_files_for(name, dependency_name, dependency_version)
             if override_license_files.empty?
               dependency_license_files = auto_detect_license_files(gem_data["path"])
             else
