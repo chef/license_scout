@@ -125,6 +125,16 @@ module LicenseScout
         ["aws-sdk", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
         ["fuzzyurl", nil, ["https://raw.githubusercontent.com/gamache/fuzzyurl/master/LICENSE.txt"]],
         ["jwt", nil, ["https://github.com/jwt/ruby-jwt/blob/master/LICENSE"]],
+        ["win32-process", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["win32-api", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["win32-dir", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["win32-ipc", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["win32-event", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["win32-eventlog", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["win32-mmap", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["win32-mutex", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["win32-service", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["windows-api", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
