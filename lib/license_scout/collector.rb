@@ -27,15 +27,13 @@ module LicenseScout
     attr_reader :project_dir
     attr_reader :output_dir
     attr_reader :license_manifest_data
-    attr_reader :overrides
-    attr_reader :environment
+    attr_reader :options
 
-    def initialize(project_name, project_dir, output_dir, overrides, environment)
+    def initialize(project_name, project_dir, output_dir, options)
       @project_name = project_name
       @project_dir = project_dir
       @output_dir = output_dir
-      @overrides = overrides
-      @environment = environment
+      @options = options
     end
 
     def dependency_managers
@@ -132,7 +130,7 @@ module LicenseScout
 
     def all_dependency_managers
       LicenseScout::DependencyManager.implementations.map do |implementation|
-        implementation.new(project_dir, overrides, environment)
+        implementation.new(project_dir, options)
       end
     end
   end

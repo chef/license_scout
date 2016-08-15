@@ -22,9 +22,14 @@ require "fileutils"
 
 require "license_scout/dependency_manager/bundler"
 require "license_scout/overrides"
+require "license_scout/options"
 
 RSpec.describe(LicenseScout::DependencyManager::Bundler) do
-  subject(:bundler) { described_class.new(project_dir, overrides, {}) }
+  subject(:bundler) do
+    described_class.new(project_dir, LicenseScout::Options.new(
+      overrides: overrides
+    ))
+  end
 
   let(:tmpdir) { Dir.mktmpdir }
 
