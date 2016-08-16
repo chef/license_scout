@@ -17,11 +17,12 @@
 
 require "license_scout/dependency_manager/bundler"
 require "license_scout/dependency_manager/rebar"
+require "license_scout/dependency_manager/cpan"
 
 module LicenseScout
   module DependencyManager
     def self.implementations
-      [Bundler, Rebar]
+      [Bundler, Rebar, CPAN]
     end
   end
 end

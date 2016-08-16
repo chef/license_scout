@@ -19,7 +19,7 @@ require "license_scout/overrides"
 
 module LicenseScout
   class Options
-    SUPPORTED_OPTIONS = [:overrides, :environment, :ruby_bin]
+    SUPPORTED_OPTIONS = [:overrides, :environment, :ruby_bin, :cpan_cache]
 
     SUPPORTED_OPTIONS.each do |o|
       self.send(:attr_reader, o)
@@ -39,6 +39,7 @@ module LicenseScout
         overrides: Overrides.new,
         environment: {},
         ruby_bin: nil,
+        cpan_cache: Dir.tmpdir,
       }
     end
   end
