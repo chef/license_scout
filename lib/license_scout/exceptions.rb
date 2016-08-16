@@ -46,7 +46,7 @@ module LicenseScout
       end
 
       def to_s
-        "Dependency manager '#{dependency_manager_name}' is not yet run for project at '#{@project_dir}'."
+        "Dependency manager '#{@dependency_manager_name}' is not yet run for project at '#{@project_dir}'."
       end
     end
 
