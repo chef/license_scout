@@ -40,7 +40,7 @@ RSpec.describe(LicenseScout::Options) do
   end
 
   context "with :overrides input" do
-    let(:input_parameters) {
+    let(:input_parameters) do
       {
         overrides: LicenseScout::Overrides.new do
           override_license "special_packager", "chef" do |version|
@@ -50,7 +50,7 @@ RSpec.describe(LicenseScout::Options) do
           end
         end,
       }
-    }
+    end
 
     it "can set the overrides" do
       expect(options.overrides.license_for("special_packager", "chef", "1.0.0")).to eq("CUSTOM")
@@ -58,13 +58,13 @@ RSpec.describe(LicenseScout::Options) do
   end
 
   context "with :environment input" do
-    let(:input_parameters) {
+    let(:input_parameters) do
       {
         environment: {
           "PATH" => "/path/to/happiness",
         },
       }
-    }
+    end
 
     it "can set the environment" do
       expect(options.environment["PATH"]).to eq("/path/to/happiness")
@@ -72,11 +72,11 @@ RSpec.describe(LicenseScout::Options) do
   end
 
   context "with :ruby_bin input" do
-    let(:input_parameters) {
+    let(:input_parameters) do
       {
         ruby_bin: "c:/opscode/chef/embedded/bin/ruby",
       }
-    }
+    end
 
     it "can set the ruby_bin" do
       expect(options.ruby_bin).to eq("c:/opscode/chef/embedded/bin/ruby")

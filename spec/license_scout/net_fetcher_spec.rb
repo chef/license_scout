@@ -35,7 +35,7 @@ RSpec.describe(LicenseScout::NetFetcher) do
   subject(:fetcher) { described_class.new(url) }
 
   let(:url) { "https://chef-license-spec.s3.amazonaws.com/README" }
-  let(:expected_download_content) {
+  let(:expected_download_content) do
     <<-EOS
 This folder and file is being used for testing by the following project:
 
@@ -43,7 +43,7 @@ https://github.com/chef/license_scout
 
 Please do not delete!
 EOS
-  }
+  end
 
   let(:expected_cache_path) { fetcher.cache_path }
 

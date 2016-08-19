@@ -130,7 +130,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
     end
 
     describe "when only license files are overridden." do
-      let(:overrides) {
+      let(:overrides) do
         LicenseScout::Overrides.new() do
           override_license "ruby_bundler", "mixlib-install" do |version|
             {
@@ -138,7 +138,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
             }
           end
         end
-      }
+      end
 
       it "only uses license file overrides and reports the original license" do
         dependencies = bundler.dependencies
@@ -153,7 +153,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
     end
 
     describe "when correct overrides are provided." do
-      let(:overrides) {
+      let(:overrides) do
         LicenseScout::Overrides.new() do
           override_license "ruby_bundler", "mixlib-install" do |version|
             {
@@ -162,7 +162,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
             }
           end
         end
-      }
+      end
 
       it "uses the given overrides" do
         dependencies = bundler.dependencies
@@ -177,7 +177,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
     end
 
     describe "when overrides with missing license file paths are provided" do
-      let(:overrides) {
+      let(:overrides) do
         LicenseScout::Overrides.new() do
           override_license "ruby_bundler", "mixlib-install" do |version|
             {
@@ -186,7 +186,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
             }
           end
         end
-      }
+      end
 
       it "raises an error" do
         expect { bundler.dependencies }.to raise_error(LicenseScout::Exceptions::InvalidOverride)

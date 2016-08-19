@@ -170,7 +170,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
     end
 
     describe "when only license files are overridden." do
-      let(:overrides) {
+      let(:overrides) do
         LicenseScout::Overrides.new() do
           override_license "erlang_rebar", "ej" do |version|
             {
@@ -178,7 +178,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
             }
           end
         end
-      }
+      end
 
       it "only uses license file overrides and reports the original license" do
         dependencies = rebar.dependencies
@@ -197,7 +197,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
     end
 
     describe "when overrides for both license file and type are given" do
-      let(:overrides) {
+      let(:overrides) do
         LicenseScout::Overrides.new() do
           override_license "erlang_rebar", "ej" do |version|
             {
@@ -206,7 +206,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
             }
           end
         end
-      }
+      end
 
       it "uses the given overrides" do
         dependencies = rebar.dependencies
@@ -221,7 +221,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
     end
 
     describe "when overrides with missing license file paths are provided" do
-      let(:overrides) {
+      let(:overrides) do
         LicenseScout::Overrides.new() do
           override_license "erlang_rebar", "ej" do |version|
             {
@@ -230,7 +230,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
             }
           end
         end
-      }
+      end
 
       it "raises an error" do
         expect { rebar.dependencies }.to raise_error(LicenseScout::Exceptions::InvalidOverride)
