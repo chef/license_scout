@@ -72,6 +72,14 @@ module LicenseScout
             # bundler's lib/ dir, so we have to munge it.
             dependency_license = "MIT"
             dependency_license_files = [File.join(File.dirname(__FILE__), "bundler/LICENSE.md")]
+          elsif dependency_name == "json"
+            # json is different weird. When project is using the json that is prepackaged with
+            # Ruby, its included not as a full fledged gem but an *.rb file at:
+            # /opt/opscode/embedded/lib/ruby/2.2.0/json.rb
+            # Because of this its license is reported as nil and its license files can not be
+            # found. That is why we need to provide them manually here.
+            dependency_license = "Ruby"
+            dependency_license_files = [File.join(File.dirname(__FILE__), "json/README.md")]
           else
             # Check license override and license_files override separately since
             # only one might be set in the overrides.
