@@ -31,10 +31,6 @@ RSpec.describe(LicenseScout::Exceptions) do
     expect(LicenseScout::Exceptions::UnsupportedProjectType.new("/path/to/project").to_s).to be_a(String)
   end
 
-  it "DependencyManagerNotRun is raiseable" do
-    expect(LicenseScout::Exceptions::DependencyManagerNotRun.new("/path/to/project", "dep_mgr_name").to_s).to be_a(String)
-  end
-
   it "NetworkError is raiseable" do
     expect(LicenseScout::Exceptions::NetworkError.new("http://problematic.url.com/", StandardError.new).to_s).to be_a(String)
   end

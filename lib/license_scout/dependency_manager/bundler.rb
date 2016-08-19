@@ -33,11 +33,13 @@ module LicenseScout
       end
 
       def detected?
-        # We only check for the existence of Gemfile in order to declare a
-        # project a Bundler project. If the Gemfile.lock does not exist
-        # we will raise a specific error to indicate that "bundle install"
-        # needs to be run before proceeding.
-        File.exists?(gemfile_path)
+        # We check the existence of both Gemfile and Gemfile.lock. We need both
+        # of them to be able to get a concrete set of dependencies which we can
+        # search. We used to raise an error when Gemfile.lock did not exist but
+        # that created issues with projects like oc_bifrost which is a rebar
+        # project but have a Gemfile at its root to be able to run some rake
+        # commands.
+        File.exists?(gemfile_path) && File.exists?(lockfile_path)
       end
 
       def dependency_data
@@ -56,10 +58,6 @@ module LicenseScout
       end
 
       def dependencies
-        if !File.exists?(lockfile_path)
-          raise LicenseScout::Exceptions::DependencyManagerNotRun.new(project_dir, name)
-        end
-
         dependencies = []
         dependency_data.each do |gem_data|
           dependency_name = gem_data["name"]

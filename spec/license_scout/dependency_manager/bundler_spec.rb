@@ -76,13 +76,10 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
       FileUtils.touch(File.join(project_dir, "Gemfile"))
     end
 
-    it "detects the project as a bundler project" do
-      expect(bundler.detected?).to eq(true)
+    it "does not detect the project as a bundler project" do
+      expect(bundler.detected?).to eq(false)
     end
 
-    it "raises an error when asking for dependencies" do
-      expect { bundler.dependencies }.to raise_error(LicenseScout::Exceptions::DependencyManagerNotRun)
-    end
   end
 
   describe "when provided a real bundler project" do
