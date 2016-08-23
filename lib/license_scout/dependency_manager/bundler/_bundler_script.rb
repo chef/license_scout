@@ -32,13 +32,12 @@ require "bundler/setup"
 # We're only using things that are in the stdlib.
 require "json"
 
-definition = ::Bundler::Definition.build("./Gemfile", "./Gemfile.lock", nil)
 dependencies = []
 
-definition.specs_for(definition.groups).each do |gem_spec|
+Bundler.load.specs.each do |gem_spec|
   dependencies << {
     name: gem_spec.name,
-    version: gem_spec.version,
+    version: gem_spec.version.to_s,
     license: gem_spec.license,
     path: gem_spec.full_gem_path,
   }
