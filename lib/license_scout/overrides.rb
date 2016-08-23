@@ -185,6 +185,7 @@ module LicenseScout
         ["omniauth-chef", nil, ["https://raw.githubusercontent.com/chef/omniauth-chef/master/README.md"]],
         ["rails", nil, ["https://raw.githubusercontent.com/rails/rails/master/README.md"]],
         ["unicorn-rails", "MIT", ["https://raw.githubusercontent.com/samuelkadolph/unicorn-rails/master/LICENSE"]],
+        ["hoe", "MIT", ["https://raw.githubusercontent.com/seattlerb/hoe/master/README.rdoc"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
