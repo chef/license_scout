@@ -1,0 +1,62 @@
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: <%= ENV['CHEF_VERSION'] || '12.5.1' %>
+
+platforms:
+  - name: centos-6.7
+    run_list: yum-epel::default
+  - name: centos-7.1
+    run_list: yum-epel::default
+  - name: debian-7.8
+    run_list: apt::default
+  - name: debian-8.1
+    run_list: apt::default
+  - name: freebsd-9.3
+    run_list:
+      - freebsd::portsnap
+      - freebsd::pkgng
+  - name: freebsd-10.1
+    run_list: freebsd::portsnap
+  - name: ubuntu-12.04
+    run_list: apt::default
+  - name: ubuntu-14.04
+    run_list: apt::default
+  #
+  # The following (private) boxes are shared via Atlas. Please note this
+  # requires adding your Atlas account to the `Chef` org and will
+  # require a `vagrant login`.
+  #
+  # The Mac OS X boxes are VMware only also. You can enable VMware Fusion
+  # as the default provider by copying `.kitchen.local.yml.vmware.example`
+  # over to `.kitchen.local.yml`.
+  #
+  - name: macosx-10.8
+    driver:
+      box: chef/macosx-10.8 # private
+  - name: macosx-10.9
+    driver:
+      box: chef/macosx-10.9 # private
+  - name: macosx-10.10
+    driver:
+      box: chef/macosx-10.10 # private
+  - name: macosx-10.11
+    driver:
+      box: chef/macosx-10.11 # private
+  - name: windows-server-2012r2-standard
+    driver:
+      box: chef/windows-server-2012r2-standard
+
+suites:
+  - name: languages_node
+    run_list: languages_node::default
+    excludes: windows-server-2012r2-standard
+  - name: languages_ruby
+    run_list: languages_ruby::default
+  - name: languages_rust
+    run_list: languages_rust::default
+  - name: languages_erlang
+    run_list: languages_erlang::default
+    excludes: windows-server-2012r2-standard

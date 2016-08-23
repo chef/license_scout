@@ -1,0 +1,51 @@
+{
+  "name": "remote_install",
+  "description": "Provides an opinionated way to download and install remote software",
+  "long_description": "remote_install Cookbook\n=======================\n\n[![Build Status](https://travis-ci.org/chef-cookbooks/remote_install.svg?branch=master)](http://travis-ci.org/chef-cookbooks/remote_install)\n[![Cookbook Version](https://img.shields.io/cookbook/v/remote_install.svg)](https://supermarket.chef.io/cookbooks/remote_install)\n\nProvides a highly-opinionated way to download, extract, and compile software from a remote source.\n\nThis project is managed by the CHEF Release Engineering team. For more information on the Release Engineering team's contribution, triage, and release process, please consult the [CHEF Release Engineering OSS Management Guide](https://docs.google.com/a/opscode.com/document/d/1oJB0vZb_3bl7_ZU2YMDBkMFdL-EWplW1BJv_FXTUOzg/edit).\n\n\nUsage\n-----\nInstall bash:\n\n```ruby\nremote_install 'bash' do\n  source 'http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz'\n  version '4.3'\n  checksum 'afc687a28e0e24dc21b988fa159ff9dbcf6b7caa92ade8645cc6d5605cd024d4'\n  build_command './configure'\n  compile_command 'make'\n  install_command 'make install'\nend\n```\n\nThe `remote_install` resource has the following attributes:\n\n| Attribute         | Description\n| ----------------- | -----------\n| `source`          | the URL to download\n| `checksum`        | the SHA256 checksum for the downlaoded asset from `source`\n| `build_command`   | the command to \"build\"\n| `compile_command` | the command to \"compile\"\n| `install_command` | the command to \"install\"\n| `environment`     | the environment to set while building\n\n\nLicense & Authors\n-----------------\n- Author: Seth Vargo (<sethvargo@gmail.com>)\n- Author: Yvonne Lam (<yvonne@chef.io>)\n- Author: Seth Chisamore (<schisamo@chef.io>)\n\n```text\nCopyright 2014, Chef Software, Inc. (<legal@chef.io>)\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n```\n",
+  "maintainer": "Chef Software, Inc.",
+  "maintainer_email": "releng@chef.io",
+  "license": "Apache 2.0",
+  "platforms": {
+    "centos": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "oracle": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "freebsd": ">= 0.0.0",
+    "scientific": ">= 0.0.0",
+    "mac_os_x": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "windows": ">= 0.0.0"
+  },
+  "dependencies": {
+
+  },
+  "recommendations": {
+
+  },
+  "suggestions": {
+
+  },
+  "conflicting": {
+
+  },
+  "providing": {
+
+  },
+  "replacing": {
+
+  },
+  "attributes": {
+
+  },
+  "groupings": {
+
+  },
+  "recipes": {
+
+  },
+  "version": "1.0.2",
+  "source_url": "https://github.com/chef-cookbooks/remote_install",
+  "issues_url": "https://github.com/chef-cookbooks/remote_install/issues",
+  "privacy": false
+}

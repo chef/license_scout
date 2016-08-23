@@ -343,10 +343,3 @@ RSpec.describe(LicenseScout::Collector) do
   end
 
 end
-
-## STUFF OMNIBUS DOES:
-
-# it collects intermediate transitive deps and merges them
-# it includes a LICENSE.json version of the LICENSE file
-# it reads the per-project license manifest JSON and reports errors when license is nil/null or license files are empty
-# it invalidates the git cache for any software that uses license scout when the license overrides file/project/repo is updated

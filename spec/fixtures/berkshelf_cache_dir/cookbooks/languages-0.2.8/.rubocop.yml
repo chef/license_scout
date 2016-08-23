@@ -1,0 +1,34 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+
+AbcSize:
+  Max: 50
+ClassAndModuleChildren:
+  Enabled: false
+ClassLength:
+  Enabled: false
+CyclomaticComplexity:
+  Max: 15
+Documentation:
+  Enabled: false
+Encoding:
+  Enabled: false
+LineLength:
+  Enabled: false
+MethodLength:
+  Enabled: false
+ModuleLength:
+  Enabled: false
+PerceivedComplexity:
+  Max: 10
+RaiseArgs:
+  Enabled: false
+SignalException:
+  Enabled: false
+Style/SpaceBeforeFirstArg:
+  Enabled: false
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma

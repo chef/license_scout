@@ -7,6 +7,8 @@ Currently supported project types are:
 
 * Ruby - bundler
 * Erlang - rebar
+* CPAN - perl
+* Berkshelf - chef
 
 ## Usage
 

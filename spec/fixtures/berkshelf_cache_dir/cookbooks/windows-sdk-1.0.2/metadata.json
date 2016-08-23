@@ -1,0 +1,41 @@
+{
+  "name": "windows-sdk",
+  "description": "Installs the Windows 8.1 SDK",
+  "long_description": "# Windows SDK Cookbook\n\n## Description\nThis cookbook installs the Windows 8.1 SDK. More information about the SDK\ncan be found at https://msdn.microsoft.com/en-us/windows/desktop/bg162891.aspx\n\n## Usage\n\nThis cookbook provides a resource that can be used to install and uninstall\nfeatures provided with the Windows SDK.\n\n### windows_sdk_feature Resource\n\n#### Actions\n- `:install`: Default. Install the given feature(s)\n- `:uninstall`: Uninstall the given feature(s)\n\n#### Attribute Parameters\n- `:features`: Name Attribute. A feature(Symbol), an Array of features, or `:all`\n\n  Valid features:\n  - `:windows_software_development_kit`: The Microsoft Windows Software \n  Development Kit for Windows 8.1\n  - `:windows_performance_kit`: Windows Performance Toolkit\n  - `:debugging_tools`: Debugging Tools for Windows\n  - `:application_verifier`: Application Verifier for Windows\n  - `:windows_app_certification_kit`: Windows App Certification Kit\n  - `:msi_tools`: MSI Tools\n  - `:netfx_software_development_kit`: .Net Frame 4.5 Software Development Kit\n\n- `:install_path`: Optional. The location where the SDK will be installed\n\n#### Examples\n\nInstall all features:\n\n```ruby\nwindows_sdk_feature :all\n```\n\nInstall only the debugging tools and MSI tools\n\n```ruby\nwindows_sdk_feature [:debugging_tools, :msi_tools]\n```\n\nUninstall the MSI tools\n\n```ruby\nwindows_sdk_feature :msi_tools do\n  action :uninstall\nend\n```\n\n## License\n\nCopyright:: 2015, Chef Software\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n\n",
+  "maintainer": "Chef Software",
+  "maintainer_email": "jdm@chef.io",
+  "license": "Apache 2.0",
+  "platforms": {
+    "windows": ">= 0.0.0"
+  },
+  "dependencies": {
+
+  },
+  "recommendations": {
+
+  },
+  "suggestions": {
+
+  },
+  "conflicting": {
+
+  },
+  "providing": {
+
+  },
+  "replacing": {
+
+  },
+  "attributes": {
+
+  },
+  "groupings": {
+
+  },
+  "recipes": {
+
+  },
+  "version": "1.0.2",
+  "source_url": "https://github.com/jdmundrawala/windows-sdk-cookbook",
+  "issues_url": "https://github.com/jdmundrawala/windows-sdk-cookbook/issues"
+}

@@ -1,0 +1,22 @@
+driver:
+  name: vagrant
+  customize:
+    cpus: 2
+    memory: 4096
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-6.7
+  - name: centos-7.1
+  - name: ubuntu-12.04
+    run_list:
+      - recipe[apt::default]
+  - name: ubuntu-14.04
+    run_list:
+      - recipe[apt::default]
+
+suites:
+  - name: remote_install_test
+    run_list: remote_install_test::install
