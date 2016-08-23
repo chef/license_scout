@@ -71,9 +71,23 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
   end
 
   describe "when provided a bundler project without lock file" do
+
     before do
       Dir.mkdir(project_dir)
       FileUtils.touch(File.join(project_dir, "Gemfile"))
+    end
+
+    it "does not detect the project as a bundler project" do
+      expect(bundler.detected?).to eq(false)
+    end
+
+  end
+
+  describe "when provided a bundler project without gemfile" do
+
+    before do
+      Dir.mkdir(project_dir)
+      FileUtils.touch(File.join(project_dir, "Gemfile.lock"))
     end
 
     it "does not detect the project as a bundler project" do
