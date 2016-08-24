@@ -22,7 +22,7 @@ require "license_scout/collector"
 require "license_scout/overrides"
 require "license_scout/options"
 
-project_dir = File.expand_path(Dir.pwd)
+project_dir = ARGV[0] || File.expand_path(Dir.pwd)
 project_name = File.basename(project_dir)
 
 output_dir = project_dir

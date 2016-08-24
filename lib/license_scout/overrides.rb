@@ -194,6 +194,23 @@ module LicenseScout
           end
         end
       end
+
+      [
+        ["apt", nil, ["https://raw.githubusercontent.com/chef-cookbooks/apt/master/LICENSE"]],
+        ["chef-ha-drbd", nil, ["https://raw.githubusercontent.com/chef/chef-server/master/LICENSE"]],
+        ["private-chef", nil, ["https://raw.githubusercontent.com/chef/chef-server/master/LICENSE"]],
+        ["chef-sugar", nil, ["https://raw.githubusercontent.com/sethvargo/chef-sugar/master/LICENSE"]],
+        ["openssl", nil, ["https://raw.githubusercontent.com/chef-cookbooks/openssl/master/LICENSE"]],
+        ["runit", nil, ["https://raw.githubusercontent.com/chef-cookbooks/runit/master/LICENSE"]],
+        ["yum", nil, ["https://raw.githubusercontent.com/chef-cookbooks/yum/master/LICENSE"]],
+      ].each do |override_data|
+        override_license "chef_berkshelf", override_data[0] do |version|
+          {}.tap do |d|
+            d[:license] = override_data[1] if override_data[1]
+            d[:license_files] = override_data[2] if override_data[2]
+          end
+        end
+      end
     end
 
   end

@@ -1,0 +1,19 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: windows-8.1
+    driver_config:
+      box: windows-8.1
+
+suites:
+  - name: default
+    run_list:
+      - recipe[windows-sdk::default]
+    provisioner:
+      require_chef_omnibus: 12.3.0
+    attributes:

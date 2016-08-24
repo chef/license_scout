@@ -1,0 +1,21 @@
+driver:
+  name: docker
+
+platforms:
+  - name: debian-7
+    run_list: apt::default
+  - name: debian-8
+    driver:
+      provision_command:
+        # Ensure wget is installed to workaround:
+        #   https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=814070
+        - apt-get install -y wget
+    run_list: apt::default
+  - name: ubuntu-12.04
+    run_list: apt::default
+  - name: ubuntu-14.04
+    run_list: apt::default
+  - name: centos-6
+    run_list: yum-epel::default
+  - name: centos-7
+    run_list: yum-epel::default

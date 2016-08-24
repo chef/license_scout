@@ -1,0 +1,54 @@
+{
+  "name": "languages",
+  "description": "Installs/Configures languages",
+  "long_description": "Installs/Configures languages",
+  "maintainer": "Chef Software Inc.",
+  "maintainer_email": "releng@chef.io",
+  "license": "Apache 2.0",
+  "platforms": {
+
+  },
+  "dependencies": {
+    "build-essential": ">= 0.0.0",
+    "chef-sugar": ">= 0.0.0",
+    "homebrew": ">= 0.0.0",
+    "remote_install": ">= 0.0.0"
+  },
+  "recommendations": {
+
+  },
+  "suggestions": {
+
+  },
+  "conflicting": {
+
+  },
+  "providing": {
+
+  },
+  "replacing": {
+
+  },
+  "attributes": {
+
+  },
+  "groupings": {
+
+  },
+  "recipes": {
+
+  },
+  "version": "0.2.8",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}
