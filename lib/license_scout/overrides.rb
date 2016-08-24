@@ -211,6 +211,77 @@ module LicenseScout
           end
         end
       end
+
+      # Most of the overrides for perl_cpan are pointing to the README files
+      # inside the modules we download to inspect for licensing information.
+      [
+        ["Scalar-List-Utils", nil, ["README"]],
+        ["perl", nil, ["README"]],
+        ["IO", nil, ["README"]],
+        ["ExtUtils-MakeMaker", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["PathTools", "Perl-5", ["lib/File/Spec.pm"]],
+        ["Exporter", nil, ["README"]],
+        ["Carp", nil, ["README"]],
+        ["lib", nil, ["Artistic"]],
+        ["Pod-Escapes", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["Pod-Usage", nil, ["README"]],
+        ["base", "Perl-5", ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["Encode", nil, ["AUTHORS"]],
+        ["Moo", nil, ["README"]],
+        ["Role-Tiny", nil, ["README"]],
+        ["Try-Tiny", nil, ["LICENCE"]],
+        ["Module-Metadata", nil, ["LICENCE"]],
+        ["constant", nil, ["README"]],
+        ["Module-Runtime", nil, ["README"]],
+        ["ExtUtils-Install", nil, ["README"]],
+        ["File-Path", nil, ["README"]],
+        ["Getopt-Long", "Perl-5", ["README"]],
+        ["ExtUtils-ParseXS", "Perl-5", ["README"]],
+        ["version", nil, ["README"]],
+        ["Data-Dumper", "Perl-5", ["Dumper.pm"]],
+        ["Test-Harness", nil, ["README"]],
+        ["Text-ParseWords", nil, ["README"]],
+        ["Devel-GlobalDestruction", nil, ["README"]],
+        ["XSLoader", nil, ["README"]],
+        ["IPC-Cmd", nil, ["README"]],
+        ["Pod-Parser", "Perl-5", ["README"]],
+        ["Config-GitLike", nil, ["lib/Config/GitLike.pm"]],
+        ["Test-Exception", nil, ["lib/Test/Exception.pm"]],
+        ["MooX-Types-MooseLike", nil, ["README"]],
+        ["String-ShellQuote", "Perl-5", ["README"]],
+        ["Time-HiRes", nil, ["README"]],
+        ["Test", "Perl-5", ["README"]],
+        ["parent", nil, ["lib/parent.pm"]],
+        ["MIME-Base64", nil, ["README"]],
+        ["Sub-Identify", nil, ["lib/Sub/Identify.pm"]],
+        ["namespace-autoclean", nil, ["README"]],
+        ["B-Hooks-EndOfScope", nil, ["README"]],
+        ["namespace-clean", nil, ["lib/namespace/clean.pm"]],
+        ["Test-Deep", nil, ["lib/Test/Deep.pm"]],
+        ["IO-Pager", "Perl-5", ["README"]],
+        ["libintl-perl", "GPL-3.0", ["COPYING"]],
+        ["Storable", "Perl-5", ["README"]],
+        ["Test-Warnings", "Artistic-1.0", ["LICENCE"]],
+        ["Test-Dir", nil, ["README"]],
+        ["Digest-SHA", nil, ["README"]],
+        ["Test-File-Contents", nil, ["README"]],
+        ["Digest-MD5", nil, ["README"]],
+        ["Algorithm-Diff", "Perl-5", ["lib/Algorithm/Diff.pm"]],
+        ["Encode-Locale", nil, ["README"]],
+        ["Hash-Merge", nil, ["README"]],
+        ["Clone", nil, ["README"]],
+        ["URI-db", nil, ["README"]],
+        ["URI-Nested", nil, ["README.md"]],
+        ["Test-utf8", nil, ["README"]],
+
+      ].each do |override_data|
+        override_license "perl_cpan", override_data[0] do |version|
+          {}.tap do |d|
+            d[:license] = override_data[1] if override_data[1]
+            d[:license_files] = override_data[2] if override_data[2]
+          end
+        end
+      end
     end
 
   end
