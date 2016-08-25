@@ -41,6 +41,7 @@ module LicenseScout
 
     class InaccessibleDependency < Error; end
     class InvalidOverride < Error; end
+    class InvalidOutputReport < Error; end
 
     class NetworkError < Error
 

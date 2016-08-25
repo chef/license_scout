@@ -1,0 +1,24 @@
+{
+  "license_manifest_version": 1,
+  "project_name": "knife-opc",
+  "dependency_managers": {
+    "ruby_bundler": [
+      {
+        "name": "bundler",
+        "version": "1.12.5",
+        "license": "MIT",
+        "license_files": [
+          "ruby_bundler-bundler-1.12.5-LICENSE.md"
+        ]
+      },
+      {
+        "name": "knife-opc",
+        "version": "0.3.2",
+        "license": "Apache-2.0",
+        "license_files": [
+          "ruby_bundler-knife-opc-0.3.2-LICENSE"
+        ]
+      }
+    ]
+  }
+}
