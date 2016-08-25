@@ -50,12 +50,15 @@ module LicenseScout
 
         attr_reader :cache_root
 
-        def initialize(module_name:, dist:, version:, cpanfile:, cache_root:)
+        attr_reader :overrides
+
+        def initialize(module_name:, dist:, version:, cpanfile:, cache_root:, overrides:)
           @module_name = module_name
           @dist = dist
           @version = version
           @cpanfile = cpanfile
           @cache_root = cache_root
+          @overrides = overrides
 
           @deps_list = nil
 
@@ -65,18 +68,6 @@ module LicenseScout
 
         def desc
           "#{module_name} in #{dist} (#{version}) [#{license}]"
-        end
-
-        def has_any_license_info?
-          has_license? || has_license_files?
-        end
-
-        def has_license?
-          !license.nil?
-        end
-
-        def has_license_files?
-          license_files.empty?
         end
 
         def to_dep
@@ -125,7 +116,13 @@ module LicenseScout
         end
 
         def distribution_unpack_relpath
-          File.basename(distribution_filename, ".tar.gz")
+          # Most packages have tar.gz extension but some have .tgz like
+          # IO-Pager-0.36.tgz
+          [".tar.gz", ".tgz"].each do |ext|
+            if distribution_filename.end_with?(ext)
+              return File.basename(distribution_filename, ext)
+            end
+          end
         end
 
         def distribution_fullpath
@@ -146,14 +143,37 @@ module LicenseScout
         end
 
         def collect_licenses_in(unpack_path)
-          if File.exist?(meta_json_in(unpack_path))
-            slurp_meta_json_in(unpack_path)
-          elsif File.exist?(meta_yaml_in(unpack_path))
-            slurp_meta_yaml_in(unpack_path)
-          end
+          collect_license_info_in(unpack_path)
+          collect_license_files_info_in(unpack_path)
+        end
 
-          @license_files = []
-          found_license_files_in(unpack_path).each do |f|
+        def collect_license_info_in(unpack_path)
+          # Notice that we use "dist" as the dependency name
+          # See #to_dep for details.
+          @license = overrides.license_for("perl_cpan", dist, version) || begin
+            metadata = if File.exist?(meta_json_in(unpack_path))
+                         slurp_meta_json_in(unpack_path)
+                       elsif File.exist?(meta_yaml_in(unpack_path))
+                         slurp_meta_yaml_in(unpack_path)
+                       end
+
+            if metadata && metadata.key?("license")
+              given_type = Array(metadata["license"]).reject { |l| l == "unknown" }.first
+              normalize_license_type(given_type)
+            end
+          end
+        end
+
+        def collect_license_files_info_in(unpack_path)
+          override_license_files = overrides.license_files_for("perl_cpan", dist, version)
+
+          license_files = if override_license_files.empty?
+                            find_license_files_in(unpack_path)
+                          else
+                            override_license_files.resolve_locations(unpack_path)
+                          end
+
+          license_files.each do |f|
             @license_files << cache_license_file(f)
           end
         end
@@ -173,19 +193,11 @@ module LicenseScout
         end
 
         def slurp_meta_yaml_in(unpack_path)
-          metadata = Psych.safe_load(File.read(meta_yaml_in(unpack_path)))
-          if metadata.key?("license")
-            given_type = Array(metadata["license"]).reject { |l| l == "unknown" }.first
-            @license = normalize_license_type(given_type)
-          end
+          Psych.safe_load(File.read(meta_yaml_in(unpack_path)))
         end
 
         def slurp_meta_json_in(unpack_path)
-          metadata = FFI_Yajl::Parser.parse(File.read(meta_json_in(unpack_path)))
-          if metadata.key?("license")
-            given_type = Array(metadata["license"]).reject { |l| l == "unknown" }.first
-            @license = normalize_license_type(given_type)
-          end
+          FFI_Yajl::Parser.parse(File.read(meta_json_in(unpack_path)))
         end
 
         def license_cache_root
@@ -212,7 +224,7 @@ module LicenseScout
           File.join(unpack_path, "META.yml")
         end
 
-        def found_license_files_in(unpack_path)
+        def find_license_files_in(unpack_path)
           Dir["#{unpack_path}/*"].select do |f|
             CPAN::POSSIBLE_LICENSE_FILES.include?(File.basename(f))
           end
@@ -256,7 +268,8 @@ module LicenseScout
             dist: dep.get_text("dist").to_s,
             version: dep.get_text("distversion").to_s,
             cpanfile: dep.get_text("cpanfile").to_s,
-            cache_root: options.cpan_cache
+            cache_root: options.cpan_cache,
+            overrides: options.overrides
           )
         end
 

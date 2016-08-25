@@ -290,19 +290,70 @@ RSpec.describe(LicenseScout::DependencyManager::CPAN) do
         expect(capture_tiny.license_files.first).to eq(expected_path)
 
         libintl = cpan.dependencies.find { |d| d.name == "libintl-perl" }
-        expect(libintl.license).to be_nil
+        expect(libintl.license).to eq("GPL-3.0") # from default overrides
         expect(libintl.license_files.size).to eq(1)
         expected_path = File.join(cpan_cache, "cpan-licenses", "libintl-perl-COPYING")
         expect(libintl.license_files.first).to eq(expected_path)
 
         scalar_util = cpan.dependencies.find { |d| d.name == "Scalar-List-Utils" }
         expect(scalar_util.license).to eq("Perl-5")
-        expect(scalar_util.license_files.size).to eq(0)
+        expect(scalar_util.license_files.size).to eq(1) # from default overrides
 
         path_tools = cpan.dependencies.find { |d| d.name == "PathTools" }
-        expect(path_tools.license).to be_nil
-        expect(path_tools.license_files.size).to eq(0)
+        expect(path_tools.license).to eq("Perl-5") # from default overrides
+        expect(path_tools.license_files.size).to eq(1) # from default overrides
       end
     end
+
+    describe "fetching cpan distributions and collecting licenses with overrides" do
+
+      def cpan_url(cpan_path)
+        "http://www.cpan.org/authors/id/#{cpan_path}"
+      end
+
+      def fixture_pkg(pkg_name)
+        File.join(SPEC_FIXTURES_DIR, "cpan", "dists", pkg_name)
+      end
+
+      let(:overrides) do
+        LicenseScout::Overrides.new do
+          override_license "perl_cpan", "Capture-Tiny" do |version|
+            {
+              license: "MIT",
+              license_files: ["README"] # any file in Capture-Tiny there
+            }
+          end
+        end
+      end
+
+      before do
+
+        cpan.deps_list.each do |cpan_dep|
+          case cpan_dep.module_name
+
+          when "Capture::Tiny"
+            allow(LicenseScout::NetFetcher).to receive(:cache).
+              with(cpan_url("D/DA/DAGOLDEN/Capture-Tiny-0.44.tar.gz")).
+              and_return(fixture_pkg("Capture-Tiny-0.44.tar.gz"))
+
+          else
+            expect(cpan_dep).to receive(:collect_licenses)
+          end
+
+        end
+      end
+
+      it "detects the licenses of the transitive dependencies correctly" do
+        expect(cpan.dependencies.size).to eq(dep_module_names.size)
+
+        capture_tiny = cpan.dependencies.find { |d| d.name == "Capture-Tiny" }
+        expect(capture_tiny.license).to eq("MIT")
+        expect(capture_tiny.license_files.size).to eq(1)
+        expect(File).to exist(capture_tiny.license_files.first)
+        expected_path = File.join(cpan_cache, "cpan-licenses", "Capture-Tiny-README")
+        expect(capture_tiny.license_files.first).to eq(expected_path)
+      end
+    end
+
   end
 end
