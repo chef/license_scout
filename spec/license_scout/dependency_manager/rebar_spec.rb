@@ -71,7 +71,12 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
 
   let(:tmpdir) { Dir.mktmpdir }
 
-  let(:overrides) { LicenseScout::Overrides.new }
+  let(:overrides) do
+    o = LicenseScout::Overrides.new
+    # delete the default erlang overrides
+    o.override_rules.delete("erlang_rebar")
+    o
+  end
   let(:project_dir) { File.join(tmpdir, "rebar_project") }
 
   after do
@@ -239,11 +244,11 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
     describe "as in an automated build" do
 
       let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "rebar_from_build") }
-      let(:expected_config_to_json_output) {
+      let(:expected_config_to_json_output) do
         <<-EOS
 [["__tuple","__binary_edown",["__tuple","git","__string_git://github.com/seth/edown.git",["__tuple","ref","__string_30a9f7867d615af45783235faa52742d11a9348e"]],1],["__tuple","__binary_eper",["__tuple","git","__string_git://github.com/massemanet/eper.git",["__tuple","ref","__string_43e0442863df9f713a5c88c9b43062b806d96adb"]],0],["__tuple","__binary_mochiweb",["__tuple","pkg","__binary_mochiweb","__binary_2.12.2"],2]]
 EOS
-      }
+      end
 
       def mock_config_to_json
         config_to_json_path = File.expand_path("../../../bin/config_to_json", File.dirname(__FILE__))
