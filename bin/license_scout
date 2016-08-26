@@ -25,7 +25,9 @@ require "license_scout/options"
 project_dir = ARGV[0] || File.expand_path(Dir.pwd)
 project_name = File.basename(project_dir)
 
-output_dir = project_dir
+# Create the output files under a specific directory in order not to pollute the
+# project_dir too much.
+output_dir = File.join(project_dir, "license-cache")
 
 overrides = LicenseScout::Overrides.new
 

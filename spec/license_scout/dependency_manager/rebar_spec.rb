@@ -111,12 +111,11 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
 
     let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "rebar") }
 
-    def mock_git_rev_parse_for(name, sha)
-      dep_dir = File.join(project_dir, "deps", name)
+    def mock_git_rev_parse_for(name, sha, cwd: File.join(project_dir, "deps", name))
       mock = instance_double("Mixlib::ShellOut")
 
       allow(Mixlib::ShellOut).to receive(:new).
-        with("git rev-parse HEAD", cwd: dep_dir).
+        with("git rev-parse HEAD", cwd: cwd).
         and_return(mock)
 
       allow(mock).to receive(:run_command)
@@ -236,5 +235,71 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
         expect { rebar.dependencies }.to raise_error(LicenseScout::Exceptions::InvalidOverride)
       end
     end
+
+    describe "as in an automated build" do
+
+      let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "rebar_from_build") }
+      let(:expected_config_to_json_output) {
+        <<-EOS
+[["__tuple","__binary_edown",["__tuple","git","__string_git://github.com/seth/edown.git",["__tuple","ref","__string_30a9f7867d615af45783235faa52742d11a9348e"]],1],["__tuple","__binary_eper",["__tuple","git","__string_git://github.com/massemanet/eper.git",["__tuple","ref","__string_43e0442863df9f713a5c88c9b43062b806d96adb"]],0],["__tuple","__binary_mochiweb",["__tuple","pkg","__binary_mochiweb","__binary_2.12.2"],2]]
+EOS
+      }
+
+      def mock_config_to_json
+        config_to_json_path = File.expand_path("../../../bin/config_to_json", File.dirname(__FILE__))
+        rebar_lock_path = File.join(project_dir, "rebar.lock")
+        mock = instance_double("Mixlib::ShellOut")
+
+        allow(Mixlib::ShellOut).to receive(:new).
+          with("#{config_to_json_path} #{rebar_lock_path}", environment: {}).
+          and_return(mock)
+
+        allow(mock).to receive(:run_command)
+        allow(mock).to receive(:error!)
+        allow(mock).to receive(:stdout).and_return(expected_config_to_json_output)
+      end
+
+      before do
+        mock_config_to_json
+        mock_git_rev_parse_for(
+          "edown", "30a9f7867d615af45783235faa52742d11a9348e",
+          cwd: File.join(project_dir, "_build/default/lib/edown")
+        )
+        mock_git_rev_parse_for(
+          "eper",
+          "43e0442863df9f713a5c88c9b43062b806d96adb",
+          cwd: File.join(project_dir, "_build/default/lib/eper")
+        )
+      end
+
+      it "discovers the license information correctly" do
+        dependencies = rebar.dependencies
+        expect(dependencies.length).to eq(3)
+
+        bifrost = dependencies.find { |d| d.name == "bifrost" }
+        expect(bifrost).to be_nil
+
+        mochiweb = dependencies.find { |d| d.name == "mochiweb" }
+        expect(mochiweb.license).to eq("MIT")
+        expect(mochiweb.version).to eq("2.12.2")
+        expect(mochiweb.license_files.length).to eq(1)
+        expect(mochiweb.license_files.first).to end_with("_build/default/lib/mochiweb/LICENSE")
+
+        eper = dependencies.find { |d| d.name == "eper" }
+        expect(eper.license).to eq("MIT")
+        expect(eper.version).to eq("43e0442863df9f713a5c88c9b43062b806d96adb")
+        expect(eper.license_files.length).to eq(1)
+        expect(eper.license_files.first).to end_with("_build/default/lib/eper/COPYING")
+
+        edown = dependencies.find { |d| d.name == "edown" }
+        expect(edown.license).to be_nil
+        expect(edown.version).to eq("30a9f7867d615af45783235faa52742d11a9348e")
+        expect(edown.license_files).to be_empty
+
+      end
+
+    end
+
   end
+
 end
