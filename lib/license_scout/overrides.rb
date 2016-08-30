@@ -298,6 +298,7 @@ module LicenseScout
         ["quickrand", "BSD-2-Clause", ["https://raw.githubusercontent.com/okeuday/quickrand/master/README.markdown"]],
         ["rabbit_common", "MPL-2.0", ["https://raw.githubusercontent.com/muxspace/rabbit_common/master/include/rabbit_msg_store.hrl"]],
         ["uuid", "BSD-2-Clause", ["https://raw.githubusercontent.com/okeuday/uuid/master/README.markdown"]],
+        ["ibrowse", "BSD-2-Clause", nil],
       ].each do |override_data|
         override_license "erlang_rebar", override_data[0] do |version|
           {}.tap do |d|
