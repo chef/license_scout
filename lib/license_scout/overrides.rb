@@ -1,4 +1,5 @@
 #
+
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
@@ -290,6 +291,7 @@ module LicenseScout
         ["edown", "Erlang-Public", ["https://raw.githubusercontent.com/seth/edown/master/NOTICE"]],
         ["bcrypt", "Multiple", ["https://github.com/chef/erlang-bcrypt/blob/master/LICENSE"]],
         ["amqp_client", "MPL-2.0", ["https://raw.githubusercontent.com/seth/amqp_client/7622ad8093a41b7288a1aa44dd16d3e92ce8f833/src/amqp_connection.erl"]],
+        ["erlsom", "LGPL-3.0", ["https://raw.githubusercontent.com/willemdj/erlsom/c5ca9fca1257f563d78b048e35ac60832ec80584/COPYING", "https://raw.githubusercontent.com/willemdj/erlsom/c5ca9fca1257f563d78b048e35ac60832ec80584/COPYING.LESSER"]],
         ["gen_server2", "Public-Domain", ["https://raw.githubusercontent.com/mdaguete/gen_server2/master/README.md"]],
         ["opscoderl_folsom", "Apache-2.0", ["https://raw.githubusercontent.com/chef/opscoderl_folsom/master/README.md"]],
         ["quickrand", "BSD-2-Clause", ["https://raw.githubusercontent.com/okeuday/quickrand/master/README.markdown"]],
