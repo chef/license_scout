@@ -12,6 +12,10 @@ Currently supported project types are:
 
 ## Usage
 
+## Thanks
+
+Thanks to https://github.com/basho for `config_to_json` binary which helps with parsing Erlang config files. From: https://github.com/basho/erlang_template_helper
+
 ## Contributing
 
 This project is maintained by the contribution guidelines identified for

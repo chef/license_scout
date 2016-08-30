@@ -283,6 +283,26 @@ module LicenseScout
           end
         end
       end
+
+      [
+        ["sync", "MIT", ["https://raw.githubusercontent.com/rustyio/sync/11df81d196eaab2d84caa3fbe8def5d476ef79d8/src/sync.erl"]],
+        ["rebar_vsn_plugin", "Apache-2.0", ["https://raw.githubusercontent.com/erlware/rebar_vsn_plugin/master/src/rebar_vsn_plugin.erl"]],
+        ["edown", "Erlang-Public", ["https://raw.githubusercontent.com/seth/edown/master/NOTICE"]],
+        ["bcrypt", "Multiple", ["https://github.com/chef/erlang-bcrypt/blob/master/LICENSE"]],
+        ["amqp_client", "MPL-2.0", ["https://raw.githubusercontent.com/seth/amqp_client/7622ad8093a41b7288a1aa44dd16d3e92ce8f833/src/amqp_connection.erl"]],
+        ["gen_server2", "Public-Domain", ["https://raw.githubusercontent.com/mdaguete/gen_server2/master/README.md"]],
+        ["opscoderl_folsom", "Apache-2.0", ["https://raw.githubusercontent.com/chef/opscoderl_folsom/master/README.md"]],
+        ["quickrand", "BSD-2-Clause", ["https://raw.githubusercontent.com/okeuday/quickrand/master/README.markdown"]],
+        ["rabbit_common", "MPL-2.0", ["https://raw.githubusercontent.com/muxspace/rabbit_common/master/include/rabbit_msg_store.hrl"]],
+        ["uuid", "BSD-2-Clause", ["https://raw.githubusercontent.com/okeuday/uuid/master/README.markdown"]],
+      ].each do |override_data|
+        override_license "erlang_rebar", override_data[0] do |version|
+          {}.tap do |d|
+            d[:license] = override_data[1] if override_data[1]
+            d[:license_files] = override_data[2] if override_data[2]
+          end
+        end
+      end
     end
 
   end
