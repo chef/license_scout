@@ -141,6 +141,7 @@ module LicenseScout
         ["chef-web-core", "Apache-2.0", nil],
         ["knife-opc", "Apache-2.0", nil],
         ["highline", "Ruby", ["LICENSE"]],
+        ["unicorn", "Ruby", ["LICENSE"]],
         # Overrides that require file fetching from internet
         ["sfl", "Ruby", ["https://raw.githubusercontent.com/ujihisa/spawn-for-legacy/master/LICENCE.md"]],
         ["json_pure", nil, ["https://raw.githubusercontent.com/flori/json/master/README.md"]],
