@@ -37,11 +37,18 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "ffi-yajl",         "~> 2.2"
   spec.add_dependency "mixlib-shellout",  "~> 2.2"
-  spec.add_dependency "berkshelf",        "~> 4.3"
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "rb-readline"
+
+  # We do not have berkshelf as a dependency because some of its dependencies
+  # can not be installed on uncommon platforms like Solaris which we need to
+  # support. If a project needs to collect license information for a berkshelf
+  # project it needs to include it seperately in its gem bundle. We have a nice
+  # error message when they do not. But we add berkshelf as a development
+  # dependency so that we can run our tests.
+  spec.add_development_dependency "berkshelf", "~> 4.3"
 end

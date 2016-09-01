@@ -15,8 +15,6 @@
 # limitations under the License.
 #
 
-require "berkshelf"
-
 require "license_scout/dependency_manager/base"
 
 module LicenseScout
@@ -27,11 +25,25 @@ module LicenseScout
         "chef_berkshelf"
       end
 
+      def berkshelf_available?
+        begin
+          require "berkshelf"
+        rescue LoadError
+          return false
+        end
+
+        true
+      end
+
       def detected?
         File.exists?(berksfile_path) && File.exists?(lockfile_path)
       end
 
       def dependencies
+        if !berkshelf_available?
+          raise LicenseScout::Exceptions::Error.new "Project at '#{project_dir}' is a Berkshelf project but berkshelf gem is not available in your bundle. Add berkshelf to your bundle in order to collect licenses for this project."
+        end
+
         dependencies = []
         cookbook_dependencies = nil
 
