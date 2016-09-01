@@ -110,6 +110,18 @@ RSpec.describe(LicenseScout::DependencyManager::Berkshelf) do
 
     end
 
+    describe "when berkshelf is not available" do
+      before do
+        expect(berkshelf).to receive(:require).with("berkshelf") do
+          raise LoadError
+        end
+      end
+
+      it "raises an error" do
+        expect { berkshelf.dependencies }.to raise_error(LicenseScout::Exceptions::Error, /berkshelf gem is not available/)
+      end
+    end
+
     describe "when given license overrides" do
       let(:overrides) do
         LicenseScout::Overrides.new do
