@@ -299,6 +299,10 @@ module LicenseScout
         ["rabbit_common", "MPL-2.0", ["https://raw.githubusercontent.com/muxspace/rabbit_common/master/include/rabbit_msg_store.hrl"]],
         ["uuid", "BSD-2-Clause", ["https://raw.githubusercontent.com/okeuday/uuid/master/README.markdown"]],
         ["ibrowse", "BSD-2-Clause", nil],
+        ["eunit_formatters", "Apache-2.0", ["https://raw.githubusercontent.com/seancribbs/eunit_formatters/master/README.md"]],
+        ["erlware_commons", "MIT", ["https://raw.githubusercontent.com/erlware/erlware_commons/master/COPYING"]],
+        ["getopt", "MIT", nil],
+        ["relx", "Apache-2.0", ["https://raw.githubusercontent.com/erlware/relx/master/LICENSE.md"]],
       ].each do |override_data|
         override_license "erlang_rebar", override_data[0] do |version|
           {}.tap do |d|
