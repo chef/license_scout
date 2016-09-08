@@ -83,4 +83,20 @@ RSpec.describe(LicenseScout::Options) do
     end
   end
 
+  context "with :manual_licenses input" do
+    let(:input_parameters) do
+      {
+        manual_licenses: [
+          {
+            license: "MIT",
+          },
+        ],
+      }
+    end
+
+    it "can set the manual_licenses" do
+      expect(options.manual_licenses.first[:license]).to eq("MIT")
+    end
+  end
+
 end
