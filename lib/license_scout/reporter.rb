@@ -36,32 +36,51 @@ module LicenseScout
       license_report = FFI_Yajl::Parser.parse(File.read(license_manifest_path))
 
       license_report["dependency_managers"].each do |dependency_manager, dependencies|
+
+        ok_deps, problem_deps = 0, 0
+
         dependencies.each do |dependency|
-          if dependency["name"].nil? || dependency["name"].empty?
-            report << "There is a dependency with a missing name in '#{dependency_manager}'."
-          end
+          dep_ok, problems = license_info_ok?(dependency_manager, dependency)
 
-          if dependency["version"].nil? || dependency["version"].empty?
-            report << "Dependency '#{dependency["name"]}' under '#{dependency_manager}' is missing version information."
-          end
-
-          if dependency["license"].nil? || dependency["license"].empty?
-            report << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license information."
-          end
-
-          if dependency["license_files"].empty?
-            report << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license files information."
+          if dep_ok
+            ok_deps += 1
           else
-            dependency["license_files"].each do |license_file|
-              if !File.exist?(full_path_for(license_file))
-                report << "License file '#{license_file}' for the dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing."
-              end
-            end
+            problem_deps += 1
+            report.concat(problems)
+          end
+        end
+
+        report << ">> Found #{dependencies.size} dependencies for #{dependency_manager}. #{ok_deps} OK, #{problem_deps} with problems"
+      end
+
+      report
+    end
+
+    def license_info_ok?(dependency_manager, dependency)
+      problems = []
+      if dependency["name"].nil? || dependency["name"].empty?
+        problems << "There is a dependency with a missing name in '#{dependency_manager}'."
+      end
+
+      if dependency["version"].nil? || dependency["version"].empty?
+        problems << "Dependency '#{dependency["name"]}' under '#{dependency_manager}' is missing version information."
+      end
+
+      if dependency["license"].nil? || dependency["license"].empty?
+        problems << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license information."
+      end
+
+      if dependency["license_files"].empty?
+        problems << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license files information."
+      else
+        dependency["license_files"].each do |license_file|
+          if !File.exist?(full_path_for(license_file))
+            problems << "License file '#{license_file}' for the dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing."
           end
         end
       end
 
-      report
+      [ problems.empty?, problems ]
     end
 
     def find_license_manifest!

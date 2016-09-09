@@ -54,7 +54,8 @@ RSpec.describe(LicenseScout::Reporter) do
     let(:output_directory) { File.join(SPEC_FIXTURES_DIR, "output_no_errors") }
 
     it "reports no issues" do
-      expect(reporter.report).to be_empty
+      expected = [">> Found 3 dependencies for ruby_bundler. 3 OK, 0 with problems"]
+      expect(reporter.report).to eq(expected)
     end
   end
 
@@ -69,13 +70,22 @@ RSpec.describe(LicenseScout::Reporter) do
       ]
     end
 
+    let(:expected_summary) do
+      ">> Found 4 dependencies for ruby_bundler. 0 OK, 4 with problems"
+    end
+
+    let(:expected_report) do
+      expected_errors + [ expected_summary ]
+    end
+
     it "reports the errors" do
       report = reporter.report
 
-      expect(report.length).to eq(expected_errors.length)
+      expect(report.length).to eq(expected_report.length)
       expected_errors.each do |error|
         expect(report).to include(error)
       end
+      expect(report.last).to eq(expected_summary)
     end
   end
 
@@ -88,13 +98,22 @@ RSpec.describe(LicenseScout::Reporter) do
       ]
     end
 
+    let(:expected_summary) do
+      ">> Found 3 dependencies for ruby_bundler. 1 OK, 2 with problems"
+    end
+
+    let(:expected_report) do
+      expected_errors + [ expected_summary ]
+    end
+
     it "reports the errors" do
       report = reporter.report
 
-      expect(report.length).to eq(expected_errors.length)
+      expect(report.length).to eq(expected_report.length)
       expected_errors.each do |error|
         expect(report).to include(error)
       end
+      expect(report.last).to eq(expected_summary)
     end
   end
 
