@@ -33,13 +33,18 @@ module LicenseScout
         License.rdoc
         Licence.rdoc
         Licence.md
+        license
+        LICENCE
+        licence
         MIT-LICENSE
         MIT-LICENSE.txt
         LICENSE.MIT
+        LICENSE-MIT
         LGPL-2.1
         COPYING.txt
         COPYING
         BSD_LICENSE
+        LICENSE.BSD
       }
 
       attr_reader :project_dir

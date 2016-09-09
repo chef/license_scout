@@ -16,5 +16,18 @@
 #
 
 module LicenseScout
-  Dependency = Struct.new(:name, :version, :license, :license_files)
+  Dependency = Struct.new(:name, :version, :license, :license_files) do
+
+    def eql?(other)
+      other.kind_of?(self.class) && other.hash == hash
+    end
+
+    # hash code for when Dependency is used as a key in a Hash or member of a
+    # Set. The implementation is somewhat naive, but will work fine if you
+    # don't go too crazy mixing different types.
+    def hash
+      [self.class.name, name, version, license].hash
+    end
+
+  end
 end

@@ -19,11 +19,12 @@ require "license_scout/dependency_manager/bundler"
 require "license_scout/dependency_manager/rebar"
 require "license_scout/dependency_manager/cpan"
 require "license_scout/dependency_manager/berkshelf"
+require "license_scout/dependency_manager/npm"
 
 module LicenseScout
   module DependencyManager
     def self.implementations
-      [Bundler, Rebar, CPAN, Berkshelf]
+      [Bundler, Rebar, CPAN, Berkshelf, NPM]
     end
   end
 end
