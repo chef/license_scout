@@ -78,7 +78,7 @@ module LicenseScout
             dependency_license_files = override_license_files.resolve_locations(cookbook_path)
           end
 
-          dependencies << Dependency.new(
+          dependencies << create_dependency(
             dependency_name,
             dependency_version,
             dependency_license,

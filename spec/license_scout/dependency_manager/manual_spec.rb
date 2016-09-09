@@ -54,12 +54,14 @@ RSpec.describe(LicenseScout::DependencyManager::Manual) do
           version: "1.1.1",
           license: "MIT",
           license_files: ["LICENSE"],
+          dependency_manager: "logstash_plugin",
         },
         {
           name: "elasticsearch",
           version: "2.1.3",
           license: "Apache-2.0",
           license_files: ["COPYING"],
+          dependency_manager: "ruby_bundler",
         },
       ]
     end
@@ -74,8 +76,10 @@ RSpec.describe(LicenseScout::DependencyManager::Manual) do
       expect(deps.first.name).to eq("logstash-websocket-plugin")
       expect(deps.first.license).to eq("MIT")
       expect(deps.first.version).to eq("1.1.1")
+      expect(deps.first.dep_mgr_name).to eq("logstash_plugin")
       expect(deps.last.name).to eq("elasticsearch")
       expect(deps.last.license_files).to eq(["COPYING"])
+      expect(deps.last.dep_mgr_name).to eq("ruby_bundler")
     end
   end
 

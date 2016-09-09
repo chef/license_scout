@@ -84,7 +84,7 @@ module LicenseScout
 
           license_name = options.overrides.license_for(name, dep_name, dep_version) || scan_licenses(license_files)
 
-          dep = Dependency.new(dep_name, dep_version, license_name, license_files)
+          dep = create_dependency(dep_name, dep_version, license_name, license_files)
 
           dependencies << dep
         end

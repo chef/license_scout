@@ -33,11 +33,12 @@ module LicenseScout
         validate_input!
 
         options.manual_licenses.map do |d|
-          Dependency.new(
+          create_dependency(
             d[:name],
             d[:version],
             d[:license],
-            d[:license_files]
+            d[:license_files],
+            d[:dependency_manager]
           )
         end
       end
@@ -49,7 +50,7 @@ module LicenseScout
 
         options.manual_licenses.each do |l|
           l.keys.each do |k|
-            if ![:name, :version, :license, :license_files].include?(k)
+            if ![:name, :version, :license, :license_files, :dependency_manager].include?(k)
               raise LicenseScout::Exceptions::InvalidManualDependency.new("Invalid manual dependency is specified. Key '#{k}' is not supported.")
             end
           end
