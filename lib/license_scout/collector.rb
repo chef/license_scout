@@ -78,9 +78,9 @@ module LicenseScout
     end
 
     def collect_licenses_from(dependency_manager)
-      license_manifest_data[:dependency_managers][dependency_manager.name] = []
-
       dependency_manager.dependencies.each do |dep|
+        license_manifest_data[:dependency_managers][dep.dep_mgr_name] ||= []
+
         license_data = {
           name: dep.name,
           version: dep.version,
@@ -101,7 +101,7 @@ module LicenseScout
           license_data[:license_files] << output_license_filename
         end
 
-        license_manifest_data[:dependency_managers][dependency_manager.name] << license_data
+        license_manifest_data[:dependency_managers][dep.dep_mgr_name] << license_data
 
       end
     end

@@ -143,6 +143,7 @@ module LicenseScout
         ["knife-opc", "Apache-2.0", nil],
         ["highline", "Ruby", ["LICENSE"]],
         ["unicorn", "Ruby", ["LICENSE"]],
+        ["winrm-fs", "Apache-2.0", nil],
         # Overrides that require file fetching from internet
         ["sfl", "Ruby", ["https://raw.githubusercontent.com/ujihisa/spawn-for-legacy/master/LICENCE.md"]],
         ["json_pure", nil, ["https://raw.githubusercontent.com/flori/json/master/README.md"]],
@@ -189,6 +190,7 @@ module LicenseScout
         ["rails", nil, ["https://raw.githubusercontent.com/rails/rails/master/README.md"]],
         ["unicorn-rails", "MIT", ["https://raw.githubusercontent.com/samuelkadolph/unicorn-rails/master/LICENSE"]],
         ["hoe", "MIT", ["https://raw.githubusercontent.com/seattlerb/hoe/master/README.rdoc"]],
+        ["rubyzip", nil, ["https://raw.githubusercontent.com/rubyzip/rubyzip/master/README.md"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|

@@ -77,7 +77,8 @@ module LicenseScout
             dist,
             version,
             license,
-            license_files
+            license_files,
+            "perl_cpan"
           )
         end
 

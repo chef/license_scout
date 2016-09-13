@@ -16,7 +16,7 @@
 #
 
 module LicenseScout
-  Dependency = Struct.new(:name, :version, :license, :license_files) do
+  Dependency = Struct.new(:name, :version, :license, :license_files, :dep_mgr_name) do
 
     def eql?(other)
       other.kind_of?(self.class) && other.hash == hash
@@ -26,7 +26,7 @@ module LicenseScout
     # Set. The implementation is somewhat naive, but will work fine if you
     # don't go too crazy mixing different types.
     def hash
-      [self.class.name, name, version, license].hash
+      [dep_mgr_name, name, version, license].hash
     end
 
   end

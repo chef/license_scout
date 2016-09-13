@@ -36,8 +36,8 @@ module LicenseScout
         license = File.join(SPEC_FIXTURES_DIR, "test_licenses/LICENSE")
         copying = File.join(SPEC_FIXTURES_DIR, "test_licenses/COPYING")
         [
-          Dependency.new("example1", "1.0.0", "MIT", [license, copying]),
-          Dependency.new("example2", "1.2.3", "Apache-2", [copying]),
+          create_dependency("example1", "1.0.0", "MIT", [license, copying]),
+          create_dependency("example2", "1.2.3", "Apache-2", [copying]),
         ]
       end
     end
@@ -70,7 +70,7 @@ module LicenseScout
             license_files = dependency[:files]
           end
 
-          Dependency.new(dependency[:name], dependency[:version], license, license_files)
+          create_dependency(dependency[:name], dependency[:version], license, license_files)
         end
       end
     end
@@ -210,8 +210,7 @@ RSpec.describe(LicenseScout::Collector) do
 
     it "does not report any missing license information" do
       collector.run
-      expected = [">> Found 2 dependencies for test_dep_manager. 2 OK, 0 with problems"]
-      expect(collector.issue_report).to eq(expected)
+      expect(collector.issue_report).to be_empty
     end
 
     context "when a dependency's license cannot be detected" do

@@ -55,6 +55,11 @@ module LicenseScout
         @options = options
       end
 
+      def create_dependency(dep_name, version, license, license_files, dep_mgr_name = self.name)
+        # add name of the dependency manager `name` to the dependency we are
+        # creating.
+        Dependency.new(dep_name, version, license, license_files, dep_mgr_name)
+      end
     end
   end
 end

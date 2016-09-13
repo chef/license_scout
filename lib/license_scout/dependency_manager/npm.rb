@@ -51,7 +51,7 @@ module LicenseScout
             license_files = override_license_files.resolve_locations(package_path)
           end
 
-          package_set << Dependency.new(
+          package_set << create_dependency(
             pkg_name,
             pkg_version,
             license,

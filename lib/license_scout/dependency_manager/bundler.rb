@@ -93,7 +93,7 @@ module LicenseScout
             end
           end
 
-          dependencies << Dependency.new(
+          dependencies << create_dependency(
             dependency_name,
             dependency_version,
             dependency_license,
