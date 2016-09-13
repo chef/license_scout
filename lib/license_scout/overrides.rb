@@ -58,11 +58,11 @@ module LicenseScout
 
     attr_reader :override_rules
 
-    def initialize(&rules)
+    def initialize(exclude_default: false, &rules)
       @override_rules = {}
       instance_eval(&rules) if block_given?
 
-      default_overrides
+      default_overrides unless exclude_default
     end
 
     def override_license(dependency_manager, dependency_name, &rule)
@@ -89,6 +89,10 @@ module LicenseScout
     def license_data_for(dependency_manager, dependency_name, dependency_version)
       return nil unless have_override_for?(dependency_manager, dependency_name, dependency_version)
       override_rules[dependency_manager][dependency_name].call(dependency_version)
+    end
+
+    def canonical(shortname)
+      File.expand_path("../canonical_licenses/#{shortname}.txt", __FILE__)
     end
 
     def default_overrides
@@ -200,6 +204,7 @@ module LicenseScout
         end
       end
 
+      # chef_berkshelf
       [
         ["apt", nil, ["https://raw.githubusercontent.com/chef-cookbooks/apt/master/LICENSE"]],
         ["chef-ha-drbd", nil, ["https://raw.githubusercontent.com/chef/chef-server/master/LICENSE"]],
@@ -288,6 +293,7 @@ module LicenseScout
         end
       end
 
+      # erlang_rebar
       [
         ["sync", "MIT", ["https://raw.githubusercontent.com/rustyio/sync/11df81d196eaab2d84caa3fbe8def5d476ef79d8/src/sync.erl"]],
         ["rebar_vsn_plugin", "Apache-2.0", ["https://raw.githubusercontent.com/erlware/rebar_vsn_plugin/master/src/rebar_vsn_plugin.erl"]],
@@ -307,6 +313,144 @@ module LicenseScout
         ["relx", "Apache-2.0", ["https://raw.githubusercontent.com/erlware/relx/master/LICENSE.md"]],
       ].each do |override_data|
         override_license "erlang_rebar", override_data[0] do |version|
+          {}.tap do |d|
+            d[:license] = override_data[1] if override_data[1]
+            d[:license_files] = override_data[2] if override_data[2]
+          end
+        end
+      end
+
+      # js_npm
+      [
+        ["isarray", nil, [canonical("MIT")]],
+        ["array-filter", nil, [canonical("MIT")]],
+        ["chokidar", nil, ["README.md"]],
+        ["set-immediate-shim", "MIT", ["https://raw.githubusercontent.com/sindresorhus/set-immediate-shim/master/license"]],
+        ["process-nextick-args", nil, [canonical("MIT")]],
+        ["buffer-shims", nil, [canonical("MIT")]],
+        ["brace-expansion", nil, ["README.md"]],
+        ["verror", "MIT", ["https://github.com/joyent/node-verror/blob/master/LICENSE"]],
+        # From the json-schema readme:
+        # Code is licensed under the AFL or BSD license as part of the
+        # Persevere project which is administered under the Dojo foundation,
+        # and all contributions require a Dojo CLA.
+        ["json-schema", "BSD", ["https://raw.githubusercontent.com/dojo/dojo/master/LICENSE"]],
+        ["tweetnacl", "BSD", ["https://raw.githubusercontent.com/dchest/tweetnacl-js/master/COPYING.txt"]],
+        ["assert-plus", "MIT", ["README.md"]],
+        ["sntp", "BSD-3-Clause", nil],
+        ["node-uuid", "MIT", nil],
+        ["ms", "MIT", nil],
+        ["jsonpointer", nil, ["https://raw.githubusercontent.com/janl/node-jsonpointer/master/LICENSE.md"]],
+        ["has-color", nil, ["https://raw.githubusercontent.com/chalk/supports-color/master/license"]],
+        ["generate-function", nil, ["https://github.com/mafintosh/generate-function/blob/master/LICENSE"]],
+        ["extsprintf", "MIT", nil],
+        ["debug", nil, ["README.md"]],
+        ["dashdash", nil, ["https://raw.githubusercontent.com/trentm/node-dashdash/master/LICENSE.txt"]],
+        # The link here is what's included in the readme
+        ["async-each", nil, ["https://raw.githubusercontent.com/paulmillr/mit/master/README.md"]],
+        # README on https://www.npmjs.com/package/indexof just says "MIT"
+        ["indexof", "MIT", [canonical("MIT")]],
+        ["querystring", "MIT", nil],
+        ["timers-browserify", "MIT", nil],
+        ["shell-quote", nil, ["https://raw.githubusercontent.com/substack/node-shell-quote/master/LICENSE"]],
+        ["querystring-es3", "MIT", nil],
+        ["xtend", "MIT", nil],
+        ["source-map", nil, ["https://raw.githubusercontent.com/mozilla/source-map/master/LICENSE"]],
+        ["randombytes", nil, [canonical("MIT")]],
+        ["public-encrypt", nil, [canonical("MIT")]],
+        ["parse-asn1", nil, [canonical("ISC")]],
+        ["evp_bytestokey", nil, [canonical("MIT")]],
+        ["cipher-base", nil, [canonical("MIT")]],
+        ["asn1.js", nil, ["README.md"]],
+        ["minimalistic-assert", nil, [canonical("ISC")]],
+        ["bn.js", nil, ["README.md"]],
+        ["diffie-hellman", nil, [canonical("MIT")]],
+        ["miller-rabin", nil, ["README.md"]],
+        ["brorand", nil, ["README.md"]],
+        ["create-hmac", nil, [canonical("MIT")]],
+        ["create-hash", nil, [canonical("MIT")]],
+        ["ripemd160", nil, ["https://github.com/crypto-browserify/ripemd160/blob/master/LICENSE.md"]],
+        ["create-ecdh", nil, [canonical("MIT")]],
+        ["elliptic", nil, ["README.md"]],
+        ["hash.js", nil, ["README.md"]],
+        ["adm-zip", nil, ["https://raw.githubusercontent.com/cthackers/adm-zip/master/MIT-LICENSE.txt"]],
+        ["after", "MIT", nil],
+        ["agent-base", nil, ["README.md"]],
+        ["angular-embedly", "BSD-2-Clause", nil],
+        ["angular-feature-flags", nil, ["https://mjt01.mit-license.org/"]],
+        ["angular-restmod", "MIT", nil],
+        ["angular-spinner", nil, [canonical("MIT")]],
+        ["ansi", "MIT", ["https://raw.githubusercontent.com/TooTallNate/ansi.js/master/LICENSE"]],
+        ["ansi-regex", nil, ["https://raw.githubusercontent.com/chalk/ansi-regex/master/license"]],
+        ["ansi-styles", nil, [canonical("MIT")]],
+        ["ansi_up", "MIT", ["README.md"]],
+        ["are-we-there-yet", nil, ["https://raw.githubusercontent.com/iarna/are-we-there-yet/master/LICENSE"]],
+        ["arraybuffer.slice", "MIT", ["README.md"]],
+        ["asn1", "MIT", nil],
+        ["async-foreach", "MIT", nil],
+        ["aws-sign2", "Apache-2.0", nil],
+        ["babel", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-code-frame", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-core", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-generator", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helper-call-delegate", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helper-define-map", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helper-function-name", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helper-get-function-arity", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helper-hoist-variables", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helper-optimise-call-expression", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helper-regex", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helper-replace-supers", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-helpers", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-messages", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-check-es2015-constants", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-syntax-async-functions", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-arrow-functions", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-block-scoped-functions", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-block-scoping", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-classes", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-computed-properties", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-destructuring", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-duplicate-keys", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-for-of", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-function-name", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-literals", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-modules-amd", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-modules-commonjs", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-modules-systemjs", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-modules-umd", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-object-super", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-parameters", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-shorthand-properties", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-spread", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-sticky-regex", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-template-literals", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-typeof-symbol", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-es2015-unicode-regex", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-plugin-transform-strict-mode", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-preset-es2015", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-register", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-runtime", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-template", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-traverse", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["babel-types", nil, ["https://raw.githubusercontent.com/babel/babel/master/LICENSE"]],
+        ["backo2", nil, ["https://raw.githubusercontent.com/mokesmokes/backo/master/LICENSE"]],
+        ["balanced-match", nil, ["https://raw.githubusercontent.com/juliangruber/balanced-match/master/LICENSE.md"]],
+        ["base64id", "MIT", ["https://raw.githubusercontent.com/faeldt/base64id/master/LICENSE"]],
+        ["batch", nil, ["README.md"]],
+        ["bcrypt-pbkdf", nil, [canonical("BSD-4-Clause")]],
+        ["better-assert", "MIT", ["https://raw.githubusercontent.com/tj/better-assert/master/LICENSE"]],
+        ["binary", nil, [canonical("MIT")]],
+        ["bindings", nil, ["README.md"]],
+        ["blob", "MIT", ["https://raw.githubusercontent.com/webmodules/blob/master/LICENSE"]],
+        ["bluebird", nil, ["https://github.com/petkaantonov/bluebird/blob/master/LICENSE"]],
+        ["browserify-cipher", nil, [canonical("MIT")]],
+        ["browserify-des", nil, [canonical("MIT")]],
+        ["browserify-zlib", nil, ["https://raw.githubusercontent.com/devongovett/browserify-zlib/master/LICENSE"]],
+        ["buffers", "MIT", [canonical("MIT")]],
+        ["bufferutil", nil, [canonical("MIT")]],
+      ].each do |override_data|
+        override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
             d[:license] = override_data[1] if override_data[1]
             d[:license_files] = override_data[2] if override_data[2]

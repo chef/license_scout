@@ -27,7 +27,7 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
     ))
   end
 
-  let(:overrides) { LicenseScout::Overrides.new }
+  let(:overrides) { LicenseScout::Overrides.new(exclude_default: true) }
 
   let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "npm") }
 
@@ -136,9 +136,39 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
       expect(ansi.license_files).to eq([])
     end
 
+    describe "with default overrides enabled" do
+
+      let(:overrides) { LicenseScout::Overrides.new() }
+
+      it "fixes up dependencies with license metadata but no license files" do
+        assert_plus_1_0_0 = npm.dependencies.find do |d|
+          d.name == "assert-plus" && d.version = "1.0.0"
+        end
+        expect(assert_plus_1_0_0.license).to eq("MIT")
+
+        rel_path =
+          "npm/node_modules/node-sass/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/assert-plus/README.md"
+        expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
+        expect(assert_plus_1_0_0.license_files).to eq([expected_path])
+      end
+
+      it "fixes up dependencies with license files but no metadata" do
+        asn1 = npm.dependencies.find do |d|
+          d.name == "asn1" && d.version == "0.1.11"
+        end
+        rel_path =
+          "npm/node_modules/node-sass/node_modules/cross-spawn/node_modules/spawn-sync/node_modules/try-thread-sleep/node_modules/thread-sleep/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/asn1/LICENSE"
+        expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
+        expect(asn1.version).to eq("0.1.11")
+        expect(asn1.license).to eq("MIT")
+        expect(asn1.license_files).to eq([expected_path])
+      end
+
+    end
+
     describe "when only license files are overridden." do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "js_npm", "assert-plus" do |version|
             {
               license_files: [ "package.json" ], # this is the only file we have in all versions
@@ -162,7 +192,7 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
 
     describe "when correct overrides are provided." do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "js_npm", "assert-plus" do |version|
             {
               license: "Apache",
@@ -187,7 +217,7 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
 
     describe "when overrides with missing license file paths are provided" do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "js_npm", "assert-plus" do |version|
             {
               license_files: [ "this-file-isnt-here" ],
