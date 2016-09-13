@@ -50,7 +50,9 @@ module LicenseScout
           end
         end
 
-        report << ">> Found #{dependencies.size} dependencies for #{dependency_manager}. #{ok_deps} OK, #{problem_deps} with problems"
+        if problem_deps > 0
+          report << ">> Found #{dependencies.size} dependencies for #{dependency_manager}. #{ok_deps} OK, #{problem_deps} with problems"
+        end
       end
 
       report
