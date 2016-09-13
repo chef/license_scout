@@ -210,8 +210,7 @@ RSpec.describe(LicenseScout::Collector) do
 
     it "does not report any missing license information" do
       collector.run
-      expected = [">> Found 2 dependencies for test_dep_manager. 2 OK, 0 with problems"]
-      expect(collector.issue_report).to eq(expected)
+      expect(collector.issue_report).to be_empty
     end
 
     context "when a dependency's license cannot be detected" do
