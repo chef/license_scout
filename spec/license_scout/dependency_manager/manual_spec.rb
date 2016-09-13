@@ -29,12 +29,8 @@ RSpec.describe(LicenseScout::DependencyManager::Manual) do
     ))
   end
 
-  let(:project_dir) { Dir.mktmpdir }
+  let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "manual") }
   let(:manual_licenses) { nil }
-
-  after do
-    FileUtils.rm_rf(project_dir)
-  end
 
   it "has a name" do
     expect(manual.name).to eq("manual")
@@ -53,14 +49,14 @@ RSpec.describe(LicenseScout::DependencyManager::Manual) do
           name: "logstash-websocket-plugin",
           version: "1.1.1",
           license: "MIT",
-          license_files: ["LICENSE"],
+          license_files: ["random/LICENSE"],
           dependency_manager: "logstash_plugin",
         },
         {
           name: "elasticsearch",
           version: "2.1.3",
           license: "Apache-2.0",
-          license_files: ["COPYING"],
+          license_files: ["random/COPYING"],
           dependency_manager: "ruby_bundler",
         },
       ]
@@ -77,8 +73,9 @@ RSpec.describe(LicenseScout::DependencyManager::Manual) do
       expect(deps.first.license).to eq("MIT")
       expect(deps.first.version).to eq("1.1.1")
       expect(deps.first.dep_mgr_name).to eq("logstash_plugin")
+      expect(deps.first.license_files.first).to end_with("fixtures/manual/random/LICENSE")
       expect(deps.last.name).to eq("elasticsearch")
-      expect(deps.last.license_files).to eq(["COPYING"])
+      expect(deps.last.license_files.first).to end_with("fixtures/manual/random/COPYING")
       expect(deps.last.dep_mgr_name).to eq("ruby_bundler")
     end
   end

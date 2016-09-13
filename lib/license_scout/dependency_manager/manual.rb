@@ -17,6 +17,7 @@
 
 require "license_scout/dependency_manager/base"
 require "license_scout/dependency"
+require "license_scout/overrides"
 
 module LicenseScout
   module DependencyManager
@@ -37,10 +38,15 @@ module LicenseScout
             d[:name],
             d[:version],
             d[:license],
-            d[:license_files],
+            resolve_license_file_locations(d[:license_files]),
             d[:dependency_manager]
           )
         end
+      end
+
+      def resolve_license_file_locations(license_files)
+        LicenseScout::Overrides::OverrideLicenseSet.new(license_files)
+          .resolve_locations(project_dir)
       end
 
       def validate_input!
