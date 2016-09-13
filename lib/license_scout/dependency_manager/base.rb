@@ -40,6 +40,7 @@ module LicenseScout
         MIT-LICENSE.txt
         LICENSE.MIT
         LICENSE-MIT
+        LICENSE-MIT.txt
         LGPL-2.1
         COPYING.txt
         COPYING

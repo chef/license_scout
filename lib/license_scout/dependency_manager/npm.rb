@@ -42,7 +42,7 @@ module LicenseScout
           package_path = File.dirname(package_json_file)
 
           license = options.overrides.license_for(name, pkg_name, pkg_version) ||
-            normalize_license_data(pkg_info["license"])
+            normalize_license_data(pkg_info["license"] || pkg_info["licence"] || pkg_info["licenses"])
 
           override_license_files = options.overrides.license_files_for(name, pkg_name, pkg_version)
           if override_license_files.empty?
@@ -112,6 +112,12 @@ module LicenseScout
             license_metadata
           when Hash
             license_metadata["type"]
+          when Array
+            if (map = license_metadata.first) && map.kind_of?(Hash) && (type = map["type"])
+              type
+            else
+              nil
+            end
           end
         select_best_license(license_string)
       end
