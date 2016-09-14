@@ -39,7 +39,7 @@ module LicenseScout
 
         ok_deps, problem_deps = 0, 0
 
-        dependencies.each do |dependency|
+        dependencies.sort { |a, b| a["name"] <=> b["name"] }.each do |dependency|
           dep_ok, problems = license_info_ok?(dependency_manager, dependency)
 
           if dep_ok
