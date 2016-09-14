@@ -57,8 +57,7 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
 
     # npm recursively nests dependencies, make sure we find them.
     it "detects all transitive dependencies" do
-      # there are 762 package.json files, but some are dups
-      expect(npm.dependencies.size).to eq(438)
+      expect(npm.dependencies.size).to eq(102)
 
       # spec/fixtures/npm/node_modules/node-sass/node_modules/meow/package.json
       meow = npm.dependencies.find { |d| d.name == "meow" }
@@ -67,15 +66,15 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
 
     it "dedups dependencies only if they are the same version" do
       dependencies = npm.dependencies
-      assert_plus_info = dependencies.select { |d| d.name == "assert-plus" }
-      assert_plus_info.sort! { |a, b| a.version <=> b.version }
+      minimist_info = dependencies.select { |d| d.name == "minimist" }
+      minimist_info.sort! { |a, b| a.version <=> b.version }
 
-      # There are 7 copies of assert-plus at different versions, after de-dup
-      # on version there should only be 3. (`find spec/fixtures/npm -name assert-plus`)
-      expect(assert_plus_info.size).to eq(3)
-      expect(assert_plus_info[0].version).to eq("0.1.5")
-      expect(assert_plus_info[1].version).to eq("0.2.0")
-      expect(assert_plus_info[2].version).to eq("1.0.0")
+      # There are 4 copies of minimist at different versions, after de-dup
+      # on version there should only be 3. (`find spec/fixtures/npm -name minimist`)
+      expect(minimist_info.size).to eq(3)
+      expect(minimist_info[0].version).to eq("0.0.10")
+      expect(minimist_info[1].version).to eq("0.0.8")
+      expect(minimist_info[2].version).to eq("1.2.0")
     end
 
     it "detects dependencies with license files and license metadata" do
@@ -86,17 +85,17 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
       expect(angular.license_files).to eq([expected_license_path])
     end
 
-    # rc 1.1.0
+    # rc 1.1.6
     it "handles licenses with multiple license options" do
-      rc_1_1_0 = npm.dependencies.find do |d|
-        d.name == "rc" && d.version == "1.1.0"
+      rc_1_1_6 = npm.dependencies.find do |d|
+        d.name == "rc" && d.version == "1.1.6"
       end
 
       # RC lets you pick any of these:
       # BSD-2-Clause OR MIT OR Apache-2.0
       #
       # We choose Apache 2.0 because it's what we use for our own stuff.
-      expect(rc_1_1_0.license).to eq("Apache-2.0")
+      expect(rc_1_1_6.license).to eq("Apache-2.0")
     end
 
     # The SPDX license format that npm uses allows packages to specify multiple
@@ -123,8 +122,7 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
       asn1 = npm.dependencies.find do |d|
         d.name == "asn1" && d.version == "0.1.11"
       end
-      rel_path =
-        "npm/node_modules/node-sass/node_modules/cross-spawn/node_modules/spawn-sync/node_modules/try-thread-sleep/node_modules/thread-sleep/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/asn1/LICENSE"
+      rel_path = "npm/node_modules/node-sass/node_modules/asn1/LICENSE"
       expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
       expect(asn1.version).to eq("0.1.11")
       expect(asn1.license).to be_nil
@@ -151,12 +149,11 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
 
       it "only uses license file overrides and reports the original license" do
         assert_plus_1_0_0 = npm.dependencies.find do |d|
-          d.name == "assert-plus" && d.version = "1.0.0"
+          d.name == "assert-plus" && d.version = "0.2.0"
         end
         expect(assert_plus_1_0_0.license).to eq("MIT")
 
-        rel_path =
-          "npm/node_modules/node-sass/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/assert-plus/package.json"
+        rel_path = "npm/node_modules/assert-plus/package.json"
         expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
         expect(assert_plus_1_0_0.license_files).to eq([ expected_path ])
       end
@@ -181,8 +178,7 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
         end
         expect(assert_plus_1_0_0.license).to eq("Apache")
 
-        rel_path =
-          "npm/node_modules/node-sass/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/assert-plus/package.json"
+        rel_path = "npm/node_modules/assert-plus/package.json"
         expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
         expect(assert_plus_1_0_0.license_files).to eq([ expected_path ])
       end
