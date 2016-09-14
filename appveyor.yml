@@ -9,6 +9,8 @@ branches:
 
 install:
   - set PATH=C:\Ruby22\bin;%PATH%
+  - appveyor DownloadFile http://curl.haxx.se/ca/cacert.pem -FileName C:\cacert.pem
+  - set SSL_CERT_FILE=C:\cacert.pem
 
 build_script:
   - bundle install || bundle install || bundle install
