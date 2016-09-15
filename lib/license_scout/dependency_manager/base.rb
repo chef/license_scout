@@ -36,6 +36,7 @@ module LicenseScout
         license
         LICENCE
         licence
+        APACHE.LICENSE
         MIT-LICENSE
         MIT-LICENSE.txt
         LICENSE.MIT
@@ -46,6 +47,7 @@ module LicenseScout
         COPYING
         BSD_LICENSE
         LICENSE.BSD
+        UNLICENSE
       }
 
       attr_reader :project_dir
