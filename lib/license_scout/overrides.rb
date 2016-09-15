@@ -291,7 +291,7 @@ module LicenseScout
         ["Test-utf8", nil, ["README"]],
 
       ].each do |override_data|
-        override_license "perl_cpan", override_data[0] do |version|
+        override_license "perl_cpanm", override_data[0] do |version|
           {}.tap do |d|
             d[:license] = override_data[1] if override_data[1]
             d[:license_files] = override_data[2] if override_data[2]

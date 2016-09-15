@@ -1,0 +1,36 @@
+---
+abstract: 'Find your home and other directories on any platform'
+author:
+  - 'Adam Kennedy <adamk@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: 6.36
+  Test::More: 0.47
+configure_requires:
+  ExtUtils::MakeMaker: 6.36
+distribution_type: module
+dynamic_config: 1
+generated_by: 'Module::Install version 1.06'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+module_name: File::HomeDir
+name: File-HomeDir
+no_index:
+  directory:
+    - inc
+    - t
+    - xt
+requires:
+  Carp: 0
+  Cwd: 3.12
+  File::Path: 2.01
+  File::Spec: 3.12
+  File::Temp: 0.19
+  File::Which: 0.05
+  perl: 5.00503
+resources:
+  ChangeLog: http://fisheye2.atlassian.com/changelog/cpan/trunk/File-HomeDir
+  license: http://dev.perl.org/licenses/
+  repository: http://svn.ali.as/cpan/trunk/File-HomeDir
+version: 1.00

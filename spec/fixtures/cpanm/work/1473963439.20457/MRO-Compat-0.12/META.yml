@@ -1,0 +1,31 @@
+---
+abstract: 'mro::* interface compatibility for Perls < 5.9.5'
+author:
+  - 'Brandon L. Black, <blblack@gmail.com>'
+build_requires:
+  ExtUtils::MakeMaker: 6.59
+  Test::More: 0.47
+configure_requires:
+  ExtUtils::MakeMaker: 6.59
+distribution_type: module
+dynamic_config: 1
+generated_by: 'Module::Install version 1.06'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+module_name: MRO::Compat
+name: MRO-Compat
+no_index:
+  directory:
+    - inc
+    - t
+provides:
+  MRO::Compat:
+    file: lib/MRO/Compat.pm
+    version: 0.12
+requires:
+  perl: 5.006
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.12
