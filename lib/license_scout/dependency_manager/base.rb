@@ -24,7 +24,9 @@ module LicenseScout
       POSSIBLE_LICENSE_FILES = %w{
         LICENSE
         LICENSE.txt
+        LICENSE.TXT
         LICENSE.md
+        LICENSE.mkd
         LICENSE.rdoc
         License
         License.text
