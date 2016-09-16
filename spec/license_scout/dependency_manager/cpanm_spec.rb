@@ -84,7 +84,7 @@ RSpec.describe(LicenseScout::DependencyManager::Cpanm) do
 
     it "fetches the dependencies" do
       deps = cpanm.dependencies
-      expect(deps.length).to eq(85)
+      expect(deps.length).to eq(84)
 
       # Has everything
       any_moose = deps.select { |d| d.name == "Any-Moose" }
@@ -124,7 +124,7 @@ RSpec.describe(LicenseScout::DependencyManager::Cpanm) do
       end
 
       it "detects the licenses of the transitive dependencies correctly" do
-        expect(cpanm.dependencies.size).to eq(85)
+        expect(cpanm.dependencies.size).to eq(84)
 
         any_moose = cpanm.dependencies.select { |d| d.name == "Any-Moose" }
         expect(any_moose.length).to eq(1)
