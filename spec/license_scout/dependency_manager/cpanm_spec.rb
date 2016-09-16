@@ -74,7 +74,7 @@ RSpec.describe(LicenseScout::DependencyManager::Cpanm) do
     end
   end
 
-  describe "when given a real cpan project" do
+  describe "when given a real cpan project", :no_windows do
 
     let(:project_dir) { File.join(tmpdir, "App-Sqitch-0.973") }
 
