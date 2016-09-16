@@ -289,7 +289,16 @@ module LicenseScout
         ["URI-db", nil, ["README"]],
         ["URI-Nested", nil, ["README.md"]],
         ["Test-utf8", nil, ["README"]],
-
+        ["Class-Singleton", "Perl-5", ["README"]],
+        ["Devel-PPPort", nil, ["README"]],
+        ["Digest-SHA1", nil, ["README"]],
+        ["JSON-PP", nil, ["README"]],
+        ["MRO-Compat", nil, ["README"]],
+        ["MouseX-NativeTraits", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["MouseX-Types", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["MouseX-Types-Path-Class", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
+        ["Test-UseAllModules", nil, ["README"]],
+        ["Variable-Magic", nil, ["README"]],
       ].each do |override_data|
         override_license "perl_cpanm", override_data[0] do |version|
           {}.tap do |d|
@@ -350,7 +359,7 @@ module LicenseScout
         ["has-color", nil, ["https://raw.githubusercontent.com/chalk/supports-color/master/license"]],
         ["generate-function", nil, ["https://github.com/mafintosh/generate-function/blob/master/LICENSE"]],
         ["extsprintf", "MIT", nil],
-        ["debug", "MIT", ["README.md"]],
+        ["debug", "MIT", ["Readme.md"]],
         ["dashdash", nil, ["https://raw.githubusercontent.com/trentm/node-dashdash/master/LICENSE.txt"]],
         # The link here is what's included in the readme
         ["async-each", nil, ["https://raw.githubusercontent.com/paulmillr/mit/master/README.md"]],
@@ -389,7 +398,7 @@ module LicenseScout
         ["ansi", "MIT", ["https://raw.githubusercontent.com/TooTallNate/ansi.js/master/LICENSE"]],
         ["ansi-regex", nil, ["https://raw.githubusercontent.com/chalk/ansi-regex/master/license"]],
         ["ansi-styles", nil, [canonical("MIT")]],
-        ["ansi_up", "MIT", ["README.md"]],
+        ["ansi_up", "MIT", ["Readme.md"]],
         ["are-we-there-yet", nil, ["https://raw.githubusercontent.com/iarna/are-we-there-yet/master/LICENSE"]],
         ["arraybuffer.slice", "MIT", ["README.md"]],
         ["asn1", "MIT", nil],
@@ -443,7 +452,7 @@ module LicenseScout
         ["backo2", nil, ["https://raw.githubusercontent.com/mokesmokes/backo/master/LICENSE"]],
         ["balanced-match", nil, ["https://raw.githubusercontent.com/juliangruber/balanced-match/master/LICENSE.md"]],
         ["base64id", "MIT", ["https://raw.githubusercontent.com/faeldt/base64id/master/LICENSE"]],
-        ["batch", nil, ["README.md"]],
+        ["batch", nil, ["Readme.md"]],
         ["bcrypt-pbkdf", nil, [canonical("BSD-4-Clause")]],
         ["better-assert", "MIT", ["https://raw.githubusercontent.com/tj/better-assert/master/LICENSE"]],
         ["binary", nil, [canonical("MIT")]],
@@ -470,7 +479,7 @@ module LicenseScout
         ["component-emitter", "MIT", ["https://raw.githubusercontent.com/component/emitter/master/LICENSE"]],
         ["component-inherit", "MIT", ["https://github.com/component/inherit/blob/master/LICENSE"]],
         ["constants-browserify", nil, ["README.md"]],
-        ["cookie-signature", nil, ["README.md"]],
+        ["cookie-signature", nil, ["Readme.md"]],
         ["core-util-is", nil, ["https://raw.githubusercontent.com/isaacs/core-util-is/master/LICENSE"]],
         ["ctype", "MIT", nil],
         ["custom-event", nil, [canonical("MIT")]],
@@ -497,6 +506,7 @@ module LicenseScout
         ["jasmine", nil, [canonical("MIT")]],
         ["jasmine-core", nil, ["https://raw.githubusercontent.com/jasmine/jasmine/master/MIT.LICENSE"]],
         ["json5", nil, [canonical("MIT")]],
+        ["jsonify", nil, ["https://raw.githubusercontent.com/substack/jsonify/master/readme.markdown"]],
         ["keymaster", "MIT", nil],
         ["loose-envify", nil, [canonical("MIT")]],
         ["natives", nil, [canonical("ISC")]],
@@ -525,6 +535,7 @@ module LicenseScout
         ["w3c-blob", nil, [canonical("MIT")]],
         ["wordwrap", nil, ["https://raw.githubusercontent.com/substack/node-wordwrap/master/LICENSE"]],
         ["ws", nil, ["README.md"]],
+        ["delivery-web", "Chef-MLSA", ["https://www.chef.io/online-master-agreement/"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
