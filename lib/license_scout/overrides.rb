@@ -148,7 +148,7 @@ module LicenseScout
         ["highline", "Ruby", ["LICENSE"]],
         ["unicorn", "Ruby", ["LICENSE"]],
         ["winrm-fs", "Apache-2.0", nil],
-        ["codecov", "MIT", nil],
+        ["codecov", "MIT", "https://raw.githubusercontent.com/codecov/codecov-ruby/master/LICENSE.txt"],
         ["net-http-persistent", "MIT", ["README.rdoc"]],
         ["net-http-pipeline", "MIT", ["README.txt"]],
         ["websocket", "MIT", ["README.md"]],
@@ -199,8 +199,7 @@ module LicenseScout
         ["unicorn-rails", "MIT", ["https://raw.githubusercontent.com/samuelkadolph/unicorn-rails/master/LICENSE"]],
         ["hoe", "MIT", ["https://raw.githubusercontent.com/seattlerb/hoe/master/README.rdoc"]],
         ["rubyzip", nil, ["https://raw.githubusercontent.com/rubyzip/rubyzip/master/README.md"]],
-        ["url", nil, ["https://raw.githubusercontent.com/tal/URL/master/LICENSE"]],
-
+        ["url", "MIT", ["https://raw.githubusercontent.com/tal/URL/master/LICENSE"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
