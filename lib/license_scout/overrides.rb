@@ -299,6 +299,7 @@ module LicenseScout
         ["MouseX-Types-Path-Class", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
         ["Test-UseAllModules", nil, ["README"]],
         ["Variable-Magic", nil, ["README"]],
+        ["Class-Data-Inheritable", nil, ["https://raw.githubusercontent.com/tmtmtmtm/class-data-inheritable/master/README"]],
       ].each do |override_data|
         override_license "perl_cpanm", override_data[0] do |version|
           {}.tap do |d|
