@@ -148,7 +148,7 @@ module LicenseScout
         ["highline", "Ruby", ["LICENSE"]],
         ["unicorn", "Ruby", ["LICENSE"]],
         ["winrm-fs", "Apache-2.0", nil],
-        ["codecov", "MIT", "https://raw.githubusercontent.com/codecov/codecov-ruby/master/LICENSE.txt"],
+        ["codecov", "MIT", ["https://raw.githubusercontent.com/codecov/codecov-ruby/master/LICENSE.txt"]],
         ["net-http-persistent", "MIT", ["README.rdoc"]],
         ["net-http-pipeline", "MIT", ["README.txt"]],
         ["websocket", "MIT", ["README.md"]],
