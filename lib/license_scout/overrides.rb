@@ -634,6 +634,9 @@ module LicenseScout
         ["websocket-extensions", nil, ["README.md"]],
         ["xml-char-classes", nil, ["readme.md"]],
         ["zip-object", nil, [canonical("MIT")]],
+        ["component-closest", nil, ["https://raw.githubusercontent.com/component/closest/master/README.md"]],
+        ["component-matches-selector", nil, ["https://raw.githubusercontent.com/component/matches-selector/master/Readme.md"]],
+        ["component-query", nil, ["https://raw.githubusercontent.com/component/query/master/Readme.md"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
