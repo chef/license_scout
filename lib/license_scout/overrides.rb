@@ -395,6 +395,7 @@ module LicenseScout
         ["angular-feature-flags", nil, ["https://mjt01.mit-license.org/"]],
         ["angular-restmod", "MIT", nil],
         ["angular-spinner", nil, [canonical("MIT")]],
+        ["angular2-router-loader", "MIT", ["README.md"]],
         ["ansi", "MIT", ["https://raw.githubusercontent.com/TooTallNate/ansi.js/master/LICENSE"]],
         ["ansi-regex", nil, ["https://raw.githubusercontent.com/chalk/ansi-regex/master/license"]],
         ["ansi-styles", nil, [canonical("MIT")]],
