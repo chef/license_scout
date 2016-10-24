@@ -107,7 +107,7 @@ module LicenseScout
 
       def lgpl
         License.new(
-          short_name:  "LGPL-3.0"
+          short_name: "LGPL-3.0"
         )
       end
 
