@@ -466,6 +466,7 @@ module LicenseScout
         ["buffers", "MIT", [canonical("MIT")]],
         ["bufferutil", nil, [canonical("MIT")]],
         ["builtins", nil, ["https://raw.githubusercontent.com/juliangruber/builtins/master/License"]],
+        ["cached-path-relative", "MIT", ["Readme.md"]],
         # https://www.npmjs.com/package/callsite
         ["callsite", "MIT", [canonical("MIT")]],
         ["caseless", nil, ["https://github.com/request/caseless/blob/master/LICENSE"]],
