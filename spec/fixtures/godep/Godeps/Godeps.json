@@ -1,0 +1,22 @@
+{
+	"ImportPath": "github.com/chef/chef/chef",
+	"GoVersion": "go1.5.1",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/dep/a",
+			"Rev": "rev0"
+		},
+		{
+			"ImportPath": "github.com/dep/b",
+			"Comment": "v1.0.0",
+			"Rev": "rev1"
+		},
+		{
+			"ImportPath": "github.com/dep/c/subdir",
+			"Rev": "rev2"
+		}
+  ]
+}
