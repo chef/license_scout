@@ -1,5 +1,4 @@
 #
-
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
@@ -200,6 +199,8 @@ module LicenseScout
         ["hoe", "MIT", ["https://raw.githubusercontent.com/seattlerb/hoe/master/README.rdoc"]],
         ["rubyzip", nil, ["https://raw.githubusercontent.com/rubyzip/rubyzip/master/README.md"]],
         ["url", "MIT", ["https://raw.githubusercontent.com/tal/URL/master/LICENSE"]],
+        ["mocha", "MIT", ["https://raw.githubusercontent.com/freerange/mocha/master/MIT-LICENSE.md"]],
+        ["sslshake", "MPL-2.0", ["https://raw.githubusercontent.com/arlimus/sslshake/master/README.md"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
