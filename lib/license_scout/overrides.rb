@@ -619,6 +619,7 @@ module LicenseScout
         ["tiny-emitter", nil, [canonical("MIT")]],
         ["tryit", nil, ["README.md"]],
         ["ts-helper", nil, [canonical("MIT")]],
+        ["tsify", "MIT", ["README.md"]],
         ["tslint-loader", nil, ["README.md"]],
         ["tv4", "Public-Domain", ["README.md"]],
         ["uglify-js", "MIT", nil],
