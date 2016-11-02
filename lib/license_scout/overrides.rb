@@ -1,5 +1,4 @@
 #
-
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
@@ -200,6 +199,8 @@ module LicenseScout
         ["hoe", "MIT", ["https://raw.githubusercontent.com/seattlerb/hoe/master/README.rdoc"]],
         ["rubyzip", nil, ["https://raw.githubusercontent.com/rubyzip/rubyzip/master/README.md"]],
         ["url", "MIT", ["https://raw.githubusercontent.com/tal/URL/master/LICENSE"]],
+        ["mocha", "MIT", ["https://raw.githubusercontent.com/freerange/mocha/master/MIT-LICENSE.md"]],
+        ["sslshake", "MPL-2.0", ["https://raw.githubusercontent.com/arlimus/sslshake/master/README.md"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
@@ -643,6 +644,57 @@ module LicenseScout
         ["component-query", nil, ["https://raw.githubusercontent.com/component/query/master/Readme.md"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
+          {}.tap do |d|
+            d[:license] = override_data[1] if override_data[1]
+            d[:license_files] = override_data[2] if override_data[2]
+          end
+        end
+      end
+
+      # go_godep
+      [
+        ["github.com/agnivade/easy-scrypt", "MIT", nil],
+        ["github.com/antonholmquist/jason", "MIT", nil],
+        ["github.com/codegangsta/cli", "MIT", nil],
+        ["github.com/codegangsta/inject", "MIT", nil],
+        ["github.com/codeskyblue/go-sh", "Apache-2.0", nil],
+        ["github.com/coreos/go-oidc/http", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/go-oidc/master/LICENSE"]],
+        ["github.com/coreos/go-oidc/jose", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/go-oidc/master/LICENSE"]],
+        ["github.com/coreos/go-oidc/key", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/go-oidc/master/LICENSE"]],
+        ["github.com/coreos/go-oidc/oauth2", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/go-oidc/master/LICENSE"]],
+        ["github.com/coreos/go-oidc/oidc", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/go-oidc/master/LICENSE"]],
+        ["github.com/coreos/go-systemd/journal", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/go-systemd/master/LICENSE"]],
+        ["github.com/coreos/pkg/capnslog", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/pkg/master/LICENSE"]],
+        ["github.com/coreos/pkg/health", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/pkg/master/LICENSE"]],
+        ["github.com/coreos/pkg/httputil", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/pkg/master/LICENSE"]],
+        ["github.com/coreos/pkg/timeutil", "Apache-2.0", ["https://raw.githubusercontent.com/coreos/pkg/master/LICENSE"]],
+        ["github.com/dgrijalva/jwt-go", "MIT", nil],
+        ["github.com/gin-gonic/gin", "MIT", nil],
+        ["github.com/gin-gonic/gin/binding", "MIT", ["https://raw.githubusercontent.com/gin-gonic/gin/master/LICENSE"]],
+        ["github.com/gin-gonic/gin/render", "MIT", ["https://raw.githubusercontent.com/gin-gonic/gin/master/LICENSE"]],
+        ["github.com/go-sql-driver/mysql", "MPL-2.0", ["https://raw.githubusercontent.com/go-sql-driver/mysql/master/LICENSE"]],
+        ["github.com/gorhill/cronexpr", "Apache-2.0", ["https://www.apache.org/licenses/LICENSE-2.0"]],
+        ["github.com/jonboulle/clockwork", "Apache-2.0", nil],
+        ["github.com/lib/pq", "MIT", nil],
+        ["github.com/lib/pq/oid", "MIT", ["https://raw.githubusercontent.com/lib/pq/master/LICENSE.md"]],
+        ["github.com/manucorporat/sse", "MIT", nil],
+        ["github.com/mattn/go-colorable", "MIT", ["https://raw.githubusercontent.com/mattn/go-colorable/master/LICENSE"]],
+        ["github.com/mattn/go-isatty", "MIT", nil],
+        ["github.com/mattn/go-sqlite3", "MIT", nil],
+        ["github.com/nu7hatch/gouuid", "MIT", nil],
+        ["github.com/op/go-logging", "BSD-3-Clause", nil],
+        ["golang.org/x/crypto/pbkdf2", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/crypto/master/LICENSE"]],
+        ["golang.org/x/crypto/scrypt", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/crypto/master/LICENSE"]],
+        ["golang.org/x/crypto/ssh", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/crypto/master/LICENSE"]],
+        ["golang.org/x/net/context", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
+        ["golang.org/x/net/netutil", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
+        ["golang.org/x/net/context", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
+        ["golang.org/x/sys/unix", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/sys/master/LICENSE"]],
+        ["gopkg.in/bluesuncorp/validator.v5", "MIT", ["https://raw.githubusercontent.com/go-playground/validator/v5/LICENSE"]],
+        ["gopkg.in/gorp.v1", "MIT", ["https://raw.githubusercontent.com/go-gorp/gorp/v1.7.1/LICENSE"]],
+        ["gopkg.in/tylerb/graceful.v1", "MIT", ["https://raw.githubusercontent.com/tylerb/graceful/v1.2.13/LICENSE"]],
+      ].each do |override_data|
+        override_license "go_godep", override_data[0] do |version|
           {}.tap do |d|
             d[:license] = override_data[1] if override_data[1]
             d[:license_files] = override_data[2] if override_data[2]
