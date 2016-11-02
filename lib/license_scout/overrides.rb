@@ -391,6 +391,7 @@ module LicenseScout
         ["adm-zip", nil, ["https://raw.githubusercontent.com/cthackers/adm-zip/master/MIT-LICENSE.txt"]],
         ["after", "MIT", nil],
         ["agent-base", nil, ["README.md"]],
+        ["angular2-cookie", "MIT", ["https://raw.githubusercontent.com/salemdar/angular2-cookie/master/LICENSE"]],
         ["angular-embedly", "BSD-2-Clause", nil],
         ["angular-feature-flags", nil, ["https://mjt01.mit-license.org/"]],
         ["angular-restmod", "MIT", nil],
