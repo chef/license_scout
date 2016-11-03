@@ -67,7 +67,9 @@ module LicenseScout
       def find_license_files_for_package_in_gopath(pkg)
         root_files = Dir["#{gopath(pkg)}/*"]
         puts "root_files for #{pkg}: #{root_files}"
-        root_files.select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
+        lfs = root_files.select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
+        puts "license_files for #{pkg}: #{lfs}"
+        lfs
       end
     end
   end
