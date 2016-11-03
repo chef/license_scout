@@ -36,7 +36,7 @@ module LicenseScout
         end
 
         godeps["Deps"].map do |pkg_info|
-          pkg_name = pkg_info["ImportPath"]
+          pkg_name = pkg_info["ImportPath"].gsub("/", "_")
           pkg_version = pkg_info["Comment"] || pkg_info["Rev"]
           license = options.overrides.license_for(name, pkg_name, pkg_version)
 
