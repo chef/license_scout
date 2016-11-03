@@ -650,6 +650,19 @@ module LicenseScout
           end
         end
       end
+
+
+      # go_godep
+      [
+        ["github.com_agnivade_easy-scrypt", nil, [canonical("MIT")]],
+      ].each do |override_data|
+        override_license "go_godep", override_data[0] do |version|
+          {}.tap do |d|
+            d[:license] = override_data[1] if override_data[1]
+            d[:license_files] = override_data[2] if override_data[2]
+          end
+        end
+      end
     end
 
   end
