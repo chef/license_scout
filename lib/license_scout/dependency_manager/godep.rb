@@ -60,11 +60,13 @@ module LicenseScout
 
       def gopath(pkg)
         puts "GOPATH is #{ENV['GOPATH']} XXXXXXXXXXXXXXXXXXXXXXXXXX"
+        puts `ls "#{ENV['GOPATH']}/src/#{pkg}"`
         "#{ENV['GOPATH']}/src/#{pkg}"
       end
 
       def find_license_files_for_package_in_gopath(pkg)
         root_files = Dir["#{gopath(pkg)}/*"]
+        puts "root_files for #{pkg}: #{root_files}"
         root_files.select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
       end
     end
