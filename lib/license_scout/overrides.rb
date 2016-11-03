@@ -201,6 +201,8 @@ module LicenseScout
         ["url", "MIT", ["https://raw.githubusercontent.com/tal/URL/master/LICENSE"]],
         ["mocha", "MIT", ["https://raw.githubusercontent.com/freerange/mocha/master/MIT-LICENSE.md"]],
         ["sslshake", "MPL-2.0", ["https://raw.githubusercontent.com/arlimus/sslshake/master/README.md"]],
+        ["inspec-msccm", nil, ["https://www.chef.io/online-master-agreement/"]],
+        ["inspec-scap", nil, ["https://www.chef.io/online-master-agreement/"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
