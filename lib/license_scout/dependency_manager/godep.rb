@@ -36,18 +36,19 @@ module LicenseScout
         end
 
         godeps["Deps"].map do |pkg_info|
-          pkg_name = pkg_info["ImportPath"].gsub("/", "_")
+          pkg_import_name = pkg_info["ImportPath"]
+          pkg_file_name = pkg_import_name.gsub("/", "_")
           pkg_version = pkg_info["Comment"] || pkg_info["Rev"]
-          license = options.overrides.license_for(name, pkg_name, pkg_version)
+          license = options.overrides.license_for(name, pkg_import_name, pkg_version)
 
-          override_license_files = options.overrides.license_files_for(name, pkg_name, pkg_version)
+          override_license_files = options.overrides.license_files_for(name, pkg_import_name, pkg_version)
           if override_license_files.empty?
-            license_files = find_license_files_for_package_in_gopath(pkg_name)
+            license_files = find_license_files_for_package_in_gopath(pkg_import_name)
           else
-            license_files = override_license_files.resolve_locations(gopath(pkg_name))
+            license_files = override_license_files.resolve_locations(gopath(pkg_import_name))
           end
 
-          create_dependency(pkg_name, pkg_version, license, license_files)
+          create_dependency(pkg_file_name, pkg_version, license, license_files)
         end
       end
 

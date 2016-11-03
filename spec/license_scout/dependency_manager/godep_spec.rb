@@ -64,9 +64,9 @@ RSpec.describe(LicenseScout::DependencyManager::Godep) do
       # Make sure we have the right count
       expect(dependencies.length).to eq(3)
 
-      dep_a = dependencies.select { |d| d.name == "github.com/dep/a" }
-      dep_b = dependencies.select { |d| d.name == "github.com/dep/b" }
-      dep_c = dependencies.select { |d| d.name == "github.com/dep/c/subdir" }
+      dep_a = dependencies.select { |d| d.name == "github.com_dep_a" }
+      dep_b = dependencies.select { |d| d.name == "github.com_dep_b" }
+      dep_c = dependencies.select { |d| d.name == "github.com_dep_c_subdir" }
 
       expect(dep_a.length).to be(1)
       expect(dep_a.first.version).to eq("rev0")
@@ -99,7 +99,7 @@ RSpec.describe(LicenseScout::DependencyManager::Godep) do
         dependencies = godep.dependencies
         expect(dependencies.length).to eq(3)
 
-        dep_c = dependencies.find { |d| d.name == "github.com/dep/c/subdir" }
+        dep_c = dependencies.find { |d| d.name == "github.com_dep_c_subdir" }
         expect(dep_c.license).to eq("MIT")
       end
 
@@ -121,7 +121,7 @@ RSpec.describe(LicenseScout::DependencyManager::Godep) do
         dependencies = godep.dependencies
         expect(dependencies.length).to eq(3)
 
-        dep_c = dependencies.find { |d| d.name == "github.com/dep/c/subdir" }
+        dep_c = dependencies.find { |d| d.name == "github.com_dep_c_subdir" }
 
         expect(dep_c.license_files[0]).to end_with("fixtures/godeps_gopath/src/github.com/dep/c/subdir/README")
         expect(dep_c.license_files[1]).to end_with("fixtures/godeps_gopath/src/github.com/dep/c/subdir/LICENSE")
