@@ -366,7 +366,6 @@ module LicenseScout
         ["has-color", nil, ["https://raw.githubusercontent.com/chalk/supports-color/master/license"]],
         ["generate-function", nil, ["https://github.com/mafintosh/generate-function/blob/master/LICENSE"]],
         ["extsprintf", "MIT", nil],
-        ["debug", "MIT", ["Readme.md"]],
         ["dashdash", nil, ["https://raw.githubusercontent.com/trentm/node-dashdash/master/LICENSE.txt"]],
         # The link here is what's included in the readme
         ["async-each", nil, ["https://raw.githubusercontent.com/paulmillr/mit/master/README.md"]],
@@ -655,6 +654,17 @@ module LicenseScout
             d[:license_files] = override_data[2] if override_data[2]
           end
         end
+      end
+
+      override_license "js_npm", "debug" do |version|
+        filename = "README.md"
+
+        # 2.3 renames Readme to README; all previous are Readme
+        if version =~ /^(0|1|2\.[0-2])/
+          filename = "Readme.md"
+        end
+
+        { license_files: [ filename ], license: "MIT" }
       end
 
       # go_godep
