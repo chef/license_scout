@@ -657,11 +657,11 @@ module LicenseScout
       end
 
       override_license "js_npm", "debug" do |version|
-        filename = "README.md"
+        filename = "Readme.md"
 
         # 2.3 renames Readme to README; all previous are Readme
-        if version =~ /^(0|1|2\.[0-2])/
-          filename = "Readme.md"
+        if version =~ /^2\.3\.[01]/
+          filename = "README.md"
         end
 
         { license_files: [ filename ], license: "MIT" }
