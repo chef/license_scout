@@ -207,6 +207,7 @@ module LicenseScout
         ["sslshake", "MPL-2.0", ["https://raw.githubusercontent.com/arlimus/sslshake/master/README.md"]],
         ["inspec-msccm", nil, ["https://www.chef.io/online-master-agreement/"]],
         ["inspec-scap", nil, ["https://www.chef.io/online-master-agreement/"]],
+        ["aws-sigv4", "MIT", ["https://raw.githubusercontent.com/cmdrkeene/aws4/master/readme.md"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
