@@ -358,7 +358,7 @@ module LicenseScout
         # Persevere project which is administered under the Dojo foundation,
         # and all contributions require a Dojo CLA.
         ["json-schema", "BSD", ["https://raw.githubusercontent.com/dojo/dojo/master/LICENSE"]],
-        ["tweetnacl", "BSD", ["https://raw.githubusercontent.com/dchest/tweetnacl-js/master/PUBLIC_DOMAIN.txt"]],
+        ["tweetnacl", "BSD", ["https://raw.githubusercontent.com/dchest/tweetnacl-js/master/COPYING.txt"]],
         ["assert-plus", "MIT", ["README.md"]],
         ["sntp", "BSD-3-Clause", nil],
         ["node-uuid", "MIT", nil],
