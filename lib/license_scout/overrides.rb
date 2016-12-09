@@ -251,6 +251,7 @@ module LicenseScout
         ["base", "Perl-5", ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
         ["Encode", nil, ["AUTHORS"]],
         ["Moo", nil, ["README"]],
+        ["Sub-Quote", nil, ["README"]],
         ["Role-Tiny", nil, ["README"]],
         ["Try-Tiny", nil, ["LICENCE"]],
         ["Module-Metadata", nil, ["LICENCE"]],
