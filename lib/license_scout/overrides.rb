@@ -521,7 +521,7 @@ module LicenseScout
         ["keymaster", "MIT", nil],
         ["loose-envify", nil, [canonical("MIT")]],
         ["natives", nil, [canonical("ISC")]],
-        ["ng2d3", "MIT", ["docs/README.md"]],
+        ["ng2d3", "MIT", ["docs/license.md"]],
         ["object-component", "MIT", [canonical("MIT")]],
         ["options", "MIT", ["README.md"]],
         ["over", nil, ["README.md"]],
