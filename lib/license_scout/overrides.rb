@@ -656,6 +656,8 @@ module LicenseScout
         ["component-closest", nil, ["https://raw.githubusercontent.com/component/closest/master/README.md"]],
         ["component-matches-selector", nil, ["https://raw.githubusercontent.com/component/matches-selector/master/Readme.md"]],
         ["component-query", nil, ["https://raw.githubusercontent.com/component/query/master/Readme.md"]],
+        ["webcomponents.js", "BSD-3-Clause", ["https://raw.githubusercontent.com/webcomponents/webcomponentsjs/master/LICENSE.md"]],
+        ["web-animations-js", "Apache-2.0", ["https://raw.githubusercontent.com/web-animations/web-animations-js/dev/COPYING"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
