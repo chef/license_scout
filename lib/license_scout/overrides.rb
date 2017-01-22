@@ -620,7 +620,7 @@ module LicenseScout
         ["require-uncached", nil, ["readme.md"]],
         ["rework", "MIT", ["Readme.md"]],
         ["rework-visit", "MIT", ["Readme.md"]],
-        ["ripemd160", "MIT", ["https://raw.githubusercontent.com/crypto-browserify/ripemd160/master/LICENSE.md"]],
+        ["ripemd160", "MIT", ["https://raw.githubusercontent.com/crypto-browserify/ripemd160/master/LICENSE"]],
         ["rx-lite", nil, ["readme.md"]],
         ["select", "MIT", ["readme.md"]],
         ["source-list-map", nil, ["README.md"]],
