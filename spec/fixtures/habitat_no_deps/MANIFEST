@@ -1,0 +1,66 @@
+# foo / bar
+
+
+* __Maintainer__: 
+* __Version__: 0.1.0
+* __Release__: 20170209190028
+* __Architecture__: x86_64
+* __System__: linux
+* __Target__: x86_64-linux
+* __Upstream URL__: upstream project's website or home page is not defined
+* __License__:  
+* __Source__: [http://some_source_url/releases/bar-0.1.0.tar.gz](http://some_source_url/releases/bar-0.1.0.tar.gz)
+* __SHA__: SHA256 checksum not provided or required
+* __Path__: `/hab/pkgs/foo/bar/0.1.0/20170209190028`
+* __Build Dependencies__: no build dependencies or undefined
+* __Dependencies__: no runtime dependencies or undefined
+* __Interpreters__: no interpreters or undefined
+
+# Plan
+
+## Build Flags
+
+```bash
+CFLAGS: no CFLAGS
+CPPFLAGS: no CPPFLAGS
+CXXFLAGS: no CXXFLAGS
+LDFLAGS: no LDFLAGS
+LD_RUN_PATH: no LD_RUN_PATH
+```
+
+## Plan Source
+
+```bash
+pkg_name=bar
+pkg_origin=foo
+pkg_version="0.1.0"
+pkg_source="http://some_source_url/releases/${pkg_name}-${pkg_version}.tar.gz"
+
+do_download() {
+  return 0
+}
+
+do_verify() {
+  return 0
+}
+
+do_clean() {
+  return 0
+}
+
+do_unpack() {
+  return 0
+}
+
+do_build() {
+  return 0
+}
+
+do_install() {
+  return 0
+}
+
+do_strip() {
+  return 0
+}
+```
