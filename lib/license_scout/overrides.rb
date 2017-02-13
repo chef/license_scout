@@ -683,6 +683,7 @@ module LicenseScout
       [
         ["github.com/agnivade/easy-scrypt", "MIT", nil],
         ["github.com/antonholmquist/jason", "MIT", nil],
+        ["github.com/blang/semver", "MIT", ["https://raw.githubusercontent.com/blang/semver/master/LICENSE"]],
         ["github.com/codegangsta/cli", "MIT", nil],
         ["github.com/codegangsta/inject", "MIT", nil],
         ["github.com/codeskyblue/go-sh", "Apache-2.0", nil],
@@ -721,6 +722,7 @@ module LicenseScout
         ["gopkg.in/bluesuncorp/validator.v5", "MIT", ["https://raw.githubusercontent.com/go-playground/validator/v5/LICENSE"]],
         ["gopkg.in/gorp.v1", "MIT", ["https://raw.githubusercontent.com/go-gorp/gorp/v1.7.1/LICENSE"]],
         ["gopkg.in/tylerb/graceful.v1", "MIT", ["https://raw.githubusercontent.com/tylerb/graceful/v1.2.13/LICENSE"]],
+        ["gopkg.in/yaml.v2", "Apache-2.0", ["https://raw.githubusercontent.com/go-yaml/yaml/v2/LICENSE"]],
       ].each do |override_data|
         override_license "go_godep", override_data[0] do |version|
           {}.tap do |d|

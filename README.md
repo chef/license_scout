@@ -12,6 +12,14 @@ Currently supported project types are:
 
 ## Usage
 
+```bash
+$ bin/license_scout /dir/to/scout/successfully/
+
+$ bin/license_scout /dir/to/scout/unsuccessfully/
+Dependency 'gopkg.in_yaml.v2' version '53feefa2559fb8dfa8d81baad31be332c97d6c77' under 'go_godep' is missing license information.
+>> Found 41 dependencies for go_godep. 40 OK, 1 with problems
+```
+
 ## Thanks
 
 Thanks to https://github.com/basho for `config_to_json` binary which helps with parsing Erlang config files. From: https://github.com/basho/erlang_template_helper
