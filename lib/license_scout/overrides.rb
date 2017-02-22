@@ -659,6 +659,7 @@ module LicenseScout
         ["component-query", nil, ["https://raw.githubusercontent.com/component/query/master/Readme.md"]],
         ["webcomponents.js", "BSD-3-Clause", ["https://raw.githubusercontent.com/webcomponents/webcomponentsjs/master/LICENSE.md"]],
         ["web-animations-js", "Apache-2.0", ["https://raw.githubusercontent.com/web-animations/web-animations-js/dev/COPYING"]],
+        ["electron-to-chromium", nil, [canonical("ISC")]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
