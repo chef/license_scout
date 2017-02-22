@@ -22,7 +22,7 @@ module LicenseScout
     SUPPORTED_OPTIONS = [:overrides, :environment, :ruby_bin, :cpan_cache, :manual_licenses]
 
     SUPPORTED_OPTIONS.each do |o|
-      self.send(:attr_reader, o)
+      send(:attr_reader, o)
     end
 
     def initialize(options = {})
