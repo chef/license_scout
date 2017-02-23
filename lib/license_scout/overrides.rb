@@ -660,6 +660,7 @@ module LicenseScout
         ["webcomponents.js", "BSD-3-Clause", ["https://raw.githubusercontent.com/webcomponents/webcomponentsjs/master/LICENSE.md"]],
         ["web-animations-js", "Apache-2.0", ["https://raw.githubusercontent.com/web-animations/web-animations-js/dev/COPYING"]],
         ["electron-to-chromium", nil, [canonical("ISC")]],
+        ["debug", "MIT", ["https://raw.githubusercontent.com/visionmedia/debug/master/LICENSE"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
@@ -667,17 +668,6 @@ module LicenseScout
             d[:license_files] = override_data[2] if override_data[2]
           end
         end
-      end
-
-      override_license "js_npm", "debug" do |version|
-        filename = "Readme.md"
-
-        # 2.3 renames Readme to README; all previous are Readme
-        if version =~ /^2\.3\.[01]/
-          filename = "README.md"
-        end
-
-        { license_files: [ filename ], license: "MIT" }
       end
 
       # go_godep
