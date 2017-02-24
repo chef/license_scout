@@ -209,6 +209,9 @@ module LicenseScout
         ["inspec-scap", nil, ["https://www.chef.io/online-master-agreement/"]],
         ["aws-sigv4", "MIT", ["https://raw.githubusercontent.com/cmdrkeene/aws4/master/readme.md"]],
         ["slack-notifier", "MIT", ["https://raw.githubusercontent.com/stevenosloan/slack-notifier/master/LICENSE"]],
+        ["parslet", "MIT", ["https://raw.githubusercontent.com/kschiess/parslet/master/LICENSE"]],
+        ["blankslate", "MIT", ["https://raw.githubusercontent.com/masover/blankslate/master/MIT-LICENSE"]],
+        ["xml-simple", "Ruby", ["https://raw.githubusercontent.com/maik/xml-simple/master/README.md"]],
       ].each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
