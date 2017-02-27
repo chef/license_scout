@@ -553,7 +553,7 @@ module LicenseScout
         ["wordwrap", nil, ["https://raw.githubusercontent.com/substack/node-wordwrap/master/LICENSE"]],
         ["ws", nil, ["README.md"]],
         ["delivery-web", "Chef-MLSA", ["https://www.chef.io/online-master-agreement/"]],
-        ["Insights", "Chef-MLSA", ["https://www.chef.io/online-master-agreement/"]],
+        ["visibility-web", "Chef-MLSA", ["https://www.chef.io/online-master-agreement/"]],
         ["compliance-ui-components", "Chef-MLSA", ["https://www.chef.io/online-master-agreement/"]],
         ["angular2-moment", nil, ["https://raw.githubusercontent.com/urish/angular2-moment/master/LICENSE"]],
         ["array-differ", nil, ["readme.md"]],
