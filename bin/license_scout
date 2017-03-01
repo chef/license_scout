@@ -39,3 +39,5 @@ collector.run
 report = collector.issue_report
 
 puts report
+
+exit 2 if !report.empty?
