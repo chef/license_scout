@@ -664,6 +664,7 @@ module LicenseScout
         ["web-animations-js", "Apache-2.0", ["https://raw.githubusercontent.com/web-animations/web-animations-js/dev/COPYING"]],
         ["electron-to-chromium", nil, [canonical("ISC")]],
         ["debug", "MIT", ["https://raw.githubusercontent.com/visionmedia/debug/master/LICENSE"]],
+        ["performance-now", "MIT", ["https://raw.githubusercontent.com/braveg1rl/performance-now/master/license.txt"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
