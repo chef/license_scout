@@ -1,0 +1,17 @@
+{application, rebar_lock_json,
+ [{description, "An escript util returning json representation of rebar.lock"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib,
+    rebar,
+    jsone
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.

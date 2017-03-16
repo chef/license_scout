@@ -244,28 +244,24 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
     describe "as in an automated build" do
 
       let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "rebar_from_build") }
-      let(:expected_config_to_json_output) do
-        <<-EOS
-[["__tuple","__binary_edown",["__tuple","git","__string_git://github.com/seth/edown.git",["__tuple","ref","__string_30a9f7867d615af45783235faa52742d11a9348e"]],1],["__tuple","__binary_eper",["__tuple","git","__string_git://github.com/massemanet/eper.git",["__tuple","ref","__string_43e0442863df9f713a5c88c9b43062b806d96adb"]],0],["__tuple","__binary_mochiweb",["__tuple","pkg","__binary_mochiweb","__binary_2.12.2"],2]]
-EOS
-      end
+      let(:expected_rebar_lock_json_output) { '{"bifrost":{"type":"git","level":0,"git_url":"https:\/\/github.com\/chef\/bifrost-yeah-not-really","git_ref":"9e47ba9fc8a31aa2a4f9317de69b677fa34eb17e"},"edown":{"type":"git","level":0,"git_url":"https:\/\/github.com\/uwiger\/edown.git","git_ref":"754be25f71a04099c83f3ffdff268e70beeb0021"},"mochiweb":{"type":"pkg","level":0,"pkg_name":"mochiweb","pkg_version":"2.12.2","pkg_hash":"087467DE5833C0BB5B3CCDD387F9E9C1FB816A75B7A709629BF24B5ED3246C51"}}' }
 
-      def mock_config_to_json
-        config_to_json_path = File.expand_path("../../../bin/config_to_json", File.dirname(__FILE__))
+      def mock_rebar_lock_json
+        rebar_lock_json_path = File.expand_path("../../../bin/rebar_lock_json", File.dirname(__FILE__))
         rebar_lock_path = File.join(project_dir, "rebar.lock")
         mock = instance_double("Mixlib::ShellOut")
 
         allow(Mixlib::ShellOut).to receive(:new).
-          with("#{config_to_json_path} #{rebar_lock_path}", environment: {}).
+          with("#{rebar_lock_json_path} #{rebar_lock_path}", environment: {}).
           and_return(mock)
 
         allow(mock).to receive(:run_command)
         allow(mock).to receive(:error!)
-        allow(mock).to receive(:stdout).and_return(expected_config_to_json_output)
+        allow(mock).to receive(:stdout).and_return(expected_rebar_lock_json_output)
       end
 
       before do
-        mock_config_to_json
+        mock_rebar_lock_json
         mock_git_rev_parse_for(
           "edown", "30a9f7867d615af45783235faa52742d11a9348e",
           cwd: File.join(project_dir, "_build/default/lib/edown")
