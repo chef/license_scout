@@ -1,0 +1,14 @@
+{"1.1.0",
+[{<<"bifrost">>,
+  {git,"https://github.com/chef/bifrost-yeah-not-really",
+       {ref,"9e47ba9fc8a31aa2a4f9317de69b677fa34eb17e"}},
+  0},
+ {<<"edown">>,
+  {git,"https://github.com/uwiger/edown.git",
+       {ref,"754be25f71a04099c83f3ffdff268e70beeb0021"}},
+  0},
+ {<<"mochiweb">>,{pkg,<<"mochiweb">>,<<"2.12.2">>},0}]}.
+[
+{pkg_hash,[
+ {<<"mochiweb">>, <<"087467DE5833C0BB5B3CCDD387F9E9C1FB816A75B7A709629BF24B5ED3246C51">>}]}
+].

@@ -103,46 +103,17 @@ module LicenseScout
 
         return unless File.exist?(rebar_lock_path)
 
-        # We parse the rebar.lock using 'config_to_json' from
-        # https://github.com/basho/erlang_template_helper This binary requires
-        # escript to be on the path so we use the environment provided to
-        # license_scout if available.
-
-        config_to_json_path = File.expand_path("../../../bin/config_to_json", File.dirname(__FILE__))
-        s = Mixlib::ShellOut.new("#{config_to_json_path} #{rebar_lock_path}", environment: options.environment)
+        rebar_lock_to_json_path = File.expand_path("../../../bin/rebar_lock_json", File.dirname(__FILE__))
+        s = Mixlib::ShellOut.new("#{rebar_lock_to_json_path} #{rebar_lock_path}", environment: options.environment)
         s.run_command
         s.error!
 
-        # Parsed rebar.lock will contain "type" information for each field
-        # prepended into the output array. What we get from it looks like this:
-        # [["__tuple",
-        #   "__binary_edown",
-        #   ["__tuple",
-        #    "git",
-        #    "__string_git://github.com/seth/edown.git",
-        #    ["__tuple", "ref", "__string_30a9f7867d615af45783235faa52742d11a9348e"]],
-        #   1],
-        #   ["__tuple",
-        #    "__binary_mochiweb",
-        #    ["__tuple", "pkg", "__binary_mochiweb", "__binary_2.12.2"],
-        #    2],
-        #   ...
-        #
         rebar_lock_content = FFI_Yajl::Parser.parse(s.stdout)
 
-        rebar_lock_content.each do |element|
-          # We are trying to match the mochiweb example above. Notice the 'pkg'
-          # entry in its source information. We are doing some very specific
-          # String matching here because we can not bring over
-          # erlang_template_helper gem since it is not released to rubygems.
-
-          next if !element.is_a?(Array) || element.length < 3
-          source_info = element[2]
-
-          next if !source_info.is_a?(Array) || source_info.length < 4
-          if source_info[1] == "pkg"
-            source_name = source_info[2].gsub("__binary_", "").gsub("__string_", "")
-            source_version = source_info[3].gsub("__binary_", "").gsub("__string_", "")
+        rebar_lock_content.each do |name, source_info|
+          if source_info["type"] == "pkg"
+            source_name = source_info["pkg_name"]
+            source_version = source_info["pkg_version"]
 
             packaged_dependencies[source_name] = source_version
           end
