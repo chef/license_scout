@@ -101,6 +101,7 @@ module LicenseScout
         ["inifile", "MIT", ["README.md"]],
         ["syslog-logger", "MIT", ["README.rdoc"]],
         ["httpclient", "Ruby", ["README.md"]],
+        ["jsonschema", "MIT", ["README.rdoc"]],
         ["little-plugger", "MIT", ["README.rdoc"]],
         ["logging", "MIT", ["README.md"]],
         ["coderay", nil, ["README_INDEX.rdoc"]],
