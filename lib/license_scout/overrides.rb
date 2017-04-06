@@ -231,6 +231,8 @@ module LicenseScout
         ["openssl", nil, ["https://raw.githubusercontent.com/chef-cookbooks/openssl/master/LICENSE"]],
         ["runit", nil, ["https://raw.githubusercontent.com/chef-cookbooks/runit/master/LICENSE"]],
         ["yum", nil, ["https://raw.githubusercontent.com/chef-cookbooks/yum/master/LICENSE"]],
+        ["compat_resource", nil, ["https://raw.githubusercontent.com/chef-cookbooks/compat_resource/master/LICENSE"]],
+        ["yum-epel", nil, ["https://raw.githubusercontent.com/chef-cookbooks/yum-epel/master/LICENSE"]],
       ].each do |override_data|
         override_license "chef_berkshelf", override_data[0] do |version|
           {}.tap do |d|
