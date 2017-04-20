@@ -38,6 +38,8 @@ module LicenseScout
         license
         LICENCE
         licence
+        license.md
+        licence.md
         APACHE.LICENSE
         MIT-LICENSE
         MIT-LICENSE.txt
