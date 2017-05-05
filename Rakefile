@@ -36,4 +36,4 @@ rescue LoadError
 end
 
 desc "Run all tests"
-task test: [:style, :spec]
+task test: [:spec]
