@@ -19,6 +19,7 @@ require "license_scout/dependency_manager/bundler"
 require "license_scout/dependency_manager/rebar"
 require "license_scout/dependency_manager/cpanm"
 require "license_scout/dependency_manager/godep"
+require "license_scout/dependency_manager/glide"
 require "license_scout/dependency_manager/berkshelf"
 require "license_scout/dependency_manager/npm"
 require "license_scout/dependency_manager/manual"
@@ -26,7 +27,7 @@ require "license_scout/dependency_manager/manual"
 module LicenseScout
   module DependencyManager
     def self.implementations
-      [Bundler, Rebar, Cpanm, Berkshelf, NPM, Godep, Manual]
+      [Bundler, Rebar, Cpanm, Berkshelf, NPM, Godep, Glide, Manual]
     end
   end
 end

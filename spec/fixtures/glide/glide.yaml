@@ -1,0 +1,4 @@
+package: github.com/chef/chef/chef
+import:
+- package: github.com/dep/a
+- package: gopkg.in/olivere/elastic.v3
