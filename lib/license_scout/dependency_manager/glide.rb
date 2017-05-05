@@ -46,9 +46,9 @@ module LicenseScout
         pkg_import_name = import_field["name"]
         pkg_file_name = pkg_import_name.tr("/", "_")
         pkg_version = import_field["version"]
-        license = options.overrides.license_for("go_godep", pkg_import_name, pkg_version)
+        license = options.overrides.license_for("go", pkg_import_name, pkg_version)
 
-        override_license_files = options.overrides.license_files_for("go_godep", pkg_import_name, pkg_version)
+        override_license_files = options.overrides.license_files_for("go", pkg_import_name, pkg_version)
         if override_license_files.empty?
           license_files = find_license_files_for_package_in_gopath(pkg_import_name)
         else

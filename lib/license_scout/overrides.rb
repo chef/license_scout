@@ -723,7 +723,7 @@ module LicenseScout
         ["gopkg.in/tylerb/graceful.v1", "MIT", ["https://raw.githubusercontent.com/tylerb/graceful/v1.2.13/LICENSE"]],
         ["gopkg.in/yaml.v2", "Apache-2.0", ["https://raw.githubusercontent.com/go-yaml/yaml/v2/LICENSE"]],
       ].each do |override_data|
-        override_license "go_godep", override_data[0] do |version|
+        override_license "go", override_data[0] do |version|
           {}.tap do |d|
             d[:license] = override_data[1] if override_data[1]
             d[:license_files] = override_data[2] if override_data[2]

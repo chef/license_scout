@@ -87,7 +87,7 @@ RSpec.describe(LicenseScout::DependencyManager::Godep) do
     describe "when given license overrides" do
       let(:overrides) do
         LicenseScout::Overrides.new do
-          override_license "go_godep", "github.com/dep/c/subdir" do |version|
+          override_license "go", "github.com/dep/c/subdir" do |version|
             {
               license: "MIT",
             }
@@ -108,7 +108,7 @@ RSpec.describe(LicenseScout::DependencyManager::Godep) do
     describe "when given license file overrides" do
       let(:overrides) do
         LicenseScout::Overrides.new do
-          override_license "go_godep", "github.com/dep/c/subdir" do |_version|
+          override_license "go", "github.com/dep/c/subdir" do |_version|
             {
               license_files: %w{README LICENSE},
             }
