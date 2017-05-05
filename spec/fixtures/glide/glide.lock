@@ -1,0 +1,9 @@
+hash: 34aa0aaadbd1a145344edd0b60b0054eff39e913db49238fbfa7ca038cbd7cab
+updated: 2017-05-05T11:00:34.451210773+02:00
+imports:
+- name: github.com/dep/a
+  version: rev0
+- name: github.com/dep/b
+  version: rev1
+- name: github.com/dep/c/subdir
+  version: rev2
