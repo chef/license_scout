@@ -1,5 +1,4 @@
 FROM devchef/chefdk
-RUN apt-get update && apt-get install git -y
 
 COPY bin/ /usr/src/app/license_scout/bin/
 COPY lib/ /usr/src/app/license_scout/lib/
