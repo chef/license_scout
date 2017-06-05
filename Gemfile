@@ -18,7 +18,3 @@
 source "https://rubygems.org"
 
 gemspec
-
-group(:development, :test) do
-  gem "chefstyle", git: "https://github.com/chef/chefstyle.git", branch: "master"
-end

@@ -43,6 +43,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "rb-readline"
+  spec.add_development_dependency "chefstyle"
 
   # We do not have berkshelf as a dependency because some of its dependencies
   # can not be installed on uncommon platforms like Solaris which we need to
