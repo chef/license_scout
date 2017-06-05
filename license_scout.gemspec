@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Discovers license files of a project's dependencies."
   spec.homepage      = "https://github.com/chef/license_scout"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = Dir["LICENSE", "README.md", "{bin,erl_src,lib}/**/*"]
   spec.bindir        = "bin"
   spec.executables   = %w{license_scout}
   spec.require_paths = %w{lib}
