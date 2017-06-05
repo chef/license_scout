@@ -62,7 +62,8 @@ module LicenseScout
           next if File.directory?(File.join(project_dir, "apps", dep_name))
 
           # Or skip if the dep name is the project name
-          next if File.exist?(File.join(project_dir, "_build/default/rel", dep_name))
+          next if File.exist?(File.join(project_dir, "_build/default/rel", dep_name)) # rebar2, old rebar3
+          next if File.basename(project_dir) == dep_name # ^ rebar 3.3.5 doesn't create that
 
           # While determining the dependency version we first check the cache we
           # built from rebar.lock for the dependencies that come via 'pkg'
