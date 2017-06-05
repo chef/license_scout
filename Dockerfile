@@ -7,6 +7,6 @@ COPY Gemfile Rakefile license_scout.gemspec /usr/src/app/license_scout/
 
 WORKDIR /usr/src/app/license_scout
 
-RUN bundle install --with=development
+RUN bundle install --without=development
 
 ENTRYPOINT ["./bin/license_scout"]
