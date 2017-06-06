@@ -575,6 +575,7 @@ module LicenseScout
         ["compression-webpack-plugin", nil, ["README.md"]],
         ["configstore", nil, ["readme.md"]],
         ["crypt", "MIT", nil],
+        ["cssbeautify", nil, ["https://raw.githubusercontent.com/senchalabs/cssbeautify/master/README.md"]],
         ["css-color-names", nil, ["README.md"]],
         ["css-loader", nil, ["README.md"]],
         ["css-selector-tokenizer", "MIT", ["README.md"]],
