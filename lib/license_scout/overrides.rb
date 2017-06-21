@@ -757,6 +757,8 @@ module LicenseScout
         ["gopkg.in/olivere/elastic.v3", "MIT", ["https://github.com/olivere/elastic/blob/v3.0.68/LICENSE"]],
         ["gopkg.in/tylerb/graceful.v1", "MIT", ["https://raw.githubusercontent.com/tylerb/graceful/v1.2.13/LICENSE"]],
         ["gopkg.in/yaml.v2", "Apache-2.0", ["https://raw.githubusercontent.com/go-yaml/yaml/v2/LICENSE"]],
+        ["gopkg.in/olivere/elastic.v5", "MIT", ["https://github.com/olivere/elastic/blob/v5.0.41/LICENSE"]],
+        ["github.com/pkg/errors", "BSD-2-Clause", ["https://github.com/pkg/errors/blob/master/LICENSE"]],
       ].each do |override_data|
         override_license "go", override_data[0] do |version|
           {}.tap do |d|
