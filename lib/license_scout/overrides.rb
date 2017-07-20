@@ -670,6 +670,7 @@ module LicenseScout
         ["electron-to-chromium", nil, [canonical("ISC")]],
         ["debug", "MIT", ["https://raw.githubusercontent.com/visionmedia/debug/master/LICENSE"]],
         ["performance-now", "MIT", ["https://raw.githubusercontent.com/braveg1rl/performance-now/master/license.txt"]],
+        ["cli-table", "MIT", ["README.md"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
