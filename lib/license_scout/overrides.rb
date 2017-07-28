@@ -174,7 +174,7 @@ module LicenseScout
         ["win32-mutex", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
         ["win32-service", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
         ["windows-api", nil, ["http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt"]],
-        ["rdoc", "Ruby", ["https://raw.githubusercontent.com/rdoc/rdoc/master/LICENSE.rdoc"]],
+        ["rdoc", "Ruby", ["https://raw.githubusercontent.com/ruby/rdoc/master/LICENSE.rdoc"]],
         ["rest-client", "MIT", ["https://raw.githubusercontent.com/rest-client/rest-client/master/LICENSE"]],
         ["rspec-rerun", nil, ["https://raw.githubusercontent.com/dblock/rspec-rerun/master/LICENSE.md"]],
         ["amqp", "Ruby", ["https://raw.githubusercontent.com/ruby-amqp/amqp/master/README.md"]],
