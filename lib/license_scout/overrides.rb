@@ -354,6 +354,8 @@ module LicenseScout
 
       # js_npm
       [
+        ["copy-to-clipboard", nil, [canonical("MIT")]],
+        ["toggle-selection", nil, [canonical("MIT")]],
         ["isarray", nil, [canonical("MIT")]],
         ["array-filter", nil, [canonical("MIT")]],
         ["chokidar", nil, ["README.md"]],
