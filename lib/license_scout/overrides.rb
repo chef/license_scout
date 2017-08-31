@@ -95,8 +95,117 @@ module LicenseScout
     end
 
     def default_overrides
+      # AWS Ruby SDK
+      aws_sdk_gems = %w{
+          aws-partitions
+          aws-sdk-acm
+          aws-sdk-apigateway
+          aws-sdk-applicationautoscaling
+          aws-sdk-applicationdiscoveryservice
+          aws-sdk-appstream
+          aws-sdk-athena
+          aws-sdk-autoscaling
+          aws-sdk-batch
+          aws-sdk-budgets
+          aws-sdk-clouddirectory
+          aws-sdk-cloudformation
+          aws-sdk-cloudfront
+          aws-sdk-cloudhsm
+          aws-sdk-cloudhsmv2
+          aws-sdk-cloudsearch
+          aws-sdk-cloudsearchdomain
+          aws-sdk-cloudtrail
+          aws-sdk-cloudwatch
+          aws-sdk-cloudwatchevents
+          aws-sdk-cloudwatchlogs
+          aws-sdk-codebuild
+          aws-sdk-codecommit
+          aws-sdk-codedeploy
+          aws-sdk-codepipeline
+          aws-sdk-codestar
+          aws-sdk-cognitoidentity
+          aws-sdk-cognitoidentityprovider
+          aws-sdk-cognitosync
+          aws-sdk-configservice
+          aws-sdk-costandusagereportservice
+          aws-sdk-databasemigrationservice
+          aws-sdk-datapipeline
+          aws-sdk-dax
+          aws-sdk-devicefarm
+          aws-sdk-directconnect
+          aws-sdk-directoryservice
+          aws-sdk-dynamodb
+          aws-sdk-dynamodbstreams
+          aws-sdk-ec2
+          aws-sdk-ecr
+          aws-sdk-ecs
+          aws-sdk-efs
+          aws-sdk-elasticache
+          aws-sdk-elasticbeanstalk
+          aws-sdk-elasticloadbalancing
+          aws-sdk-elasticloadbalancingv2
+          aws-sdk-elasticsearchservice
+          aws-sdk-elastictranscoder
+          aws-sdk-emr
+          aws-sdk-firehose
+          aws-sdk-gamelift
+          aws-sdk-glacier
+          aws-sdk-glue
+          aws-sdk-greengrass
+          aws-sdk-health
+          aws-sdk-iam
+          aws-sdk-importexport
+          aws-sdk-inspector
+          aws-sdk-iot
+          aws-sdk-iotdataplane
+          aws-sdk-kinesis
+          aws-sdk-kinesisanalytics
+          aws-sdk-kms
+          aws-sdk-lambda
+          aws-sdk-lambdapreview
+          aws-sdk-lex
+          aws-sdk-lexmodelbuildingservice
+          aws-sdk-lightsail
+          aws-sdk-machinelearning
+          aws-sdk-marketplacecommerceanalytics
+          aws-sdk-marketplaceentitlementservice
+          aws-sdk-marketplacemetering
+          aws-sdk-migrationhub
+          aws-sdk-mturk
+          aws-sdk-opsworks
+          aws-sdk-opsworkscm
+          aws-sdk-organizations
+          aws-sdk-pinpoint
+          aws-sdk-polly
+          aws-sdk-rds
+          aws-sdk-redshift
+          aws-sdk-rekognition
+          aws-sdk-resourcegroupstaggingapi
+          aws-sdk-route53
+          aws-sdk-route53domains
+          aws-sdk-s3
+          aws-sdk-servicecatalog
+          aws-sdk-ses
+          aws-sdk-shield
+          aws-sdk-simpledb
+          aws-sdk-sms
+          aws-sdk-snowball
+          aws-sdk-sns
+          aws-sdk-sqs
+          aws-sdk-ssm aws-sdk-states
+          aws-sdk-storagegateway
+          aws-sdk-support
+          aws-sdk-swf
+          aws-sdk-waf
+          aws-sdk-wafregional
+          aws-sdk-workdocs
+          aws-sdk-workspaces
+          aws-sdk-xray
+          aws-sigv2
+      }.map { |aws_gem| [ aws_gem, nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/LICENSE.txt"] ] }
+
       # Default overrides for ruby_bundler dependency manager.
-      [
+      other_gems = [
         ["debug_inspector", "MIT", ["README.md"]],
         ["inifile", "MIT", ["README.md"]],
         ["syslog-logger", "MIT", ["README.rdoc"]],
@@ -213,7 +322,8 @@ module LicenseScout
         ["parslet", "MIT", ["https://raw.githubusercontent.com/kschiess/parslet/master/LICENSE"]],
         ["blankslate", "MIT", ["https://raw.githubusercontent.com/masover/blankslate/master/MIT-LICENSE"]],
         ["xml-simple", "Ruby", ["https://raw.githubusercontent.com/maik/xml-simple/master/README.md"]],
-      ].each do |override_data|
+      ]
+      (aws_sdk_gems + other_gems).each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
           {}.tap do |d|
             d[:license] = override_data[1] if override_data[1]
