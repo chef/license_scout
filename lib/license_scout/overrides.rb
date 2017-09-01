@@ -171,6 +171,7 @@ module LicenseScout
           aws-sdk-marketplaceentitlementservice
           aws-sdk-marketplacemetering
           aws-sdk-migrationhub
+          aws-sdk-mobile
           aws-sdk-mturk
           aws-sdk-opsworks
           aws-sdk-opsworkscm
