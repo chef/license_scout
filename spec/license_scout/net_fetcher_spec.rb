@@ -25,6 +25,7 @@ RSpec.describe(LicenseScout::NetFetcher) do
   let(:tmpdir) { Dir.mktmpdir }
 
   before do
+    allow(described_class).to receive(:new).and_call_original
     FileUtils.rm_rf(fetcher.cache_dir)
   end
 

@@ -140,6 +140,13 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
 
       let(:overrides) { LicenseScout::Overrides.new() }
 
+      before do
+        allow(LicenseScout::NetFetcher).to receive(:new).and_call_original
+        allow(LicenseScout::NetFetcher).to receive(:cache) do |url|
+          LicenseScout::NetFetcher.new(url).cache_path
+        end
+      end
+
       it "fixes up dependencies with license metadata but no license files" do
         assert_plus_1_0_0 = npm.dependencies.find do |d|
           d.name == "assert-plus" && d.version = "1.0.0"

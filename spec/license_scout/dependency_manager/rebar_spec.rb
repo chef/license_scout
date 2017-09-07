@@ -17,6 +17,7 @@
 
 require "license_scout/dependency_manager/rebar"
 require "license_scout/overrides"
+require "license_scout/options"
 
 RSpec.describe(LicenseScout::DependencyManager::Rebar) do
 
@@ -72,11 +73,12 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
   let(:tmpdir) { Dir.mktmpdir }
 
   let(:overrides) do
-    o = LicenseScout::Overrides.new
+    o = LicenseScout::Overrides.new(exclude_default: true)
     # delete the default erlang overrides
     o.override_rules.delete("erlang_rebar")
     o
   end
+
   let(:project_dir) { File.join(tmpdir, "rebar_project") }
 
   after do
@@ -175,7 +177,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
 
     describe "when only license files are overridden." do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "erlang_rebar", "ej" do |version|
             {
               license_files: [ "Makefile" ], # pick any file from ej
@@ -202,7 +204,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
 
     describe "when overrides for both license file and type are given" do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "erlang_rebar", "ej" do |version|
             {
               license: "example-license",
@@ -226,7 +228,7 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
 
     describe "when overrides with missing license file paths are provided" do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "erlang_rebar", "ej" do |version|
             {
               license: "Apache",

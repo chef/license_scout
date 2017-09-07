@@ -36,7 +36,7 @@ module LicenseScout
       end
 
       def detected?
-        File.exists?(berksfile_path) && File.exists?(lockfile_path)
+        File.exist?(berksfile_path) && File.exist?(lockfile_path)
       end
 
       def dependencies
