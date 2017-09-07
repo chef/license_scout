@@ -46,7 +46,7 @@ module LicenseScout
 
       def normalize_and_verify_path(license_location, dependency_root_dir)
         full_path = File.expand_path(license_location, dependency_root_dir)
-        if File.exists?(full_path)
+        if File.exist?(full_path)
           full_path
         else
           raise Exceptions::InvalidOverride, "Provided license file path '#{license_location}' can not be found under detected dependency path '#{dependency_root_dir}'."

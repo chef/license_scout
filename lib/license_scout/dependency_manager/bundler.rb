@@ -39,7 +39,7 @@ module LicenseScout
         # that created issues with projects like oc_bifrost which is a rebar
         # project but have a Gemfile at its root to be able to run some rake
         # commands.
-        File.exists?(gemfile_path) && File.exists?(lockfile_path)
+        File.exist?(gemfile_path) && File.exist?(lockfile_path)
       end
 
       def dependency_data

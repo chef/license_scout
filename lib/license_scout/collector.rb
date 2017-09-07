@@ -44,7 +44,7 @@ module LicenseScout
     def run
       reset_license_manifest
 
-      if !File.exists?(project_dir)
+      if !File.exist?(project_dir)
         raise LicenseScout::Exceptions::ProjectDirectoryMissing.new(project_dir)
       end
       FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
