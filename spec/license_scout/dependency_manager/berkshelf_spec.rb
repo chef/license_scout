@@ -28,7 +28,7 @@ RSpec.describe(LicenseScout::DependencyManager::Berkshelf) do
 
   let(:tmpdir) { Dir.mktmpdir }
 
-  let(:overrides) { LicenseScout::Overrides.new }
+  let(:overrides) { LicenseScout::Overrides.new(exclude_default: true) }
   let(:project_dir) { File.join(tmpdir, "berkshelf_project") }
 
   before do
@@ -124,7 +124,7 @@ RSpec.describe(LicenseScout::DependencyManager::Berkshelf) do
 
     describe "when given license overrides" do
       let(:overrides) do
-        LicenseScout::Overrides.new do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "chef_berkshelf", "windows" do |version|
             {
               license: "MIT",
@@ -149,7 +149,7 @@ RSpec.describe(LicenseScout::DependencyManager::Berkshelf) do
 
     describe "when given license file overrides" do
       let(:overrides) do
-        LicenseScout::Overrides.new do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "chef_berkshelf", "git" do |version|
             {
               license_files: ["README.md", "CHANGELOG.md"],
@@ -177,7 +177,7 @@ RSpec.describe(LicenseScout::DependencyManager::Berkshelf) do
 
     describe "when given both license and license file overrides" do
       let(:overrides) do
-        LicenseScout::Overrides.new do
+        LicenseScout::Overrides.new(exclude_default: true) do
           override_license "chef_berkshelf", "omnibus" do |version|
             {
               license: "MIT",

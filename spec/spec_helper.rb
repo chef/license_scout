@@ -16,6 +16,9 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require "license_scout/net_fetcher"
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -46,6 +49,38 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+
+  # Global before each: prevent network calls via NetFetcher
+  # By default LicenseScout::Overrides contains the default set of overrides,
+  # any of which can configure the system to fetch a license file from the
+  # Internet (usually github) for a particular dependency. When real project
+  # names are used as test data/fixtures for dependency manager unit tests,
+  # this can result in license files being grabbed from the Internet and stored
+  # in the license scout cache. In addition to being bad hygiene for unit
+  # tests, this can make the code behave differently than test authors
+  # expected. Therefore, we block all attempts to create a NetFetcher at the
+  # suite level.
+  #
+  # In general, when testing a dependency manager, the right thing to do is to
+  # disable the default overrides when creating the `LicenseScout::Overrides`
+  # object, like so:
+  #
+  # ```
+  # LicenseScout::Overrides.new(exclude_default: true)
+  # ```
+  #
+  # This can be disabled for a particular test or set of tests
+  # with code like:
+  #
+  # ```
+  # allow(LicenseScout::NetFetcher).to receive(:new).and_call_original
+  # ```
+  #
+  config.before do
+    allow(LicenseScout::NetFetcher).to receive(:new).
+      and_raise("Network calls should be avoided. Maybe you forgot to pass `exclude_default: true` when creating the Overrides object?")
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
