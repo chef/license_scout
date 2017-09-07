@@ -22,6 +22,7 @@ require "license_scout/dependency_manager/base"
 
 module LicenseScout
   module DependencyManager
+    # dep(https://github.com/golang/dep) is a new dependency manger available from go 1.8
     class Dep < Base
 
       def name
