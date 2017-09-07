@@ -119,7 +119,7 @@ RSpec.describe(LicenseScout::Overrides) do
     expect(overrides.license_for("ruby_bundler", "pry-remote", "1.0.0")).to eq("MIT")
   end
 
-  describe "when an override exists for a dependency" do
+  context "when an override exists for a dependency" do
     it "finds the license for a given dependency manager, dep name, and dep version" do
       expect(overrides.license_for("test_dep_manager", "example1", "1.0.0")).to eq("BSD")
     end
@@ -131,7 +131,7 @@ RSpec.describe(LicenseScout::Overrides) do
 
   end
 
-  describe "when an override doesn't exist for a dependency" do
+  context "when an override doesn't exist for a dependency" do
     it "returns nil for the dependency's license" do
       expect(overrides.license_for("test_dep_manager", "example99", "1.0.0")).to eq(nil)
     end
@@ -141,7 +141,7 @@ RSpec.describe(LicenseScout::Overrides) do
     end
   end
 
-  describe "when no overrides exist for the given dependency manager" do
+  context "when no overrides exist for the given dependency manager" do
     it "returns nil for the dependency's license" do
       expect(overrides.license_for("nope_dep_manager", "example99", "1.0.0")).to eq(nil)
     end
@@ -151,4 +151,19 @@ RSpec.describe(LicenseScout::Overrides) do
     end
   end
 
+  describe "#default_overrides" do
+    let(:overrides) { LicenseScout::Overrides.new() }
+
+    it "doesn't pull license info from non-raw github URLs" do
+      overrides.override_rules.each do |dep_manager, library_map|
+        library_map.each_key do |library_name|
+          license_files = overrides.license_files_for(dep_manager, library_name, nil)
+          if license_files.license_locations.any? { |location| location.include?("github.com") }
+            fail "You must use raw.githubusercontent.com instead of github.com for overrides. \n" +
+                 "Dependency type: #{dep_manager}\nDependency name: #{library_name}\nLicense location: #{license_files.license_locations}"
+          end
+        end
+      end
+    end
+  end
 end
