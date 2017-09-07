@@ -18,6 +18,7 @@
 require "open-uri"
 require "tmpdir"
 require "digest"
+require "socket" # Defines `SocketError`
 
 require "license_scout/exceptions"
 
