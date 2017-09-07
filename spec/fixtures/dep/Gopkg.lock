@@ -1,0 +1,18 @@
+[[projects]]
+  branch = "master"
+  name = "github.com/foo/bar"
+  packages = [".","http","jose","key","oauth2","oidc"]
+  revision = "a4973d9a4225417aecf5d450a9522f00c1f7130f"
+
+[[projects]]
+  name = "gopkg.in/foo/baz"
+  packages = [".","config","uritemplates"]
+  revision = "edbef41beaacc2ee95e61af8faff04e67c01e268"
+  version = "v5.0.45"
+
+[solve-meta]
+  analyzer-name = "dep"
+  analyzer-version = 1
+  inputs-digest = "350487eaced8cc65b700341bd9fdfc3de673f27820a3560f326cf109763dcf77"
+  solver-name = "gps-cdcl"
+  solver-version = 1
