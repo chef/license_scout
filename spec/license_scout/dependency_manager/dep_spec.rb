@@ -63,27 +63,27 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
       # Make sure we have the right count
       expect(dependencies.length).to eq(2)
 
-      dep_a = dependencies.select { |d| d.name == "github.com_coreos_go-oidc" }
-      dep_b = dependencies.select { |d| d.name == "gopkg.in_olivere_elastic.v5" }
+      dep_a = dependencies.select { |d| d.name == "github.com_foo_bar" }
+      dep_b = dependencies.select { |d| d.name == "gopkg.in_foo_baz" }
 
       expect(dep_a.length).to be(1)
       expect(dep_a.first.version).to eq("a4973d9a4225417aecf5d450a9522f00c1f7130f")
       expect(dep_a.first.license).to eq(nil)
-      expect(dep_a.first.license_files.first).to end_with("fixtures/deps_gopath/src/github.com/coreos/go-oidc/LICENSE")
+      expect(dep_a.first.license_files.first).to end_with("fixtures/deps_gopath/src/github.com/foo/bar/LICENSE")
 
 
       expect(dep_b.length).to be(1)
       expect(dep_b.first.version).to eq("v5.0.45")
       expect(dep_b.first.license).to eq(nil)
-      expect(dep_b.first.license_files).to eq([])
+      expect(dep_b.first.license_files.first).to end_with("fixtures/deps_gopath/src/gopkg.in/foo/baz/LICENSE")
     end
 
     describe "when given license overrides" do
       let(:overrides) do
         LicenseScout::Overrides.new do
-          override_license "go", "gopkg.in_olivere_elastic.v5" do |version|
+          override_license "go", "gopkg.in/foo/baz" do |version|
             {
-              license: "MIT",
+              license: "APACHE2",
             }
           end
         end
@@ -93,8 +93,8 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
         dependencies = dep.dependencies
         expect(dependencies.length).to eq(2)
 
-        dep_b = dependencies.find { |d| d.name == "gopkg.in_olivere_elastic.v5" }
-        expect(dep_b.license).to eq("MIT")
+        dep_b = dependencies.find { |d| d.name == "gopkg.in_foo_baz" }
+        expect(dep_b.license).to eq("APACHE2")
       end
 
     end
@@ -102,7 +102,7 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
     describe "when given license file overrides" do
       let(:overrides) do
         LicenseScout::Overrides.new do
-          override_license "go", "gopkg.in_olivere_elastic.v5" do |_version|
+          override_license "go", "gopkg.in/foo/baz" do |version|
             {
               license_files: %w{README LICENSE},
             }
@@ -115,9 +115,9 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
         dependencies = dep.dependencies
         expect(dependencies.length).to eq(2)
 
-        dep_b = dependencies.find { |d| d.name == "gopkg.in_olivere_elastic.v5" }
-        expect(dep_b.license_files[0]).to end_with("fixtures/deps_gopath/src/gopkg.in_olivere_elastic.v5/README")
-        expect(dep_b.license_files[1]).to end_with("fixtures/deps_gopath/src/gopkg.in_olivere_elastic.v5/LICENSE")
+        dep_b = dependencies.find { |d| d.name == "gopkg.in_foo_baz" }
+        expect(dep_b.license_files[0]).to end_with("fixtures/deps_gopath/src/gopkg.in/foo/baz/README")
+        expect(dep_b.license_files[1]).to end_with("fixtures/deps_gopath/src/gopkg.in/foo/baz/LICENSE")
       end
 
     end
