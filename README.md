@@ -22,6 +22,8 @@ Dependency 'gopkg.in_yaml.v2' version '53feefa2559fb8dfa8d81baad31be332c97d6c77'
 >> Found 41 dependencies for go_godep. 40 OK, 1 with problems
 ```
 
+Detailed instructions for fixing licensing failures found by license_scout are now provided in the script's output. See [bin/license_scout](bin/license_scout) for more details.
+
 ## Contributing
 
 This project is maintained by the contribution guidelines identified for
