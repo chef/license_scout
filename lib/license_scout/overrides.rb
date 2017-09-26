@@ -919,6 +919,13 @@ module LicenseScout
         ["gopkg.in/yaml.v2", "Apache-2.0", ["https://raw.githubusercontent.com/go-yaml/yaml/v2/LICENSE"]],
         ["gopkg.in/olivere/elastic.v5", "MIT", ["https://raw.githubusercontent.com/olivere/elastic/v5.0.41/LICENSE"]],
         ["github.com/pkg/errors", "BSD-2-Clause", ["https://raw.githubusercontent.com/pkg/errors/master/LICENSE"]],
+        ["github.com/grpc-ecosystem/grpc-gateway", "BSD-3-Clause", ["https://raw.githubusercontent.com/grpc-ecosystem/grpc-gateway/master/LICENSE.txt"]],
+        ["github.com/inconshreveable/mousetrap", "MIT", ["https://raw.githubusercontent.com/inconshreveable/mousetrap/master/LICENSE"]],
+        ["github.com/spf13/cobra", "Apache-2.0", ["https://raw.githubusercontent.com/spf13/cobra/master/LICENSE.txt"]],
+        ["github.com/spf13/pflag", "BSD-3-Clause", ["https://raw.githubusercontent.com/spf13/pflag/master/LICENSE"]],
+        ["golang.org/x/text", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
+        ["google.golang.org/genproto", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
+        ["google.golang.org/grpc", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
       ].each do |override_data|
         override_license "go", override_data[0] do |version|
           {}.tap do |d|
