@@ -926,6 +926,7 @@ module LicenseScout
         ["golang.org/x/text", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
         ["google.golang.org/genproto", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
         ["google.golang.org/grpc", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
+        ["github.com/schollz/closestmatch", "MIT", ["https://raw.githubusercontent.com/schollz/closestmatch/master/LICENSE"]],
       ].each do |override_data|
         override_license "go", override_data[0] do |version|
           {}.tap do |d|
