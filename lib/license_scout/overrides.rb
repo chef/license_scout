@@ -805,6 +805,7 @@ module LicenseScout
         ["update-notifier", nil, ["readme.md"]],
         ["url-loader", nil, ["README.md"]],
         ["utila", nil, ["https://raw.githubusercontent.com/AriaMinaei/utila/master/LICENSE"]],
+        ["wallaby-webpack", nil, [canonical("MIT")]],
         ["watchpack", nil, ["https://raw.githubusercontent.com/webpack/watchpack/master/LICENSE"]],
         ["webpack-core", nil, ["README.md"]],
         ["webpack-dev-middleware", nil, [canonical("MIT")]],
