@@ -928,6 +928,14 @@ module LicenseScout
         ["google.golang.org/genproto", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
         ["google.golang.org/grpc", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/net/master/LICENSE"]],
         ["github.com/schollz/closestmatch", "MIT", ["https://raw.githubusercontent.com/schollz/closestmatch/master/LICENSE"]],
+        ["github.com/fsnotify/fsnotify", "BSD-3-Clause", ["https://raw.githubusercontent.com/fsnotify/fsnotify/master/LICENSE"]],
+        ["github.com/magiconair/properties", "BSD-3-Clause", ["https://raw.githubusercontent.com/magiconair/properties/master/LICENSE"]],
+        ["github.com/pelletier/go-toml", "MIT", ["https://raw.githubusercontent.com/pelletier/go-toml/master/LICENSE"]],
+        ["github.com/sirupsen/logrus", "MIT", ["https://raw.githubusercontent.com/sirupsen/logrus/master/LICENSE"]],
+        ["github.com/spf13/afero", "Apache-2.0", ["https://raw.githubusercontent.com/spf13/afero/master/LICENSE.txt"]],
+        ["github.com/spf13/cast", "MIT", ["https://raw.githubusercontent.com/spf13/cast/master/LICENSE"]],
+        ["github.com/spf13/jwalterweatherman", "MIT", ["https://raw.githubusercontent.com/spf13/jWalterWeatherman/master/LICENSE"]],
+        ["github.com/spf13/viper", "MIT", ["https://raw.githubusercontent.com/spf13/viper/master/LICENSE"]],
       ].each do |override_data|
         override_license "go", override_data[0] do |version|
           {}.tap do |d|
