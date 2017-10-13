@@ -31,6 +31,11 @@ RSpec.describe(LicenseScout::LicenseFileAnalyzer) do
     expect(described_class.find_by_text(license_file("hoax-apache2-short")).short_name).to eq("Apache-2.0")
   end
 
+  # This one is missing the last 2 lines of the standard file
+  it "detects the Apache 2.0 license in spf13/afero" do
+    expect(described_class.find_by_text(license_file("spf13-afero-apache2")).short_name).to eq("Apache-2.0")
+  end
+
   it "detects a MIT license with copyright holder filled in" do
     expect(described_class.find_by_text(license_file("eper-mit")).short_name).to eq("MIT")
   end
