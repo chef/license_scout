@@ -58,7 +58,7 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
       expect(dep.detected?).to eq(true)
     end
 
-    it "detects the dependencies and their details correctly" do
+    it "detects the dependencies, finds license files, and scans license files for license type" do
       dependencies = dep.dependencies
       # Make sure we have the right count
       expect(dependencies.length).to eq(2)
@@ -68,7 +68,7 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
 
       expect(dep_a.length).to be(1)
       expect(dep_a.first.version).to eq("a4973d9a4225417aecf5d450a9522f00c1f7130f")
-      expect(dep_a.first.license).to eq(nil)
+      expect(dep_a.first.license).to eq("Apache-2.0")
       expect(dep_a.first.license_files.first).to end_with("fixtures/deps_gopath/src/github.com/foo/bar/LICENSE")
 
 

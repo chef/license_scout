@@ -51,11 +51,20 @@ module LicenseScout
             license_files = override_license_files.resolve_locations(gopath(pkg_import_name))
           end
 
+          if license.nil? && !license_files.empty?
+            license = scan_licenses(license_files)
+          end
+
           create_dependency(pkg_file_name, pkg_version, license, license_files)
         end
       end
 
       private
+
+      def scan_licenses(license_files)
+        found_license = LicenseScout::LicenseFileAnalyzer.find_by_text(IO.read(license_files.first))
+        found_license && found_license.short_name
+      end
 
       def root_dep_file
         File.join(project_dir, "Gopkg.lock")
