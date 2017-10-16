@@ -914,6 +914,7 @@ module LicenseScout
         ["golang.org/x/sys/unix", "BSD-3-Clause", ["https://raw.githubusercontent.com/golang/sys/master/LICENSE"]],
         ["gopkg.in/bluesuncorp/validator.v5", "MIT", ["https://raw.githubusercontent.com/go-playground/validator/v5/LICENSE"]],
         ["gopkg.in/gorp.v1", "MIT", ["https://raw.githubusercontent.com/go-gorp/gorp/v1.7.1/LICENSE"]],
+        ["github.com/go-gorp/gorp", "MIT", ["https://raw.githubusercontent.com/go-gorp/gorp/master/LICENSE"]],
         ["gopkg.in/go-playground/validator.v8", "MIT", ["https://raw.githubusercontent.com/go-playground/validator/v8.18.1/LICENSE"]],
         ["gopkg.in/olivere/elastic.v3", "MIT", ["https://raw.githubusercontent.com/olivere/elastic/v3.0.68/LICENSE"]],
         ["gopkg.in/tylerb/graceful.v1", "MIT", ["https://raw.githubusercontent.com/tylerb/graceful/v1.2.13/LICENSE"]],
