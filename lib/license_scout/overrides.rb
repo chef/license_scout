@@ -465,6 +465,7 @@ module LicenseScout
 
       # js_npm
       [
+        ["hock", "MIT", nil],
         ["known-css-properties", nil, [canonical("MIT")]],
         ["buffer-indexof", "MIT", nil],
         ["stdout-stream", "MIT", nil],
