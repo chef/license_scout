@@ -465,6 +465,7 @@ module LicenseScout
 
       # js_npm
       [
+        ["ignore", "MIT", ["https://raw.githubusercontent.com/kaelzhang/node-ignore/master/LICENSE-MIT"]],
         ["hock", "MIT", nil],
         ["known-css-properties", nil, [canonical("MIT")]],
         ["buffer-indexof", "MIT", nil],
