@@ -178,6 +178,7 @@ module LicenseScout
           aws-sdk-organizations
           aws-sdk-pinpoint
           aws-sdk-polly
+          aws-sdk-pricing
           aws-sdk-rds
           aws-sdk-redshift
           aws-sdk-rekognition
