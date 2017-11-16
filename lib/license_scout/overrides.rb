@@ -411,7 +411,7 @@ module LicenseScout
         ["Digest-MD5", nil, ["README"]],
         ["Algorithm-Diff", "Perl-5", ["lib/Algorithm/Diff.pm"]],
         ["Encode-Locale", nil, ["README"]],
-        ["Hash-Merge", nil, ["README"]],
+        ["Hash-Merge", nil, ["README.md"]],
         ["Clone", nil, ["README"]],
         ["URI-db", nil, ["README"]],
         ["URI-Nested", nil, ["README.md"]],
