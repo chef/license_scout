@@ -413,6 +413,7 @@ module LicenseScout
         ["Encode-Locale", nil, ["README"]],
         ["Hash-Merge", nil, ["README.md"]],
         ["Clone", nil, ["README"]],
+        ["Clone-Choose", nil, ["README.md"]],
         ["URI-db", nil, ["README"]],
         ["URI-Nested", nil, ["README.md"]],
         ["Test-utf8", nil, ["README"]],
