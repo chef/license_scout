@@ -128,6 +128,7 @@ module LicenseScout
           aws-sdk-cognitosync
           aws-sdk-configservice
           aws-sdk-costandusagereportservice
+          aws-sdk-costexplorer
           aws-sdk-databasemigrationservice
           aws-sdk-datapipeline
           aws-sdk-dax
