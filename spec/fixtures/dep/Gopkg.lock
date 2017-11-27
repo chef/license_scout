@@ -10,6 +10,12 @@
   revision = "edbef41beaacc2ee95e61af8faff04e67c01e268"
   version = "v5.0.45"
 
+[[projects]]
+  name = "github.com/f00/b4r"
+  packages = ["."]
+  revision = "edbef41beaacc2ee95e61af8faff04e67c01e268"
+  version = "v0.0.1"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1

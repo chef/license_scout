@@ -46,7 +46,7 @@ module LicenseScout
 
           override_license_files = options.overrides.license_files_for("go", pkg_import_name, pkg_version)
           if override_license_files.empty?
-            license_files = find_license_files_for_package_in_gopath(pkg_import_name)
+            license_files = find_license_files_for_package_in_gopath_or_vendor_dir(pkg_import_name)
           else
             license_files = override_license_files.resolve_locations(gopath(pkg_import_name))
           end
@@ -74,8 +74,12 @@ module LicenseScout
         "#{ENV['GOPATH']}/src/#{pkg}"
       end
 
-      def find_license_files_for_package_in_gopath(pkg)
-        root_files = Dir["#{gopath(pkg)}/*"]
+      def vendor_dir(pkg = nil)
+        File.join(project_dir, "vendor/#{pkg}")
+      end
+
+      def find_license_files_for_package_in_gopath_or_vendor_dir(pkg)
+        root_files = Dir["#{gopath(pkg)}/*"] + Dir["#{vendor_dir(pkg)}/*"]
         root_files.select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
       end
     end
