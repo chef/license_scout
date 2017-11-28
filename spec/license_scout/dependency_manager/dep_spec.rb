@@ -61,7 +61,7 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
     it "detects the dependencies, finds license files, and scans license files for license type" do
       dependencies = dep.dependencies
       # Make sure we have the right count
-      expect(dependencies.length).to eq(2)
+      expect(dependencies.length).to eq(3)
 
       dep_a = dependencies.select { |d| d.name == "github.com_foo_bar" }
       dep_b = dependencies.select { |d| d.name == "gopkg.in_foo_baz" }
@@ -71,11 +71,22 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
       expect(dep_a.first.license).to eq("Apache-2.0")
       expect(dep_a.first.license_files.first).to end_with("fixtures/deps_gopath/src/github.com/foo/bar/LICENSE")
 
-
       expect(dep_b.length).to be(1)
       expect(dep_b.first.version).to eq("v5.0.45")
       expect(dep_b.first.license).to eq(nil)
       expect(dep_b.first.license_files.first).to end_with("fixtures/deps_gopath/src/gopkg.in/foo/baz/LICENSE")
+    end
+
+    it "also checks vendor/ for license files" do
+      dependencies = dep.dependencies
+      expect(dependencies.length).to eq(3)
+
+      dep_c = dependencies.select { |d| d.name == "github.com_f00_b4r" }
+      puts dep_c
+      expect(dep_c.length).to be(1)
+      expect(dep_c.first.version).to eq("v0.0.1")
+      expect(dep_c.first.license).to eq("MIT")
+      expect(dep_c.first.license_files.first).to end_with("fixtures/dep/vendor/github.com/f00/b4r/LICENSE")
     end
 
     describe "when given license overrides" do
@@ -91,7 +102,7 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
 
       it "takes overrides into account" do
         dependencies = dep.dependencies
-        expect(dependencies.length).to eq(2)
+        expect(dependencies.length).to eq(3)
 
         dep_b = dependencies.find { |d| d.name == "gopkg.in_foo_baz" }
         expect(dep_b.license).to eq("APACHE2")
@@ -113,7 +124,7 @@ RSpec.describe(LicenseScout::DependencyManager::Dep) do
 
       it "takes overrides into account" do
         dependencies = dep.dependencies
-        expect(dependencies.length).to eq(2)
+        expect(dependencies.length).to eq(3)
 
         dep_b = dependencies.find { |d| d.name == "gopkg.in_foo_baz" }
         expect(dep_b.license_files[0]).to end_with("fixtures/deps_gopath/src/gopkg.in/foo/baz/README")

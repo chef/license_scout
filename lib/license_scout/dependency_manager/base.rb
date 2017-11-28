@@ -16,6 +16,7 @@
 #
 
 require "license_scout/dependency"
+require "license_scout/license_file_analyzer"
 
 module LicenseScout
   module DependencyManager
