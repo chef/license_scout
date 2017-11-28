@@ -171,6 +171,11 @@ module LicenseScout
           aws-sdk-marketplacecommerceanalytics
           aws-sdk-marketplaceentitlementservice
           aws-sdk-marketplacemetering
+          aws-sdk-mediaconvert
+          aws-sdk-medialive
+          aws-sdk-mediapackage
+          aws-sdk-mediastore
+          aws-sdk-mediastoredata
           aws-sdk-migrationhub
           aws-sdk-mobile
           aws-sdk-mturk
