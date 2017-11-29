@@ -103,6 +103,7 @@ module LicenseScout
           aws-sdk-applicationautoscaling
           aws-sdk-applicationdiscoveryservice
           aws-sdk-appstream
+          aws-sdk-appsync
           aws-sdk-athena
           aws-sdk-autoscaling
           aws-sdk-batch
@@ -153,6 +154,7 @@ module LicenseScout
           aws-sdk-glacier
           aws-sdk-glue
           aws-sdk-greengrass
+          aws-sdk-guardduty
           aws-sdk-health
           aws-sdk-iam
           aws-sdk-importexport
@@ -178,6 +180,7 @@ module LicenseScout
           aws-sdk-mediastoredata
           aws-sdk-migrationhub
           aws-sdk-mobile
+          aws-sdk-mq
           aws-sdk-mturk
           aws-sdk-opsworks
           aws-sdk-opsworkscm
