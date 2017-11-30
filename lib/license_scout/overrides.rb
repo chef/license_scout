@@ -127,6 +127,7 @@ module LicenseScout
           aws-sdk-cognitoidentity
           aws-sdk-cognitoidentityprovider
           aws-sdk-cognitosync
+          aws-sdk-comprehend
           aws-sdk-configservice
           aws-sdk-costandusagereportservice
           aws-sdk-costexplorer
@@ -161,8 +162,12 @@ module LicenseScout
           aws-sdk-inspector
           aws-sdk-iot
           aws-sdk-iotdataplane
+          aws-sdk-iotjobsdataplane
           aws-sdk-kinesis
           aws-sdk-kinesisanalytics
+          aws-sdk-kinesisvideo
+          aws-sdk-kinesisvideoarchivedmedia
+          aws-sdk-kinesisvideomedia
           aws-sdk-kms
           aws-sdk-lambda
           aws-sdk-lambdapreview
@@ -195,6 +200,8 @@ module LicenseScout
           aws-sdk-route53
           aws-sdk-route53domains
           aws-sdk-s3
+          aws-sdk-sagemaker
+          aws-sdk-sagemakerruntime
           aws-sdk-servicecatalog
           aws-sdk-ses
           aws-sdk-shield
@@ -203,10 +210,12 @@ module LicenseScout
           aws-sdk-snowball
           aws-sdk-sns
           aws-sdk-sqs
-          aws-sdk-ssm aws-sdk-states
+          aws-sdk-ssm
+          aws-sdk-states
           aws-sdk-storagegateway
           aws-sdk-support
           aws-sdk-swf
+          aws-sdk-translate
           aws-sdk-waf
           aws-sdk-wafregional
           aws-sdk-workdocs
