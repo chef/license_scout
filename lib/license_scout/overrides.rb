@@ -851,6 +851,7 @@ module LicenseScout
         ["performance-now", "MIT", ["https://raw.githubusercontent.com/braveg1rl/performance-now/master/license.txt"]],
         ["cli-table", "MIT", ["README.md"]],
         ["process", "MIT", ["https://raw.githubusercontent.com/defunctzombie/node-process/master/LICENSE"]],
+        ["rrule", "BSD-3-Clause", ["https://raw.githubusercontent.com/jakubroztocil/rrule/master/LICENCE"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
