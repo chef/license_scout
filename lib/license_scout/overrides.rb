@@ -173,6 +173,7 @@ module LicenseScout
           aws-sdk-lambdapreview
           aws-sdk-lex
           aws-sdk-lexmodelbuildingservice
+          aws-sdk-lexruntimeservice
           aws-sdk-lightsail
           aws-sdk-machinelearning
           aws-sdk-marketplacecommerceanalytics
@@ -196,6 +197,7 @@ module LicenseScout
           aws-sdk-rds
           aws-sdk-redshift
           aws-sdk-rekognition
+          aws-sdk-resourcegroups
           aws-sdk-resourcegroupstaggingapi
           aws-sdk-route53
           aws-sdk-route53domains
@@ -204,6 +206,7 @@ module LicenseScout
           aws-sdk-sagemakerruntime
           aws-sdk-servicecatalog
           aws-sdk-ses
+          aws-sdk-sfn
           aws-sdk-shield
           aws-sdk-simpledb
           aws-sdk-sms
@@ -222,6 +225,7 @@ module LicenseScout
           aws-sdk-workspaces
           aws-sdk-xray
           aws-sigv2
+          aws-sigv4
       }.map { |aws_gem| [ aws_gem, nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/LICENSE.txt"] ] }
 
       # Default overrides for ruby_bundler dependency manager.
