@@ -98,7 +98,9 @@ module LicenseScout
       # AWS Ruby SDK
       aws_sdk_gems = %w{
           aws-partitions
+          aws-sdk
           aws-sdk-acm
+          aws-sdk-alexaforbusiness
           aws-sdk-apigateway
           aws-sdk-applicationautoscaling
           aws-sdk-applicationdiscoveryservice
@@ -108,6 +110,7 @@ module LicenseScout
           aws-sdk-autoscaling
           aws-sdk-batch
           aws-sdk-budgets
+          aws-sdk-cloud9
           aws-sdk-clouddirectory
           aws-sdk-cloudformation
           aws-sdk-cloudfront
@@ -129,6 +132,7 @@ module LicenseScout
           aws-sdk-cognitosync
           aws-sdk-comprehend
           aws-sdk-configservice
+          aws-sdk-core
           aws-sdk-costandusagereportservice
           aws-sdk-costexplorer
           aws-sdk-databasemigrationservice
@@ -199,11 +203,13 @@ module LicenseScout
           aws-sdk-rekognition
           aws-sdk-resourcegroups
           aws-sdk-resourcegroupstaggingapi
+          aws-sdk-resources
           aws-sdk-route53
           aws-sdk-route53domains
           aws-sdk-s3
           aws-sdk-sagemaker
           aws-sdk-sagemakerruntime
+          aws-sdk-serverlessapplicationrepository
           aws-sdk-servicecatalog
           aws-sdk-ses
           aws-sdk-sfn
