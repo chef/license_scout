@@ -211,6 +211,7 @@ module LicenseScout
           aws-sdk-sagemakerruntime
           aws-sdk-serverlessapplicationrepository
           aws-sdk-servicecatalog
+          aws-sdk-servicediscovery
           aws-sdk-ses
           aws-sdk-sfn
           aws-sdk-shield
