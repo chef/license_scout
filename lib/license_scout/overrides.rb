@@ -211,6 +211,7 @@ module LicenseScout
           aws-sdk-sagemakerruntime
           aws-sdk-serverlessapplicationrepository
           aws-sdk-servicecatalog
+          aws-sdk-servicediscovery
           aws-sdk-ses
           aws-sdk-sfn
           aws-sdk-shield
@@ -760,7 +761,7 @@ module LicenseScout
         ["configstore", nil, ["readme.md"]],
         ["crypt", "MIT", nil],
         ["cssbeautify", nil, ["https://raw.githubusercontent.com/senchalabs/cssbeautify/master/README.md"]],
-        ["csslint", nil, ["https://github.com/stubbornella/csslint/blob/master/LICENSE"]],
+        ["csslint", nil, ["https://raw.githubusercontent.com/stubbornella/csslint/master/LICENSE"]],
         ["css-color-names", nil, ["README.md"]],
         ["css-loader", nil, ["README.md"]],
         ["css-selector-tokenizer", "MIT", ["README.md"]],
@@ -804,7 +805,7 @@ module LicenseScout
         ["ng2-pagination", nil, ["readme.md"]],
         ["node-libs-browser", nil, [canonical("MIT")]],
         ["nth-check", nil, ["README.md"]],
-        ["parserlib", nil, ["https://github.com/CSSLint/parser-lib/blob/master/LICENSE"]],
+        ["parserlib", nil, ["https://raw.githubusercontent.com/CSSLint/parser-lib/master/LICENSE"]],
         ["phantomjs-polyfill", nil, [canonical("ISC")]],
         ["postcss-modules-extract-imports", nil, ["README.md"]],
         ["postcss-modules-scope", nil, ["README.md"]],
