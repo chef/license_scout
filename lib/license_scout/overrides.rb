@@ -238,7 +238,6 @@ module LicenseScout
       # Default overrides for ruby_bundler dependency manager.
       other_gems = [
         ["debug_inspector", "MIT", ["README.md"]],
-        ["rb-inotify", "MIT", ["README.md"]],
         ["inifile", "MIT", ["README.md"]],
         ["syslog-logger", "MIT", ["README.rdoc"]],
         ["httpclient", "Ruby", ["README.md"]],
@@ -287,7 +286,7 @@ module LicenseScout
         ["systemu", "BSD-2-Clause", nil],
         ["pry", "MIT", nil],
         ["puma", "BSD-3-Clause", nil],
-        ["rb-inotify", "MIT", nil],
+        ["rb-inotify", "MIT", ["README.md"]],
         ["chef-web-core", "Apache-2.0", nil],
         ["knife-opc", "Apache-2.0", nil],
         ["highline", "Ruby", ["LICENSE"]],
