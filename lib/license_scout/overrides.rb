@@ -238,6 +238,7 @@ module LicenseScout
       # Default overrides for ruby_bundler dependency manager.
       other_gems = [
         ["debug_inspector", "MIT", ["README.md"]],
+        ["rb-inotify", "MIT", ["README.md"]],
         ["inifile", "MIT", ["README.md"]],
         ["syslog-logger", "MIT", ["README.rdoc"]],
         ["httpclient", "Ruby", ["README.md"]],
