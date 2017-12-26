@@ -767,6 +767,7 @@ module LicenseScout
         ["css-selector-tokenizer", "MIT", ["README.md"]],
         ["delegate", "MIT", ["readme.md"]],
         ["enhanced-resolve", nil, ["https://raw.githubusercontent.com/webpack/enhanced-resolve/master/README.md"]],
+        ["electron-releases", "MIT", ["README.md"]],
         ["errno", nil, ["README.md"]],
         ["es6-promise-loader", nil, ["README.md"]],
         ["es6-promisify", nil, ["README.md"]],
