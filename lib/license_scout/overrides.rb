@@ -862,6 +862,8 @@ module LicenseScout
         ["cli-table", "MIT", ["README.md"]],
         ["process", "MIT", ["https://raw.githubusercontent.com/defunctzombie/node-process/master/LICENSE"]],
         ["rrule", "BSD-3-Clause", ["https://raw.githubusercontent.com/jakubroztocil/rrule/master/LICENCE"]],
+        # jszip says it is dual licensed under MIT and GPLv3
+        ["jszip", "MIT", ["https://raw.githubusercontent.com/Stuk/jszip/master/LICENSE.markdown"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
