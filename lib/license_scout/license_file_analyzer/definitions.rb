@@ -64,6 +64,7 @@ module LicenseScout
           ruby,
           bsd_2_clause,
           erlang_public,
+          chef_mlsa,
         ]
       end
 
@@ -204,6 +205,12 @@ module LicenseScout
         License.new(
           short_name: "Erlang-Public",
           matcher:    Matcher.from_template(Template.named("EPLICENSE"))
+        )
+      end
+
+      def chef_mlsa
+        License.new(
+          short_name: "Chef-MLSA"
         )
       end
 

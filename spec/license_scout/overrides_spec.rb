@@ -158,7 +158,7 @@ RSpec.describe(LicenseScout::Overrides) do
       overrides.override_rules.each do |dep_manager, library_map|
         library_map.each_key do |library_name|
           license_files = overrides.license_files_for(dep_manager, library_name, nil)
-          if license_files.license_locations.any? { |location| location.include?("github.com") }
+          if license_files.license_locations.any? { |location| location.include?("(\/\/|www\.)github.com") }
             fail "You must use raw.githubusercontent.com instead of github.com for overrides. \n" +
                  "Dependency type: #{dep_manager}\nDependency name: #{library_name}\nLicense location: #{license_files.license_locations}"
           end
