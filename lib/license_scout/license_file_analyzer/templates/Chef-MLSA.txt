@@ -1,0 +1,5 @@
+Use of this Software is subject to the terms of the Chef Online Master
+License and Services Agreement. You can find the latest copy of the
+agreement here:
+
+https://www.chef.io/online-master-agreement
