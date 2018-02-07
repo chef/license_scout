@@ -17,6 +17,7 @@
 
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
+require "open-uri"
 
 task default: :test
 
@@ -36,4 +37,10 @@ rescue LoadError
 end
 
 desc "Run all tests"
-task test: [:spec]
+task test: [:spec, :style]
+
+desc "Refresh the SPDX JSON database"
+task :spdx do
+  IO.copy_stream(open("https://spdx.org/licenses/licenses.json"), File.expand_path("./lib/license_scout/data/licenses.json"))
+  IO.copy_stream(open("https://spdx.org/licenses/exceptions.json"), File.expand_path("./lib/license_scout/data/exceptions.json"))
+end

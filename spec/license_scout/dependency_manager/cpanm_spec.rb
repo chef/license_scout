@@ -1,12 +1,12 @@
 #
-# Copyright:: Copyright 2016, Chef Software Inc.
+# Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,125 +15,120 @@
 # limitations under the License.
 #
 
-require "tmpdir"
-require "fileutils"
+RSpec.describe LicenseScout::DependencyManager::Cpanm do
 
-require "license_scout/dependency_manager/cpanm"
-require "license_scout/overrides"
-require "license_scout/options"
+  let(:directory) { "/some/random/directory" }
+  let(:subject) { described_class.new(directory) }
 
-RSpec.describe(LicenseScout::DependencyManager::Cpanm) do
+  let(:meta_json_path) { File.join(directory, "META.json") }
+  let(:meta_yaml_path) { File.join(directory, "META.yml") }
 
-  subject(:cpanm) do
-    described_class.new(project_dir, LicenseScout::Options.new(
-      overrides: overrides
-    ))
+  let(:meta_json_exists) { true }
+  let(:meta_yaml_exists) { false }
+
+  describe ".new" do
+    it "creates new instance of a dependency manager" do
+      expect(subject.directory).to eql(directory)
+    end
   end
 
-  let(:tmpdir) { Dir.mktmpdir }
-  let(:project_dir) { File.join(tmpdir, "App-Example-1.0.0") }
-  let(:overrides) { LicenseScout::Overrides.new(exclude_default: true) }
-
-  after do
-    FileUtils.rm_rf(tmpdir)
+  describe "#name" do
+    it "equals 'perl_cpanm'" do
+      expect(subject.name).to eql("perl_cpanm")
+    end
   end
 
-  it "has a name" do
-    expect(cpanm.name).to eq("perl_cpanm")
+  describe "#type" do
+    it "equals 'perl'" do
+      expect(subject.type).to eql("perl")
+    end
   end
 
-  describe "when provided a perl project with META.yml" do
+  describe "#signature" do
     before do
-      Dir.mkdir(project_dir)
-      FileUtils.touch(File.join(project_dir, "META.yml"))
+      allow(File).to receive(:exist?).with(meta_json_path).and_return(meta_json_exists)
+      allow(File).to receive(:exist?).with(meta_yaml_path).and_return(meta_yaml_exists)
     end
 
-    it "detects a perl project correctly" do
-      expect(cpanm.detected?).to eq(true)
-    end
-  end
+    context "when a META.yml exists" do
+      let(:meta_yaml_exists) { true }
+      let(:meta_json_exists) { false }
 
-  describe "when provided a perl project with META.json" do
-    before do
-      Dir.mkdir(project_dir)
-      FileUtils.touch(File.join(project_dir, "META.json"))
+      it "equals 'META.yml file'" do
+        expect(subject.signature).to eql("META.yml file")
+      end
     end
 
-    it "detects a perl project correctly" do
-      expect(cpanm.detected?).to eq(true)
-    end
-  end
-
-  describe "when provided a non-perl project" do
-    before do
-      Dir.mkdir(project_dir)
-    end
-
-    it "does not detect the project" do
-      expect(cpanm.detected?).to eq(false)
+    context "when a META.json exists" do
+      it "equals 'META.json file'" do
+        expect(subject.signature).to eql("META.json file")
+      end
     end
   end
 
-  describe "when given a real cpan project", :no_windows do
+  describe "#install_command" do
+    it "returns 'cpanm --installdeps .'" do
+      expect(subject.install_command).to eql("cpanm --installdeps .")
+    end
+  end
 
-    let(:project_dir) { File.join(tmpdir, "App-Sqitch-0.973") }
-
+  describe "#detected?" do
     before do
-      allow(cpanm).to receive(:cpanm_root).and_return(File.join(SPEC_FIXTURES_DIR, "cpanm"))
+      allow(File).to receive(:exist?).with(meta_json_path).and_return(meta_json_exists)
+      allow(File).to receive(:exist?).with(meta_yaml_path).and_return(meta_yaml_exists)
     end
 
-    it "fetches the dependencies" do
-      deps = cpanm.dependencies
-      expect(deps.length).to eq(84)
+    context "when META.json or META.yml exist" do
+      it "returns true" do
+        expect(subject.detected?).to be true
+      end
+    end
+
+    context "when META.json or META.yml are missing" do
+      let(:meta_json_exists) { false }
+      let(:meta_yaml_exists) { false }
+
+      it "returns false" do
+        expect(subject.detected?).to be false
+      end
+    end
+  end
+
+  describe "#dependencies", :no_windows do
+    let(:tmpdir) { Dir.mktmpdir }
+    let(:directory) { File.join(tmpdir, "App-Sqitch-0.973") }
+
+    before do
+      LicenseScout::Config.cpanm_root = File.join(SPEC_FIXTURES_DIR, "cpanm")
+    end
+
+    after do
+      FileUtils.rm_rf(tmpdir)
+    end
+
+    it "returns an array of Dependencies found in the directory" do
+      dependencies = subject.dependencies
+      expect(dependencies.length).to eq(84)
 
       # Has everything
-      any_moose = deps.select { |d| d.name == "Any-Moose" }
-      expect(any_moose.length).to eq(1)
-      expect(any_moose.first.license).to eq("Perl-5")
-      expect(any_moose.first.version).to eq("0.26")
-      expect(any_moose.first.license_files.length).to eq(1)
-      expect(any_moose.first.license_files.first).to end_with("latest-build/Any-Moose-0.26/LICENSE")
+      any_moose = dependencies.find { |d| d.name == "Any-Moose" }
+      expect(any_moose.version).to eq("0.26")
+      expect(any_moose.license.records.length).to eq(2)
+      expect(any_moose.license.records.map(&:id)).to include("Artistic-1.0-Perl")
+      expect(any_moose.license.records[0].source).to eql("LICENSE")
+      expect(any_moose.license.records[1].source).to eql("META.json")
 
-      # Check one missing #license
-      io_pager = deps.select { |d| d.name == "IO-Pager" }
-      expect(io_pager.length).to eq(1)
-      expect(io_pager.first.license).to eq(nil)
-      expect(io_pager.first.version).to eq("0.36")
-      expect(io_pager.first.license_files).to be_empty
+      # Check one missing license
+      io_pager = dependencies.find { |d| d.name == "IO-Pager" }
+      expect(io_pager.version).to eq("0.36")
+      expect(io_pager.license.records.length).to eq(0)
 
       # Missing META.json
-      class_load = deps.select { |d| d.name == "Class-Load" }
-      expect(class_load.length).to eq(1)
-      expect(class_load.first.license).to eq("Perl-5")
-      expect(class_load.first.version).to eq("0.23")
-      expect(class_load.first.license_files.length).to eq(1)
-      expect(class_load.first.license_files.first).to end_with("latest-build/Class-Load-0.23/LICENSE")
+      class_load = dependencies.find { |d| d.name == "Class-Load" }
+      expect(class_load.version).to eq("0.23")
+      expect(class_load.license.records.map(&:id)).to include("Artistic-1.0-Perl")
+      expect(any_moose.license.records[0].source).to eql("LICENSE")
+      expect(any_moose.license.records[1].source).to eql("META.json")
     end
-    # Make sure it happens when META.yml or META.json does not exist.
-    describe "with overrides" do
-
-      let(:overrides) do
-        LicenseScout::Overrides.new(exclude_default: true) do
-          override_license "perl_cpanm", "Any-Moose" do |version|
-            {
-              license: "MIT",
-              license_files: ["README"] # any file in Capture-Tiny there
-            }
-          end
-        end
-      end
-
-      it "detects the licenses of the transitive dependencies correctly" do
-        expect(cpanm.dependencies.size).to eq(84)
-
-        any_moose = cpanm.dependencies.select { |d| d.name == "Any-Moose" }
-        expect(any_moose.length).to eq(1)
-        expect(any_moose.first.license).to eq("MIT")
-        expect(any_moose.first.version).to eq("0.26")
-        expect(any_moose.first.license_files.length).to eq(1)
-        expect(any_moose.first.license_files.first).to end_with("latest-build/Any-Moose-0.26/README")
-      end
-    end
-
   end
 end

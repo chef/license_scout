@@ -15,101 +15,51 @@
 # limitations under the License.
 #
 
+require "license_scout/log"
 require "license_scout/exceptions"
 require "license_scout/dependency_manager"
-require "license_scout/reporter"
-
-require "ffi_yajl"
+require "license_scout/license"
 
 module LicenseScout
   class Collector
 
-    attr_reader :project_name
-    attr_reader :project_dir
-    attr_reader :output_dir
-    attr_reader :license_manifest_data
-    attr_reader :options
+    attr_reader :dependencies
 
-    def initialize(project_name, project_dir, output_dir, options)
-      @project_name = project_name
-      @project_dir = project_dir
-      @output_dir = output_dir
-      @options = options
-    end
-
-    def dependency_managers
-      @dependency_managers ||= all_dependency_managers.select { |m| m.detected? }
-    end
-
-    def run
-      reset_license_manifest
-
-      if !File.exist?(project_dir)
-        raise LicenseScout::Exceptions::ProjectDirectoryMissing.new(project_dir)
-      end
-      FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
+    def collect
+      @dependencies = Set.new
 
       if dependency_managers.empty?
-        raise LicenseScout::Exceptions::UnsupportedProjectType.new(project_dir)
+        raise LicenseScout::Exceptions::Error.new("Failed to find any files associated with known dependency managers in the following directories:\n#{LicenseScout::Config.directories.map { |dir| "\t• #{dir}" }.join("\n")}\n")
       end
+
       dependency_managers.each { |d| collect_licenses_from(d) }
 
-      File.open(license_manifest_path, "w+") do |file|
-        file.print(FFI_Yajl::Encoder.encode(license_manifest_data, pretty: true))
-      end
-    end
-
-    def issue_report
-      Reporter.new(output_dir).report
+      LicenseScout::Log.info("[collector] All licenses successfully collected")
     end
 
     private
 
-    def reset_license_manifest
-      @license_manifest_data = {
-        license_manifest_version: 1,
-        project_name: project_name,
-        dependency_managers: {},
-      }
+    def collect_licenses_from(dep_mgr)
+      LicenseScout::Log.info("[collector] Collecting licenses for #{dep_mgr.type} dependencies found in #{dep_mgr.directory}/#{dep_mgr.signature}")
+      dep_mgr.dependencies.each do |dep|
+        @dependencies << dep
+      end
+    rescue LicenseScout::Exceptions::MissingSourceDirectory => e
+      raise LicenseScout::Exceptions::Error.new("#{e.message}\n\n\tPlease try running `#{dep_mgr.install_command}` to download the dependency.\n")
     end
 
-    def license_manifest_path
-      File.join(output_dir, "#{project_name}-dependency-licenses.json")
-    end
-
-    def collect_licenses_from(dependency_manager)
-      dependency_manager.dependencies.each do |dep|
-        license_manifest_data[:dependency_managers][dep.dep_mgr_name] ||= []
-
-        license_data = {
-          name: dep.name,
-          version: dep.version,
-          license: dep.license,
-          license_files: [],
-        }
-
-        dep.license_files.each do |license_file|
-          output_license_filename = [
-            dependency_manager.name,
-            dep.name,
-            dep.version,
-            File.basename(license_file),
-          ].join("-")
-          output_license_path = File.join(output_dir, output_license_filename)
-          FileUtils.cp(license_file, output_license_path)
-
-          license_data[:license_files] << output_license_filename
+    def dependency_managers
+      @dependency_managers ||= LicenseScout::Config.directories.map do |dir|
+        LicenseScout::DependencyManager.implementations.map do |implementation|
+          dep_mgr = implementation.new(File.expand_path(dir))
+          if dep_mgr.detected?
+            LicenseScout::Log.info("[collector] Found #{dep_mgr.signature} in #{dir}")
+            dep_mgr
+          else
+            nil
+          end
         end
-
-        license_manifest_data[:dependency_managers][dep.dep_mgr_name] << license_data
-
-      end
-    end
-
-    def all_dependency_managers
-      LicenseScout::DependencyManager.implementations.map do |implementation|
-        implementation.new(project_dir, options)
-      end
+      end.flatten.compact
     end
   end
 end

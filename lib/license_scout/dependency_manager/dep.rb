@@ -26,48 +26,43 @@ module LicenseScout
     class Dep < Base
 
       def name
-        "go_dep"
+        "golang_dep"
+      end
+
+      def type
+        "golang"
+      end
+
+      def signature
+        "Gopkg.lock file"
+      end
+
+      def install_command
+        "dep ensure"
       end
 
       def detected?
-        File.exist?(root_dep_file)
+        File.exist?(gopkg_lock_path)
       end
 
       def dependencies
-        deps = File.open(root_dep_file) do |f|
-          TomlRB.parse(f)
-        end
-        return [] unless deps.has_key?("projects")
-        deps["projects"].map do |pkg_info|
-          pkg_import_name = pkg_info["name"]
-          pkg_file_name = pkg_import_name.tr("/", "_")
-          pkg_version = pkg_info["version"] || pkg_info["revision"]
-          license = options.overrides.license_for("go", pkg_import_name, pkg_version)
+        Array(gopkg.dig("projects")).map do |pkg_info|
+          dep_name = pkg_info["name"]
+          dep_version = pkg_info["version"] || pkg_info["revision"]
+          dep_path = package_path(dep_name)
 
-          override_license_files = options.overrides.license_files_for("go", pkg_import_name, pkg_version)
-          if override_license_files.empty?
-            license_files = find_license_files_for_package_in_gopath_or_vendor_dir(pkg_import_name)
-          else
-            license_files = override_license_files.resolve_locations(gopath(pkg_import_name))
-          end
-
-          if license.nil? && !license_files.empty?
-            license = scan_licenses(license_files)
-          end
-
-          create_dependency(pkg_file_name, pkg_version, license, license_files)
-        end
+          new_dependency(dep_name, dep_version, dep_path)
+        end.compact
       end
 
       private
 
-      def scan_licenses(license_files)
-        found_license = LicenseScout::LicenseFileAnalyzer.find_by_text(IO.read(license_files.first))
-        found_license && found_license.short_name
+      def gopkg
+        File.open(gopkg_lock_path) { |f| TomlRB.parse(f) }
       end
 
-      def root_dep_file
-        File.join(project_dir, "Gopkg.lock")
+      def gopkg_lock_path
+        File.join(directory, "Gopkg.lock")
       end
 
       def gopath(pkg)
@@ -75,12 +70,11 @@ module LicenseScout
       end
 
       def vendor_dir(pkg = nil)
-        File.join(project_dir, "vendor/#{pkg}")
+        File.join(directory, "vendor/#{pkg}")
       end
 
-      def find_license_files_for_package_in_gopath_or_vendor_dir(pkg)
-        root_files = Dir["#{gopath(pkg)}/*"] + Dir["#{vendor_dir(pkg)}/*"]
-        root_files.select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
+      def package_path(pkg)
+        (Dir[vendor_dir(pkg)] + Dir[gopath(pkg)]).first
       end
     end
   end

@@ -1,0 +1,216 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://hex.pm/api/packages/poison
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 12 Apr 2018 15:17:33 GMT
+      Content-Length:
+      - '545'
+      Content-Type:
+      - application/vnd.hex+json; charset=utf-8
+      Cache-Control:
+      - public, max-age=60
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '99'
+      X-Ratelimit-Reset:
+      - '1523546280'
+      Etag:
+      - 37b4cbe2b2f9a19e0e4a65501126b48a
+      Last-Modified:
+      - Sun, 15 Jan 2017 01:34:31 GMT
+      Vary:
+      - accept, accept-encoding, accept-encoding
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"url":"https://hex.pm/api/packages/poison","updated_at":"2017-01-15T01:34:31.327060Z","retirements":{},"repository":"hexpm","releases":[{"version":"3.1.0","url":"https://hex.pm/api/packages/poison/releases/3.1.0"},{"version":"3.0.0","url":"https://hex.pm/api/packages/poison/releases/3.0.0"},{"version":"2.2.0","url":"https://hex.pm/api/packages/poison/releases/2.2.0"},{"version":"2.1.0","url":"https://hex.pm/api/packages/poison/releases/2.1.0"},{"version":"2.0.1","url":"https://hex.pm/api/packages/poison/releases/2.0.1"},{"version":"2.0.0","url":"https://hex.pm/api/packages/poison/releases/2.0.0"},{"version":"1.5.2","url":"https://hex.pm/api/packages/poison/releases/1.5.2"},{"version":"1.5.1","url":"https://hex.pm/api/packages/poison/releases/1.5.1"},{"version":"1.5.0","url":"https://hex.pm/api/packages/poison/releases/1.5.0"},{"version":"1.4.0","url":"https://hex.pm/api/packages/poison/releases/1.4.0"},{"version":"1.3.1","url":"https://hex.pm/api/packages/poison/releases/1.3.1"},{"version":"1.3.0","url":"https://hex.pm/api/packages/poison/releases/1.3.0"},{"version":"1.2.1","url":"https://hex.pm/api/packages/poison/releases/1.2.1"},{"version":"1.2.0","url":"https://hex.pm/api/packages/poison/releases/1.2.0"},{"version":"1.1.1","url":"https://hex.pm/api/packages/poison/releases/1.1.1"},{"version":"1.1.0","url":"https://hex.pm/api/packages/poison/releases/1.1.0"},{"version":"1.0.3","url":"https://hex.pm/api/packages/poison/releases/1.0.3"},{"version":"1.0.2","url":"https://hex.pm/api/packages/poison/releases/1.0.2"},{"version":"1.0.1","url":"https://hex.pm/api/packages/poison/releases/1.0.1"},{"version":"1.0.0","url":"https://hex.pm/api/packages/poison/releases/1.0.0"}],"owners":[{"username":"devinus","url":"https://hex.pm/api/users/devinus","email":"devin@devintorr.es"}],"name":"poison","meta":{"maintainers":["Devin
+        Torres"],"links":{"GitHub":"https://github.com/devinus/poison"},"licenses":["CC0-1.0"],"description":"An
+        incredibly fast, pure Elixir JSON library"},"inserted_at":"2014-08-20T04:43:51.000000Z","html_url":"https://hex.pm/packages/poison","downloads":{"week":74432,"recent":901816,"day":14684,"all":5463149},"docs_html_url":"https://hexdocs.pm/poison/"}'
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 15:17:33 GMT
+- request:
+    method: get
+    uri: https://hex.pm/api/packages/inch_ex
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 12 Apr 2018 15:17:33 GMT
+      Content-Length:
+      - '565'
+      Content-Type:
+      - application/vnd.hex+json; charset=utf-8
+      Cache-Control:
+      - public, max-age=60
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '98'
+      X-Ratelimit-Reset:
+      - '1523546280'
+      Etag:
+      - 9de669774e9ce51c164f4b70a95bfd01
+      Last-Modified:
+      - Thu, 02 Feb 2017 12:30:59 GMT
+      Vary:
+      - accept, accept-encoding, accept-encoding
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leCIsInVwZGF0ZWRfYXQiOiIyMDE3LTAyLTAyVDEyOjMwOjU5LjgwMTU1M1oiLCJyZXRpcmVtZW50cyI6e30sInJlcG9zaXRvcnkiOiJoZXhwbSIsInJlbGVhc2VzIjpbeyJ2ZXJzaW9uIjoiMC41LjYiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leC9yZWxlYXNlcy8wLjUuNiJ9LHsidmVyc2lvbiI6IjAuNS41IiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2luY2hfZXgvcmVsZWFzZXMvMC41LjUifSx7InZlcnNpb24iOiIwLjUuNCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9pbmNoX2V4L3JlbGVhc2VzLzAuNS40In0seyJ2ZXJzaW9uIjoiMC41LjMiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leC9yZWxlYXNlcy8wLjUuMyJ9LHsidmVyc2lvbiI6IjAuNS4yIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2luY2hfZXgvcmVsZWFzZXMvMC41LjIifSx7InZlcnNpb24iOiIwLjUuMSIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9pbmNoX2V4L3JlbGVhc2VzLzAuNS4xIn0seyJ2ZXJzaW9uIjoiMC41LjAiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leC9yZWxlYXNlcy8wLjUuMCJ9LHsidmVyc2lvbiI6IjAuNC4wIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2luY2hfZXgvcmVsZWFzZXMvMC40LjAifSx7InZlcnNpb24iOiIwLjQuMC1kZXYiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leC9yZWxlYXNlcy8wLjQuMC1kZXYifSx7InZlcnNpb24iOiIwLjMuMyIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9pbmNoX2V4L3JlbGVhc2VzLzAuMy4zIn0seyJ2ZXJzaW9uIjoiMC4zLjIiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leC9yZWxlYXNlcy8wLjMuMiJ9LHsidmVyc2lvbiI6IjAuMy4xIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2luY2hfZXgvcmVsZWFzZXMvMC4zLjEifSx7InZlcnNpb24iOiIwLjMuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9pbmNoX2V4L3JlbGVhc2VzLzAuMy4wIn0seyJ2ZXJzaW9uIjoiMC4yLjUiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leC9yZWxlYXNlcy8wLjIuNSJ9LHsidmVyc2lvbiI6IjAuMi40IiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2luY2hfZXgvcmVsZWFzZXMvMC4yLjQifSx7InZlcnNpb24iOiIwLjIuMyIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9pbmNoX2V4L3JlbGVhc2VzLzAuMi4zIn0seyJ2ZXJzaW9uIjoiMC4yLjIiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leC9yZWxlYXNlcy8wLjIuMiJ9LHsidmVyc2lvbiI6IjAuMi4xIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2luY2hfZXgvcmVsZWFzZXMvMC4yLjEifSx7InZlcnNpb24iOiIwLjIuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9pbmNoX2V4L3JlbGVhc2VzLzAuMi4wIn0seyJ2ZXJzaW9uIjoiMC4xLjIiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvaW5jaF9leC9yZWxlYXNlcy8wLjEuMiJ9LHsidmVyc2lvbiI6IjAuMS4xIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2luY2hfZXgvcmVsZWFzZXMvMC4xLjEifSx7InZlcnNpb24iOiIwLjEuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9pbmNoX2V4L3JlbGVhc2VzLzAuMS4wIn1dLCJvd25lcnMiOlt7InVzZXJuYW1lIjoicnJyZW5lIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3VzZXJzL3JycmVuZSIsImVtYWlsIjoicmZAYmFtYXJ1LmRlIn1dLCJuYW1lIjoiaW5jaF9leCIsIm1ldGEiOnsibWFpbnRhaW5lcnMiOlsiUmVuw6kgRsO2aHJpbmciXSwibGlua3MiOnsiR2l0SHViIjoiaHR0cHM6Ly9naXRodWIuY29tL3JycmVuZS9pbmNoX2V4In0sImxpY2Vuc2VzIjpbIk1JVCJdLCJkZXNjcmlwdGlvbiI6IlByb3ZpZGVzIGEgTWl4IHRhc2sgdGhhdCBnaXZlcyB5b3UgaGludHMgd2hlcmUgdG8gaW1wcm92ZSB5b3VyIGlubGluZSBkb2NzIn0sImluc2VydGVkX2F0IjoiMjAxNC0wOS0wNVQxODoxMjoxNS4wMDAwMDBaIiwiaHRtbF91cmwiOiJodHRwczovL2hleC5wbS9wYWNrYWdlcy9pbmNoX2V4IiwiZG93bmxvYWRzIjp7IndlZWsiOjIzMzAsInJlY2VudCI6MzQwNjAsImRheSI6NDQ3LCJhbGwiOjI1NzQ3MH0sImRvY3NfaHRtbF91cmwiOm51bGx9
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 15:17:33 GMT
+- request:
+    method: get
+    uri: https://hex.pm/api/packages/ex_doc
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 12 Apr 2018 15:17:33 GMT
+      Content-Length:
+      - '851'
+      Content-Type:
+      - application/vnd.hex+json; charset=utf-8
+      Cache-Control:
+      - public, max-age=60
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '97'
+      X-Ratelimit-Reset:
+      - '1523546280'
+      Etag:
+      - 671c36aaeffebfb3874dcca4d9b5eb0d
+      Last-Modified:
+      - Wed, 14 Feb 2018 11:48:54 GMT
+      Vary:
+      - accept, accept-encoding, accept-encoding
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jIiwidXBkYXRlZF9hdCI6IjIwMTgtMDItMTRUMTE6NDg6NTQuNzE4OTQxWiIsInJldGlyZW1lbnRzIjp7IjAuMTguMCI6eyJyZWFzb24iOiJpbnZhbGlkIiwibWVzc2FnZSI6IlRoZSBwYWNrYWdlIGRvZXMgbm90IGNvbXBpbGUifSwiMC4xNy4wIjp7InJlYXNvbiI6ImludmFsaWQiLCJtZXNzYWdlIjoiU2VhcmNoIGZ1bmN0aW9uYWxpdHkgd2FzIGJyb2tlbiJ9fSwicmVwb3NpdG9yeSI6ImhleHBtIiwicmVsZWFzZXMiOlt7InZlcnNpb24iOiIwLjE4LjMiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTguMyJ9LHsidmVyc2lvbiI6IjAuMTguMiIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xOC4yIn0seyJ2ZXJzaW9uIjoiMC4xOC4xIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjE4LjEifSx7InZlcnNpb24iOiIwLjE4LjAiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTguMCJ9LHsidmVyc2lvbiI6IjAuMTcuMSIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xNy4xIn0seyJ2ZXJzaW9uIjoiMC4xNy4wIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjE3LjAifSx7InZlcnNpb24iOiIwLjE2LjQiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTYuNCJ9LHsidmVyc2lvbiI6IjAuMTYuMyIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xNi4zIn0seyJ2ZXJzaW9uIjoiMC4xNi4yIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjE2LjIifSx7InZlcnNpb24iOiIwLjE2LjEiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTYuMSJ9LHsidmVyc2lvbiI6IjAuMTYuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xNi4wIn0seyJ2ZXJzaW9uIjoiMC4xNS4xIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjE1LjEifSx7InZlcnNpb24iOiIwLjE1LjAiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTUuMCJ9LHsidmVyc2lvbiI6IjAuMTQuNSIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xNC41In0seyJ2ZXJzaW9uIjoiMC4xNC40IiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjE0LjQifSx7InZlcnNpb24iOiIwLjE0LjMiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTQuMyJ9LHsidmVyc2lvbiI6IjAuMTQuMiIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xNC4yIn0seyJ2ZXJzaW9uIjoiMC4xNC4xIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjE0LjEifSx7InZlcnNpb24iOiIwLjE0LjAiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTQuMCJ9LHsidmVyc2lvbiI6IjAuMTMuMiIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xMy4yIn0seyJ2ZXJzaW9uIjoiMC4xMy4xIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjEzLjEifSx7InZlcnNpb24iOiIwLjEzLjAiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTMuMCJ9LHsidmVyc2lvbiI6IjAuMTIuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xMi4wIn0seyJ2ZXJzaW9uIjoiMC4xMS41IiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjExLjUifSx7InZlcnNpb24iOiIwLjExLjQiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTEuNCJ9LHsidmVyc2lvbiI6IjAuMTEuMyIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xMS4zIn0seyJ2ZXJzaW9uIjoiMC4xMS4yIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjExLjIifSx7InZlcnNpb24iOiIwLjExLjEiLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvcGFja2FnZXMvZXhfZG9jL3JlbGVhc2VzLzAuMTEuMSJ9LHsidmVyc2lvbiI6IjAuMTEuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC4xMS4wIn0seyJ2ZXJzaW9uIjoiMC4xMC4wIiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3BhY2thZ2VzL2V4X2RvYy9yZWxlYXNlcy8wLjEwLjAifSx7InZlcnNpb24iOiIwLjkuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC45LjAifSx7InZlcnNpb24iOiIwLjguNCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC44LjQifSx7InZlcnNpb24iOiIwLjguMyIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC44LjMifSx7InZlcnNpb24iOiIwLjguMiIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC44LjIifSx7InZlcnNpb24iOiIwLjguMSIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC44LjEifSx7InZlcnNpb24iOiIwLjguMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC44LjAifSx7InZlcnNpb24iOiIwLjcuMyIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC43LjMifSx7InZlcnNpb24iOiIwLjcuMiIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC43LjIifSx7InZlcnNpb24iOiIwLjcuMSIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC43LjEifSx7InZlcnNpb24iOiIwLjcuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC43LjAifSx7InZlcnNpb24iOiIwLjYuMiIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC42LjIifSx7InZlcnNpb24iOiIwLjYuMSIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC42LjEifSx7InZlcnNpb24iOiIwLjYuMCIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC42LjAifSx7InZlcnNpb24iOiIwLjUuMiIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC41LjIifSx7InZlcnNpb24iOiIwLjUuMSIsInVybCI6Imh0dHBzOi8vaGV4LnBtL2FwaS9wYWNrYWdlcy9leF9kb2MvcmVsZWFzZXMvMC41LjEifV0sIm93bmVycyI6W3sidXNlcm5hbWUiOiJqb3NldmFsaW0iLCJ1cmwiOiJodHRwczovL2hleC5wbS9hcGkvdXNlcnMvam9zZXZhbGltIiwiZW1haWwiOiJqb3NlLnZhbGltQGdtYWlsLmNvbSJ9LHsidXNlcm5hbWUiOiJtaWxtYXp6IiwidXJsIjoiaHR0cHM6Ly9oZXgucG0vYXBpL3VzZXJzL21pbG1henoiLCJlbWFpbCI6Im1lQG1pbG1henoudW5vIn1dLCJuYW1lIjoiZXhfZG9jIiwibWV0YSI6eyJtYWludGFpbmVycyI6WyJKb3PDqSBWYWxpbSIsIkVrc3BlcmltZW50YWwiLCJNaWx0b24gTWF6emFycmkiLCJGcmllZGVsIFppZWdlbG1heWVyIl0sImxpbmtzIjp7IldyaXRpbmcgZG9jdW1lbnRhdGlvbiI6Imh0dHBzOi8vaGV4ZG9jcy5wbS9lbGl4aXIvd3JpdGluZy1kb2N1bWVudGF0aW9uLmh0bWwiLCJHaXRIdWIiOiJodHRwczovL2dpdGh1Yi5jb20vZWxpeGlyLWxhbmcvZXhfZG9jIn0sImxpY2Vuc2VzIjpbIkFwYWNoZSAyLjAiXSwiZGVzY3JpcHRpb24iOiJFeERvYyBpcyBhIGRvY3VtZW50YXRpb24gZ2VuZXJhdGlvbiB0b29sIGZvciBFbGl4aXIifSwiaW5zZXJ0ZWRfYXQiOiIyMDE0LTA4LTAyVDIwOjE0OjQxLjAwMDAwMFoiLCJodG1sX3VybCI6Imh0dHBzOi8vaGV4LnBtL3BhY2thZ2VzL2V4X2RvYyIsImRvd25sb2FkcyI6eyJ3ZWVrIjoyMzcwMCwicmVjZW50IjozMDQ2NDEsImRheSI6NDc0MiwiYWxsIjoxNTk3NjU4fSwiZG9jc19odG1sX3VybCI6Imh0dHBzOi8vaGV4ZG9jcy5wbS9leF9kb2MvIn0=
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 15:17:33 GMT
+- request:
+    method: get
+    uri: https://hex.pm/api/packages/earmark
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 12 Apr 2018 15:17:33 GMT
+      Content-Length:
+      - '774'
+      Content-Type:
+      - application/vnd.hex+json; charset=utf-8
+      Cache-Control:
+      - public, max-age=60
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '96'
+      X-Ratelimit-Reset:
+      - '1523546280'
+      Etag:
+      - 8c0b328a744d9ba10f1a35332afa80fb
+      Last-Modified:
+      - Mon, 02 Apr 2018 20:47:08 GMT
+      Vary:
+      - accept, accept-encoding, accept-encoding
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"url":"https://hex.pm/api/packages/earmark","updated_at":"2018-04-02T20:47:08.861649Z","retirements":{},"repository":"hexpm","releases":[{"version":"1.2.5","url":"https://hex.pm/api/packages/earmark/releases/1.2.5"},{"version":"1.2.4","url":"https://hex.pm/api/packages/earmark/releases/1.2.4"},{"version":"1.2.3","url":"https://hex.pm/api/packages/earmark/releases/1.2.3"},{"version":"1.2.2","url":"https://hex.pm/api/packages/earmark/releases/1.2.2"},{"version":"1.2.1","url":"https://hex.pm/api/packages/earmark/releases/1.2.1"},{"version":"1.2.0","url":"https://hex.pm/api/packages/earmark/releases/1.2.0"},{"version":"1.1.1","url":"https://hex.pm/api/packages/earmark/releases/1.1.1"},{"version":"1.1.0","url":"https://hex.pm/api/packages/earmark/releases/1.1.0"},{"version":"1.0.3","url":"https://hex.pm/api/packages/earmark/releases/1.0.3"},{"version":"1.0.2","url":"https://hex.pm/api/packages/earmark/releases/1.0.2"},{"version":"1.0.1","url":"https://hex.pm/api/packages/earmark/releases/1.0.1"},{"version":"1.0.0","url":"https://hex.pm/api/packages/earmark/releases/1.0.0"},{"version":"0.2.1","url":"https://hex.pm/api/packages/earmark/releases/0.2.1"},{"version":"0.2.0","url":"https://hex.pm/api/packages/earmark/releases/0.2.0"},{"version":"0.1.19","url":"https://hex.pm/api/packages/earmark/releases/0.1.19"},{"version":"0.1.18","url":"https://hex.pm/api/packages/earmark/releases/0.1.18"},{"version":"0.1.17","url":"https://hex.pm/api/packages/earmark/releases/0.1.17"},{"version":"0.1.16","url":"https://hex.pm/api/packages/earmark/releases/0.1.16"},{"version":"0.1.15","url":"https://hex.pm/api/packages/earmark/releases/0.1.15"},{"version":"0.1.14","url":"https://hex.pm/api/packages/earmark/releases/0.1.14"},{"version":"0.1.13","url":"https://hex.pm/api/packages/earmark/releases/0.1.13"},{"version":"0.1.12","url":"https://hex.pm/api/packages/earmark/releases/0.1.12"},{"version":"0.1.10","url":"https://hex.pm/api/packages/earmark/releases/0.1.10"},{"version":"0.1.9","url":"https://hex.pm/api/packages/earmark/releases/0.1.9"},{"version":"0.1.8","url":"https://hex.pm/api/packages/earmark/releases/0.1.8"},{"version":"0.1.7","url":"https://hex.pm/api/packages/earmark/releases/0.1.7"},{"version":"0.1.6","url":"https://hex.pm/api/packages/earmark/releases/0.1.6"},{"version":"0.1.5","url":"https://hex.pm/api/packages/earmark/releases/0.1.5"},{"version":"0.1.4","url":"https://hex.pm/api/packages/earmark/releases/0.1.4"},{"version":"0.1.3","url":"https://hex.pm/api/packages/earmark/releases/0.1.3"},{"version":"0.1.2","url":"https://hex.pm/api/packages/earmark/releases/0.1.2"},{"version":"0.1.1","url":"https://hex.pm/api/packages/earmark/releases/0.1.1"},{"version":"0.1.0","url":"https://hex.pm/api/packages/earmark/releases/0.1.0"}],"owners":[{"username":"pragdave","url":"https://hex.pm/api/users/pragdave","email":"dave@pragdave.me"}],"name":"earmark","meta":{"maintainers":["Robert
+        Dober <robert.dober@gmail.com>","Dave Thomas <dave@pragdave.me>"],"links":{"GitHub":"https://github.com/pragdave/earmark"},"licenses":["Apache
+        2 (see the file LICENSE for details)"],"description":"Earmark is a pure-Elixir
+        Markdown converter.\n\nIt is intended to be used as a library (just call Earmark.as_html),\nbut
+        can also be used as a command-line tool (run mix escript.build\nfirst).\n\nOutput
+        generation is pluggable."},"inserted_at":"2014-07-09T16:15:39.000000Z","html_url":"https://hex.pm/packages/earmark","downloads":{"week":26795,"recent":336833,"day":5363,"all":1782506},"docs_html_url":"https://hexdocs.pm/earmark/"}'
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 15:17:34 GMT
+recorded_with: VCR 4.0.0

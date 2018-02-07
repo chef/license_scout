@@ -15,58 +15,90 @@
 # limitations under the License.
 #
 
+require "licensee"
 require "license_scout/dependency"
-require "license_scout/license_file_analyzer"
 
 module LicenseScout
+  # The DependencyManager module (or more accurately, implementations of it) are responsible for recognizing
+  # when a dependency manager such as Bundler, Rebar, Berkshelf, etc is managing dependencies for source code
+  # in the given directory.
   module DependencyManager
     class Base
 
-      POSSIBLE_LICENSE_FILES = %w{
-        LICENSE
-        LICENSE.txt
-        LICENSE.TXT
-        LICENSE.md
-        LICENSE.mkd
-        LICENSE.rdoc
-        License
-        License.text
-        License.txt
-        License.md
-        License.rdoc
-        Licence.rdoc
-        Licence.md
-        license
-        LICENCE
-        licence
-        license.md
-        licence.md
-        APACHE.LICENSE
-        MIT-LICENSE
-        MIT-LICENSE.txt
-        LICENSE.MIT
-        LICENSE-MIT
-        LICENSE-MIT.txt
-        LGPL-2.1
-        COPYING.txt
-        COPYING
-        BSD_LICENSE
-        LICENSE.BSD
-        UNLICENSE
-      }
+      attr_reader :directory
 
-      attr_reader :project_dir
-      attr_reader :options
-
-      def initialize(project_dir, options)
-        @project_dir = project_dir
-        @options = options
+      # @param directory [String] The fully-qualified path to the directory to be inspected
+      def initialize(directory)
+        @directory = directory
+        @deps = nil
       end
 
-      def create_dependency(dep_name, version, license, license_files, dep_mgr_name = name)
-        # add name of the dependency manager `name` to the dependency we are
-        # creating.
-        Dependency.new(dep_name, version, license, license_files, dep_mgr_name)
+      # The unique name of this Dependency Manager. In general, the name should follow the `<TYPE>_<NAME` pattern where:
+      #   * <TYPE> is the value of DependencyManager#type
+      #   * <NAME> is the name of the dependency manager.
+      #
+      # @example Go's various package managers
+      #   Name        Reference
+      #   --------    -----------------------------------------------
+      #   go_dep      [`godep`](https://github.com/tools/godep)
+      #   go_godep    [`dep`](https://github.com/golang/dep)
+      #   go_glide    [`glide`](https://github.com/Masterminds/glide)
+      #
+      # @return [String]
+      def name
+        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#name` method")
+      end
+
+      # The "type" of dependencies this manager manages. This can be the language, tool, etc.
+      #
+      # @return [String]
+      def type
+        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#type` method")
+      end
+
+      # A human-readable description of the files/folders that indicate this dependency manager is in use.
+      #
+      # @return [String]
+      def signature
+        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#signature` method")
+      end
+
+      # Whether or not we were able to detect that this dependency manager is currently in use in our directory
+      #
+      # @return [Boolean]
+      def detected?
+        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#detected?` method")
+      end
+
+      # The command to run to install dependency if one or more is missing
+      #
+      # @return [String]
+      def install_command
+        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#install_command` method")
+      end
+
+      # Implementation's of this method in sub-classes are the methods that are responsible for all
+      # the heavy-lifting when it comes to determining the dependencies (and their licenses).
+      # They should return an array of `LicenseScout::Dependency`.
+      #
+      # @return [Array<LicenseScout::Dependency>]
+      def dependencies
+        []
+      end
+
+      private
+
+      # A helper that allows you to quickly create a new Dependency (with the type)
+      #
+      # @param name [String] The name of the dependency
+      # @param version [String] The version of the dependency
+      # @param path [String] The path to the dependency on the local system
+      #
+      # @return [LicenseScout::Dependency]
+      # @api private
+      def new_dependency(name, version, path)
+        LicenseScout::Log.debug("[#{type}] Found #{name} #{version}#{" #{path}" unless path.nil?}")
+        Dependency.new(name, version, path, type)
       end
     end
   end

@@ -15,20 +15,34 @@
 # limitations under the License.
 #
 
+require "license_scout/dependency_manager/base"
+
+require "license_scout/dependency_manager/berkshelf"
 require "license_scout/dependency_manager/bundler"
-require "license_scout/dependency_manager/rebar"
 require "license_scout/dependency_manager/cpanm"
-require "license_scout/dependency_manager/godep"
 require "license_scout/dependency_manager/dep"
 require "license_scout/dependency_manager/glide"
-require "license_scout/dependency_manager/berkshelf"
+require "license_scout/dependency_manager/godep"
+require "license_scout/dependency_manager/habitat"
+require "license_scout/dependency_manager/mix"
+require "license_scout/dependency_manager/rebar"
 require "license_scout/dependency_manager/npm"
-require "license_scout/dependency_manager/manual"
 
 module LicenseScout
   module DependencyManager
     def self.implementations
-      [Bundler, Rebar, Cpanm, Berkshelf, NPM, Godep, Dep, Glide, Manual]
+      [
+        Berkshelf,
+        Bundler,
+        Cpanm,
+        Dep,
+        Glide,
+        Godep,
+        Habitat,
+        Mix,
+        Rebar,
+        Npm,
+      ]
     end
   end
 end

@@ -1,12 +1,12 @@
 #
-# Copyright:: Copyright 2016, Chef Software Inc.
+# Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,122 +15,103 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/dep"
-require "license_scout/overrides"
-require "license_scout/options"
+RSpec.describe LicenseScout::DependencyManager::Dep do
 
-RSpec.describe(LicenseScout::DependencyManager::Dep) do
+  let(:subject) { described_class.new(directory) }
+  let(:directory) { "/some/random/directory" }
 
-  subject(:dep) do
-    described_class.new(project_dir, LicenseScout::Options.new(
-      overrides: overrides
-    ))
-  end
+  let(:gopkg_lock_path) { File.join(directory, "Gopkg.lock") }
 
-  let(:overrides) { LicenseScout::Overrides.new(exclude_default: true) }
-
-  let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "dep") }
-
-  it "has a name" do
-    expect(dep.name).to eq("go_dep")
-  end
-
-  it "has a project directory" do
-    expect(dep.project_dir).to eq(project_dir)
-  end
-
-  describe "when run in a non-dep project dir" do
-
-    let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "no_dependency_manager") }
-
-    it "does not detect the project" do
-      expect(dep.detected?).to eq(false)
+  describe ".new" do
+    it "creates new instance of a dependency manager" do
+      expect(subject.directory).to eql(directory)
     end
-
   end
 
-  describe "when run in a dep project dir" do
+  describe "#name" do
+    it "equals 'golang_dep'" do
+      expect(subject.name).to eql("golang_dep")
+    end
+  end
+
+  describe "#type" do
+    it "equals 'golang'" do
+      expect(subject.type).to eql("golang")
+    end
+  end
+
+  describe "#signature" do
+    it "equals 'Gopkg.lock file'" do
+      expect(subject.signature).to eql("Gopkg.lock file")
+    end
+  end
+
+  describe "#install_command" do
+    it "returns 'dep ensure'" do
+      expect(subject.install_command).to eql("dep ensure")
+    end
+  end
+
+  describe "#detected?" do
+    let(:gopkg_lock_exists) { true }
+
     before do
-      ENV["GOPATH"] = File.join(SPEC_FIXTURES_DIR, "deps_gopath" )
+      expect(File).to receive(:exist?).with(gopkg_lock_path).and_return(gopkg_lock_exists)
     end
 
-    it "does detects the project" do
-      expect(dep.detected?).to eq(true)
+    context "when Gopkg.lock exists" do
+      it "returns true" do
+        expect(subject.detected?).to be true
+      end
     end
 
-    it "detects the dependencies, finds license files, and scans license files for license type" do
-      dependencies = dep.dependencies
+    context "when Gopkg.lock is missing" do
+      let(:gopkg_lock_exists) { false }
+
+      it "returns false" do
+        expect(subject.detected?).to be false
+      end
+    end
+  end
+
+  describe "#dependencies" do
+    let(:directory) { File.join(SPEC_FIXTURES_DIR, "dep") }
+    let(:gopath) { File.join(SPEC_FIXTURES_DIR, "deps_gopath") }
+
+    before do
+      ENV["GOPATH"] = gopath
+    end
+
+    after do
+      ENV.delete("GOPATH")
+    end
+
+    it "returns an array of Dependencies found in the directory" do
+      dependencies = subject.dependencies
+
       # Make sure we have the right count
       expect(dependencies.length).to eq(3)
 
-      dep_a = dependencies.select { |d| d.name == "github.com_foo_bar" }
-      dep_b = dependencies.select { |d| d.name == "gopkg.in_foo_baz" }
+      dep_a = dependencies.find { |d| d.name == "github.com/foo/bar" }
+      dep_b = dependencies.find { |d| d.name == "gopkg.in/foo/baz" }
 
-      expect(dep_a.length).to be(1)
-      expect(dep_a.first.version).to eq("a4973d9a4225417aecf5d450a9522f00c1f7130f")
-      expect(dep_a.first.license).to eq("Apache-2.0")
-      expect(dep_a.first.license_files.first).to end_with("fixtures/deps_gopath/src/github.com/foo/bar/LICENSE")
+      expect(dep_a.version).to eql("a4973d9a4225417aecf5d450a9522f00c1f7130f")
+      expect(dep_a.license.records.first.id).to eql("Apache-2.0")
+      expect(dep_a.license.records.first.source).to eql("LICENSE")
 
-      expect(dep_b.length).to be(1)
-      expect(dep_b.first.version).to eq("v5.0.45")
-      expect(dep_b.first.license).to eq(nil)
-      expect(dep_b.first.license_files.first).to end_with("fixtures/deps_gopath/src/gopkg.in/foo/baz/LICENSE")
+      expect(dep_b.version).to eql("v5.0.45")
+      expect(dep_b.license.records.first.id).to be_nil
+      expect(dep_b.license.records.first.source).to eql("LICENSE")
     end
 
     it "also checks vendor/ for license files" do
-      dependencies = dep.dependencies
+      dependencies = subject.dependencies
       expect(dependencies.length).to eq(3)
 
-      dep_c = dependencies.select { |d| d.name == "github.com_f00_b4r" }
-      puts dep_c
-      expect(dep_c.length).to be(1)
-      expect(dep_c.first.version).to eq("v0.0.1")
-      expect(dep_c.first.license).to eq("MIT")
-      expect(dep_c.first.license_files.first).to end_with("fixtures/dep/vendor/github.com/f00/b4r/LICENSE")
-    end
-
-    describe "when given license overrides" do
-      let(:overrides) do
-        LicenseScout::Overrides.new do
-          override_license "go", "gopkg.in/foo/baz" do |version|
-            {
-              license: "APACHE2",
-            }
-          end
-        end
-      end
-
-      it "takes overrides into account" do
-        dependencies = dep.dependencies
-        expect(dependencies.length).to eq(3)
-
-        dep_b = dependencies.find { |d| d.name == "gopkg.in_foo_baz" }
-        expect(dep_b.license).to eq("APACHE2")
-      end
-
-    end
-
-    describe "when given license file overrides" do
-      let(:overrides) do
-        LicenseScout::Overrides.new do
-          override_license "go", "gopkg.in/foo/baz" do |version|
-            {
-              license_files: %w{README LICENSE},
-            }
-          end
-
-        end
-      end
-
-      it "takes overrides into account" do
-        dependencies = dep.dependencies
-        expect(dependencies.length).to eq(3)
-
-        dep_b = dependencies.find { |d| d.name == "gopkg.in_foo_baz" }
-        expect(dep_b.license_files[0]).to end_with("fixtures/deps_gopath/src/gopkg.in/foo/baz/README")
-        expect(dep_b.license_files[1]).to end_with("fixtures/deps_gopath/src/gopkg.in/foo/baz/LICENSE")
-      end
-
+      dep_c = dependencies.find { |d| d.name == "github.com/f00/b4r" }
+      expect(dep_c.version).to eq("v0.0.1")
+      expect(dep_c.license.records.first.id).to eql("MIT")
+      expect(dep_c.license.records.first.source).to eql("LICENSE")
     end
   end
 end

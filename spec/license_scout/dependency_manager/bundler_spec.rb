@@ -1,12 +1,12 @@
 #
-# Copyright:: Copyright 2016, Chef Software Inc.
+# Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,193 +15,106 @@
 # limitations under the License.
 #
 
-require "tmpdir"
-require "fileutils"
+RSpec.describe LicenseScout::DependencyManager::Bundler do
 
-# Gem.ruby_api_version
+  let(:subject) { described_class.new(directory) }
+  let(:directory) { "/some/random/directory" }
 
-require "license_scout/dependency_manager/bundler"
-require "license_scout/overrides"
-require "license_scout/options"
+  let(:gemfile_path) { File.join(directory, "Gemfile") }
+  let(:gemfile_lock_path) { File.join(directory, "Gemfile.lock") }
 
-RSpec.describe(LicenseScout::DependencyManager::Bundler) do
-  subject(:bundler) do
-    described_class.new(project_dir, LicenseScout::Options.new(
-      overrides: overrides
-    ))
-  end
-
-  let(:tmpdir) { Dir.mktmpdir }
-
-  let(:overrides) { LicenseScout::Overrides.new }
-  let(:project_dir) { File.join(tmpdir, "bundler_project") }
-
-  after do
-    FileUtils.rm_rf(tmpdir)
-  end
-
-  it "has a name" do
-    expect(bundler.name).to eq("ruby_bundler")
-  end
-
-  it "has a project directory" do
-    expect(bundler.project_dir).to eq(project_dir)
-  end
-
-  describe "when provided a bundler project" do
-    before do
-      Dir.mkdir(project_dir)
-      FileUtils.touch(File.join(project_dir, "Gemfile"))
-      FileUtils.touch(File.join(project_dir, "Gemfile.lock"))
-    end
-
-    it "detects a bundler project correctly" do
-      expect(bundler.detected?).to eq(true)
+  describe ".new" do
+    it "creates new instance of a dependency manager" do
+      expect(subject.directory).to eql(directory)
     end
   end
 
-  describe "when provided a non-bundler project" do
-    before do
-      Dir.mkdir(project_dir)
-    end
-
-    it "does not detect the project" do
-      expect(bundler.detected?).to eq(false)
+  describe "#name" do
+    it "equals 'ruby_bundler'" do
+      expect(subject.name).to eql("ruby_bundler")
     end
   end
 
-  describe "when provided a bundler project without lock file" do
+  describe "#type" do
+    it "equals 'ruby'" do
+      expect(subject.type).to eql("ruby")
+    end
+  end
+
+  describe "#signature" do
+    it "equals 'Gemfile and Gemfile.lock files'" do
+      expect(subject.signature).to eql("Gemfile and Gemfile.lock files")
+    end
+  end
+
+  describe "#install_command" do
+    it "returns 'bundle install'" do
+      expect(subject.install_command).to eql("bundle install")
+    end
+  end
+
+  describe "#detected?" do
+    let(:gemfile_exists) { true }
+    let(:gemfile_lock_exists) { true }
 
     before do
-      Dir.mkdir(project_dir)
-      FileUtils.touch(File.join(project_dir, "Gemfile"))
+      expect(File).to receive(:exist?).with(gemfile_path).and_return(gemfile_exists)
+      expect(File).to receive(:exist?).with(gemfile_lock_path).and_return(gemfile_lock_exists)
     end
 
-    it "does not detect the project as a bundler project" do
-      expect(bundler.detected?).to eq(false)
+    context "when Gemfile and Gemfile.lock exist" do
+      it "returns true" do
+        expect(subject.detected?).to be true
+      end
     end
 
+    context "when either Gemfile or Gemfile.lock is missing" do
+      let(:gemfile_exists) { true }
+      let(:gemfile_lock_exists) { false }
+
+      it "returns false" do
+        expect(subject.detected?).to be false
+      end
+    end
   end
 
-  describe "when provided a bundler project without gemfile" do
-
-    before do
-      Dir.mkdir(project_dir)
-      FileUtils.touch(File.join(project_dir, "Gemfile.lock"))
-    end
-
-    it "does not detect the project as a bundler project" do
-      expect(bundler.detected?).to eq(false)
-    end
-
-  end
-
-  describe "when provided a real bundler project" do
-
-    # We want to use a "real" bundler project for the tests to get deeper
-    # coverage and avoid mocks. However, gem paths include the ruby api version
-    # in them. So we construct a vendored bundler project from a dir containing
-    # the Gemfiles and bundler config and another dir with the gems (which are
-    # stripped of content).
+  describe "#dependencies", :vcr do
+    let(:tmpdir) { Dir.mktmpdir }
+    let(:directory) { File.join(tmpdir, "bundler_project") }
 
     let(:bundler_project_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_top_level_project") }
     let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_gems_dir") }
-    let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", project_dir) }
+    let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
 
     before do
-      FileUtils.cp_r(bundler_project_fixture, project_dir)
+      FileUtils.cp_r(bundler_project_fixture, directory)
       FileUtils.mkdir_p(bundler_gems_dir)
       FileUtils.cp_r("#{bundler_gems_fixture}/.", bundler_gems_dir)
     end
 
+    # tmpdir when running as non-root on OS X is a symlink which we have to resolve
     def gem_rel_path(path)
-      # tmpdir when running as non-root on OS X is a symlink which we have to
-      # resolve
       Pathname(File.join(bundler_gems_dir, path)).realpath.to_s
     end
 
-    it "detects the licenses of the transitive dependencies correctly" do
-      dependencies = bundler.dependencies
+    it "returns an array of Dependencies found in the directory" do
+      dependencies = subject.dependencies
 
+      # Make sure we have the right count
       expect(dependencies.length).to eq(10)
 
-      # We check the bundler intentionally because we are munging with its
-      # license information in the code.
+      # We check the bundler intentionally because we are ;pruy;handling it differently
       bundler_info = dependencies.find { |d| d.name == "bundler" }
-      expect(bundler_info.license).to eq("MIT")
-      expect(bundler_info.license_files.length).to eq(1)
-      expect(bundler_info.license_files.first).to end_with("/LICENSE.md")
+      expect(bundler_info.license.records.length).to eq(2)
+      expect(bundler_info.license.records.first.id).to eq("MIT")
+      expect(bundler_info.license.records.first.source).to eql("README.md")
 
       # We check mixlib-install an example out of 10 dependencies.
       mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
       expect(mixlib_install_info.version).to eq("1.1.0")
-      expect(mixlib_install_info.license).to eq("Apache-2.0")
-      expect(mixlib_install_info.license_files.length).to eq(1)
-      expect(mixlib_install_info.license_files.first).to eq(gem_rel_path("/gems/mixlib-install-1.1.0/LICENSE"))
-    end
-
-    describe "when only license files are overridden." do
-      let(:overrides) do
-        LicenseScout::Overrides.new() do
-          override_license "ruby_bundler", "mixlib-install" do |version|
-            {
-              license_files: [ "CHANGELOG.md" ], # pick any file from mixlib-install
-            }
-          end
-        end
-      end
-
-      it "only uses license file overrides and reports the original license" do
-        dependencies = bundler.dependencies
-        expect(dependencies.length).to eq(10)
-
-        mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
-        expect(mixlib_install_info.version).to eq("1.1.0")
-        expect(mixlib_install_info.license).to eq("Apache-2.0")
-        expect(mixlib_install_info.license_files.length).to eq(1)
-        expect(mixlib_install_info.license_files.first).to eq(gem_rel_path("gems/mixlib-install-1.1.0/CHANGELOG.md"))
-      end
-    end
-
-    describe "when correct overrides are provided." do
-      let(:overrides) do
-        LicenseScout::Overrides.new() do
-          override_license "ruby_bundler", "mixlib-install" do |version|
-            {
-              license: "Apache",
-              license_files: [ "README.md" ],
-            }
-          end
-        end
-      end
-
-      it "uses the given overrides" do
-        dependencies = bundler.dependencies
-        expect(dependencies.length).to eq(10)
-
-        mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
-        expect(mixlib_install_info.version).to eq("1.1.0")
-        expect(mixlib_install_info.license).to eq("Apache")
-        expect(mixlib_install_info.license_files.length).to eq(1)
-        expect(mixlib_install_info.license_files.first).to eq(gem_rel_path("gems/mixlib-install-1.1.0/README.md"))
-      end
-    end
-
-    describe "when overrides with missing license file paths are provided" do
-      let(:overrides) do
-        LicenseScout::Overrides.new() do
-          override_license "ruby_bundler", "mixlib-install" do |version|
-            {
-              license: "Apache",
-              license_files: [ "NOPE-LICENSE" ],
-            }
-          end
-        end
-      end
-
-      it "raises an error" do
-        expect { bundler.dependencies }.to raise_error(LicenseScout::Exceptions::InvalidOverride)
-      end
+      expect(mixlib_install_info.license.records.length).to eq(1)
+      expect(mixlib_install_info.license.records.first.id).to eq("Apache-2.0")
+      expect(mixlib_install_info.license.records.first.source).to eq("LICENSE")
     end
   end
 end

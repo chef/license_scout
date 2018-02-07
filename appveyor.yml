@@ -1,4 +1,4 @@
-os: Windows Server 2012 R2
+os: Visual Studio 2017
 platform:
   - x64
 
@@ -7,13 +7,29 @@ branches:
   only:
     - master
 
+cache:
+  - bundle
+
+environment:
+  matrix:
+    - ruby_version: "25-x64"
+
 install:
-  - set PATH=C:\Ruby22\bin;%PATH%
+  - systeminfo
+  - winrm quickconfig -q
+  - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
+  - echo %PATH%
   - appveyor DownloadFile http://curl.haxx.se/ca/cacert.pem -FileName C:\cacert.pem
   - set SSL_CERT_FILE=C:\cacert.pem
-
-build_script:
   - bundle install || bundle install || bundle install
 
+build: off
+
+before_test:
+  - ruby --version
+  - gem --version
+  - bundler --version
+  - bundle env
+
 test_script:
-  - bundle exec rake spec
+  - bundle exec rake

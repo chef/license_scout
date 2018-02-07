@@ -23,7 +23,19 @@ module LicenseScout
     class Godep < Base
 
       def name
-        "go_godep"
+        "golang_godep"
+      end
+
+      def type
+        "golang"
+      end
+
+      def signature
+        "Godeps/Godeps.json file"
+      end
+
+      def install_command
+        "godep restore"
       end
 
       def detected?
@@ -31,40 +43,29 @@ module LicenseScout
       end
 
       def dependencies
-        godeps = File.open(root_godeps_file) do |f|
-          FFI_Yajl::Parser.parse(f)
-        end
-
         godeps["Deps"].map do |pkg_info|
-          pkg_import_name = pkg_info["ImportPath"]
-          pkg_file_name = pkg_import_name.tr("/", "_")
-          pkg_version = pkg_info["Comment"] || pkg_info["Rev"]
-          license = options.overrides.license_for("go", pkg_import_name, pkg_version)
+          dep_name = pkg_info["ImportPath"]
+          dep_version = pkg_info["Comment"] || pkg_info["Rev"]
+          dep_path = gopath(dep_name)
 
-          override_license_files = options.overrides.license_files_for("go", pkg_import_name, pkg_version)
-          if override_license_files.empty?
-            license_files = find_license_files_for_package_in_gopath(pkg_import_name)
-          else
-            license_files = override_license_files.resolve_locations(gopath(pkg_import_name))
-          end
-
-          create_dependency(pkg_file_name, pkg_version, license, license_files)
-        end
+          new_dependency(dep_name, dep_version, dep_path)
+        end.compact
       end
 
       private
 
+      def godeps
+        File.open(root_godeps_file) do |f|
+          FFI_Yajl::Parser.parse(f)
+        end
+      end
+
       def root_godeps_file
-        File.join(project_dir, "Godeps/Godeps.json")
+        File.join(directory, "Godeps/Godeps.json")
       end
 
       def gopath(pkg)
         "#{ENV['GOPATH']}/src/#{pkg}"
-      end
-
-      def find_license_files_for_package_in_gopath(pkg)
-        root_files = Dir["#{gopath(pkg)}/*"]
-        root_files.select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
       end
     end
   end

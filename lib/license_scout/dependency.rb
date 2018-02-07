@@ -16,18 +16,90 @@
 #
 
 module LicenseScout
-  Dependency = Struct.new(:name, :version, :license, :license_files, :dep_mgr_name) do
+  class Dependency
 
+    attr_reader :name
+
+    attr_reader :version
+
+    attr_reader :path
+
+    attr_reader :type
+
+    attr_reader :license
+
+    def initialize(name, version, path, type)
+      @name = name
+      @version = version
+      @path = path
+      @type = type
+
+      if path.nil?
+        @license = LicenseScout::License.new
+      elsif path =~ /^http/ || File.directory?(path)
+        @license = LicenseScout::License.new(path)
+      else
+        raise LicenseScout::Exceptions::MissingSourceDirectory.new("Could not find the source for '#{name}' in the following directories:\n\t * #{path}")
+      end
+
+      fallbacks = LicenseScout::Config.fallbacks.send(type.to_sym).select { |f| f["name"] =~ uid_regexp }
+      fallbacks.each do |fallback|
+        license.add_license(fallback["license_id"], "license_scout fallback", fallback["license_file"], force: true)
+      end
+    end
+
+    # @return [String] The UID for this dependency. Example: bundler (1.16.1)
+    def uid
+      "#{name} (#{version})"
+    end
+
+    # @return [Regexp] The regular expression that can be used to identify this dependency
+    def uid_regexp
+      Regexp.new("#{Regexp.escape(name)}(\s+\\(#{Regexp.escape(version)}\\))?")
+    end
+
+    def exceptions
+      @exceptions ||= LicenseScout::Config.exceptions.send(type.to_sym).select { |e| e["name"] =~ uid_regexp }
+    end
+
+    # Capture a license that was specified in metadata
+    #
+    # @param license_id [String] The license as specified in the metadata file
+    # @param source [String] Where we found the license info
+    # @param contents_url [String] Where we can find the contents of the license
+    #
+    # @return [void]
+    def add_license(license_id, source, contents_url = nil)
+      LicenseScout::Log.debug("[#{type}] Adding #{license_id} license for #{name} from #{source}")
+      license.add_license(license_id, source, contents_url, {})
+    end
+
+    # Determine if this dependency has an exception. Will match an exception for both the name and the name+version
+    def has_exception?
+      exceptions.any?
+    end
+
+    def exception_reason
+      if has_exception?
+        exceptions.first.dig("reason")
+      else
+        nil
+      end
+    end
+
+    # Be able to sort dependencies by type, then name, then version
+    def <=>(other)
+      "#{type}#{name}#{version}" <=> "#{other.type}#{other.name}#{other.version}"
+    end
+
+    # @return [Boolean] Whether or not this object is equal to another one. Used for Set uniqueness.
     def eql?(other)
       other.kind_of?(self.class) && other.hash == hash
     end
 
-    # hash code for when Dependency is used as a key in a Hash or member of a
-    # Set. The implementation is somewhat naive, but will work fine if you
-    # don't go too crazy mixing different types.
+    # @return [Integer] A hashcode that can be used to idenitfy this object. Used for Set uniqueness.
     def hash
-      [dep_mgr_name, name, version, license].hash
+      [type, name, version].hash
     end
-
   end
 end

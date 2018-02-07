@@ -16,8 +16,6 @@
 #
 
 require "license_scout/dependency_manager/base"
-require "license_scout/net_fetcher"
-require "license_scout/exceptions"
 
 require "bundler"
 require "mixlib/shellout"
@@ -32,6 +30,18 @@ module LicenseScout
         "ruby_bundler"
       end
 
+      def type
+        "ruby"
+      end
+
+      def signature
+        "Gemfile and Gemfile.lock files"
+      end
+
+      def install_command
+        "bundle install"
+      end
+
       def detected?
         # We check the existence of both Gemfile and Gemfile.lock. We need both
         # of them to be able to get a concrete set of dependencies which we can
@@ -42,13 +52,40 @@ module LicenseScout
         File.exist?(gemfile_path) && File.exist?(lockfile_path)
       end
 
+      def dependencies
+        dependency_data.map do |gem_data|
+          dep_name = gem_data["name"]
+          dep_version = gem_data["version"]
+
+          dep_path = if dep_name == "bundler"
+                       # Bundler is weird. It inserts itself as a dependency, but is a
+                       # special case, so rubygems cannot correctly report the license.
+                       # Additionally, rubygems reports the gem path as a path inside
+                       # bundler's lib/ dir, so we have to munge it.
+                       "https://github.com/bundler/bundler"
+                     elsif dep_name == "json"
+                       # json is different weird. When project is using the json that is prepackaged with
+                       # Ruby, its included not as a full fledged gem but an *.rb file at:
+                       # /opt/opscode/embedded/lib/ruby/2.2.0/json.rb
+                       # Because of this its license is reported as nil and its license files can not be
+                       # found. That is why we need to provide them manually here.
+                       "https://github.com/flori/json"
+                     else
+                       gem_data["path"]
+                     end
+
+          new_dependency(dep_name, dep_version, dep_path)
+        end.compact
+      end
+
+      private
+
       def dependency_data
         bundler_script = File.join(File.dirname(__FILE__), "bundler/_bundler_script.rb")
 
-        Dir.chdir(project_dir) do
+        Dir.chdir(directory) do
           json_dep_data = with_clean_env do
-            ruby_bin_path = options.ruby_bin || "ruby"
-            s = Mixlib::ShellOut.new("#{ruby_bin_path} #{bundler_script}", environment: options.environment)
+            s = Mixlib::ShellOut.new("#{LicenseScout::Config.ruby_bin} #{bundler_script}", environment: LicenseScout::Config.environment)
             s.run_command
             s.error!
             s.stdout
@@ -56,55 +93,6 @@ module LicenseScout
           FFI_Yajl::Parser.parse(json_dep_data)
         end
       end
-
-      def dependencies
-        dependencies = []
-        dependency_data.each do |gem_data|
-          dependency_name = gem_data["name"]
-          dependency_version = gem_data["version"]
-          dependency_license = nil
-          dependency_license_files = []
-
-          if dependency_name == "bundler"
-            # Bundler is weird. It inserts itself as a dependency, but is a
-            # special case, so rubygems cannot correctly report the license.
-            # Additionally, rubygems reports the gem path as a path inside
-            # bundler's lib/ dir, so we have to munge it.
-            dependency_license = "MIT"
-            dependency_license_files = [File.join(File.dirname(__FILE__), "bundler/LICENSE.md")]
-          elsif dependency_name == "json"
-            # json is different weird. When project is using the json that is prepackaged with
-            # Ruby, its included not as a full fledged gem but an *.rb file at:
-            # /opt/opscode/embedded/lib/ruby/2.2.0/json.rb
-            # Because of this its license is reported as nil and its license files can not be
-            # found. That is why we need to provide them manually here.
-            dependency_license = "Ruby"
-            dependency_license_files = [File.join(File.dirname(__FILE__), "json/README.md")]
-          else
-            # Check license override and license_files override separately since
-            # only one might be set in the overrides.
-            dependency_license = options.overrides.license_for(name, dependency_name, dependency_version) || gem_data["license"]
-
-            override_license_files = options.overrides.license_files_for(name, dependency_name, dependency_version)
-            if override_license_files.empty?
-              dependency_license_files = auto_detect_license_files(gem_data["path"])
-            else
-              dependency_license_files = override_license_files.resolve_locations(gem_data["path"])
-            end
-          end
-
-          dependencies << create_dependency(
-            dependency_name,
-            dependency_version,
-            dependency_license,
-            dependency_license_files
-          )
-        end
-
-        dependencies
-      end
-
-      private
 
       #
       # Execute the given command, removing any Ruby-specific environment
@@ -142,22 +130,12 @@ module LicenseScout
         ENV.replace(original.to_hash)
       end
 
-      def auto_detect_license_files(gem_path)
-        unless File.exist?(gem_path)
-          raise LicenseScout::Exceptions::InaccessibleDependency.new "Autodetected gem path '#{gem_path}' does not exist"
-        end
-
-        Dir.glob("#{gem_path}/*").select do |f|
-          POSSIBLE_LICENSE_FILES.include?(File.basename(f))
-        end
-      end
-
       def gemfile_path
-        File.join(project_dir, "Gemfile")
+        File.join(directory, "Gemfile")
       end
 
       def lockfile_path
-        File.join(project_dir, "Gemfile.lock")
+        File.join(directory, "Gemfile.lock")
       end
 
     end
