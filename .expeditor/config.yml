@@ -6,6 +6,11 @@ github:
   version_tag_format: "v{{version}}"
   minor_bump_labels:
     - "Version: Bump Minor"
+  release_branch:
+    - master:
+        version_constraint: 2.*
+    - 1-stable:
+        version_constraint: 1.*
 
 rubygems:
   - license_scout
