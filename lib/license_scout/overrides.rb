@@ -296,6 +296,7 @@ module LicenseScout
         ["net-http-persistent", "MIT", ["README.rdoc"]],
         ["net-http-pipeline", "MIT", ["README.txt"]],
         ["websocket", "MIT", ["README.md"]],
+        ["timeliness", "MIT", ["LICENSE"]],
         # Overrides that require file fetching from internet
         ["sfl", "Ruby", ["https://raw.githubusercontent.com/ujihisa/spawn-for-legacy/master/LICENCE.md"]],
         ["json_pure", nil, ["https://raw.githubusercontent.com/flori/json/master/README.md"]],
