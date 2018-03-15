@@ -50,7 +50,6 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-
   # Global before each: prevent network calls via NetFetcher
   # By default LicenseScout::Overrides contains the default set of overrides,
   # any of which can configure the system to fetch a license file from the
@@ -112,7 +111,7 @@ RSpec.configure do |config|
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
     # (e.g. via a command-line flag).
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   # Print the 10 slowest examples and example groups at the

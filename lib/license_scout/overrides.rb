@@ -983,7 +983,7 @@ module LicenseScout
         ["github.com/spf13/jwalterweatherman", "MIT", ["https://raw.githubusercontent.com/spf13/jWalterWeatherman/master/LICENSE"]],
         ["github.com/spf13/viper", "MIT", ["https://raw.githubusercontent.com/spf13/viper/master/LICENSE"]],
         ["github.com/satori/go.uuid", "MIT", ["https://raw.githubusercontent.com/satori/go.uuid/master/LICENSE"]],
-        ["github.com/teambition/rrule-go", "MIT", ["https://raw.githubusercontent.com/teambition/rrule-go/master/LICENSE"]]
+        ["github.com/teambition/rrule-go", "MIT", ["https://raw.githubusercontent.com/teambition/rrule-go/master/LICENSE"]],
       ].each do |override_data|
         override_license "go", override_data[0] do |version|
           {}.tap do |d|
