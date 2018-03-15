@@ -353,6 +353,7 @@ module LicenseScout
         ["parslet", "MIT", ["https://raw.githubusercontent.com/kschiess/parslet/master/LICENSE"]],
         ["blankslate", "MIT", ["https://raw.githubusercontent.com/masover/blankslate/master/MIT-LICENSE"]],
         ["xml-simple", "Ruby", ["https://raw.githubusercontent.com/maik/xml-simple/master/README.md"]],
+        ["simplecov", "MIT", ["https://github.com/colszowka/simplecov/blob/master/MIT-LICENSE"]],
       ]
       (aws_sdk_gems + other_gems).each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
