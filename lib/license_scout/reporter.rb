@@ -112,7 +112,15 @@ module LicenseScout
       all_dependencies.each do |dependency|
         @results[dependency.type] ||= []
 
-        if !LicenseScout::Config.allowed_licenses.empty? && !dependency.license.is_allowed?
+        if dependency.license.records.empty?
+          @results[dependency.type] << Result.failure(dependency, :missing)
+          @did_fail = true
+          @needs_fallback = true
+        elsif dependency.license.undetermined?
+          @results[dependency.type] << Result.failure(dependency, :undetermined)
+          @did_fail = true
+          @needs_fallback = true
+        elsif !LicenseScout::Config.allowed_licenses.empty? && !dependency.license.is_allowed?
           unless dependency.has_exception?
             @results[dependency.type] << Result.failure(dependency, :unpermitted)
             @did_fail = true
@@ -128,14 +136,6 @@ module LicenseScout
           else
             @results[dependency.type] << Result.success(dependency)
           end
-        elsif dependency.license.undetermined?
-          @results[dependency.type] << Result.failure(dependency, :undetermined)
-          @did_fail = true
-          @needs_fallback = true
-        elsif dependency.license.records.empty?
-          @results[dependency.type] << Result.failure(dependency, :missing)
-          @did_fail = true
-          @needs_fallback = true
         else
           @results[dependency.type] << Result.success(dependency)
         end
@@ -170,10 +170,10 @@ module LicenseScout
 
       puts
       puts "Additional steps are required in order to pass Open Source license compliance:"
-      puts "  * Please add fallback licenses for the 'Missing' or 'Undetermined' dependencies"         if @needs_fallback
-      puts "         https://github.com/chef/license_scout#fallback-licenses"                          if @needs_fallback
-      puts "  * Please remove or add exceptions for dependencies that are 'Flagged' or 'Unpermitted'"  if @needs_exception
-      puts "         https://github.com/chef/license_scout#dependency-exceptions"                      if @needs_exception
+      puts "  * Please add fallback licenses for the 'Missing' or 'Undetermined' dependencies"    if @needs_fallback
+      puts "         https://github.com/chef/license_scout#fallback-licenses"                     if @needs_fallback
+      puts "  * Please remove or add exceptions for the 'Flagged' or 'Unpermitted' dependencies"  if @needs_exception
+      puts "         https://github.com/chef/license_scout#dependency-exceptions"                 if @needs_exception
 
       exit 1 if @did_fail
     end
