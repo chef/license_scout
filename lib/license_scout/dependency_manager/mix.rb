@@ -64,7 +64,7 @@ module LicenseScout
 
           dependency = new_dependency(dep_name, dep_version, dep_path)
 
-          hex_info(dep_name)["meta"]["licenses"].each do |license|
+          Array(hex_info(dep_name).dig("meta", "licenses")).each do |license|
             dependency.add_license(license, "https://hex.pm/api/packages/#{dep_name}")
           end
 
@@ -96,6 +96,9 @@ module LicenseScout
 
       def hex_info(package_name)
         FFI_Yajl::Parser.parse(open("https://hex.pm/api/packages/#{package_name}").read)
+      rescue OpenURI::HTTPError
+        LicenseScout::Log.debug("[elixir] Unable to download hex.pm info for #{package_name}")
+        {}
       end
     end
   end
