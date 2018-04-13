@@ -16,96 +16,190 @@
 #
 
 require "ffi_yajl"
+require "terminal-table"
 
 require "license_scout/exceptions"
 
 module LicenseScout
   class Reporter
 
-    attr_reader :output_directory
+    class Result
+      class << self
+        def success(dependency)
+          new(dependency, nil, true)
+        end
 
-    def initialize(output_directory)
-      @output_directory = output_directory
+        def failure(dependency, reason)
+          new(dependency, reason, false)
+        end
+      end
+
+      attr_reader :dependency
+      attr_reader :reason
+
+      def initialize(dependency, reason, did_succeed)
+        @dependency = dependency
+        @reason = reason
+        @did_succeed = did_succeed
+      end
+
+      def <=>(other)
+        dependency.path <=> other.dependency.path
+      end
+
+      def succeeded?
+        @did_succeed
+      end
+
+      def dependency_string
+        dependency.uid
+      end
+
+      def license_string
+        dependency.license.records.map(&:id).compact.uniq.join(", ")
+      end
+
+      def reason_string
+        case reason
+        when :unpermitted
+          "Unpermitted"
+        when :flagged
+          "Flagged"
+        when :undetermined
+          "Undetermined"
+        when :missing
+          "Missing"
+        else
+          "OK"
+        end
+      end
+    end
+
+    attr_reader :all_dependencies
+    attr_reader :results
+    attr_reader :dependency_license_manifest
+
+    def initialize(all_dependencies)
+      @all_dependencies = all_dependencies.sort
+      @results = {}
+      @did_fail = false
+      @needs_fallback = false
+      @needs_exception = false
     end
 
     def report
-      report = []
+      generate_dependency_license_manifest
+      save_manifest_file
+      detect_problems
+      evaluate_results
+    end
 
-      license_manifest_path = find_license_manifest!
+    private
 
-      license_report = FFI_Yajl::Parser.parse(File.read(license_manifest_path))
+    def save_manifest_file
+      LicenseScout::Log.info("[reporter] Writing dependency license manifest written to #{license_manifest_path}")
+      File.open(license_manifest_path, "w+") do |file|
+        file.print(FFI_Yajl::Encoder.encode(dependency_license_manifest, pretty: true))
+      end
+    end
 
-      license_report["dependency_managers"].each do |dependency_manager, dependencies|
+    def detect_problems
+      LicenseScout::Log.info("[reporter] Analyzing dependency's license information against requirements")
 
-        ok_deps, problem_deps = 0, 0
+      LicenseScout::Log.info("[reporter] Allowed licenses: #{LicenseScout::Config.allowed_licenses.join(", ")}") unless LicenseScout::Config.allowed_licenses.empty?
+      LicenseScout::Log.info("[reporter] Flagged licenses: #{LicenseScout::Config.flagged_licenses.join(", ")}") unless LicenseScout::Config.flagged_licenses.empty?
 
-        dependencies.sort { |a, b| a["name"] <=> b["name"] }.each do |dependency|
-          dep_ok, problems = license_info_ok?(dependency_manager, dependency)
+      all_dependencies.each do |dependency|
+        @results[dependency.type] ||= []
 
-          if dep_ok
-            ok_deps += 1
+        if !LicenseScout::Config.allowed_licenses.empty? && !dependency.license.is_allowed?
+          unless dependency.has_exception?
+            @results[dependency.type] << Result.failure(dependency, :unpermitted)
+            @did_fail = true
+            @needs_exception = true
           else
-            problem_deps += 1
-            report.concat(problems)
+            @results[dependency.type] << Result.success(dependency)
           end
-        end
-
-        if problem_deps > 0
-          report << ">> Found #{dependencies.size} dependencies for #{dependency_manager}. #{ok_deps} OK, #{problem_deps} with problems"
-        end
-      end
-
-      report
-    end
-
-    def license_info_ok?(dependency_manager, dependency)
-      problems = []
-      if dependency["name"].nil? || dependency["name"].empty?
-        problems << "There is a dependency with a missing name in '#{dependency_manager}'."
-      end
-
-      if dependency["version"].nil? || dependency["version"].empty?
-        problems << "Dependency '#{dependency["name"]}' under '#{dependency_manager}' is missing version information."
-      end
-
-      if dependency["license"].nil? || dependency["license"].empty?
-        problems << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license information."
-      end
-
-      if dependency["license_files"].empty?
-        problems << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license files information."
-      else
-        dependency["license_files"].each do |license_file|
-          if !File.exist?(full_path_for(license_file))
-            problems << "License file '#{license_file}' for the dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing."
+        elsif dependency.license.is_flagged?
+          unless dependency.has_exception?
+            @results[dependency.type] << Result.failure(dependency, :flagged)
+            @did_fail = true
+            @needs_exception = true
+          else
+            @results[dependency.type] << Result.success(dependency)
           end
+        elsif dependency.license.undetermined?
+          @results[dependency.type] << Result.failure(dependency, :undetermined)
+          @did_fail = true
+          @needs_fallback = true
+        elsif dependency.license.records.empty?
+          @results[dependency.type] << Result.failure(dependency, :missing)
+          @did_fail = true
+          @needs_fallback = true
+        else
+          @results[dependency.type] << Result.success(dependency)
         end
       end
-
-      [ problems.empty?, problems ]
     end
 
-    def find_license_manifest!
-      if !File.exist?(output_directory)
-        raise LicenseScout::Exceptions::InvalidOutputReport.new("Output directory '#{output_directory}' does not exist.")
+    def evaluate_results
+      table = Terminal::Table.new
+      table.headings = ["Type", "Dependency", "License(s)", "Results"]
+      table.style = { border_bottom: false } # the extra :separator will add this
+
+      results.each do |type, results_for_type|
+        type_in_table = false
+
+        results_for_type.each do |result|
+          next if LicenseScout::Config.only_show_failures && result.succeeded?
+
+          modified_row = []
+          modified_row << (type_in_table ? "" : type)
+          modified_row << result.dependency_string
+          modified_row << result.license_string
+          modified_row << result.reason_string
+
+          type_in_table = true
+          table.add_row(modified_row)
+        end
+
+        table.add_separator if type_in_table
       end
 
-      manifests = Dir.glob("#{output_directory}/*-dependency-licenses.json")
+      puts table unless LicenseScout::Config.only_show_failures && !@did_fail
 
-      if manifests.empty?
-        raise LicenseScout::Exceptions::InvalidOutputReport.new("Can not find a dependency license manifest under '#{output_directory}'.")
-      end
+      puts
+      puts "Additional steps are required in order to pass Open Source license compliance:"
+      puts "  * Please add fallback licenses for the 'Missing' or 'Undetermined' dependencies"         if @needs_fallback
+      puts "         https://github.com/chef/license_scout#fallback-licenses"                          if @needs_fallback
+      puts "  * Please remove or add exceptions for dependencies that are 'Flagged' or 'Unpermitted'"  if @needs_exception
+      puts "         https://github.com/chef/license_scout#dependency-exceptions"                      if @needs_exception
 
-      if manifests.length != 1
-        raise LicenseScout::Exceptions::InvalidOutputReport.new("Found multiple manifests '#{manifests.join(", ")}' under '#{output_directory}'.")
-      end
-
-      manifests.first
+      exit 1 if @did_fail
     end
 
-    def full_path_for(license_file_info)
-      File.join(output_directory, license_file_info)
+    def generate_dependency_license_manifest
+      @dependency_license_manifest = {
+        license_manifest_version: 2,
+        generated_on: DateTime.now.to_s,
+        name: LicenseScout::Config.name,
+        dependencies: []
+      }
+
+      all_dependencies.each do |dep|
+        dependency_license_manifest[:dependencies] << {
+          type: dep.type,
+          name: dep.name,
+          version: dep.version,
+          has_exception: dep.has_exception?,
+          exception_reason: dep.exception_reason,
+          licenses: dep.license.records.map(&:to_h),
+        }
+      end
     end
 
+    def license_manifest_path
+      File.join(LicenseScout::Config.output_directory, "#{LicenseScout::Config.name}-dependency-licenses.json")
+    end
   end
 end

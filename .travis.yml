@@ -1,11 +1,14 @@
 language: ruby
 sudo: false
 
+cache: bundler
+
 # do not run expensive spec tests on PRs, only on branches
 branches:
   only:
   - master
 
-before_install: gem install bundler
-rvm:
-  - 2.2.6
+before_install:
+  - source $HOME/otp/19.3/activate
+  - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
+  - gem install bundler

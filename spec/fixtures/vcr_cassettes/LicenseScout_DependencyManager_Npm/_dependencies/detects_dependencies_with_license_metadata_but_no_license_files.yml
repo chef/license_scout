@@ -1,0 +1,280 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/3rd-Eden/useragent/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"a4d6a95fd3b64ebbcbbfad981808c188e58d73a9"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - D5D8:2D30:551C1:5A111:5ACF788E
+      Content-Length:
+      - '680'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Thu, 12 Apr 2018 15:17:41 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-dfw18640-DFW
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1523546261.122211,VS0,VE1
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - 80f1b526524d680d89043f674ecee5bc9ad429e9
+      Expires:
+      - Thu, 12 Apr 2018 15:22:41 GMT
+      Source-Age:
+      - '5'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        # MIT LICENSED Copyright (c) 2013 Arnout Kazemier (http://3rd-Eden.com)
+        #
+        # Permission is hereby granted, free of charge, to any person obtaining a copy
+        # of this software and associated documentation files (the "Software"), to deal
+        # in the Software without restriction, including without limitation the rights
+        # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        # copies of the Software, and to permit persons to whom the Software is
+        # furnished to do so, subject to the following conditions:
+        #
+        # The above copyright notice and this permission notice shall be included in
+        # all copies or substantial portions of the Software.
+        #
+        # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        # THE SOFTWARE.
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 15:17:41 GMT
+- request:
+    method: get
+    uri: http://github.com/isaacs/node-lru-cache/raw/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Content-Length:
+      - '0'
+      Location:
+      - https://github.com/isaacs/node-lru-cache/raw/master/LICENSE
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 15:17:41 GMT
+- request:
+    method: get
+    uri: https://github.com/isaacs/node-lru-cache/raw/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 12 Apr 2018 15:17:36 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Status:
+      - 302 Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - X-PJAX
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '100'
+      Access-Control-Allow-Origin:
+      - https://render.githubusercontent.com
+      Location:
+      - https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE
+      X-Runtime:
+      - '0.074084'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Expect-Ct:
+      - max-age=2592000, report-uri="https://api.github.com/_private/browser/errors"
+      Content-Security-Policy:
+      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; child-src
+        render.githubusercontent.com; connect-src ''self'' uploads.github.com status.github.com
+        collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com
+        github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com
+        github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com;
+        font-src assets-cdn.github.com; form-action ''self'' github.com gist.github.com;
+        frame-ancestors ''none''; img-src ''self'' data: assets-cdn.github.com identicons.github.com
+        collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com;
+        manifest-src ''self''; media-src ''none''; script-src assets-cdn.github.com;
+        style-src ''unsafe-inline'' assets-cdn.github.com; worker-src ''self'''
+      X-Runtime-Rack:
+      - '0.082005'
+      Age:
+      - '5'
+      Content-Length:
+      - '136'
+      X-Github-Request-Id:
+      - DAEE:4383:8347AB:F8A910:5ACF7895
+    body:
+      encoding: UTF-8
+      string: <html><body>You are being <a href="https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE">redirected</a>.</body></html>
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 15:17:41 GMT
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"19129e315fe593965a2fdd50ec0d1253bcbd2ece"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - BB04:0496:28209:2A70A:5ACF788F
+      Content-Length:
+      - '490'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Thu, 12 Apr 2018 15:17:41 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-dfw18638-DFW
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1523546262.780622,VS0,VE1
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - 4d428c54615a8685d420ccd7fe4d4d3fb76336bc
+      Expires:
+      - Thu, 12 Apr 2018 15:22:41 GMT
+      Source-Age:
+      - '5'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        The ISC License
+
+        Copyright (c) Isaac Z. Schlueter and Contributors
+
+        Permission to use, copy, modify, and/or distribute this software for any
+        purpose with or without fee is hereby granted, provided that the above
+        copyright notice and this permission notice appear in all copies.
+
+        THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+        WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+        MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+        ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+        WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+        ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+        IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+    http_version: 
+  recorded_at: Thu, 12 Apr 2018 15:17:41 GMT
+recorded_with: VCR 4.0.0

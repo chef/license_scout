@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "LicenseScout Manifest v2",
+  "description": "A breakdown of all the dependencies (and their licenses) for a software project",
+  "type": "object",
+  "properties": {
+    "license_manifest_version": {
+      "description": "The schema version for this document",
+      "type": "integer"
+    },
+    "generated_on": {
+      "description": "The timestamp corresponding with when the manifest was generated.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name to associate with the manifest. This is useful for configurations that include multiple directories.",
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The Depedency Type",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the dependency",
+          "type": "string"
+        },
+        "version": {
+          "description": "The version of the dependendency. Can be a traditional version, git reference, or type-specific version specification such as `$pkg_version-$pkg_release` for Habitat",
+          "type": "string"
+        },
+        "has_exception": {
+          "description": "Whether or not an exception was specified for this dependency",
+          "type": "boolean"
+        },
+        "exception_reason": {
+          "description": "The user-provided reason for the exception",
+          "type": "string"
+        },
+        "licenses": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The license ID. This can either be the null (if no license was determeind), the SPDX ID, or some other license name provided by the dependency maintainer.",
+              "type": ["string", "null"]
+            },
+            "source": {
+              "description": "From when the license ID was determined",
+              "type": "string"
+            },
+            "content": {
+              "description": "The actual content of the license (if available)",
+              "type": ["string", "null"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

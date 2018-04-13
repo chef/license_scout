@@ -18,48 +18,7 @@
 module LicenseScout
   module Exceptions
     class Error < RuntimeError; end
-
-    class ProjectDirectoryMissing < Error
-      def initialize(project_dir)
-        @project_dir = project_dir
-      end
-
-      def to_s
-        "Could not locate or access the provided project directory '#{@project_dir}'."
-      end
-    end
-
-    class UnsupportedProjectType < Error
-      def initialize(project_dir)
-        @project_dir = project_dir
-      end
-
-      def to_s
-        "Could not find a supported dependency manager for the project in the provided directory '#{@project_dir}'."
-      end
-    end
-
-    class InaccessibleDependency < Error; end
-    class InvalidOverride < Error; end
-    class InvalidOutputReport < Error; end
-    class InvalidManualDependency < Error; end
-
-    class NetworkError < Error
-
-      attr_reader :from_url
-      attr_reader :network_error
-
-      def initialize(from_url, network_error)
-        @from_url = from_url
-        @network_error = network_error
-      end
-
-      def to_s
-        [
-          "Network error while fetching '#{from_url}'",
-          network_error.to_s,
-        ].join("\n")
-      end
-    end
+    class ConfigError < Error; end
+    class MissingSourceDirectory < Error; end
   end
 end

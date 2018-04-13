@@ -17,7 +17,16 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require "license_scout/net_fetcher"
+require "vcr"
+require "license_scout"
+
+SPEC_FIXTURES_DIR = File.expand_path("fixtures", File.dirname(__FILE__))
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -50,38 +59,6 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-
-  # Global before each: prevent network calls via NetFetcher
-  # By default LicenseScout::Overrides contains the default set of overrides,
-  # any of which can configure the system to fetch a license file from the
-  # Internet (usually github) for a particular dependency. When real project
-  # names are used as test data/fixtures for dependency manager unit tests,
-  # this can result in license files being grabbed from the Internet and stored
-  # in the license scout cache. In addition to being bad hygiene for unit
-  # tests, this can make the code behave differently than test authors
-  # expected. Therefore, we block all attempts to create a NetFetcher at the
-  # suite level.
-  #
-  # In general, when testing a dependency manager, the right thing to do is to
-  # disable the default overrides when creating the `LicenseScout::Overrides`
-  # object, like so:
-  #
-  # ```
-  # LicenseScout::Overrides.new(exclude_default: true)
-  # ```
-  #
-  # This can be disabled for a particular test or set of tests
-  # with code like:
-  #
-  # ```
-  # allow(LicenseScout::NetFetcher).to receive(:new).and_call_original
-  # ```
-  #
-  config.before do
-    allow(LicenseScout::NetFetcher).to receive(:new).
-      and_raise("Network calls should be avoided. Maybe you forgot to pass `exclude_default: true` when creating the Overrides object?")
-  end
-
   # This allows you to limit a spec run to individual examples or groups
   # you care about by tagging them with `:focus` metadata. When nothing
   # is tagged with `:focus`, all examples get run. RSpec also provides
@@ -112,7 +89,7 @@ RSpec.configure do |config|
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
     # (e.g. via a command-line flag).
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   # Print the 10 slowest examples and example groups at the
@@ -131,6 +108,8 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
-end
 
-SPEC_FIXTURES_DIR = File.expand_path("fixtures", File.dirname(__FILE__))
+  config.after(:example) do
+    LicenseScout::Config.reset
+  end
+end

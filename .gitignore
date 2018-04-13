@@ -10,3 +10,4 @@
 /tmp/
 /spec/examples.txt
 /license-cache/
+*-dependency-licenses.json

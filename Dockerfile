@@ -1,4 +1,4 @@
-FROM devchef/chefdk
+FROM chef/chefdk
 
 COPY bin/ /usr/src/app/license_scout/bin/
 COPY lib/ /usr/src/app/license_scout/lib/

@@ -25,14 +25,16 @@ module LicenseScout
         "chef_berkshelf"
       end
 
-      def berkshelf_available?
-        begin
-          require "berkshelf"
-        rescue LoadError
-          return false
-        end
+      def type
+        "chef_cookbook"
+      end
 
-        true
+      def signature
+        "Berksfile and Berksfile.lock files"
+      end
+
+      def install_command
+        "berks install"
       end
 
       def detected?
@@ -40,14 +42,13 @@ module LicenseScout
       end
 
       def dependencies
-        if !berkshelf_available?
-          raise LicenseScout::Exceptions::Error.new "Project at '#{project_dir}' is a Berkshelf project but berkshelf gem is not available in your bundle. Add berkshelf to your bundle in order to collect licenses for this project."
+        unless berkshelf_available?
+          raise LicenseScout::Exceptions::Error.new("Project at '#{directory}' is a Berkshelf project but berkshelf gem is not available in your bundle. Add berkshelf to your bundle in order to collect licenses for this project.")
         end
 
-        dependencies = []
-        cookbook_dependencies = nil
+        cookbook_dependencies = []
 
-        Dir.chdir(project_dir) do
+        Dir.chdir(directory) do
           berksfile = ::Berkshelf::Berksfile.from_file("./Berksfile")
 
           # Berkshelf should not give an error when there are cookbooks in the
@@ -59,56 +60,30 @@ module LicenseScout
           cookbook_dependencies = berksfile.list
         end
 
-        cookbook_dependencies.each do |dep|
-          dependency_name = dep.name
-          dependency_version = dep.cached_cookbook.version
-
-          dependency_license_files = auto_detect_license_files(dep.cached_cookbook.path.to_s)
-
-          # Check license override and license_files override separately since
-          # only one might be set in the overrides.
-          dependency_license = options.overrides.license_for(name, dependency_name, dependency_version) || dep.cached_cookbook.license
-
-          override_license_files = options.overrides.license_files_for(name, dependency_name, dependency_version)
-          cookbook_path = dep.cached_cookbook.path.to_s
-
-          if override_license_files.empty?
-            dependency_license_files = auto_detect_license_files(cookbook_path)
-          else
-            dependency_license_files = override_license_files.resolve_locations(cookbook_path)
-          end
-
-          dependencies << create_dependency(
-            dependency_name,
-            dependency_version,
-            dependency_license,
-            dependency_license_files
-          )
-        end
-
-        dependencies
+        cookbook_dependencies.map do |dep|
+          new_dependency(dep.name, dep.cached_cookbook.version, dep.cached_cookbook.path.to_s)
+        end.compact
       end
 
       private
 
+      def berkshelf_available?
+        begin
+          require "berkshelf"
+        rescue LoadError
+          return false
+        end
+
+        true
+      end
+
       def berksfile_path
-        File.join(project_dir, "Berksfile")
+        File.join(directory, "Berksfile")
       end
 
       def lockfile_path
-        File.join(project_dir, "Berksfile.lock")
+        File.join(directory, "Berksfile.lock")
       end
-
-      def auto_detect_license_files(cookbook_path)
-        unless File.exist?(cookbook_path)
-          raise LicenseScout::Exceptions::InaccessibleDependency.new "Autodetected cookbook path '#{cookbook_path}' does not exist"
-        end
-
-        Dir.glob("#{cookbook_path}/*").select do |f|
-          POSSIBLE_LICENSE_FILES.include?(File.basename(f))
-        end
-      end
-
     end
   end
 end

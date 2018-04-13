@@ -1,12 +1,12 @@
 #
-# Copyright:: Copyright 2016, Chef Software Inc.
+# Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,87 +15,98 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/npm"
-require "license_scout/overrides"
-require "license_scout/options"
+RSpec.describe LicenseScout::DependencyManager::Npm do
 
-RSpec.describe(LicenseScout::DependencyManager::NPM) do
+  let(:subject) { described_class.new(directory) }
+  let(:directory) { "/some/random/directory" }
 
-  subject(:npm) do
-    described_class.new(project_dir, LicenseScout::Options.new(
-      overrides: overrides
-    ))
+  let(:node_modules_path) { File.join(directory, "node_modules") }
+
+  describe ".new" do
+    it "creates new instance of a dependency manager" do
+      expect(subject.directory).to eql(directory)
+    end
   end
 
-  let(:overrides) { LicenseScout::Overrides.new(exclude_default: true) }
-
-  let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "npm") }
-
-  it "has a name" do
-    expect(npm.name).to eq("js_npm")
+  describe "#name" do
+    it "equals 'nodejs_npm'" do
+      expect(subject.name).to eql("nodejs_npm")
+    end
   end
 
-  it "has a project directory" do
-    expect(npm.project_dir).to eq(project_dir)
+  describe "#type" do
+    it "equals 'nodejs'" do
+      expect(subject.type).to eql("nodejs")
+    end
   end
 
-  describe "when run in a non-npm project dir" do
+  describe "#signature" do
+    it "equals 'node_modules directory'" do
+      expect(subject.signature).to eql("node_modules directory")
+    end
+  end
 
-    let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "no_dependency_manager") }
+  describe "#install_command" do
+    it "returns 'npm install'" do
+      expect(subject.install_command).to eql("npm install")
+    end
+  end
 
-    it "does not detect the project" do
-      expect(npm.detected?).to eq(false)
+  describe "#detected?" do
+    let(:node_modules_exists) { true }
+
+    before do
+      expect(File).to receive(:exist?).with(node_modules_path).and_return(node_modules_exists)
     end
 
+    context "when node_modules exists" do
+      it "returns true" do
+        expect(subject.detected?).to be true
+      end
+    end
+
+    context "when node_modules is missing" do
+      let(:node_modules_exists) { false }
+
+      it "returns false" do
+        expect(subject.detected?).to be false
+      end
+    end
   end
 
-  describe "when run in a npm project dir" do
-
-    it "does detects the project" do
-      expect(npm.detected?).to eq(true)
-    end
+  describe "#dependencies", :vcr do
+    let(:directory) { File.join(SPEC_FIXTURES_DIR, "npm") }
 
     # npm recursively nests dependencies, make sure we find them.
     it "detects all transitive dependencies" do
-      expect(npm.dependencies.size).to eq(102)
+      expect(subject.dependencies.size).to eql(102)
 
       # spec/fixtures/npm/node_modules/node-sass/node_modules/meow/package.json
-      meow = npm.dependencies.find { |d| d.name == "meow" }
+      meow = subject.dependencies.find { |d| d.name == "meow" }
       expect(meow).to_not be_nil
     end
 
     it "dedups dependencies only if they are the same version" do
-      dependencies = npm.dependencies
+      dependencies = subject.dependencies
       minimist_info = dependencies.select { |d| d.name == "minimist" }
       minimist_info.sort! { |a, b| a.version <=> b.version }
 
       # There are 4 copies of minimist at different versions, after de-dup
       # on version there should only be 3. (`find spec/fixtures/npm -name minimist`)
-      expect(minimist_info.size).to eq(3)
-      expect(minimist_info[0].version).to eq("0.0.10")
-      expect(minimist_info[1].version).to eq("0.0.8")
-      expect(minimist_info[2].version).to eq("1.2.0")
+      expect(minimist_info.size).to eql(3)
+      expect(minimist_info[0].version).to eql("0.0.10")
+      expect(minimist_info[1].version).to eql("0.0.8")
+      expect(minimist_info[2].version).to eql("1.2.0")
     end
 
     it "detects dependencies with license files and license metadata" do
-      angular = npm.dependencies.find { |d| d.name == "angular" }
-      expect(angular.version).to eq("1.4.12")
-      expect(angular.license).to eq("MIT")
-      expected_license_path = File.join(SPEC_FIXTURES_DIR, "npm/node_modules/angular/LICENSE.md")
-      expect(angular.license_files).to eq([expected_license_path])
-    end
+      angular = subject.dependencies.find { |d| d.name == "angular" }
 
-    # rc 1.1.6
-    it "handles licenses with multiple license options" do
-      rc_1_1_6 = npm.dependencies.find do |d|
-        d.name == "rc" && d.version == "1.1.6"
-      end
-
-      # RC lets you pick any of these:
-      # BSD-2-Clause OR MIT OR Apache-2.0
-      #
-      # We choose Apache 2.0 because it's what we use for our own stuff.
-      expect(rc_1_1_6.license).to eq("Apache-2.0")
+      expect(angular.version).to eql("1.4.12")
+      expect(angular.license.records.first.id).to eql("MIT")
+      expect(angular.license.records.first.parsed_expression).to eql(["MIT"])
+      expect(angular.license.records[0].source).to eql("LICENSE.md")
+      expect(angular.license.records[1].source).to eql("package.json")
     end
 
     # The SPDX license format that npm uses allows packages to specify multiple
@@ -103,137 +114,43 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
     # standard syntax, we just pass it through, and let higher level tooling
     # (like omnibus) decide how to handle it.
     it "handles licenses with multiple combined license terms" do
-      spdx_expression_parse = npm.dependencies.find do |d|
+      spdx_expression_parse = subject.dependencies.find do |d|
         d.name == "spdx-expression-parse"
       end
-      expect(spdx_expression_parse.version).to eq("1.0.3")
-      expect(spdx_expression_parse.license).to eq("MIT AND CC-BY-3.0")
+
+      expect(spdx_expression_parse.version).to eql("1.0.3")
+      expect(spdx_expression_parse.license.records.map(&:id)).to eq(["MIT", "(MIT AND CC-BY-3.0)"])
+      expect(spdx_expression_parse.license.records[1].parsed_expression).to eql(["MIT", "CC-BY-3.0"])
+      expect(spdx_expression_parse.license.records[0].source).to eql("LICENSE")
+      expect(spdx_expression_parse.license.records[1].source).to eql("package.json")
+
     end
 
     it "detects dependencies with license metadata but no license files" do
-      assert_plus_1_0_0 = npm.dependencies.find do |d|
-        d.name == "assert-plus" && d.version = "1.0.0"
+      assert_plus_1_0_0 = subject.dependencies.find do |d|
+        d.name == "assert-plus" && d.version == "0.2.0"
       end
-      expect(assert_plus_1_0_0.license).to eq("MIT")
-      expect(assert_plus_1_0_0.license_files).to eq([])
+
+      expect(assert_plus_1_0_0.license.records.first.id).to eql("MIT")
+      expect(assert_plus_1_0_0.license.records.first.source).to eql("package.json")
     end
 
     it "detects dependencies with license files but no metadata" do
-      asn1 = npm.dependencies.find do |d|
+      asn1 = subject.dependencies.find do |d|
         d.name == "asn1" && d.version == "0.1.11"
       end
-      rel_path = "npm/node_modules/node-sass/node_modules/asn1/LICENSE"
-      expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
-      expect(asn1.version).to eq("0.1.11")
-      expect(asn1.license).to be_nil
-      expect(asn1.license_files).to eq([expected_path])
+
+      expect(asn1.version).to eql("0.1.11")
+      expect(asn1.license.records.first.id).to eql("MIT")
+      expect(asn1.license.records.first.source).to eql("LICENSE")
     end
 
     it "detects dependencies with no license info" do
-      ansi = npm.dependencies.find { |d| d.name == "ansi" }
-      expect(ansi.version).to eq("0.3.0")
-      expect(ansi.license).to be_nil
-      expect(ansi.license_files).to eq([])
+      ansi = subject.dependencies.find { |d| d.name == "ansi" }
+
+      expect(ansi.version).to eql("0.3.0")
+      expect(ansi.license.records).to be_empty
     end
 
-    describe "with default overrides enabled" do
-
-      let(:overrides) { LicenseScout::Overrides.new() }
-
-      before do
-        allow(LicenseScout::NetFetcher).to receive(:new).and_call_original
-        allow(LicenseScout::NetFetcher).to receive(:cache) do |url|
-          LicenseScout::NetFetcher.new(url).cache_path
-        end
-      end
-
-      it "fixes up dependencies with license metadata but no license files" do
-        assert_plus_1_0_0 = npm.dependencies.find do |d|
-          d.name == "assert-plus" && d.version = "1.0.0"
-        end
-        expect(assert_plus_1_0_0.license).to eq("MIT")
-
-        rel_path = "npm/node_modules/assert-plus/README.md"
-        expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
-        expect(assert_plus_1_0_0.license_files).to eq([expected_path])
-      end
-
-      it "fixes up dependencies with license files but no metadata" do
-        asn1 = npm.dependencies.find do |d|
-          d.name == "asn1" && d.version == "0.1.11"
-        end
-        rel_path = "npm/node_modules/node-sass/node_modules/asn1/LICENSE"
-        expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
-        expect(asn1.version).to eq("0.1.11")
-        expect(asn1.license).to eq("MIT")
-        expect(asn1.license_files).to eq([expected_path])
-      end
-
-    end
-
-    describe "when only license files are overridden." do
-      let(:overrides) do
-        LicenseScout::Overrides.new(exclude_default: true) do
-          override_license "js_npm", "assert-plus" do |version|
-            {
-              license_files: [ "package.json" ], # this is the only file we have in all versions
-            }
-          end
-        end
-      end
-
-      it "only uses license file overrides and reports the original license" do
-        assert_plus_1_0_0 = npm.dependencies.find do |d|
-          d.name == "assert-plus" && d.version = "0.2.0"
-        end
-        expect(assert_plus_1_0_0.license).to eq("MIT")
-
-        rel_path = "npm/node_modules/assert-plus/package.json"
-        expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
-        expect(assert_plus_1_0_0.license_files).to eq([ expected_path ])
-      end
-
-    end
-
-    describe "when correct overrides are provided." do
-      let(:overrides) do
-        LicenseScout::Overrides.new(exclude_default: true) do
-          override_license "js_npm", "assert-plus" do |version|
-            {
-              license: "Apache",
-              license_files: [ "package.json" ], # this is the only file we have in all versions
-            }
-          end
-        end
-      end
-
-      it "uses the given overrides" do
-        assert_plus_1_0_0 = npm.dependencies.find do |d|
-          d.name == "assert-plus" && d.version = "1.0.0"
-        end
-        expect(assert_plus_1_0_0.license).to eq("Apache")
-
-        rel_path = "npm/node_modules/assert-plus/package.json"
-        expected_path = File.join(SPEC_FIXTURES_DIR, rel_path)
-        expect(assert_plus_1_0_0.license_files).to eq([ expected_path ])
-      end
-
-    end
-
-    describe "when overrides with missing license file paths are provided" do
-      let(:overrides) do
-        LicenseScout::Overrides.new(exclude_default: true) do
-          override_license "js_npm", "assert-plus" do |version|
-            {
-              license_files: [ "this-file-isnt-here" ],
-            }
-          end
-        end
-      end
-
-      it "raises an error" do
-        expect { npm.dependencies }.to raise_error(LicenseScout::Exceptions::InvalidOverride)
-      end
-    end
   end
 end

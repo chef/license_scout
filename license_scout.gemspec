@@ -22,22 +22,28 @@ require "license_scout/version"
 Gem::Specification.new do |spec|
   spec.name          = "license_scout"
   spec.version       = LicenseScout::VERSION
-  spec.authors       = [ "Serdar Sutay" ]
-  spec.email         = [ "serdar@chef.io" ]
+  spec.authors       = [ "Serdar Sutay", "Tom Duffield" ]
+  spec.email         = [ "serdar@chef.io", "tom@chef.io" ]
   spec.license       = "Apache-2.0"
 
   spec.summary       = "Discovers license files of a project's dependencies."
   spec.description   = "Discovers license files of a project's dependencies."
   spec.homepage      = "https://github.com/chef/license_scout"
 
-  spec.files         = Dir["LICENSE", "README.md", "{bin,erl_src,lib}/**/*"]
+  spec.files         = Dir["LICENSE", "README.md", "{bin,native_parsers,lib}/**/*"]
   spec.bindir        = "bin"
   spec.executables   = %w{license_scout}
   spec.require_paths = %w{lib}
 
-  spec.add_dependency "ffi-yajl",         "~> 2.2"
-  spec.add_dependency "mixlib-shellout",  "~> 2.2"
-  spec.add_dependency "toml-rb",  "~> 1.0"
+  spec.add_dependency "ffi-yajl",        "~> 2.2"
+  spec.add_dependency "mixlib-shellout", "~> 2.2"
+  spec.add_dependency "toml-rb",         "~> 1.0"
+  spec.add_dependency "licensee",        "~> 9.8"
+  spec.add_dependency "mixlib-config",   "~> 2.2"
+  spec.add_dependency "mixlib-cli"
+  spec.add_dependency "mixlib-log"
+  spec.add_dependency "terminal-table"
+  spec.add_dependency "fuzzy_match"
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
@@ -45,6 +51,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "rb-readline"
   spec.add_development_dependency "chefstyle"
+  spec.add_development_dependency "vcr"
+  spec.add_development_dependency "webmock"
 
   # We do not have berkshelf as a dependency because some of its dependencies
   # can not be installed on uncommon platforms like Solaris which we need to

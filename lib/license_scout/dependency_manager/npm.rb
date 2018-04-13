@@ -21,10 +21,22 @@ require "license_scout/dependency_manager/base"
 
 module LicenseScout
   module DependencyManager
-    class NPM < Base
+    class Npm < Base
 
       def name
-        "js_npm"
+        "nodejs_npm"
+      end
+
+      def type
+        "nodejs"
+      end
+
+      def signature
+        "node_modules directory"
+      end
+
+      def install_command
+        "npm install"
       end
 
       def detected?
@@ -32,33 +44,26 @@ module LicenseScout
       end
 
       def dependencies
-        packages = all_package_json_files.inject(Set.new) do |package_set, package_json_file|
+        all_package_json_files.inject(Set.new) do |uniq_deps, package_json_file|
           pkg_info = File.open(package_json_file) do |f|
             FFI_Yajl::Parser.parse(f)
           end
 
-          pkg_name = pkg_info["name"]
-          pkg_version = pkg_info["version"]
-          package_path = File.dirname(package_json_file)
+          dep_name = pkg_info["name"]
+          dep_version = pkg_info["version"]
+          dep_path = File.dirname(package_json_file)
 
-          license = options.overrides.license_for(name, pkg_name, pkg_version) ||
-            normalize_license_data(pkg_info["license"] || pkg_info["licence"] || pkg_info["licenses"])
+          dependency = new_dependency(dep_name, dep_version, dep_path)
 
-          override_license_files = options.overrides.license_files_for(name, pkg_name, pkg_version)
-          if override_license_files.empty?
-            license_files = find_license_files_in(package_path)
-          else
-            license_files = override_license_files.resolve_locations(package_path)
+          case pkg_info["license"]
+          when String
+            dependency.add_license(pkg_info["license"], "package.json")
+          when Hash
+            dependency.add_license(pkg_info["license"]["type"], "package.json", pkg_info["license"]["url"])
           end
 
-          package_set << create_dependency(
-            pkg_name,
-            pkg_version,
-            license,
-            license_files
-          )
-        end
-        packages.to_a
+          uniq_deps << dependency
+        end.to_a
       end
 
       private
@@ -79,7 +84,7 @@ module LicenseScout
       # package metadata is removed).
       def all_package_json_files
         all_files = []
-        package_dirs = [project_dir]
+        package_dirs = [directory]
         loop do
           break if package_dirs.empty?
 
@@ -98,69 +103,9 @@ module LicenseScout
         all_files
       end
 
-      def find_license_files_in(dir)
-        root_files = Dir["#{dir}/*"]
-        root_files.select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
-      end
-
-      def normalize_license_data(license_metadata)
-        license_string =
-          case license_metadata
-          when nil
-            nil
-          when String
-            license_metadata
-          when Hash
-            license_metadata["type"]
-          when Array
-            if (map = license_metadata.first) && map.kind_of?(Hash) && (type = map["type"])
-              type
-            else
-              nil
-            end
-          end
-        select_best_license(license_string)
-      end
-
-      # npm packages use SPDX "expressions" for their licenses; Thus far we've
-      # only seen a single license, optional multiple licenses like "(MIT OR Apache-2.0)"
-      # or mandatory multiple licenses like "(MIT AND CC-BY-3.0)"
-      #
-      # If there are multiple options, we want to pick just one to keep it simple.
-      def select_best_license(license_string)
-        return nil if license_string.nil?
-        options = license_string.tr("(", "").tr(")", "").split(" OR ")
-        options.inject do |selected_license, license|
-          if license_rank(selected_license) < license_rank(license)
-            selected_license
-          else
-            license
-          end
-        end
-      end
-
-      # Rank licenses when selecting one of multiple options. Licenses are
-      # converted to integer scores, the lower the better.
-      #
-      # We prefer Apache-2.0 since it matches our own projects, then MIT, then
-      # BSDs. Everything else is considered equal.
-      def license_rank(license)
-        case license
-        when "Apache-2.0"
-          0
-        when "MIT"
-          1
-        when /bsd/i
-          2
-        else
-          3
-        end
-      end
-
       def root_node_modules_path
-        File.join(project_dir, "node_modules")
+        File.join(directory, "node_modules")
       end
-
     end
   end
 end

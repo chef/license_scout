@@ -1,12 +1,12 @@
 #
-# Copyright:: Copyright 2017, Chef Software Inc.
+# Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,123 +15,97 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/glide"
-require "license_scout/overrides"
-require "license_scout/options"
+RSpec.describe LicenseScout::DependencyManager::Glide do
 
-RSpec.describe(LicenseScout::DependencyManager::Glide) do
+  let(:subject) { described_class.new(directory) }
+  let(:directory) { "/some/random/directory" }
 
-  subject(:glide) do
-    described_class.new(project_dir, LicenseScout::Options.new(
-      overrides: overrides
-    ))
-  end
+  let(:glide_lock_path) { File.join(directory, "glide.lock") }
 
-  let(:overrides) { LicenseScout::Overrides.new(exclude_default: true) }
-
-  let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "glide") }
-
-  it "has a name" do
-    expect(glide.name).to eq("go_glide")
-  end
-
-  it "has a project directory" do
-    expect(glide.project_dir).to eq(project_dir)
-  end
-
-  describe "when run in a non-glide project dir" do
-    let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "no_dependency_manager") }
-
-    it "does not detect the project" do
-      expect(glide.detected?).to eq(false)
+  describe ".new" do
+    it "creates new instance of a dependency manager" do
+      expect(subject.directory).to eql(directory)
     end
   end
 
-  describe "when run in a glide-only project dir" do
-    let(:project_dir) { File.join(SPEC_FIXTURES_DIR, "godep") }
-
-    it "does not detect the project" do
-      expect(glide.detected?).to eq(false)
+  describe "#name" do
+    it "equals 'golang_glide'" do
+      expect(subject.name).to eql("golang_glide")
     end
   end
 
-  describe "when run in a glide project dir" do
+  describe "#type" do
+    it "equals 'golang'" do
+      expect(subject.type).to eql("golang")
+    end
+  end
+
+  describe "#signature" do
+    it "equals 'glide.lock file'" do
+      expect(subject.signature).to eql("glide.lock file")
+    end
+  end
+
+  describe "#install_command" do
+    it "returns 'glide install'" do
+      expect(subject.install_command).to eql("glide install")
+    end
+  end
+
+  describe "#detected?" do
+    let(:glide_lock_exists) { true }
+
     before do
-      ENV["GOPATH"] = File.join(SPEC_FIXTURES_DIR, "godeps_gopath" )
+      expect(File).to receive(:exist?).with(glide_lock_path).and_return(glide_lock_exists)
     end
 
-    it "does detects the project" do
-      expect(glide.detected?).to eq(true)
+    context "when glide.lock exists" do
+      it "returns true" do
+        expect(subject.detected?).to be true
+      end
     end
 
-    it "detects the dependencies and their details correctly" do
-      dependencies = glide.dependencies
+    context "when glide.lock is missing" do
+      let(:glide_lock_exists) { false }
+
+      it "returns false" do
+        expect(subject.detected?).to be false
+      end
+    end
+  end
+
+  describe "#dependencies" do
+    let(:directory) { File.join(SPEC_FIXTURES_DIR, "glide") }
+    let(:gopath) { File.join(SPEC_FIXTURES_DIR, "godeps_gopath") }
+
+    before do
+      ENV["GOPATH"] = gopath
+    end
+
+    after do
+      ENV.delete("GOPATH")
+    end
+
+    it "returns an array of Dependencies found in the directory" do
+      dependencies = subject.dependencies
 
       # Make sure we have the right count
       expect(dependencies.length).to eq(3)
 
-      dep_a = dependencies.select { |d| d.name == "github.com_dep_a" }
-      dep_b = dependencies.select { |d| d.name == "github.com_dep_b" }
-      dep_c = dependencies.select { |d| d.name == "github.com_dep_c_subdir" }
+      dep_a = dependencies.find { |d| d.name == "github.com/dep/a" }
+      dep_b = dependencies.find { |d| d.name == "github.com/dep/b" }
+      dep_c = dependencies.find { |d| d.name == "github.com/dep/c/subdir" }
 
-      expect(dep_a.length).to be(1)
-      expect(dep_a.first.version).to eq("rev0")
-      expect(dep_a.first.license).to eq(nil)
-      expect(dep_a.first.license_files.first).to end_with("fixtures/godeps_gopath/src/github.com/dep/a/LICENSE.txt")
+      expect(dep_a.version).to eq("rev0")
+      expect(dep_a.license.records.first.id).to be_nil
+      expect(dep_a.license.records.first.source).to eql("LICENSE.txt")
 
-      expect(dep_b.length).to be(1)
-      expect(dep_b.first.version).to eq("rev1")
-      expect(dep_b.first.license).to eq(nil)
-      expect(dep_b.first.license_files).to eq([])
+      expect(dep_b.version).to eq("rev1")
+      expect(dep_b.license.records).to be_empty
 
-      expect(dep_c.length).to be(1)
-      expect(dep_c.first.version).to eq("rev2")
-      expect(dep_c.first.license).to eq(nil)
-      expect(dep_c.first.license_files.first).to end_with("fixtures/godeps_gopath/src/github.com/dep/c/subdir/LICENSE")
-    end
-
-    describe "when given license overrides" do
-      let(:overrides) do
-        LicenseScout::Overrides.new do
-          override_license "go", "github.com/dep/c/subdir" do |version|
-            {
-              license: "MIT",
-            }
-          end
-        end
-      end
-
-      it "takes overrides into account" do
-        dependencies = glide.dependencies
-        expect(dependencies.length).to eq(3)
-
-        dep_c = dependencies.find { |d| d.name == "github.com_dep_c_subdir" }
-        expect(dep_c.license).to eq("MIT")
-      end
-
-    end
-
-    describe "when given license file overrides" do
-      let(:overrides) do
-        LicenseScout::Overrides.new do
-          override_license "go", "github.com/dep/c/subdir" do |_version|
-            {
-              license_files: %w{README LICENSE},
-            }
-          end
-
-        end
-      end
-
-      it "takes overrides into account" do
-        dependencies = glide.dependencies
-        expect(dependencies.length).to eq(3)
-
-        dep_c = dependencies.find { |d| d.name == "github.com_dep_c_subdir" }
-        expect(dep_c.license_files[0]).to end_with("fixtures/godeps_gopath/src/github.com/dep/c/subdir/README")
-        expect(dep_c.license_files[1]).to end_with("fixtures/godeps_gopath/src/github.com/dep/c/subdir/LICENSE")
-      end
-
+      expect(dep_c.version).to eq("rev2")
+      expect(dep_c.license.records.first.id).to be_nil
+      expect(dep_c.license.records.first.source).to eql("LICENSE")
     end
   end
 end

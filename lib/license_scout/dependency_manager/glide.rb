@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-require "yaml"
+require "psych"
 require "license_scout/dependency_manager/base"
 
 module LicenseScout
@@ -23,56 +23,45 @@ module LicenseScout
     class Glide < Base
 
       def name
-        "go_glide"
+        "golang_glide"
+      end
+
+      def type
+        "golang"
+      end
+
+      def signature
+        "glide.lock file"
+      end
+
+      def install_command
+        "glide install"
       end
 
       def detected?
-        File.exist?(glide_yaml)
+        File.exist?(glide_lock_path)
       end
 
       def dependencies
-        unless File.file?(glide_yaml_locked)
-          raise "Detected Go/Glide project that is missing its \"glide.lock\" "\
-                "file in #{project_dir}"
-        end
+        # We cannot use YAML.safe_load because Psych throws a fit about the
+        # updated field. We should circle back and see what we can do to fix that.
+        YAML.load(File.read(glide_lock_path))["imports"].map do |import|
+          dep_name = import["name"]
+          dep_version = import["version"]
+          dep_path = gopath(dep_name)
 
-        deps = YAML.load(File.read(glide_yaml_locked))
-        deps["imports"].map { |i| add_glide_dep(i) }
+          new_dependency(dep_name, dep_version, dep_path)
+        end.compact
       end
 
       private
 
-      def add_glide_dep(import_field)
-        pkg_import_name = import_field["name"]
-        pkg_file_name = pkg_import_name.tr("/", "_")
-        pkg_version = import_field["version"]
-        license = options.overrides.license_for("go", pkg_import_name, pkg_version)
-
-        override_license_files = options.overrides.license_files_for("go", pkg_import_name, pkg_version)
-        if override_license_files.empty?
-          license_files = find_license_files_for_package_in_gopath(pkg_import_name)
-        else
-          license_files = override_license_files.resolve_locations(gopath(pkg_import_name))
-        end
-
-        create_dependency(pkg_file_name, pkg_version, license, license_files)
-      end
-
-      def glide_yaml
-        File.join(project_dir, "glide.yaml")
-      end
-
-      def glide_yaml_locked
-        File.join(project_dir, "glide.lock")
+      def glide_lock_path
+        File.join(directory, "glide.lock")
       end
 
       def gopath(pkg)
         "#{ENV['GOPATH']}/src/#{pkg}"
-      end
-
-      def find_license_files_for_package_in_gopath(pkg)
-        root_files = Dir["#{gopath(pkg)}/*"]
-        root_files.select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
       end
     end
   end

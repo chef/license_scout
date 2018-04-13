@@ -16,9 +16,7 @@
 #
 
 require "license_scout/dependency_manager/base"
-require "license_scout/net_fetcher"
 require "license_scout/exceptions"
-require "license_scout/license_file_analyzer"
 
 require "mixlib/shellout"
 require "ffi_yajl"
@@ -29,8 +27,8 @@ module LicenseScout
 
       attr_reader :packaged_dependencies
 
-      def initialize(project_dir, options)
-        super(project_dir, options)
+      def initialize(directory)
+        super(directory)
 
         @packaged_dependencies = {}
       end
@@ -39,19 +37,29 @@ module LicenseScout
         "erlang_rebar"
       end
 
+      def type
+        "erlang"
+      end
+
+      def signature
+        "rebar.config file"
+      end
+
+      def install_command
+        "rebar get-deps"
+      end
+
       def detected?
         File.exist?(rebar_config_path)
       end
 
       def dependencies
-        dependencies = []
-
         # Some dependencies are obtained via 'pkg' identifier of rebar. These
         # dependencies include their version in the rebar.lock file. Here we
         # parse the rebar.lock and remember all the versions we find.
         parse_packaged_dependencies
 
-        Dir.glob("#{project_deps_dir}/*").each do |dep_dir|
+        Dir.glob("#{project_deps_dir}/*").map do |dep_dir|
           next unless File.directory?(dep_dir)
 
           dep_name = File.basename(dep_dir)
@@ -59,10 +67,10 @@ module LicenseScout
           # First check if this dependency is coming from the parent software.
           # If so we do not need to worry about its version or licenses because
           # it will be covered under the parent software's license.
-          next if File.directory?(File.join(project_dir, "apps", dep_name))
+          next if File.directory?(File.join(directory, "apps", dep_name))
 
           # Or skip if the dep name is the project name
-          next if File.exist?(File.join(project_dir, "_build/default/rel", dep_name))
+          next if File.exist?(File.join(directory, "_build/default/rel", dep_name))
 
           # While determining the dependency version we first check the cache we
           # built from rebar.lock for the dependencies that come via 'pkg'
@@ -74,22 +82,8 @@ module LicenseScout
                           git_rev_parse(dep_dir)
                         end
 
-          override_license_files = options.overrides.license_files_for(name, dep_name, dep_version)
-          license_files =
-            if override_license_files.empty?
-              Dir.glob("#{dep_dir}/*").select { |f| POSSIBLE_LICENSE_FILES.include?(File.basename(f)) }
-            else
-              override_license_files.resolve_locations(dep_dir)
-            end
-
-          license_name = options.overrides.license_for(name, dep_name, dep_version) || scan_licenses(license_files)
-
-          dep = create_dependency(dep_name, dep_version, license_name, license_files)
-
-          dependencies << dep
-        end
-
-        dependencies
+          new_dependency(dep_name, dep_version, dep_dir)
+        end.compact
       end
 
       private
@@ -99,12 +93,12 @@ module LicenseScout
       # determine the version of them via git, we try to parse the rebar.lock
       # file and remember their versions to use it later.
       def parse_packaged_dependencies
-        rebar_lock_path = File.join(project_dir, "rebar.lock")
+        rebar_lock_path = File.join(directory, "rebar.lock")
 
         return unless File.exist?(rebar_lock_path)
 
         rebar_lock_to_json_path = File.expand_path("../../../bin/rebar_lock_json", File.dirname(__FILE__))
-        s = Mixlib::ShellOut.new("#{rebar_lock_to_json_path} #{rebar_lock_path}", environment: options.environment)
+        s = Mixlib::ShellOut.new("#{LicenseScout::Config.escript_bin} #{rebar_lock_to_json_path} #{rebar_lock_path}", environment: LicenseScout::Config.environment)
         s.run_command
         s.error!
 
@@ -115,7 +109,7 @@ module LicenseScout
             source_name = source_info["pkg_name"]
             source_version = source_info["pkg_version"]
 
-            packaged_dependencies[source_name] = source_version
+            @packaged_dependencies[source_name] = source_version
           end
         end
       rescue Mixlib::ShellOut::ShellCommandFailed
@@ -139,24 +133,14 @@ module LicenseScout
       def project_deps_dir
         # rebar dependencies can be found in one of these two directories.
         ["deps", "_build/default/lib"].each do |dir|
-          dep_dir = File.join(project_dir, dir)
+          dep_dir = File.join(directory, dir)
           return dep_dir if File.exist?(dep_dir)
         end
       end
 
       def rebar_config_path
-        File.join(project_dir, "rebar.config")
+        File.join(directory, "rebar.config")
       end
-
-      def scan_licenses(license_files)
-        if license_files.empty?
-          nil
-        else
-          found_license = LicenseScout::LicenseFileAnalyzer.find_by_text(IO.read(license_files.first))
-          found_license ? found_license.short_name : nil
-        end
-      end
-
     end
   end
 end

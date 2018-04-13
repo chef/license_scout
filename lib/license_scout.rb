@@ -17,3 +17,5 @@
 
 module LicenseScout
 end
+
+require "license_scout/cli"
