@@ -61,8 +61,8 @@ module LicenseScout
 
       def reason_string
         case reason
-        when :unpermitted
-          "Unpermitted"
+        when :not_allowed
+          "Not Allowed"
         when :flagged
           "Flagged"
         when :undetermined
@@ -122,7 +122,7 @@ module LicenseScout
           @needs_fallback = true
         elsif !LicenseScout::Config.allowed_licenses.empty? && !dependency.license.is_allowed?
           unless dependency.has_exception?
-            @results[dependency.type] << Result.failure(dependency, :unpermitted)
+            @results[dependency.type] << Result.failure(dependency, :not_allowed)
             @did_fail = true
             @needs_exception = true
           else
@@ -170,10 +170,10 @@ module LicenseScout
 
       puts
       puts "Additional steps are required in order to pass Open Source license compliance:"
-      puts "  * Please add fallback licenses for the 'Missing' or 'Undetermined' dependencies"    if @needs_fallback
-      puts "         https://github.com/chef/license_scout#fallback-licenses"                     if @needs_fallback
-      puts "  * Please remove or add exceptions for the 'Flagged' or 'Unpermitted' dependencies"  if @needs_exception
-      puts "         https://github.com/chef/license_scout#dependency-exceptions"                 if @needs_exception
+      puts "  * Please add fallback licenses for the 'Missing' or 'Undetermined' dependencies"   if @needs_fallback
+      puts "         https://github.com/chef/license_scout#fallback-licenses"                    if @needs_fallback
+      puts "  * Please add exceptions for the 'Flagged' or 'Not Allowed' dependencies"           if @needs_exception
+      puts "         https://github.com/chef/license_scout#dependency-exceptions"                if @needs_exception
 
       exit 1 if @did_fail
     end

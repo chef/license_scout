@@ -62,7 +62,7 @@ Result | Description
 --- | ---
 Flagged | License Scout was able to determine the license for this software dependency, and it is one of the licenses you have explicitly flagged. You should either remove the dependency or [add an Exception](#dependency-exceptions).
 Missing | License Scout could not find any license files or license metadata associated with this dependency. You should contact the maintainer and/or specify a [Fallback License](#fallback-licenses).
-Unpermitted | License Scout was able to determine the license for this software dependency, but it is not one of the licenses you have explicitly allowed. You should either remove the dependency or [add an Exception](#dependency-exceptions).
+Not Allowed | License Scout was able to determine the license for this software dependency, but it is not one of the licenses you have explicitly allowed. You should either remove the dependency or [add an Exception](#dependency-exceptions).
 OK | There were no issues.
 Undetermined | License Scout found a license file but was unable to determine (with sufficient confidence) what license that file represents. License Scout was also unable to determine the license using Dependency Manager metadata. You should contact the maintainer and/or specify a [Fallback License](#fallback-licenses).
 
