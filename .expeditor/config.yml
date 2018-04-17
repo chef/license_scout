@@ -13,6 +13,9 @@ github:
     - 1-stable:
         version_constraint: 1.*
 
+habitat_packages:
+  - license_scout
+
 rubygems:
   - license_scout
 
@@ -29,6 +32,9 @@ merge_actions:
         - "Changelog: Skip Update"
         - "Expeditor: Skip All"
   - built_in:build_gem:
+      only_if:
+        - built_in:bump_version
+  - built_in:trigger_habitat_package_build:
       only_if:
         - built_in:bump_version
 

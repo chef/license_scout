@@ -62,7 +62,8 @@ module LicenseScout
       default :ruby, []
     end
 
-    # Runtime Parameters
+    # Runtime Parameters - if you add any bins, make sure to update the habitat/plan.sh
+    # to ensure we override the defaults to scope to the Habitat path
     default :environment, {}
     default :ruby_bin, "ruby"
     default :escript_bin, "escript"

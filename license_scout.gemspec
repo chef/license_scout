@@ -44,21 +44,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "mixlib-log"
   spec.add_runtime_dependency "terminal-table"
   spec.add_runtime_dependency "fuzzy_match"
-
-  spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "rb-readline"
-  spec.add_development_dependency "chefstyle"
-  spec.add_development_dependency "vcr"
-  spec.add_development_dependency "webmock"
-
-  # We do not have berkshelf as a dependency because some of its dependencies
-  # can not be installed on uncommon platforms like Solaris which we need to
-  # support. If a project needs to collect license information for a berkshelf
-  # project it needs to include it seperately in its gem bundle. We have a nice
-  # error message when they do not. But we add berkshelf as a development
-  # dependency so that we can run our tests.
-  spec.add_development_dependency "berkshelf", "~> 4.3"
 end

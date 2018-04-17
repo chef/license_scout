@@ -90,6 +90,7 @@ module LicenseScout
             s.error!
             s.stdout
           end
+
           FFI_Yajl::Parser.parse(json_dep_data)
         end
       end
