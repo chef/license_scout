@@ -81,11 +81,11 @@ module LicenseScout
       private
 
       def dependency_data
-        bundler_script = File.join(File.dirname(__FILE__), "bundler/_bundler_script.rb")
+        gemfile_to_json_path = File.expand_path("../../../bin/gemfile_json", File.dirname(__FILE__))
 
         Dir.chdir(directory) do
           json_dep_data = with_clean_env do
-            s = Mixlib::ShellOut.new("#{LicenseScout::Config.ruby_bin} #{bundler_script}", environment: LicenseScout::Config.environment)
+            s = Mixlib::ShellOut.new("#{LicenseScout::Config.ruby_bin} #{gemfile_to_json_path}", environment: LicenseScout::Config.environment)
             s.run_command
             s.error!
             s.stdout
