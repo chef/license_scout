@@ -2,6 +2,430 @@
 http_interactions:
 - request:
     method: get
+    uri: https://raw.github.com/broofa/node-uuid/master/LICENSE.md
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Location:
+      - https://raw.githubusercontent.com/broofa/node-uuid/master/LICENSE.md
+      Content-Length:
+      - '0'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Apr 2018 22:34:29 GMT
+      Via:
+      - 1.1 varnish
+      Age:
+      - '3'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-dfw18647-DFW
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      Vary:
+      - Accept-Encoding
+      X-Fastly-Request-Id:
+      - e0c089d7c9cf83c29ee97e24a2d231a1683cf0c7
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 22:34:29 GMT
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/broofa/node-uuid/master/LICENSE.md
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"8c84e398668b79fbb7243523cbabe02be58029ee"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - 6A36:30FB:304F4:31F80:5AD6766D
+      Content-Length:
+      - '672'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Apr 2018 22:34:29 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-dfw18622-DFW
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1524004470.565024,VS0,VE1
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - b6aa325abb82ab40fbfcbd35e6816f72f9a383a2
+      Expires:
+      - Tue, 17 Apr 2018 22:39:29 GMT
+      Source-Age:
+      - '8'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        The MIT License (MIT)
+
+        Copyright (c) 2010-2016 Robert Kieffer and other contributors
+
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 22:34:29 GMT
+- request:
+    method: get
+    uri: http://github.com/hueniverse/sntp/raw/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Content-Length:
+      - '0'
+      Location:
+      - https://github.com/hueniverse/sntp/raw/master/LICENSE
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 22:34:29 GMT
+- request:
+    method: get
+    uri: https://github.com/hueniverse/sntp/raw/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Tue, 17 Apr 2018 22:34:21 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Status:
+      - 302 Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - X-PJAX
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '100'
+      Access-Control-Allow-Origin:
+      - https://render.githubusercontent.com
+      Location:
+      - https://raw.githubusercontent.com/hueniverse/sntp/master/LICENSE
+      X-Runtime:
+      - '0.041823'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Expect-Ct:
+      - max-age=2592000, report-uri="https://api.github.com/_private/browser/errors"
+      Content-Security-Policy:
+      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; child-src
+        render.githubusercontent.com; connect-src ''self'' uploads.github.com status.github.com
+        collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com
+        github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com
+        github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com;
+        font-src assets-cdn.github.com; form-action ''self'' github.com gist.github.com;
+        frame-ancestors ''none''; img-src ''self'' data: assets-cdn.github.com identicons.github.com
+        collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com;
+        manifest-src ''self''; media-src ''none''; script-src assets-cdn.github.com;
+        style-src ''unsafe-inline'' assets-cdn.github.com'
+      X-Runtime-Rack:
+      - '0.047208'
+      Age:
+      - '8'
+      Content-Length:
+      - '130'
+      X-Github-Request-Id:
+      - CBEA:605C:AA5552:15C7205:5AD67675
+    body:
+      encoding: UTF-8
+      string: <html><body>You are being <a href="https://raw.githubusercontent.com/hueniverse/sntp/master/LICENSE">redirected</a>.</body></html>
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 22:34:29 GMT
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/hueniverse/sntp/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"6dc3e82d3c2e9b7a4e005075c965de4e32c72eb7"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - 4F6C:1722:38D63:3C025:5AD6766D
+      Content-Length:
+      - '865'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Apr 2018 22:34:30 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-dfw18643-DFW
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1524004470.076750,VS0,VE0
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - d173561ec0c7e99d9e5af320cb47d0dba958d56c
+      Expires:
+      - Tue, 17 Apr 2018 22:39:30 GMT
+      Source-Age:
+      - '8'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        Copyright (c) 2012-2016, Eran Hammer and Project contributors
+        All rights reserved.
+
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+            * Redistributions of source code must retain the above copyright
+              notice, this list of conditions and the following disclaimer.
+            * Redistributions in binary form must reproduce the above copyright
+              notice, this list of conditions and the following disclaimer in the
+              documentation and/or other materials provided with the distribution.
+            * The names of any contributors may not be used to endorse or promote
+              products derived from this software without specific prior written
+              permission.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS AND CONTRIBUTORS BE LIABLE FOR ANY
+        DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+        ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+                                          *   *   *
+
+        The complete list of contributors can be found at: https://github.com/hueniverse/sntp/graphs/contributors
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 22:34:30 GMT
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/dominictarr/config-chain/master/LICENCE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"171dd970053ce33587ab3960a61b9cb56a9313d6"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - DC0E:72AF:5298:5A15:5AD6766E
+      Content-Length:
+      - '646'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Apr 2018 22:34:30 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-dfw18650-DFW
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1524004470.343366,VS0,VE1
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - f032d0b8aaa44440cfcaf0f23f36bf3469daee99
+      Expires:
+      - Tue, 17 Apr 2018 22:39:30 GMT
+      Source-Age:
+      - '8'
+    body:
+      encoding: ASCII-8BIT
+      string: "Copyright (c) 2011 Dominic Tarr\n\nPermission is hereby granted, free
+        of charge, \nto any person obtaining a copy of this software and \nassociated
+        documentation files (the \"Software\"), to \ndeal in the Software without
+        restriction, including \nwithout limitation the rights to use, copy, modify,
+        \nmerge, publish, distribute, sublicense, and/or sell \ncopies of the Software,
+        and to permit persons to whom \nthe Software is furnished to do so, \nsubject
+        to the following conditions:\n\nThe above copyright notice and this permission
+        notice \nshall be included in all copies or substantial portions of the Software.\n\nTHE
+        SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, \nEXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES \nOF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. \nIN NO EVENT SHALL
+        THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR \nANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, \nTORT OR OTHERWISE, ARISING
+        FROM, OUT OF OR IN CONNECTION WITH THE \nSOFTWARE OR THE USE OR OTHER DEALINGS
+        IN THE SOFTWARE."
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 22:34:30 GMT
+- request:
+    method: get
     uri: https://raw.githubusercontent.com/3rd-Eden/useragent/master/LICENSE
     body:
       encoding: US-ASCII
@@ -37,35 +461,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - D5D8:2D30:551C1:5A111:5ACF788E
+      - 23CE:1727:1ABBB:1C21E:5AD6766D
       Content-Length:
       - '680'
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 12 Apr 2018 15:17:41 GMT
+      - Tue, 17 Apr 2018 22:34:30 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18640-DFW
+      - cache-dfw18633-DFW
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1523546261.122211,VS0,VE1
+      - S1524004471.652167,VS0,VE1
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 80f1b526524d680d89043f674ecee5bc9ad429e9
+      - c8a5d8056006cbd88e2d41c5d40ee31d85851c3d
       Expires:
-      - Thu, 12 Apr 2018 15:22:41 GMT
+      - Tue, 17 Apr 2018 22:39:30 GMT
       Source-Age:
-      - '5'
+      - '8'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -89,7 +513,7 @@ http_interactions:
         # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         # THE SOFTWARE.
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:41 GMT
+  recorded_at: Tue, 17 Apr 2018 22:34:30 GMT
 - request:
     method: get
     uri: http://github.com/isaacs/node-lru-cache/raw/master/LICENSE
@@ -116,7 +540,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:41 GMT
+  recorded_at: Tue, 17 Apr 2018 22:34:30 GMT
 - request:
     method: get
     uri: https://github.com/isaacs/node-lru-cache/raw/master/LICENSE
@@ -138,7 +562,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Thu, 12 Apr 2018 15:17:36 GMT
+      - Tue, 17 Apr 2018 22:34:28 GMT
       Content-Type:
       - text/html; charset=utf-8
       Status:
@@ -156,7 +580,7 @@ http_interactions:
       Location:
       - https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE
       X-Runtime:
-      - '0.074084'
+      - '0.059190'
       Strict-Transport-Security:
       - max-age=31536000; includeSubdomains; preload
       X-Frame-Options:
@@ -177,20 +601,20 @@ http_interactions:
         frame-ancestors ''none''; img-src ''self'' data: assets-cdn.github.com identicons.github.com
         collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com;
         manifest-src ''self''; media-src ''none''; script-src assets-cdn.github.com;
-        style-src ''unsafe-inline'' assets-cdn.github.com; worker-src ''self'''
+        style-src ''unsafe-inline'' assets-cdn.github.com'
       X-Runtime-Rack:
-      - '0.082005'
+      - '0.066306'
       Age:
-      - '5'
+      - '2'
       Content-Length:
       - '136'
       X-Github-Request-Id:
-      - DAEE:4383:8347AB:F8A910:5ACF7895
+      - CBEF:605D:D71130:1AAE81E:5AD67676
     body:
       encoding: UTF-8
       string: <html><body>You are being <a href="https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE">redirected</a>.</body></html>
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:41 GMT
+  recorded_at: Tue, 17 Apr 2018 22:34:30 GMT
 - request:
     method: get
     uri: https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE
@@ -228,35 +652,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - BB04:0496:28209:2A70A:5ACF788F
+      - EFFE:0950:4CBC0:4FC03:5AD6766E
       Content-Length:
       - '490'
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 12 Apr 2018 15:17:41 GMT
+      - Tue, 17 Apr 2018 22:34:31 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18638-DFW
+      - cache-dfw18627-DFW
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1523546262.780622,VS0,VE1
+      - S1524004471.096155,VS0,VE1
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 4d428c54615a8685d420ccd7fe4d4d3fb76336bc
+      - 3bd084a0fffc597e936cfe869d2f79f05c2fc273
       Expires:
-      - Thu, 12 Apr 2018 15:22:41 GMT
+      - Tue, 17 Apr 2018 22:39:31 GMT
       Source-Age:
-      - '5'
+      - '8'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -276,5 +700,144 @@ http_interactions:
         ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
         IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:41 GMT
+  recorded_at: Tue, 17 Apr 2018 22:34:31 GMT
+- request:
+    method: get
+    uri: https://raw.github.com/broofa/node-mime/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Location:
+      - https://raw.githubusercontent.com/broofa/node-mime/master/LICENSE
+      Content-Length:
+      - '0'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Apr 2018 22:34:31 GMT
+      Via:
+      - 1.1 varnish
+      Age:
+      - '2'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-dfw18624-DFW
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      Vary:
+      - Accept-Encoding
+      X-Fastly-Request-Id:
+      - e51c3c25fe67da36460f25627ce387dfed45ada4
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 22:34:31 GMT
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/broofa/node-mime/master/LICENSE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"d3f46f7e145990dad5954d78c5da9a2c2bdcbe36"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - 6424:5053:34333:36FB6:5AD6766F
+      Content-Length:
+      - '666'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Apr 2018 22:34:31 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-dfw18637-DFW
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1524004471.456705,VS0,VE1
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - '058d6b889ddf1e6a052250c9f023905fa4423952'
+      Expires:
+      - Tue, 17 Apr 2018 22:39:31 GMT
+      Source-Age:
+      - '7'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        The MIT License (MIT)
+
+        Copyright (c) 2010 Benjamin Thomas, Robert Kieffer
+
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+    http_version: 
+  recorded_at: Tue, 17 Apr 2018 22:34:31 GMT
 recorded_with: VCR 4.0.0

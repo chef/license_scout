@@ -30,20 +30,20 @@ Gem::Specification.new do |spec|
   spec.description   = "Discovers license files of a project's dependencies."
   spec.homepage      = "https://github.com/chef/license_scout"
 
-  spec.files         = Dir["LICENSE", "README.md", "{bin,native_parsers,lib}/**/*"]
+  spec.files         = Dir["LICENSE", "README.md", "{bin,lib}/**/*"]
   spec.bindir        = "bin"
   spec.executables   = %w{license_scout}
   spec.require_paths = %w{lib}
 
-  spec.add_dependency "ffi-yajl",        "~> 2.2"
-  spec.add_dependency "mixlib-shellout", "~> 2.2"
-  spec.add_dependency "toml-rb",         "~> 1.0"
-  spec.add_dependency "licensee",        "~> 9.8"
-  spec.add_dependency "mixlib-config",   "~> 2.2"
-  spec.add_dependency "mixlib-cli"
-  spec.add_dependency "mixlib-log"
-  spec.add_dependency "terminal-table"
-  spec.add_dependency "fuzzy_match"
+  spec.add_runtime_dependency "ffi-yajl",        "~> 2.2"
+  spec.add_runtime_dependency "mixlib-shellout", "~> 2.2"
+  spec.add_runtime_dependency "toml-rb",         "~> 1.0"
+  spec.add_runtime_dependency "licensee",        "~> 9.8"
+  spec.add_runtime_dependency "mixlib-config",   "~> 2.2"
+  spec.add_runtime_dependency "mixlib-cli"
+  spec.add_runtime_dependency "mixlib-log"
+  spec.add_runtime_dependency "terminal-table"
+  spec.add_runtime_dependency "fuzzy_match"
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
