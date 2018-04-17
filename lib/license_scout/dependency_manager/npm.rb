@@ -55,11 +55,22 @@ module LicenseScout
 
           dependency = new_dependency(dep_name, dep_version, dep_path)
 
-          case pkg_info["license"]
+          license_info = pkg_info["license"] || pkg_info["licenses"]
+
+          case license_info
           when String
-            dependency.add_license(pkg_info["license"], "package.json")
+            dependency.add_license(license_info, "package.json")
           when Hash
-            dependency.add_license(pkg_info["license"]["type"], "package.json", pkg_info["license"]["url"])
+            dependency.add_license(license_info["type"], "package.json", license_info["url"])
+          when Array
+            license_info.each do |license|
+              case license
+              when String
+                dependency.add_license(license, "package.json")
+              when Hash
+                dependency.add_license(license["type"], "package.json", license["url"])
+              end
+            end
           end
 
           uniq_deps << dependency

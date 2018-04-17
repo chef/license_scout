@@ -110,6 +110,16 @@ module LicenseScout
         rescue OpenURI::HTTPError
           LicenseScout::Log.warn("[license] Unable to download license for #{license_id} from #{new_url}")
           nil
+        rescue RuntimeError => e
+          if e.message =~ /redirection forbidden/
+            m = /redirection forbidden:\s+(.+)\s+->\s+(.+)/.match(e.message)
+            new_https_url = m[2].gsub("http://", "https://")
+
+            LicenseScout::Log.debug("[license] Retrying download of #{license_id} from #{new_https_url}")
+            license_content(license_id, new_https_url)
+          else
+            raise e
+          end
         end
       end
     end
