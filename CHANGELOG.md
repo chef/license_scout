@@ -1,10 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.0.3 -->
+## [v2.0.3](https://github.com/chef/license_scout/tree/v2.0.3) (2018-04-17)
+
+#### Merged Pull Requests
+- Improve the detection of NPM licenses from the package.json [#146](https://github.com/chef/license_scout/pull/146) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.0.2 -->
 ### Changes since 1.0.2 release
+
+#### Merged Pull Requests
+- Improve the detection of NPM licenses from the package.json [#146](https://github.com/chef/license_scout/pull/146) ([tduffield](https://github.com/tduffield)) <!-- 2.0.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
