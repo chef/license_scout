@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.0.4 -->
+## [v2.0.4](https://github.com/chef/license_scout/tree/v2.0.4) (2018-04-18)
+
+#### Merged Pull Requests
+- Few more cleanups from the 2.0 refactor [#147](https://github.com/chef/license_scout/pull/147) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.0.3 -->
+### Changes since 2.0.3 release
+
+#### Merged Pull Requests
+- Few more cleanups from the 2.0 refactor [#147](https://github.com/chef/license_scout/pull/147) ([tduffield](https://github.com/tduffield)) <!-- 2.0.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
