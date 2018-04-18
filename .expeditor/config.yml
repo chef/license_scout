@@ -41,4 +41,6 @@ merge_actions:
 promote:
   action:
     - built_in:publish_rubygems
+    - bash:.expeditor/promote-hab-pkg.sh:
+        post_commit: true
     - built_in:rollover_changelog
