@@ -15,10 +15,25 @@ nodejs | npm
 perl | cpan
 ruby | bundler
 
-## Dependencies
+## Installation
+
+### Ruby Gem
+
+```
+gem install license_scout
+```
+
+#### Dependencies
 
 * If you wish to scan for `berkshelf` dependencies, you'll need to manually install the Berkshelf gem in the same Ruby as License Scout
 * If you wish to scan for `mix` or `rebar` dependencies, you'll need to install Erlang OTP 18.3 or greater.
+
+### Habitat
+
+```
+hab pkg install chef/license_scout
+hab pkg binlink chef/license_scout license_scout
+```
 
 ## Usage
 

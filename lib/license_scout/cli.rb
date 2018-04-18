@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+require "zlib" # Temporarily require before rugged to fix https://github.com/prontolabs/pronto/issues/23
+
 require "mixlib/cli"
 require "license_scout/config"
 require "license_scout/collector"
@@ -85,7 +87,7 @@ module LicenseScout
             LicenseScout::Log.info("[cli] Loading config from #{full_config_file}")
             LicenseScout::Config.from_file(full_config_file)
           else
-            LicenseScout::Log.info("[cli] Could not find file #{full_config_file} -- skipping")
+            LicenseScout::Log.warn("[cli] Could not find #{full_config_file} -- skipping")
           end
         end
       end
