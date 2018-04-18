@@ -74,7 +74,6 @@ do_install() {
 
   build_line "Moving License Scout gem into place"
   cp -R "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib" "$pkg_prefix/lib"
-  install -m 0644 "$HAB_CACHE_SRC_PATH/$pkg_dirname/Gemfile.lock" "$pkg_prefix/Gemfile.lock"
   install -m 0644 "$HAB_CACHE_SRC_PATH/$pkg_dirname/Gemfile" "$pkg_prefix/Gemfile"
   install -m 0644 "$HAB_CACHE_SRC_PATH/$pkg_dirname/$pkg_name.gemspec" "$pkg_prefix/$pkg_name.gemspec"
 
