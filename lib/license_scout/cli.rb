@@ -64,10 +64,8 @@ module LicenseScout
 
       LicenseScout::Config.merge!(config)
 
+      Mixlib::Log::Formatter.show_time = false
       LicenseScout::Log.level = LicenseScout::Config.log_level
-      LicenseScout::Log.formatter = proc do |sev, datetime, progname, msg|
-        "#{sev.ljust(5)} #{msg}\n"
-      end
 
       LicenseScout::Config.config_files.each do |config_file|
         if config_file =~ /^http/
@@ -82,8 +80,13 @@ module LicenseScout
           end
         else
           full_config_file = File.expand_path(config_file)
-          LicenseScout::Log.info("[cli] Loading config from #{full_config_file}")
-          LicenseScout::Config.from_file(full_config_file)
+
+          if File.exist?(full_config_file)
+            LicenseScout::Log.info("[cli] Loading config from #{full_config_file}")
+            LicenseScout::Config.from_file(full_config_file)
+          else
+            LicenseScout::Log.info("[cli] Could not find file #{full_config_file} -- skipping")
+          end
         end
       end
 
