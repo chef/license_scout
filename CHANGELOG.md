@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.0.5 -->
-## [v2.0.5](https://github.com/chef/license_scout/tree/v2.0.5) (2018-04-18)
+<!-- latest_release 2.0.6 -->
+## [v2.0.6](https://github.com/chef/license_scout/tree/v2.0.6) (2018-04-18)
 
 #### Merged Pull Requests
-- Add Habitat Package [#148](https://github.com/chef/license_scout/pull/148) ([tduffield](https://github.com/tduffield))
+- Fix Habitat build - Gemfile.lock does not exist [#149](https://github.com/chef/license_scout/pull/149) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.0.4 -->
 ### Changes since 2.0.4 release
 
 #### Merged Pull Requests
+- Fix Habitat build - Gemfile.lock does not exist [#149](https://github.com/chef/license_scout/pull/149) ([tduffield](https://github.com/tduffield)) <!-- 2.0.6 -->
 - Add Habitat Package [#148](https://github.com/chef/license_scout/pull/148) ([tduffield](https://github.com/tduffield)) <!-- 2.0.5 -->
 <!-- release_rollup -->
 
