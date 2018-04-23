@@ -7,21 +7,23 @@
 - Support exporting Dependency Manifest to CSV [#152](https://github.com/chef/license_scout/pull/152) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup since=2.0.7 -->
-### Changes since 2.0.7 release
+<!-- release_rollup since=1.0.3 -->
+### Changes since 1.0.3 release
 
 #### Merged Pull Requests
 - Support exporting Dependency Manifest to CSV [#152](https://github.com/chef/license_scout/pull/152) ([tduffield](https://github.com/tduffield)) <!-- 2.0.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.0.3](https://github.com/chef/license_scout/tree/v1.0.3) (2018-04-23)
+<!-- latest_stable_release -->
+
 ## [v2.0.7](https://github.com/chef/license_scout/tree/v2.0.7) (2018-04-18)
 
 #### Merged Pull Requests
 - Add Habitat Package [#148](https://github.com/chef/license_scout/pull/148) ([tduffield](https://github.com/tduffield))
 - Fix Habitat build - Gemfile.lock does not exist [#149](https://github.com/chef/license_scout/pull/149) ([tduffield](https://github.com/tduffield))
 - Promote hab pkg when we promote the RubyGem [#150](https://github.com/chef/license_scout/pull/150) ([tduffield](https://github.com/tduffield))
-<!-- latest_stable_release -->
 
 ## [v2.0.4](https://github.com/chef/license_scout/tree/v2.0.4) (2018-04-18)
 
