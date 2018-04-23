@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.2 -->
-## [v1.0.2](https://github.com/chef/license_scout/tree/v1.0.2) (2018-04-17)
+<!-- latest_release 1.0.3 -->
+## [v1.0.3](https://github.com/chef/license_scout/tree/v1.0.3) (2018-04-23)
 
 #### Merged Pull Requests
-- Add win32-taskscheduler + structured_warnings overrides [#145](https://github.com/chef/license_scout/pull/145) ([btm](https://github.com/btm))
+- Remove override for Devel-PPPort [#153](https://github.com/chef/license_scout/pull/153) ([markan](https://github.com/markan))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.0.2 -->
 ### Changes since 2.0.2 release
 
 #### Merged Pull Requests
+- Remove override for Devel-PPPort [#153](https://github.com/chef/license_scout/pull/153) ([markan](https://github.com/markan)) <!-- 1.0.3 -->
 - Add win32-taskscheduler + structured_warnings overrides [#145](https://github.com/chef/license_scout/pull/145) ([btm](https://github.com/btm)) <!-- 1.0.2 -->
 <!-- release_rollup -->
 
