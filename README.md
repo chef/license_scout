@@ -179,6 +179,22 @@ license_content | A URL to a file where the raw text of the license can be downl
 
 In addition to including any files Licensee identified as potential license files (but couldn't identify), License Scout will also include the Fallback License you specified in the Dependency Manifest.
 
+## Exporting a Dependency Manifest to another format
+
+By default, License Scout creates the Dependency Manifest as a JSON file. We do this because it provides a single document that can be easily processed into many different forms. License Scout has the ability to also export that JSON file into other formats.
+
+### Usage
+
+```
+license_scout export [PATH_TO_JSON_FILE] --format FORMAT
+```
+### Support Formats
+
+Format | Description
+--- | ---
+`csv` | Export the contents of the JSON file into a CSV.
+
+
 ## Configuration
 
 Value | Description | Default

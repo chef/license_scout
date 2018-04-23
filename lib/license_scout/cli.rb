@@ -19,6 +19,7 @@ require "zlib" # Temporarily require before rugged to fix https://github.com/pro
 
 require "mixlib/cli"
 require "license_scout/config"
+require "license_scout/exporter"
 require "license_scout/collector"
 require "license_scout/reporter"
 
@@ -41,10 +42,17 @@ module LicenseScout
       description: "Comma-separated list of directories to scan",
       proc: Proc.new { |d| d.split(",") }
 
+    option :format,
+      long: "--format FORMAT",
+      description: "When exporting a Dependency Manifest, export to this format",
+      in: LicenseScout::Exporter.supported_formats
+
     option :log_level,
       short: "-l LEVEL",
       long: "--log-level LEVEL",
-      description: "Set the log level (debug, info, warn, error, fatal)",
+      description: "Set the log level",
+      in: [:debug, :info, :warn, :error, :fatal],
+      default: :info,
       proc: Proc.new { |l| l.to_sym }
 
     option :only_show_failures,
@@ -94,11 +102,20 @@ module LicenseScout
 
       LicenseScout::Config.validate!
 
-      collector = LicenseScout::Collector.new
-      collector.collect
+      case cli_arguments[0]
+      when "export"
+        json_file = cli_arguments[1]
+        export_format = config[:format]
 
-      reporter = LicenseScout::Reporter.new(collector.dependencies)
-      reporter.report
+        exporter = LicenseScout::Exporter.new(json_file, export_format)
+        exporter.export
+      else
+        collector = LicenseScout::Collector.new
+        collector.collect
+
+        reporter = LicenseScout::Reporter.new(collector.dependencies)
+        reporter.report
+      end
     end
   end
 end
