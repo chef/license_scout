@@ -450,7 +450,6 @@ module LicenseScout
         ["URI-Nested", nil, ["README.md"]],
         ["Test-utf8", nil, ["README"]],
         ["Class-Singleton", "Perl-5", ["README"]],
-        ["Devel-PPPort", nil, ["README"]],
         ["Digest-SHA1", nil, ["README"]],
         ["JSON-PP", nil, ["README"]],
         ["MRO-Compat", nil, ["README"]],
