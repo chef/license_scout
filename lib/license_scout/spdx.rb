@@ -94,7 +94,6 @@ module LicenseScout
 
       def special_cases
         {
-          # Pulled from http://search.cpan.org/~dagolden/CPAN-Meta-2.150010/lib/CPAN/Meta/Spec.pm#license
           "agpl_3"      => "AGPL-3.0",
           "apache_1_1"  => "Apache-1.1",
           "apache_2_0"  => "Apache-2.0",
@@ -109,6 +108,8 @@ module LicenseScout
           "mit"         => "MIT",
           "mozilla_1_0" => "MPL-1.0",
           "mozilla_1_1" => "MPL-1.1",
+          "mplv1.0"     => "MPL-1.0",
+          "mplv1.1"     => "MPL-1.1",
           "openssl"     => "OpenSSL",
           "qpl_1_0"     => "QPL-1.0",
           "perl"        => "Artistic-1.0-Perl",
