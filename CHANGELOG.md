@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.0.8 -->
-## [v2.0.8](https://github.com/chef/license_scout/tree/v2.0.8) (2018-04-23)
+<!-- latest_release 2.0.9 -->
+## [v2.0.9](https://github.com/chef/license_scout/tree/v2.0.9) (2018-04-24)
 
 #### Merged Pull Requests
-- Support exporting Dependency Manifest to CSV [#152](https://github.com/chef/license_scout/pull/152) ([tduffield](https://github.com/tduffield))
+- Add special cases for &quot;mplv1.1&quot; and &quot;mplv1.0&quot; [#154](https://github.com/chef/license_scout/pull/154) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.0.3 -->
 ### Changes since 1.0.3 release
 
 #### Merged Pull Requests
+- Add special cases for &quot;mplv1.1&quot; and &quot;mplv1.0&quot; [#154](https://github.com/chef/license_scout/pull/154) ([tduffield](https://github.com/tduffield)) <!-- 2.0.9 -->
 - Support exporting Dependency Manifest to CSV [#152](https://github.com/chef/license_scout/pull/152) ([tduffield](https://github.com/tduffield)) <!-- 2.0.8 -->
 <!-- release_rollup -->
 
