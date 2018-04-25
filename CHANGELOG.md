@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.0.10 -->
+## [v2.0.10](https://github.com/chef/license_scout/tree/v2.0.10) (2018-04-25)
+
+#### Merged Pull Requests
+- Set default exporter to CSV [#156](https://github.com/chef/license_scout/pull/156) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.0.9 -->
+### Changes since 2.0.9 release
+
+#### Merged Pull Requests
+- Set default exporter to CSV [#156](https://github.com/chef/license_scout/pull/156) ([tduffield](https://github.com/tduffield)) <!-- 2.0.10 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
