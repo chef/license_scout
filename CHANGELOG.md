@@ -7,20 +7,22 @@
 - Set default exporter to CSV [#156](https://github.com/chef/license_scout/pull/156) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup since=2.0.9 -->
-### Changes since 2.0.9 release
+<!-- release_rollup since=1.0.4 -->
+### Changes since 1.0.4 release
 
 #### Merged Pull Requests
 - Set default exporter to CSV [#156](https://github.com/chef/license_scout/pull/156) ([tduffield](https://github.com/tduffield)) <!-- 2.0.10 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.0.4](https://github.com/chef/license_scout/tree/v1.0.4) (2018-04-25)
+<!-- latest_stable_release -->
+
 ## [v2.0.9](https://github.com/chef/license_scout/tree/v2.0.9) (2018-04-25)
 
 #### Merged Pull Requests
 - Support exporting Dependency Manifest to CSV [#152](https://github.com/chef/license_scout/pull/152) ([tduffield](https://github.com/tduffield))
 - Add special cases for &quot;mplv1.1&quot; and &quot;mplv1.0&quot; [#154](https://github.com/chef/license_scout/pull/154) ([tduffield](https://github.com/tduffield))
-<!-- latest_stable_release -->
 
 ## [v1.0.3](https://github.com/chef/license_scout/tree/v1.0.3) (2018-04-23)
 
