@@ -45,7 +45,8 @@ module LicenseScout
     option :format,
       long: "--format FORMAT",
       description: "When exporting a Dependency Manifest, export to this format",
-      in: LicenseScout::Exporter.supported_formats
+      in: LicenseScout::Exporter.supported_formats,
+      default: "csv"
 
     option :log_level,
       short: "-l LEVEL",
