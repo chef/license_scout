@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.0.10 -->
-## [v2.0.10](https://github.com/chef/license_scout/tree/v2.0.10) (2018-04-25)
+<!-- latest_release 2.0.11 -->
+## [v2.0.11](https://github.com/chef/license_scout/tree/v2.0.11) (2018-04-27)
 
 #### Merged Pull Requests
-- Set default exporter to CSV [#156](https://github.com/chef/license_scout/pull/156) ([tduffield](https://github.com/tduffield))
+- Remove the use of bundler from the Habitat package [#157](https://github.com/chef/license_scout/pull/157) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.0.4 -->
 ### Changes since 1.0.4 release
 
 #### Merged Pull Requests
+- Remove the use of bundler from the Habitat package [#157](https://github.com/chef/license_scout/pull/157) ([tduffield](https://github.com/tduffield)) <!-- 2.0.11 -->
 - Set default exporter to CSV [#156](https://github.com/chef/license_scout/pull/156) ([tduffield](https://github.com/tduffield)) <!-- 2.0.10 -->
 <!-- release_rollup -->
 
