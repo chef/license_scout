@@ -35,79 +35,65 @@ do_prepare() {
   build_line "Scoping default paths to Habitat installation"
   sed -i -r "s|^(\s*)default :escript_bin, \".+\"|\1default :escript_bin, \"$(hab pkg path core/erlang18)/bin/escript\"|" "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib/license_scout/config.rb"
   sed -i -r "s|^(\s*)default :ruby_bin, \".+\"|\1default :ruby_bin, \"$(hab pkg path core/ruby25)/bin/ruby\"|" "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib/license_scout/config.rb"
+
+  local _ruby_gems=$(pkg_path_for "core/ruby25")/lib/ruby/gems/2.5.0
+  local _pkg_gems="$pkg_prefix/lib"
+
+  export GEM_HOME="${_pkg_gems}/ruby/2.5.0"
+  build_line "Setting GEM_HOME=$GEM_HOME"
+
+  export GEM_PATH="${_ruby_gems}:${GEM_HOME}"
+  build_line "Setting GEM_PATH=$GEM_PATH"
+
+  build_line "Setting environment variables required to compile libgit2 for rugged gem"
+
+  export OPENSSL_INCLUDE_DIR="$(pkg_path_for core/openssl)/include"
+  build_line "Setting OPENSSL_INCLUDE_DIR=$OPENSSL_INCLUDE_DIR"
+
+  export OPENSSL_SSL_LIBRARY="$(pkg_path_for core/openssl)/lib/libssl.so"
+  build_line "Setting OPENSSL_SSL_LIBRARY=$OPENSSL_SSL_LIBRARY"
+
+  export OPENSSL_CRYPTO_LIBRARY="$(pkg_path_for core/openssl)/lib/libcrypto.so"
+  build_line "Setting OPENSSL_CRYPTO_LIBRARY=$OPENSSL_CRYPTO_LIBRARY"
+
+  export ZLIB_LIBRARY="$(pkg_path_for core/zlib)/libz.so"
+  build_line "Setting ZLIB_LIBRARY=$ZLIB_LIBRARY"
 }
 
 do_build() {
-  return 0
+  build_line "Build License Scout"
+  pushd "$HAB_CACHE_SRC_PATH/$pkg_dirname"
+    gem build "$pkg_name.gemspec"
+  popd
 }
 
 do_install() {
-  rm -rf .bundle
-
-  local _bundler_dir=$(pkg_path_for "core/ruby25")/lib/ruby/gems/2.5.0
-  local _vendor_dir="$pkg_prefix/vendor/bundle"
-
-  GEM_HOME="${_vendor_dir}/ruby/2.5.0"
-  GEM_PATH="${_bundler_dir}:${GEM_HOME}"
-  BUNDLE_SILENCE_ROOT_WARNING=1
-  # Required to compile libgit2 for rugged gem
-  OPENSSL_INCLUDE_DIR="$(pkg_path_for core/openssl)/include"
-  OPENSSL_SSL_LIBRARY="$(pkg_path_for core/openssl)/lib/libssl.so"
-  OPENSSL_CRYPTO_LIBRARY="$(pkg_path_for core/openssl)/lib/libcrypto.so"
-  ZLIB_LIBRARY="$(pkg_path_for core/zlib)/libz.so"
-
-  build_line "Setting GEM_HOME=$GEM_HOME"
-  build_line "Setting GEM_PATH=$GEM_PATH"
-  build_line "Setting OPENSSL_INCLUDE_DIR=$OPENSSL_INCLUDE_DIR"
-  build_line "Setting OPENSSL_SSL_LIBRARY=$OPENSSL_SSL_LIBRARY"
-  build_line "Setting OPENSSL_CRYPTO_LIBRARY=$OPENSSL_CRYPTO_LIBRARY"
-  build_line "Setting ZLIB_LIBRARY=$ZLIB_LIBRARY"
-  build_line "Setting BUNDLE_SILENCE_ROOT_WARNING=$BUNDLE_SILENCE_ROOT_WARNING"
-
-  export GEM_HOME
-  export GEM_PATH
-  export OPENSSL_INCLUDE_DIR
-  export OPENSSL_SSL_LIBRARY
-  export OPENSSL_CRYPTO_LIBRARY
-  export ZLIB_LIBRARY
-  export BUNDLE_SILENCE_ROOT_WARNING
-
-  build_line "Moving License Scout gem into place"
-  cp -R "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib" "$pkg_prefix/lib"
-  install -m 0644 "$HAB_CACHE_SRC_PATH/$pkg_dirname/Gemfile" "$pkg_prefix/Gemfile"
-  install -m 0644 "$HAB_CACHE_SRC_PATH/$pkg_dirname/$pkg_name.gemspec" "$pkg_prefix/$pkg_name.gemspec"
-
-  build_line "'bundle install' gem dependencies"
-  bundle install \
-    --jobs "$(nproc)" \
-    --retry 5 \
-    --path "${_vendor_dir}" \
-    --shebang "$(pkg_path_for "core/ruby25")/bin/ruby" \
-    --without development \
-    --gemfile "$pkg_prefix/Gemfile" \
-    --no-clean
+  build_line "Install License Scout"
+  pushd "$HAB_CACHE_SRC_PATH/$pkg_dirname"
+    gem install "$pkg_name-$pkg_version.gem" --no-document
+    gem install berkshelf --no-document
+  popd
 
   build_line "Remove all the unnecessary ruby binaries and artifacts"
   rm -rf "$GEM_HOME/cache"
 
-  build_line "Moving License Scout binaries into bin directory"
-  install -m 0755 "$HAB_CACHE_SRC_PATH/$pkg_dirname/bin/$pkg_name" "$pkg_prefix/bin/$pkg_name"
+  build_line "Moving native parsing binaries into bin directory"
   install -m 0755 "$HAB_CACHE_SRC_PATH/$pkg_dirname/bin/gemfile_json" "$pkg_prefix/bin/gemfile_json"
   install -m 0755 "$HAB_CACHE_SRC_PATH/$pkg_dirname/bin/mix_lock_json" "$pkg_prefix/bin/mix_lock_json"
   install -m 0755 "$HAB_CACHE_SRC_PATH/$pkg_dirname/bin/rebar_lock_json" "$pkg_prefix/bin/rebar_lock_json"
 
   build_line "Ensure license_scout binaries are executable from anywhere"
-  fix_interpreter "$pkg_prefix/bin/$pkg_name" core/ruby25 ruby
-  wrap_ruby_bin "$pkg_prefix/bin/$pkg_name"
+  wrap_license_scout_bin
 
   fix_interpreter "$pkg_prefix/bin/gemfile_json" core/ruby25 ruby
 }
 
-wrap_ruby_bin() {
-  local bin="$1"
-  build_line "Adding wrapper $bin to ${bin}.real"
-  mv -v "$bin" "${bin}.real"
-  cat <<EOF > "$bin"
+wrap_license_scout_bin() {
+  local wrap_bin="$pkg_prefix/bin/$pkg_name"
+  local real_bin="$GEM_HOME/gems/$pkg_name-$pkg_version/bin/$pkg_name"
+
+  build_line "Adding wrapper $wrap_bin to $real_bin"
+  cat <<EOF > "$wrap_bin"
 #!$(pkg_path_for busybox-static)/bin/sh
 set -e
 if test -n "$DEBUG"; then set -x; fi
@@ -116,7 +102,7 @@ export GEM_HOME="$GEM_HOME"
 export GEM_PATH="$GEM_PATH"
 unset RUBYOPT GEMRC
 
-exec $(pkg_path_for core/ruby25)/bin/ruby ${bin}.real \$@
+exec $(pkg_path_for core/ruby25)/bin/ruby $real_bin \$@
 EOF
-  chmod -v 755 "$bin"
+  chmod -v 755 "$wrap_bin"
 }
