@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.0.6 -->
+## [v1.0.6](https://github.com/chef/license_scout/tree/v1.0.6) (2018-05-15)
+
+#### Merged Pull Requests
+- Add json gem override [#160](https://github.com/chef/license_scout/pull/160) ([rhass](https://github.com/rhass))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.0.11 -->
+### Changes since 2.0.11 release
+
+#### Merged Pull Requests
+- Add json gem override [#160](https://github.com/chef/license_scout/pull/160) ([rhass](https://github.com/rhass)) <!-- 1.0.6 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
