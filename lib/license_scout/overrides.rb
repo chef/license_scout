@@ -300,6 +300,7 @@ module LicenseScout
         ["timeliness", "MIT", ["LICENSE"]],
         # Overrides that require file fetching from internet
         ["sfl", "Ruby", ["https://raw.githubusercontent.com/ujihisa/spawn-for-legacy/master/LICENCE.md"]],
+        ["json", "Ruby", ["http://www.ruby-lang.org/en/LICENSE.txt"]],
         ["json_pure", nil, ["https://raw.githubusercontent.com/flori/json/master/README.md"]],
         ["aws-sdk-core", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
         ["aws-sdk-resources", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
