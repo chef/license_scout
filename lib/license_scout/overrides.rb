@@ -801,6 +801,7 @@ module LicenseScout
         ["macaddress", nil, [canonical("MIT")]],
         ["make-error", nil, ["README.md"]],
         ["matches-selector", nil, ["Readme.md"]],
+        ["math-random", nil, [canonical("MIT")]],
         ["memory-fs", "MIT", ["README.md"]],
         ["mime", "MIT", nil],
         ["multipipe", nil, ["Readme.md"]],
