@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.4 -->
-## [v1.0.4](https://github.com/chef/license_scout/tree/v1.0.4) (2018-04-25)
+<!-- latest_release 1.0.5 -->
+## [v1.0.5](https://github.com/chef/license_scout/tree/v1.0.5) (2018-05-15)
 
 #### Merged Pull Requests
-- Fix Devel::PPPort [#155](https://github.com/chef/license_scout/pull/155) ([markan](https://github.com/markan))
+- Add MIT licensed npm math-random package [#159](https://github.com/chef/license_scout/pull/159) ([btm](https://github.com/btm))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.0.2 -->
 ### Changes since 2.0.2 release
 
 #### Merged Pull Requests
+- Add MIT licensed npm math-random package [#159](https://github.com/chef/license_scout/pull/159) ([btm](https://github.com/btm)) <!-- 1.0.5 -->
 - Fix Devel::PPPort [#155](https://github.com/chef/license_scout/pull/155) ([markan](https://github.com/markan)) <!-- 1.0.4 -->
 - Remove override for Devel-PPPort [#153](https://github.com/chef/license_scout/pull/153) ([markan](https://github.com/markan)) <!-- 1.0.3 -->
 - Add win32-taskscheduler + structured_warnings overrides [#145](https://github.com/chef/license_scout/pull/145) ([btm](https://github.com/btm)) <!-- 1.0.2 -->
