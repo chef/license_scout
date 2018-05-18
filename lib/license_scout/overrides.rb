@@ -97,6 +97,7 @@ module LicenseScout
     def default_overrides
       # AWS Ruby SDK
       aws_sdk_gems = %w{
+          aws-eventstream
           aws-partitions
           aws-sdk
           aws-sdk-acm
