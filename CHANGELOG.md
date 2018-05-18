@@ -1,22 +1,20 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.8 -->
-## [v1.0.8](https://github.com/chef/license_scout/tree/v1.0.8) (2018-05-18)
-
-#### Merged Pull Requests
-- Adding aws-eventstream [#162](https://github.com/chef/license_scout/pull/162) ([nsdavidson](https://github.com/nsdavidson))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.0.11 -->
-### Changes since 2.0.11 release
-
-#### Merged Pull Requests
-- Adding aws-eventstream [#162](https://github.com/chef/license_scout/pull/162) ([nsdavidson](https://github.com/nsdavidson)) <!-- 1.0.8 -->
-- Revert &quot;Add json gem override&quot; [#161](https://github.com/chef/license_scout/pull/161) ([rhass](https://github.com/rhass)) <!-- 1.0.7 -->
-- Add json gem override [#160](https://github.com/chef/license_scout/pull/160) ([rhass](https://github.com/rhass)) <!-- 1.0.6 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.0.8](https://github.com/chef/license_scout/tree/v1.0.8) (2018-05-18)
+
+#### Merged Pull Requests
+- Add json gem override [#160](https://github.com/chef/license_scout/pull/160) ([rhass](https://github.com/rhass))
+- Revert &quot;Add json gem override&quot; [#161](https://github.com/chef/license_scout/pull/161) ([rhass](https://github.com/rhass))
+- Adding aws-eventstream [#162](https://github.com/chef/license_scout/pull/162) ([nsdavidson](https://github.com/nsdavidson))
+<!-- latest_stable_release -->
+
 ## [v1.0.5](https://github.com/chef/license_scout/tree/v1.0.5) (2018-05-15)
 
 #### Merged Pull Requests
@@ -24,7 +22,6 @@
 - Remove override for Devel-PPPort [#153](https://github.com/chef/license_scout/pull/153) ([markan](https://github.com/markan))
 - Fix Devel::PPPort [#155](https://github.com/chef/license_scout/pull/155) ([markan](https://github.com/markan))
 - Add MIT licensed npm math-random package [#159](https://github.com/chef/license_scout/pull/159) ([btm](https://github.com/btm))
-<!-- latest_stable_release -->
 
 ## [v1.0.1](https://github.com/chef/license_scout/tree/v1.0.1) (2018-02-26)
 
