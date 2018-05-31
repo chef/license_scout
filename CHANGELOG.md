@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.10 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.10](https://github.com/chef/license_scout/tree/v1.0.10) (2018-05-31)
 
 #### Merged Pull Requests
 - New inspec deps [#164](https://github.com/chef/license_scout/pull/164) ([nsdavidson](https://github.com/nsdavidson))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.0.11 -->
-### Changes since 2.0.11 release
-
-#### Merged Pull Requests
-- New inspec deps [#164](https://github.com/chef/license_scout/pull/164) ([nsdavidson](https://github.com/nsdavidson)) <!-- 1.0.10 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.9](https://github.com/chef/license_scout/tree/v1.0.9) (2018-05-30)
 
 #### Merged Pull Requests
 - [npm] Add license path for buffer-from [#163](https://github.com/chef/license_scout/pull/163) ([nsdavidson](https://github.com/nsdavidson))
-<!-- latest_stable_release -->
 
 ## [v1.0.8](https://github.com/chef/license_scout/tree/v1.0.8) (2018-05-18)
 
