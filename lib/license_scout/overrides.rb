@@ -357,6 +357,16 @@ module LicenseScout
         ["parslet", "MIT", ["https://raw.githubusercontent.com/kschiess/parslet/master/LICENSE"]],
         ["blankslate", "MIT", ["https://raw.githubusercontent.com/masover/blankslate/master/MIT-LICENSE"]],
         ["xml-simple", "Ruby", ["https://raw.githubusercontent.com/maik/xml-simple/master/README.md"]],
+        ["google-cloud-spanner", "Apache-2.0", ["https://raw.githubusercontent.com/GoogleCloudPlatform/google-cloud-ruby/master/LICENSE"]],
+        ["google-gax", "BSD-3-Clause", ["https://raw.githubusercontent.com/googleapis/gax-ruby/master/LICENSE"]],
+        ["google-protobuf", nil, ["https://raw.githubusercontent.com/google/protobuf/master/LICENSE"]],
+        ["googleapis-common-protos", "Apache-2.0", ["https://raw.githubusercontent.com/googleapis/googleapis/master/LICENSE"]],
+        ["googleapis-common-protos-types", "Apache-2.0", ["https://raw.githubusercontent.com/googleapis/api-common-protos/master/LICENSE"]],
+        ["grpc", "Apache-2.0", ["https://raw.githubusercontent.com/grpc/grpc/master/LICENSE"]],
+        ["grpc-google-iam-v1", "Apache-2.0", ["https://raw.githubusercontent.com/googleapis/googleapis/master/LICENSE"]],
+        ["os", "MIT", ["https://raw.githubusercontent.com/rdp/os/master/LICENSE"]],
+        ["rly", "MIT", ["https://raw.githubusercontent.com/farcaller/rly/master/LICENSE.txt"]],
+        ["zonefile", "MIT", ["https://raw.githubusercontent.com/boesemar/zonefile/master/LICENSE"]],
       ]
       (aws_sdk_gems + other_gems).each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
