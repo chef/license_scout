@@ -31,7 +31,7 @@ module LicenseScout
       #   license_id was nil, or nil if we could not find a valid SPDX ID
       def find(license_id, force = false)
         return license_id if force
-        return nil if license_id.nil?
+        return nil if license_id.nil? || %w{ NOASSERTION NONE }.include?(license_id)
         lookup(license_id) || find_by_special_case(license_id) || closest(license_id) || license_id
       end
 
