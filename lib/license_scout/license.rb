@@ -107,7 +107,7 @@ module LicenseScout
         begin
           LicenseScout::Log.debug("[license] Pulling license content for #{license_id} from #{new_url}")
           open(new_url).read
-        rescue OpenURI::HTTPError, Errno::ECONNREFUSED
+        rescue OpenURI::HTTPError, Errno::ECONNREFUSED, SocketError
           LicenseScout::Log.warn("[license] Unable to download license for #{license_id} from #{new_url}")
           nil
         rescue RuntimeError => e
