@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.0.13 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v2.0.13](https://github.com/chef/license_scout/tree/v2.0.13) (2018-06-15)
 
 #### Merged Pull Requests
 - Gracefully handle SocketError when downloading licenses [#167](https://github.com/chef/license_scout/pull/167) ([schisamo](https://github.com/schisamo))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.0.12 -->
-### Changes since 2.0.12 release
-
-#### Merged Pull Requests
-- Gracefully handle SocketError when downloading licenses [#167](https://github.com/chef/license_scout/pull/167) ([schisamo](https://github.com/schisamo)) <!-- 2.0.13 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v2.0.12](https://github.com/chef/license_scout/tree/v2.0.12) (2018-06-14)
 
 #### Merged Pull Requests
 - Update LicenseScout deps &amp; improve error handling [#165](https://github.com/chef/license_scout/pull/165) ([tduffield](https://github.com/tduffield))
-<!-- latest_stable_release -->
 
 ## [v2.0.11](https://github.com/chef/license_scout/tree/v2.0.11) (2018-05-09)
 
