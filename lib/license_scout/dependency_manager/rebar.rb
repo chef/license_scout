@@ -152,8 +152,11 @@ module LicenseScout
         if license_files.empty?
           nil
         else
-          found_license = LicenseScout::LicenseFileAnalyzer.find_by_text(IO.read(license_files.first))
-          found_license ? found_license.short_name : nil
+          license_names = license_files.map do |license_file|
+            found_license = LicenseScout::LicenseFileAnalyzer.find_by_text(IO.read(license_file))
+            found_license ? found_license.short_name : nil
+          end
+          license_names.find {|x| x}
         end
       end
 
