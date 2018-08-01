@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.11 -->
-## [v1.0.11](https://github.com/chef/license_scout/tree/v1.0.11) (2018-07-27)
-
-#### Merged Pull Requests
-- Fix bad link for Artistic License [#168](https://github.com/chef/license_scout/pull/168) ([markan](https://github.com/markan))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.0.13 -->
-### Changes since 2.0.13 release
-
-#### Merged Pull Requests
-- Fix bad link for Artistic License [#168](https://github.com/chef/license_scout/pull/168) ([markan](https://github.com/markan)) <!-- 1.0.11 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.0.11](https://github.com/chef/license_scout/tree/v1.0.11) (2018-08-01)
+
+#### Merged Pull Requests
+- Fix bad link for Artistic License [#168](https://github.com/chef/license_scout/pull/168) ([markan](https://github.com/markan))
+<!-- latest_stable_release -->
+
 ## [v1.0.10](https://github.com/chef/license_scout/tree/v1.0.10) (2018-05-31)
 
 #### Merged Pull Requests
 - New inspec deps [#164](https://github.com/chef/license_scout/pull/164) ([nsdavidson](https://github.com/nsdavidson))
-<!-- latest_stable_release -->
 
 ## [v1.0.9](https://github.com/chef/license_scout/tree/v1.0.9) (2018-05-30)
 
