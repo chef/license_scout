@@ -33,5 +33,5 @@ merge_actions:
 
 promote:
   action:
-    - built_in:publish_rubygems
     - built_in:rollover_changelog
+    - built_in:publish_rubygems
