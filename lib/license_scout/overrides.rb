@@ -880,6 +880,9 @@ module LicenseScout
         # jszip says it is dual licensed under MIT and GPLv3
         ["jszip", "MIT", ["https://raw.githubusercontent.com/Stuk/jszip/master/LICENSE.markdown"]],
         ["buffer-from", "MIT", ["https://raw.githubusercontent.com/LinusU/buffer-from/master/LICENSE"]],
+        ["buffer-alloc", nil, [canonical("MIT")]],
+        ["buffer-alloc-unsafe", nil, [canonical("MIT")]],
+        ["buffer-fill", nil, [canonical("MIT")]]
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
