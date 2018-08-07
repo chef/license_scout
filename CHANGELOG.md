@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.0.13 -->
+## [v1.0.13](https://github.com/chef/license_scout/tree/v1.0.13) (2018-08-07)
+
+#### Merged Pull Requests
+- adding override for ipaddr.js [#171](https://github.com/chef/license_scout/pull/171) ([nsdavidson](https://github.com/nsdavidson))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.0.13 -->
+### Changes since 2.0.13 release
+
+#### Merged Pull Requests
+- adding override for ipaddr.js [#171](https://github.com/chef/license_scout/pull/171) ([nsdavidson](https://github.com/nsdavidson)) <!-- 1.0.13 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
