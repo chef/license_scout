@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.12 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.12](https://github.com/chef/license_scout/tree/v1.0.12) (2018-08-07)
 
 #### Merged Pull Requests
 - Empty fix to unblock build [#170](https://github.com/chef/license_scout/pull/170) ([tduffield](https://github.com/tduffield))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.0.13 -->
-### Changes since 2.0.13 release
-
-#### Merged Pull Requests
-- Empty fix to unblock build [#170](https://github.com/chef/license_scout/pull/170) ([tduffield](https://github.com/tduffield)) <!-- 1.0.12 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.11](https://github.com/chef/license_scout/tree/v1.0.11) (2018-08-01)
 
 #### Merged Pull Requests
 - Fix bad link for Artistic License [#168](https://github.com/chef/license_scout/pull/168) ([markan](https://github.com/markan))
-<!-- latest_stable_release -->
 
 ## [v1.0.10](https://github.com/chef/license_scout/tree/v1.0.10) (2018-05-31)
 
