@@ -883,7 +883,8 @@ module LicenseScout
         ["buffer-alloc", nil, [canonical("MIT")]],
         ["buffer-alloc-unsafe", nil, [canonical("MIT")]],
         ["buffer-fill", nil, [canonical("MIT")]],
-        ["ipaddr.js", "MIT", ["https://raw.githubusercontent.com/whitequark/ipaddr.js/master/LICENSE"]]
+        ["ipaddr.js", "MIT", ["https://raw.githubusercontent.com/whitequark/ipaddr.js/master/LICENSE"]],
+        ["psl", "MIT", ["https://raw.githubusercontent.com/wrangr/psl/master/README.md"]]
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
