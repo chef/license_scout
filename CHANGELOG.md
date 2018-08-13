@@ -1,10 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.0.15 -->
+## [v1.0.15](https://github.com/chef/license_scout/tree/v1.0.15) (2018-08-13)
+
+#### Merged Pull Requests
+- adding license for is-my-ip-valid npm package [#173](https://github.com/chef/license_scout/pull/173) ([nsdavidson](https://github.com/nsdavidson))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.0.14 -->
 ### Changes since 1.0.14 release
+
+#### Merged Pull Requests
+- adding license for is-my-ip-valid npm package [#173](https://github.com/chef/license_scout/pull/173) ([nsdavidson](https://github.com/nsdavidson)) <!-- 1.0.15 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
