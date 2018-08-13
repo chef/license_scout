@@ -3,15 +3,18 @@
 <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=1.0.14 -->
+### Changes since 1.0.14 release
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.0.14](https://github.com/chef/license_scout/tree/v1.0.14) (2018-08-13)
+<!-- latest_stable_release -->
+
 ## [v1.0.14](https://github.com/chef/license_scout/tree/v1.0.14) (2018-08-12)
 
 #### Merged Pull Requests
 - add override for psl npm package [#172](https://github.com/chef/license_scout/pull/172) ([nsdavidson](https://github.com/nsdavidson))
-<!-- latest_stable_release -->
 
 ## [v1.0.13](https://github.com/chef/license_scout/tree/v1.0.13) (2018-08-07)
 
