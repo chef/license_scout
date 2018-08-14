@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.0.14 -->
+## [v2.0.14](https://github.com/chef/license_scout/tree/v2.0.14) (2018-08-14)
+
+#### Merged Pull Requests
+- Rescue from Net::OpenTimeout failures [#174](https://github.com/chef/license_scout/pull/174) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.0.13 -->
+### Changes since 2.0.13 release
+
+#### Merged Pull Requests
+- Rescue from Net::OpenTimeout failures [#174](https://github.com/chef/license_scout/pull/174) ([tduffield](https://github.com/tduffield)) <!-- 2.0.14 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
