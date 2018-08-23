@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -103,6 +103,41 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
   end
 
   describe "#dependencies", :vcr do
+    before do
+      $habitat_pkg_info = {}
+    end
+
+    context "when an channel_for_origin is used" do
+      let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat") }
+      before do
+        LicenseScout::Config.habitat.channel_for_origin = [{
+                                                             "origin" => "core",
+                                                             "channel" => "unstable",
+                                                           }]
+      end
+
+      after do
+        LicenseScout::Config.habitat.channel_for_origin = []
+      end
+
+      it "returns an array of Dependencies found in the directory" do
+        dependencies = subject.dependencies
+
+        # Make sure we have the right count
+        expect(dependencies.length).to eq(3)
+
+        glibc = dependencies.find { |d| d.name == "core/glibc" }
+        linux_headers = dependencies.find { |d| d.name == "core/linux-headers" }
+
+        expect(glibc.version).to eq("2.27-20180608041157")
+        expect(glibc.license.records.first.id).to eql("GPL-2.0")
+        expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.27/20180608041157")
+
+        expect(linux_headers.version).to eq("4.15.9-20180608041107")
+        expect(linux_headers.license.records.first.id).to eql("GPL-2.0")
+        expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.15.9/20180608041107")
+      end
+    end
 
     context "when a plan.sh is found" do
       let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat") }
