@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.1.0 -->
+## [v2.1.0](https://github.com/chef/license_scout/tree/v2.1.0) (2018-08-23)
+
+#### Merged Pull Requests
+- Add channel_for_origin Habitat configuration [#175](https://github.com/chef/license_scout/pull/175) ([stevendanna](https://github.com/stevendanna))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.0.14 -->
+### Changes since 2.0.14 release
+
+#### Merged Pull Requests
+- Add channel_for_origin Habitat configuration [#175](https://github.com/chef/license_scout/pull/175) ([stevendanna](https://github.com/stevendanna)) <!-- 2.1.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
