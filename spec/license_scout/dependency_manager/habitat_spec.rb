@@ -212,6 +212,20 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
       end
     end
 
+    context "when a package doesn't exist" do
+      let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat-pkg-missing") }
+
+      # it returns an array of dependencies found in the directory, fetching
+      # dependencies specified by a full ident from the unstable channel
+      it "raises HabitatPackageNotFound" do
+        expect { subject.dependencies }.to raise_error(LicenseScout::Exceptions::HabitatPackageNotFound) do |e|
+          # ensure it will be rescued if we rescue the more generic parent class
+          expect(e).to be_a_kind_of(LicenseScout::Exceptions::PackageNotFound)
+          expect(e.message).to eq("Could not find Habitat package chef/no-such-package-by-this-name")
+        end
+      end
+    end
+
     context "when a plan.sh is found" do
       let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat") }
 

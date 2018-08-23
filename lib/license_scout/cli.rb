@@ -117,6 +117,9 @@ module LicenseScout
         reporter = LicenseScout::Reporter.new(collector.dependencies)
         reporter.report
       end
+      exit 0
+    rescue Exceptions::FailExit
+      exit 1
     end
   end
 end
