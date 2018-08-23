@@ -16,6 +16,7 @@
 #
 
 require "license_scout/dependency_manager/base"
+require "license_scout/exceptions"
 
 require "open-uri"
 require "mixlib/shellout"
@@ -24,6 +25,7 @@ module LicenseScout
   module DependencyManager
     class Habitat < Base
       DEFAULT_CHANNEL = "stable".freeze
+      FALLBACK_CHANNEL_FOR_FQ = "unstable".freeze
 
       def name
         "habitat"
@@ -94,27 +96,49 @@ module LicenseScout
 
       def pkg_info(pkg_ident)
         $habitat_pkg_info ||= {}
-        $habitat_pkg_info[pkg_ident] ||= begin
-          pkg_origin, pkg_name, pkg_version, pkg_release = pkg_ident.split("/")
-          pkg_channel = channel_for_origin(pkg_origin)
+        $habitat_pkg_info[pkg_ident] ||= pkg_info_with_channel_fallbacks(pkg_ident)
+      end
 
-          base_api_uri = "https://bldr.habitat.sh/v1/depot/channels/#{pkg_origin}/#{pkg_channel}/pkgs/#{pkg_name}"
-          if pkg_version.nil? && pkg_release.nil?
-            base_api_uri += "/latest"
-          elsif pkg_release.nil?
-            base_api_uri += "/#{pkg_version}/latest"
-          else
-            base_api_uri += "/#{pkg_version}/#{pkg_release}"
-          end
+      def pkg_info_with_channel_fallbacks(pkg_ident)
+        pkg_origin, pkg_name, pkg_version, pkg_release = pkg_ident.split("/")
+        pkg_channel = channel_for_origin(pkg_origin)
 
-          LicenseScout::Log.debug("[habitat] Fetching pkg_info from #{base_api_uri}")
-          FFI_Yajl::Parser.parse(open(base_api_uri).read)
-        rescue OpenURI::HTTPError
-          pkg_origin, pkg_name, = pkg_ident.split("/")
+        # Channel selection here is similar to the logic that
+        # Habitat uses. First, search in the user-provided channel,
+        # then search in stable, then use unstable IF it is a fully
+        # qualified package
+        info = get_pkg_info(pkg_origin, pkg_channel, pkg_name, pkg_version, pkg_release)
+        return info if info
 
-          LicenseScout::Log.warn("[habitat] Could not find pkg_info for #{pkg_ident} - trying for the latest version of #{pkg_origin}/#{pkg_name}")
-          FFI_Yajl::Parser.parse(open("https://bldr.habitat.sh/v1/depot/channels/#{pkg_origin}/#{pkg_channel}/pkgs/#{pkg_name}/latest").read)
+        if pkg_channel != DEFAULT_CHANNEL
+          LicenseScout::Log.debug("[habitat] Looking for #{pkg_ident} in #{DEFAULT_CHANNEL} channel")
+          info = get_pkg_info(pkg_origin, DEFAULT_CHANNEL, pkg_name, pkg_version, pkg_release)
+          return info if info
         end
+
+        if !pkg_version.nil? && !pkg_release.nil?
+          LicenseScout::Log.debug("[habitat] Looking for #{pkg_ident} in #{FALLBACK_CHANNEL_FOR_FQ} channel since it is fully-qualified")
+          info = get_pkg_info(pkg_origin, FALLBACK_CHANNEL_FOR_FQ, pkg_name, pkg_version, pkg_release)
+          return info if info
+        end
+
+        raise LicenseScout::Exceptions::HabitatPackageNotFound.new("Could not find Habitat package #{pkg_ident}")
+      end
+
+      def get_pkg_info(origin, channel, name, version, release)
+        base_api_uri = "https://bldr.habitat.sh/v1/depot/channels/#{origin}/#{channel}/pkgs/#{name}"
+        if version.nil? && release.nil?
+          base_api_uri += "/latest"
+        elsif release.nil?
+          base_api_uri += "/#{version}/latest"
+        else
+          base_api_uri += "/#{version}/#{release}"
+        end
+
+        LicenseScout::Log.debug("[habitat] Fetching pkg_info from #{base_api_uri}")
+        FFI_Yajl::Parser.parse(open(base_api_uri).read)
+      rescue OpenURI::HTTPError
+        nil
       end
 
       def channel_for_origin(pkg_origin)
