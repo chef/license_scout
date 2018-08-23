@@ -56,14 +56,17 @@ module LicenseScout
 
         tdeps.sort.map do |tdep|
           o, n, v, r = tdep.split("/")
-          c = channel_for_origin(o)
           dep_name = "#{o}/#{n}"
           dep_version = "#{v}-#{r}"
 
           dependency = new_dependency(dep_name, dep_version, nil)
 
           license_from_manifest(pkg_info(tdep)["manifest"]).each do |spdx|
-            dependency.add_license(spdx, "https://bldr.habitat.sh/v1/depot/channels/#{o}/#{c}/pkgs/#{n}/#{v}/#{r}")
+            # We hard code the channel to "unstable" because a package could be
+            # demoted from any given channel except unstable in the future and
+            # we want this metadata to give end users the ability to self-audit.
+            # In other words, we want a permalink not a nowlink
+            dependency.add_license(spdx, "https://bldr.habitat.sh/v1/depot/channels/#{o}/unstable/pkgs/#{n}/#{v}/#{r}")
           end
 
           dependency
