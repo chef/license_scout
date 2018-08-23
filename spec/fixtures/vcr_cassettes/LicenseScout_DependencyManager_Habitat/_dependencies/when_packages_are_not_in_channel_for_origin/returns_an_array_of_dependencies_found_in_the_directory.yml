@@ -39,13 +39,13 @@ http_interactions:
       Content-Length:
       - '57'
       Date:
-      - Thu, 23 Aug 2018 21:25:05 GMT
+      - Thu, 23 Aug 2018 21:54:26 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1021-SEA
+      - cache-sea1026-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -60,7 +60,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-latest-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:05 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:26 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/latest
@@ -102,13 +102,13 @@ http_interactions:
       Content-Length:
       - '6591'
       Date:
-      - Thu, 23 Aug 2018 21:25:05 GMT
+      - Thu, 23 Aug 2018 21:54:26 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1044-SEA
+      - cache-sea1037-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -306,7 +306,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:05 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:26 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/musl/latest
@@ -346,13 +346,13 @@ http_interactions:
       Content-Length:
       - '57'
       Date:
-      - Thu, 23 Aug 2018 21:25:06 GMT
+      - Thu, 23 Aug 2018 21:54:26 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1021-SEA
+      - cache-sea1036-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -367,7 +367,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-latest-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:06 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:26 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/musl/latest
@@ -409,13 +409,13 @@ http_interactions:
       Content-Length:
       - '1651'
       Date:
-      - Thu, 23 Aug 2018 21:25:06 GMT
+      - Thu, 23 Aug 2018 21:54:27 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1026-SEA
+      - cache-sea1029-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -464,7 +464,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:06 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:27 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/glibc/2.27/20180608041157
@@ -504,13 +504,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:25:06 GMT
+      - Thu, 23 Aug 2018 21:54:27 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1021-SEA
+      - cache-sea1042-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -525,7 +525,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:06 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:27 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.27/20180608041157
@@ -575,13 +575,13 @@ http_interactions:
       Content-Length:
       - '6591'
       Date:
-      - Thu, 23 Aug 2018 21:25:06 GMT
+      - Thu, 23 Aug 2018 21:54:27 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1050-SEA
+      - cache-sea1046-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -779,7 +779,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:06 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:27 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/musl/1.1.19/20180608102708
@@ -819,13 +819,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:25:06 GMT
+      - Thu, 23 Aug 2018 21:54:27 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1043-SEA
+      - cache-sea1033-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -840,7 +840,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:06 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:27 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/musl/1.1.19/20180608102708
@@ -890,13 +890,13 @@ http_interactions:
       Content-Length:
       - '1651'
       Date:
-      - Thu, 23 Aug 2018 21:25:06 GMT
+      - Thu, 23 Aug 2018 21:54:27 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1050-SEA
+      - cache-sea1029-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -945,7 +945,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:06 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:27 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/linux-headers/4.15.9/20180608041107
@@ -985,13 +985,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:25:06 GMT
+      - Thu, 23 Aug 2018 21:54:27 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1029-SEA
+      - cache-sea1032-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1006,7 +1006,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:06 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:27 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.15.9/20180608041107
@@ -1056,13 +1056,13 @@ http_interactions:
       Content-Length:
       - '1366'
       Date:
-      - Thu, 23 Aug 2018 21:25:07 GMT
+      - Thu, 23 Aug 2018 21:54:28 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1024-SEA
+      - cache-sea1038-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1103,5 +1103,5 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:25:07 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:28 GMT
 recorded_with: VCR 4.0.0

@@ -39,13 +39,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:34 GMT
+      - Thu, 23 Aug 2018 21:54:28 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1049-SEA
+      - cache-sea1041-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -60,7 +60,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:34 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:28 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/chef/unstable/pkgs/chef-server-ctl/12.17.49/20180503181308
@@ -110,13 +110,13 @@ http_interactions:
       Content-Length:
       - '3877'
       Date:
-      - Thu, 23 Aug 2018 21:43:34 GMT
+      - Thu, 23 Aug 2018 21:54:28 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1029-SEA
+      - cache-sea1038-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -216,7 +216,7 @@ http_interactions:
         {\n  # Clean up the `env` link, if we set it up.\n  if [[ -n \"$_clean_env\"
         ]]; then\n    rm -fv /usr/bin/env\n  fi\n}\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"bash","origin":"core","release":"20170513213519","version":"4.3.42"},{"name":"binutils","origin":"core","release":"20170513201927","version":"2.25.1"},{"name":"bundler","origin":"core","release":"20171129183702","version":"1.16.0"},{"name":"busybox-static","origin":"core","release":"20170513215502","version":"1.24.2"},{"name":"bzip2","origin":"core","release":"20170513212938","version":"1.0.6"},{"name":"cacerts","origin":"core","release":"20171014212239","version":"2017.09.20"},{"name":"coreutils","origin":"core","release":"20170513213226","version":"8.25"},{"name":"curl","origin":"core","release":"20180329185356","version":"7.54.1"},{"name":"db","origin":"core","release":"20170513213734","version":"5.3.28"},{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"gdal","origin":"core","release":"20171025112525","version":"2.2.1"},{"name":"gdbm","origin":"core","release":"20170513213716","version":"1.11"},{"name":"geos","origin":"core","release":"20171025112556","version":"3.6.2"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"gmp","origin":"core","release":"20170513202112","version":"6.1.0"},{"name":"grep","origin":"core","release":"20170513213444","version":"2.22"},{"name":"hab-butterfly","origin":"core","release":"20180321215126","version":"0.55.0"},{"name":"jq-static","origin":"core","release":"20160909011845","version":"1.10"},{"name":"less","origin":"core","release":"20170513213936","version":"481"},{"name":"libarchive","origin":"core","release":"20171018164107","version":"3.3.2"},{"name":"libcap","origin":"core","release":"20170513213120","version":"2.24"},{"name":"libffi","origin":"core","release":"20170514003538","version":"3.2.1"},{"name":"libossp-uuid","origin":"core","release":"20170514001348","version":"1.6.2"},{"name":"libsodium","origin":"core","release":"20170905223149","version":"1.0.13"},{"name":"libtool","origin":"core","release":"20170513213706","version":"2.4.6"},{"name":"libxml2","origin":"core","release":"20171025112053","version":"2.9.6"},{"name":"libyaml","origin":"core","release":"20170514013335","version":"0.1.6"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"ncurses","origin":"core","release":"20170513213009","version":"6.0"},{"name":"nghttp2","origin":"core","release":"20180329185155","version":"1.31.0"},{"name":"openssl","origin":"core","release":"20171014213633","version":"1.0.2l"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"},{"name":"perl","origin":"core","release":"20170513213942","version":"5.22.1"},{"name":"postgresql","origin":"core","release":"20180423183113","version":"9.6.8"},{"name":"proj","origin":"core","release":"20171025112633","version":"4.9.3"},{"name":"readline","origin":"core","release":"20170513213506","version":"6.3.8"},{"name":"ruby","origin":"core","release":"20171014214232","version":"2.4.2"},{"name":"sed","origin":"core","release":"20170513213123","version":"4.2.2"},{"name":"xz","origin":"core","release":"20170513214327","version":"5.2.2"},{"name":"zeromq","origin":"core","release":"20171018132502","version":"4.2.2"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:34 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:28 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/acl/2.2.52/20170513213108
@@ -256,13 +256,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:34 GMT
+      - Thu, 23 Aug 2018 21:54:28 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1047-SEA
+      - cache-sea1024-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -277,7 +277,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:34 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:28 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/acl/2.2.52/20170513213108
@@ -327,13 +327,13 @@ http_interactions:
       Content-Length:
       - '1607'
       Date:
-      - Thu, 23 Aug 2018 21:43:34 GMT
+      - Thu, 23 Aug 2018 21:54:29 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1026-SEA
+      - cache-sea1030-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -383,7 +383,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:34 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:29 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/attr/2.4.47/20170513213059
@@ -423,13 +423,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:34 GMT
+      - Thu, 23 Aug 2018 21:54:29 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1040-SEA
+      - cache-sea1043-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -444,7 +444,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:34 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:29 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/attr/2.4.47/20170513213059
@@ -494,13 +494,13 @@ http_interactions:
       Content-Length:
       - '1379'
       Date:
-      - Thu, 23 Aug 2018 21:43:35 GMT
+      - Thu, 23 Aug 2018 21:54:29 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1041-SEA
+      - cache-sea1037-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -544,7 +544,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:35 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:29 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/bash/4.3.42/20170513213519
@@ -584,13 +584,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:35 GMT
+      - Thu, 23 Aug 2018 21:54:29 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1038-SEA
+      - cache-sea1034-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -605,7 +605,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:35 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:29 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/bash/4.3.42/20170513213519
@@ -655,13 +655,13 @@ http_interactions:
       Content-Length:
       - '2397'
       Date:
-      - Thu, 23 Aug 2018 21:43:35 GMT
+      - Thu, 23 Aug 2018 21:54:29 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1026-SEA
+      - cache-sea1043-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -733,7 +733,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"ncurses","origin":"core","release":"20170513213009","version":"6.0"},{"name":"readline","origin":"core","release":"20170513213506","version":"6.3.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:35 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:29 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/binutils/2.25.1/20170513201927
@@ -773,13 +773,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:35 GMT
+      - Thu, 23 Aug 2018 21:54:29 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1029-SEA
+      - cache-sea1041-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -794,7 +794,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:35 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:29 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/binutils/2.25.1/20170513201927
@@ -844,13 +844,13 @@ http_interactions:
       Content-Length:
       - '3534'
       Date:
-      - Thu, 23 Aug 2018 21:43:35 GMT
+      - Thu, 23 Aug 2018 21:54:30 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1049-SEA
+      - cache-sea1020-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -955,7 +955,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:35 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:30 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/bundler/1.16.0/20171129183702
@@ -995,13 +995,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:35 GMT
+      - Thu, 23 Aug 2018 21:54:30 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1036-SEA
+      - cache-sea1035-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1016,7 +1016,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:35 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:30 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/bundler/1.16.0/20171129183702
@@ -1066,13 +1066,13 @@ http_interactions:
       Content-Length:
       - '1658'
       Date:
-      - Thu, 23 Aug 2018 21:43:36 GMT
+      - Thu, 23 Aug 2018 21:54:30 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1043-SEA
+      - cache-sea1046-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1113,7 +1113,7 @@ http_interactions:
         GEM_PATH=\"$GEM_PATH\"\nunset RUBYOPT GEMRC\n\nexec $(pkg_path_for ruby)/bin/ruby
         ${bin}.real \\$@\nEOF\n  chmod -v 755 \"$bin\"\n}\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"binutils","origin":"core","release":"20170513201927","version":"2.25.1"},{"name":"busybox-static","origin":"core","release":"20170513215502","version":"1.24.2"},{"name":"cacerts","origin":"core","release":"20171014212239","version":"2017.09.20"},{"name":"coreutils","origin":"core","release":"20170513213226","version":"8.25"},{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"gmp","origin":"core","release":"20170513202112","version":"6.1.0"},{"name":"grep","origin":"core","release":"20170513213444","version":"2.22"},{"name":"libcap","origin":"core","release":"20170513213120","version":"2.24"},{"name":"libffi","origin":"core","release":"20170514003538","version":"3.2.1"},{"name":"libtool","origin":"core","release":"20170513213706","version":"2.4.6"},{"name":"libyaml","origin":"core","release":"20170514013335","version":"0.1.6"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"ncurses","origin":"core","release":"20170513213009","version":"6.0"},{"name":"openssl","origin":"core","release":"20171014213633","version":"1.0.2l"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"},{"name":"readline","origin":"core","release":"20170513213506","version":"6.3.8"},{"name":"ruby","origin":"core","release":"20171014214232","version":"2.4.2"},{"name":"sed","origin":"core","release":"20170513213123","version":"4.2.2"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:36 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:30 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/busybox-static/1.24.2/20170513215502
@@ -1153,13 +1153,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:36 GMT
+      - Thu, 23 Aug 2018 21:54:30 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1028-SEA
+      - cache-sea1032-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1174,7 +1174,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:36 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:30 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/busybox-static/1.24.2/20170513215502
@@ -1224,13 +1224,13 @@ http_interactions:
       Content-Length:
       - '1357'
       Date:
-      - Thu, 23 Aug 2018 21:43:36 GMT
+      - Thu, 23 Aug 2018 21:54:30 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1035-SEA
+      - cache-sea1032-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1281,7 +1281,7 @@ http_interactions:
         ''1,1i#include <sys/resource.h>'' -i include/libbb.h\n}\n\ndo_build() {\n  make
         -j$(nproc) CC=musl-gcc\n}\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:36 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:30 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/bzip2/1.0.6/20170513212938
@@ -1321,13 +1321,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:36 GMT
+      - Thu, 23 Aug 2018 21:54:30 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1037-SEA
+      - cache-sea1033-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1342,7 +1342,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:36 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:31 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/bzip2/1.0.6/20170513212938
@@ -1392,13 +1392,13 @@ http_interactions:
       Content-Length:
       - '1756'
       Date:
-      - Thu, 23 Aug 2018 21:43:36 GMT
+      - Thu, 23 Aug 2018 21:54:31 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1031-SEA
+      - cache-sea1023-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1453,7 +1453,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:36 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:31 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/cacerts/2017.09.20/20171014212239
@@ -1493,13 +1493,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:36 GMT
+      - Thu, 23 Aug 2018 21:54:31 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1030-SEA
+      - cache-sea1022-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1514,7 +1514,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:36 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:31 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/cacerts/2017.09.20/20171014212239
@@ -1564,13 +1564,13 @@ http_interactions:
       Content-Length:
       - '1467'
       Date:
-      - Thu, 23 Aug 2018 21:43:37 GMT
+      - Thu, 23 Aug 2018 21:54:31 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1033-SEA
+      - cache-sea1041-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1614,7 +1614,7 @@ http_interactions:
         [[ \"$CACHE_PATH\" == \"$SRC_PATH\" ]]; then\n    local update_src_path=true\n  fi\n  CACHE_PATH=\"$HAB_CACHE_SRC_PATH/$pkg_dirname\"\n  if
         [[ \"${update_src_path:-}\" == true ]]; then\n    SRC_PATH=\"$CACHE_PATH\"\n  fi\n}\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:37 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:31 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/coreutils/8.25/20170513213226
@@ -1654,13 +1654,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:37 GMT
+      - Thu, 23 Aug 2018 21:54:31 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1046-SEA
+      - cache-sea1023-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1675,7 +1675,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:37 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:31 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/coreutils/8.25/20170513213226
@@ -1725,13 +1725,13 @@ http_interactions:
       Content-Length:
       - '1830'
       Date:
-      - Thu, 23 Aug 2018 21:43:37 GMT
+      - Thu, 23 Aug 2018 21:54:31 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1024-SEA
+      - cache-sea1035-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1788,7 +1788,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/m4)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"gmp","origin":"core","release":"20170513202112","version":"6.1.0"},{"name":"libcap","origin":"core","release":"20170513213120","version":"2.24"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:37 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:31 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/curl/7.54.1/20180329185356
@@ -1828,13 +1828,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:37 GMT
+      - Thu, 23 Aug 2018 21:54:31 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1038-SEA
+      - cache-sea1020-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1849,7 +1849,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:37 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:32 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/curl/7.54.1/20180329185356
@@ -1899,13 +1899,13 @@ http_interactions:
       Content-Length:
       - '1598'
       Date:
-      - Thu, 23 Aug 2018 21:43:37 GMT
+      - Thu, 23 Aug 2018 21:54:32 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1040-SEA
+      - cache-sea1043-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1957,7 +1957,7 @@ http_interactions:
         \\\n              --enable-ipv6 \\\n              --without-libidn \\\n              --without-gnutls
         \\\n              --without-librtmp\n  make\n}\n```","target":"x86_64-linux","tdeps":[{"name":"cacerts","origin":"core","release":"20171014212239","version":"2017.09.20"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"nghttp2","origin":"core","release":"20180329185155","version":"1.31.0"},{"name":"openssl","origin":"core","release":"20171014213633","version":"1.0.2l"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:37 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:32 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/db/5.3.28/20170513213734
@@ -1997,13 +1997,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:37 GMT
+      - Thu, 23 Aug 2018 21:54:32 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1039-SEA
+      - cache-sea1046-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2018,7 +2018,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:37 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:32 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/db/5.3.28/20170513213734
@@ -2068,13 +2068,13 @@ http_interactions:
       Content-Length:
       - '1524'
       Date:
-      - Thu, 23 Aug 2018 21:43:38 GMT
+      - Thu, 23 Aug 2018 21:54:32 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1034-SEA
+      - cache-sea1050-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2121,7 +2121,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:38 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:32 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/gcc-libs/5.2.0/20170513212920
@@ -2161,13 +2161,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:38 GMT
+      - Thu, 23 Aug 2018 21:54:32 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1037-SEA
+      - cache-sea1020-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2182,7 +2182,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:38 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:32 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/gcc-libs/5.2.0/20170513212920
@@ -2232,13 +2232,13 @@ http_interactions:
       Content-Length:
       - '1592'
       Date:
-      - Thu, 23 Aug 2018 21:43:38 GMT
+      - Thu, 23 Aug 2018 21:54:32 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1044-SEA
+      - cache-sea1025-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2287,7 +2287,7 @@ http_interactions:
         0\n}\n\ndo_prepare() {\n  return 0\n}\n\ndo_build() {\n  return 0\n}\n\n#
         We will rely on tests from `gcc`, so skip them here\nunset -f do_check\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:38 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:32 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/gdal/2.2.1/20171025112525
@@ -2327,13 +2327,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:38 GMT
+      - Thu, 23 Aug 2018 21:54:32 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1029-SEA
+      - cache-sea1044-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2348,7 +2348,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:38 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:32 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/gdal/2.2.1/20171025112525
@@ -2398,13 +2398,13 @@ http_interactions:
       Content-Length:
       - '1289'
       Date:
-      - Thu, 23 Aug 2018 21:43:38 GMT
+      - Thu, 23 Aug 2018 21:54:33 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1034-SEA
+      - cache-sea1050-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2442,7 +2442,7 @@ http_interactions:
         | grep -q \"x-sharedlib; charset=binary\"'' _ {} \\; \\\n    -print \\\n    -exec
         patchelf --set-rpath \"${LD_RUN_PATH}\" {} \\;\n}\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:38 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:33 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/gdbm/1.11/20170513213716
@@ -2482,13 +2482,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:38 GMT
+      - Thu, 23 Aug 2018 21:54:33 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1021-SEA
+      - cache-sea1031-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2503,7 +2503,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:38 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:33 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/gdbm/1.11/20170513213716
@@ -2553,13 +2553,13 @@ http_interactions:
       Content-Length:
       - '1434'
       Date:
-      - Thu, 23 Aug 2018 21:43:39 GMT
+      - Thu, 23 Aug 2018 21:54:33 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1041-SEA
+      - cache-sea1049-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2604,7 +2604,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:39 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:33 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/geos/3.6.2/20171025112556
@@ -2644,13 +2644,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:39 GMT
+      - Thu, 23 Aug 2018 21:54:33 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1043-SEA
+      - cache-sea1046-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2665,7 +2665,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:39 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:33 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/geos/3.6.2/20171025112556
@@ -2715,13 +2715,13 @@ http_interactions:
       Content-Length:
       - '1293'
       Date:
-      - Thu, 23 Aug 2018 21:43:39 GMT
+      - Thu, 23 Aug 2018 21:54:33 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1034-SEA
+      - cache-sea1026-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2737,7 +2737,7 @@ http_interactions:
       string: !binary |-
         eyJjaGFubmVscyI6WyJibGRyLTgzNjA0NjgzODc3OTY1ODI0MCIsInN0YWJsZSIsInVuc3RhYmxlIl0sImNoZWNrc3VtIjoiYTZmOWVjNzlkYjA0NzY5Yzk3OTkwZDM4Y2I1ZjM5ZWQ0ZWViZGQ2Mzk4YzhhYjdlMjkxNDNlYmRhZTk3N2VhMiIsImNvbmZpZyI6IiIsImRlcHMiOlt7Im5hbWUiOiJnY2MtbGlicyIsIm9yaWdpbiI6ImNvcmUiLCJyZWxlYXNlIjoiMjAxNzA1MTMyMTI5MjAiLCJ2ZXJzaW9uIjoiNS4yLjAifSx7Im5hbWUiOiJnbGliYyIsIm9yaWdpbiI6ImNvcmUiLCJyZWxlYXNlIjoiMjAxNzA1MTMyMDEwNDIiLCJ2ZXJzaW9uIjoiMi4yMiJ9XSwiZXhwb3NlcyI6W10sImlkZW50Ijp7Im5hbWUiOiJnZW9zIiwib3JpZ2luIjoiY29yZSIsInJlbGVhc2UiOiIyMDE3MTAyNTExMjU1NiIsInZlcnNpb24iOiIzLjYuMiJ9LCJpc19hX3NlcnZpY2UiOmZhbHNlLCJtYW5pZmVzdCI6IiMgY29yZSAvIGdlb3NcbkdFT1MgKEdlb21ldHJ5IEVuZ2luZSAtIE9wZW4gU291cmNlKSBpcyBhIEMrKyBwb3J0IG9mIHRoZSDigItKYXZhIFRvcG9sb2d5IFN1aXRlIChKVFMpLlxuXG4qIF9fTWFpbnRhaW5lcl9fOiBUaGUgSGFiaXRhdCBNYWludGFpbmVycyA8aHVtYW5zQGhhYml0YXQuc2g+XG4qIF9fVmVyc2lvbl9fOiAzLjYuMlxuKiBfX1JlbGVhc2VfXzogMjAxNzEwMjUxMTI1NTZcbiogX19BcmNoaXRlY3R1cmVfXzogeDg2XzY0XG4qIF9fU3lzdGVtX186IGxpbnV4XG4qIF9fVGFyZ2V0X186IHg4Nl82NC1saW51eFxuKiBfX1Vwc3RyZWFtIFVSTF9fOiBbaHR0cDovL3RyYWMub3NnZW8ub3JnL2dlb3NdKGh0dHA6Ly90cmFjLm9zZ2VvLm9yZy9nZW9zKVxuKiBfX0xpY2Vuc2VfXzogTEdQTCBcbiogX19Tb3VyY2VfXzogW2h0dHA6Ly9kb3dubG9hZC5vc2dlby5vcmcvZ2Vvcy9nZW9zLTMuNi4yLnRhci5iejJdKGh0dHA6Ly9kb3dubG9hZC5vc2dlby5vcmcvZ2Vvcy9nZW9zLTMuNi4yLnRhci5iejIpXG4qIF9fU0hBX186IGAwNDVhMTNkZjg0ZDYwNWE4NjY2MDJmNjAyMGZjNmNiZjhiZjRjNDJmYjUwZGUyMzdhMDg5MjZlMWQ3ZDc2NTJhYFxuKiBfX1BhdGhfXzogYC9oYWIvcGtncy9jb3JlL2dlb3MvMy42LjIvMjAxNzEwMjUxMTI1NTZgXG4qIF9fQnVpbGQgRGVwZW5kZW5jaWVzX186IGBjb3JlL2djYyBjb3JlL21ha2UgY29yZS9wYXRjaGVsZiBgXG4qIF9fRGVwZW5kZW5jaWVzX186IGBjb3JlL2dsaWJjIGNvcmUvZ2NjLWxpYnMgYFxuKiBfX0ludGVycHJldGVyc19fOiBubyBpbnRlcnByZXRlcnMgb3IgdW5kZWZpbmVkXG5cbiMgUGxhblxuXG4jIyBCdWlsZCBGbGFnc1xuXG5gYGBiYXNoXG5DRkxBR1M6IC1JL2hhYi9wa2dzL2NvcmUvZ2xpYmMvMi4yMi8yMDE3MDUxMzIwMTA0Mi9pbmNsdWRlIC1JL2hhYi9wa2dzL2NvcmUvZ2NjLzUuMi4wLzIwMTcwNTEzMjAyMjQ0L2luY2x1ZGUgLUkvaGFiL3BrZ3MvY29yZS9tYWtlLzQuMi4xLzIwMTcwNTEzMjE0NjIwL2luY2x1ZGVcbkNQUEZMQUdTOiAtSS9oYWIvcGtncy9jb3JlL2dsaWJjLzIuMjIvMjAxNzA1MTMyMDEwNDIvaW5jbHVkZSAtSS9oYWIvcGtncy9jb3JlL2djYy81LjIuMC8yMDE3MDUxMzIwMjI0NC9pbmNsdWRlIC1JL2hhYi9wa2dzL2NvcmUvbWFrZS80LjIuMS8yMDE3MDUxMzIxNDYyMC9pbmNsdWRlXG5DWFhGTEFHUzogLUkvaGFiL3BrZ3MvY29yZS9nbGliYy8yLjIyLzIwMTcwNTEzMjAxMDQyL2luY2x1ZGUgLUkvaGFiL3BrZ3MvY29yZS9nY2MvNS4yLjAvMjAxNzA1MTMyMDIyNDQvaW5jbHVkZSAtSS9oYWIvcGtncy9jb3JlL21ha2UvNC4yLjEvMjAxNzA1MTMyMTQ2MjAvaW5jbHVkZVxuTERGTEFHUzogLUwvaGFiL3BrZ3MvY29yZS9nbGliYy8yLjIyLzIwMTcwNTEzMjAxMDQyL2xpYiAtTC9oYWIvcGtncy9jb3JlL2djYy1saWJzLzUuMi4wLzIwMTcwNTEzMjEyOTIwL2xpYiAtTC9oYWIvcGtncy9jb3JlL2djYy81LjIuMC8yMDE3MDUxMzIwMjI0NC9saWJcbkxEX1JVTl9QQVRIOiAvaGFiL3BrZ3MvY29yZS9nZW9zLzMuNi4yLzIwMTcxMDI1MTEyNTU2L2xpYjovaGFiL3BrZ3MvY29yZS9nbGliYy8yLjIyLzIwMTcwNTEzMjAxMDQyL2xpYjovaGFiL3BrZ3MvY29yZS9nY2MtbGlicy81LjIuMC8yMDE3MDUxMzIxMjkyMC9saWJcbmBgYFxuXG4jIyBQbGFuIFNvdXJjZVxuXG5gYGBiYXNoXG5wa2dfbmFtZT1nZW9zXG5wa2dfb3JpZ2luPWNvcmVcbnBrZ192ZXJzaW9uPTMuNi4yXG5wa2dfZGVzY3JpcHRpb249XCJHRU9TIChHZW9tZXRyeSBFbmdpbmUgLSBPcGVuIFNvdXJjZSkgaXMgYSBDKysgcG9ydCBvZiB0aGUg4oCLSmF2YSBUb3BvbG9neSBTdWl0ZSAoSlRTKS5cIlxucGtnX3Vwc3RyZWFtX3VybD1odHRwOi8vdHJhYy5vc2dlby5vcmcvZ2Vvc1xucGtnX2xpY2Vuc2U9KCdMR1BMJylcbnBrZ19tYWludGFpbmVyPVwiVGhlIEhhYml0YXQgTWFpbnRhaW5lcnMgPGh1bWFuc0BoYWJpdGF0LnNoPlwiXG5wa2dfc291cmNlPWh0dHA6Ly9kb3dubG9hZC5vc2dlby5vcmcvZ2Vvcy9nZW9zLSR7cGtnX3ZlcnNpb259LnRhci5iejJcbnBrZ19zaGFzdW09MDQ1YTEzZGY4NGQ2MDVhODY2NjAyZjYwMjBmYzZjYmY4YmY0YzQyZmI1MGRlMjM3YTA4OTI2ZTFkN2Q3NjUyYVxucGtnX2J1aWxkX2RlcHM9KFxuICBjb3JlL2djY1xuICBjb3JlL21ha2VcbiAgY29yZS9wYXRjaGVsZlxuKVxucGtnX2RlcHM9KFxuICBjb3JlL2dsaWJjXG4gIGNvcmUvZ2NjLWxpYnNcbilcbnBrZ19iaW5fZGlycz0oYmluKVxucGtnX2luY2x1ZGVfZGlycz0oaW5jbHVkZSlcbnBrZ19saWJfZGlycz0obGliKVxuXG5cbmRvX2luc3RhbGwoKSB7XG4gIGRvX2RlZmF1bHRfaW5zdGFsbFxuXG4gIGJ1aWxkX2xpbmUgXCJQYXRjaGluZyBFTEYgYmluYXJpZXM6XCJcbiAgZmluZCBcIiRwa2dfcHJlZml4L2xpYlwiIC10eXBlIGYgLWV4ZWN1dGFibGUgXFxcbiAgICAtZXhlYyBzaCAtYyAnZmlsZSAtaSBcIiQxXCIgfCBncmVwIC1xIFwieC1zaGFyZWRsaWI7IGNoYXJzZXQ9YmluYXJ5XCInIF8ge30gXFw7IFxcXG4gICAgLXByaW50IFxcXG4gICAgLWV4ZWMgcGF0Y2hlbGYgLS1zZXQtcnBhdGggXCIke0xEX1JVTl9QQVRIfVwiIHt9IFxcO1xufVxuYGBgIiwidGFyZ2V0IjoieDg2XzY0LWxpbnV4IiwidGRlcHMiOlt7Im5hbWUiOiJnY2MtbGlicyIsIm9yaWdpbiI6ImNvcmUiLCJyZWxlYXNlIjoiMjAxNzA1MTMyMTI5MjAiLCJ2ZXJzaW9uIjoiNS4yLjAifSx7Im5hbWUiOiJnbGliYyIsIm9yaWdpbiI6ImNvcmUiLCJyZWxlYXNlIjoiMjAxNzA1MTMyMDEwNDIiLCJ2ZXJzaW9uIjoiMi4yMiJ9LHsibmFtZSI6ImxpbnV4LWhlYWRlcnMiLCJvcmlnaW4iOiJjb3JlIiwicmVsZWFzZSI6IjIwMTcwNTEzMjAwOTU2IiwidmVyc2lvbiI6IjQuMyJ9XSwidmlzaWJpbGl0eSI6InB1YmxpYyJ9
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:39 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:33 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/glibc/2.22/20170513201042
@@ -2777,13 +2777,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:39 GMT
+      - Thu, 23 Aug 2018 21:54:33 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1031-SEA
+      - cache-sea1023-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -2798,7 +2798,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:39 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:34 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042
@@ -2848,13 +2848,13 @@ http_interactions:
       Content-Length:
       - '6382'
       Date:
-      - Thu, 23 Aug 2018 21:43:39 GMT
+      - Thu, 23 Aug 2018 21:54:34 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1033-SEA
+      - cache-sea1041-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3046,7 +3046,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:39 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:34 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/gmp/6.1.0/20170513202112
@@ -3086,13 +3086,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:39 GMT
+      - Thu, 23 Aug 2018 21:54:34 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1046-SEA
+      - cache-sea1023-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3107,7 +3107,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:39 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:34 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/gmp/6.1.0/20170513202112
@@ -3157,13 +3157,13 @@ http_interactions:
       Content-Length:
       - '1490'
       Date:
-      - Thu, 23 Aug 2018 21:43:40 GMT
+      - Thu, 23 Aug 2018 21:54:34 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1047-SEA
+      - cache-sea1026-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3211,7 +3211,7 @@ http_interactions:
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/binutils
         core/m4)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:40 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:34 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/grep/2.22/20170513213444
@@ -3251,13 +3251,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:40 GMT
+      - Thu, 23 Aug 2018 21:54:34 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1044-SEA
+      - cache-sea1045-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3272,7 +3272,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:40 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:34 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/grep/2.22/20170513213444
@@ -3322,13 +3322,13 @@ http_interactions:
       Content-Length:
       - '1412'
       Date:
-      - Thu, 23 Aug 2018 21:43:40 GMT
+      - Thu, 23 Aug 2018 21:54:34 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1051-SEA
+      - cache-sea1049-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3373,7 +3373,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:40 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:34 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/hab-butterfly/0.55.0/20180321215126
@@ -3413,13 +3413,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:40 GMT
+      - Thu, 23 Aug 2018 21:54:34 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1033-SEA
+      - cache-sea1020-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3434,7 +3434,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:40 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:34 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/hab-butterfly/0.55.0/20180321215126
@@ -3484,13 +3484,13 @@ http_interactions:
       Content-Length:
       - '2155'
       Date:
-      - Thu, 23 Aug 2018 21:43:40 GMT
+      - Thu, 23 Aug 2018 21:54:35 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1023-SEA
+      - cache-sea1026-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3556,7 +3556,7 @@ http_interactions:
         Turn the remaining default phases into no-ops\ndo_download() {\n  return 0\n}\n\ndo_verify()
         {\n  return 0\n}\n\ndo_unpack() {\n  return 0\n}\n```","target":"x86_64-linux","tdeps":[{"name":"busybox-static","origin":"core","release":"20170513215502","version":"1.24.2"},{"name":"bzip2","origin":"core","release":"20170513212938","version":"1.0.6"},{"name":"cacerts","origin":"core","release":"20171014212239","version":"2017.09.20"},{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"libarchive","origin":"core","release":"20171018164107","version":"3.3.2"},{"name":"libsodium","origin":"core","release":"20170905223149","version":"1.0.13"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"openssl","origin":"core","release":"20171014213633","version":"1.0.2l"},{"name":"xz","origin":"core","release":"20170513214327","version":"5.2.2"},{"name":"zeromq","origin":"core","release":"20171018132502","version":"4.2.2"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:40 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:35 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/jq-static/1.10/20160909011845
@@ -3596,13 +3596,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:40 GMT
+      - Thu, 23 Aug 2018 21:54:35 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1042-SEA
+      - cache-sea1028-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3617,7 +3617,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:40 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:35 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/jq-static/1.10/20160909011845
@@ -3667,7 +3667,7 @@ http_interactions:
       Content-Length:
       - '913'
       Date:
-      - Thu, 23 Aug 2018 21:43:40 GMT
+      - Thu, 23 Aug 2018 21:54:35 GMT
       Via:
       - 1.1 varnish
       Connection:
@@ -3704,7 +3704,7 @@ http_interactions:
         {\n  return 0\n}\n\ndo_install() {\n  install -D $HAB_CACHE_SRC_PATH/$pkg_filename
         $pkg_prefix/bin/jq\n}\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:40 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:35 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/less/481/20170513213936
@@ -3744,13 +3744,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:41 GMT
+      - Thu, 23 Aug 2018 21:54:35 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1023-SEA
+      - cache-sea1037-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3765,7 +3765,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:41 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:35 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/less/481/20170513213936
@@ -3815,13 +3815,13 @@ http_interactions:
       Content-Length:
       - '1444'
       Date:
-      - Thu, 23 Aug 2018 21:43:41 GMT
+      - Thu, 23 Aug 2018 21:54:35 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1046-SEA
+      - cache-sea1048-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3867,7 +3867,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"ncurses","origin":"core","release":"20170513213009","version":"6.0"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:41 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:35 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/libarchive/3.3.2/20171018164107
@@ -3907,13 +3907,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:41 GMT
+      - Thu, 23 Aug 2018 21:54:35 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1047-SEA
+      - cache-sea1029-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -3928,7 +3928,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:41 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:35 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/libarchive/3.3.2/20171018164107
@@ -3978,13 +3978,13 @@ http_interactions:
       Content-Length:
       - '1337'
       Date:
-      - Thu, 23 Aug 2018 21:43:41 GMT
+      - Thu, 23 Aug 2018 21:54:36 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1033-SEA
+      - cache-sea1048-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4029,7 +4029,7 @@ http_interactions:
         core/make)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_build() {\n    ./configure
         \\\n      --prefix=\"$pkg_prefix\" \\\n      --without-xml2 \\\n      --without-lzo2\n  make\n}\n```","target":"x86_64-linux","tdeps":[{"name":"bzip2","origin":"core","release":"20170513212938","version":"1.0.6"},{"name":"cacerts","origin":"core","release":"20171014212239","version":"2017.09.20"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"openssl","origin":"core","release":"20171014213633","version":"1.0.2l"},{"name":"xz","origin":"core","release":"20170513214327","version":"5.2.2"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:41 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:36 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/libcap/2.24/20170513213120
@@ -4069,13 +4069,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:41 GMT
+      - Thu, 23 Aug 2018 21:54:36 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1050-SEA
+      - cache-sea1047-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4090,7 +4090,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:41 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:36 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/libcap/2.24/20170513213120
@@ -4140,13 +4140,13 @@ http_interactions:
       Content-Length:
       - '1579'
       Date:
-      - Thu, 23 Aug 2018 21:43:41 GMT
+      - Thu, 23 Aug 2018 21:54:36 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1043-SEA
+      - cache-sea1034-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4195,7 +4195,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/linux-headers)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:41 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:36 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/libffi/3.2.1/20170514003538
@@ -4235,13 +4235,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:42 GMT
+      - Thu, 23 Aug 2018 21:54:36 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1024-SEA
+      - cache-sea1048-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4256,7 +4256,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:42 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:36 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/libffi/3.2.1/20170514003538
@@ -4306,13 +4306,13 @@ http_interactions:
       Content-Length:
       - '1281'
       Date:
-      - Thu, 23 Aug 2018 21:43:42 GMT
+      - Thu, 23 Aug 2018 21:54:36 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1021-SEA
+      - cache-sea1029-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4349,7 +4349,7 @@ http_interactions:
         core/libtool)\npkg_build_deps=(core/coreutils core/make core/gcc)\npkg_lib_dirs=(lib)\npkg_include_dirs=(lib/${pkg_name}-${pkg_version}/include)\n\ndo_build()
         {\n    ./configure --prefix=\"${pkg_prefix}\" --disable-multi-os-directory\n    make\n}\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"binutils","origin":"core","release":"20170513201927","version":"2.25.1"},{"name":"coreutils","origin":"core","release":"20170513213226","version":"8.25"},{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"gmp","origin":"core","release":"20170513202112","version":"6.1.0"},{"name":"grep","origin":"core","release":"20170513213444","version":"2.22"},{"name":"libcap","origin":"core","release":"20170513213120","version":"2.24"},{"name":"libtool","origin":"core","release":"20170513213706","version":"2.4.6"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"},{"name":"sed","origin":"core","release":"20170513213123","version":"4.2.2"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:42 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:36 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/libossp-uuid/1.6.2/20170514001348
@@ -4389,13 +4389,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:42 GMT
+      - Thu, 23 Aug 2018 21:54:36 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1020-SEA
+      - cache-sea1028-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4410,7 +4410,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:42 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:36 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/libossp-uuid/1.6.2/20170514001348
@@ -4460,13 +4460,13 @@ http_interactions:
       Content-Length:
       - '1138'
       Date:
-      - Thu, 23 Aug 2018 21:43:42 GMT
+      - Thu, 23 Aug 2018 21:54:37 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1050-SEA
+      - cache-sea1037-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4505,7 +4505,7 @@ http_interactions:
         Habitat Maintainers <humans@habitat.sh>\"\npkg_license=(''MIT'')\npkg_source=https://www.mirrorservice.org/sites/ftp.ossp.org/pkg/lib/${_pkg_distname}/${_pkg_distname}-${pkg_version}.tar.gz\npkg_shasum=11a615225baa5f8bb686824423f50e4427acd3f70d394765bdff32801f0fd5b0\npkg_deps=(core/glibc)\npkg_build_deps=(core/coreutils
         core/make core/gcc core/binutils)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\npkg_bin_dirs=(bin)\npkg_dirname=${_pkg_distname}-${pkg_version}\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:42 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:37 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/libsodium/1.0.13/20170905223149
@@ -4545,13 +4545,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:42 GMT
+      - Thu, 23 Aug 2018 21:54:37 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1049-SEA
+      - cache-sea1040-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4566,7 +4566,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:42 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:37 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/libsodium/1.0.13/20170905223149
@@ -4616,13 +4616,13 @@ http_interactions:
       Content-Length:
       - '1006'
       Date:
-      - Thu, 23 Aug 2018 21:43:42 GMT
+      - Thu, 23 Aug 2018 21:54:37 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1045-SEA
+      - cache-sea1041-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4656,7 +4656,7 @@ http_interactions:
         Habitat Maintainers <humans@habitat.sh>\"\npkg_license=(''libsodium'')\npkg_source=https://download.libsodium.org/libsodium/releases/${pkg_name}-${pkg_version}.tar.gz\npkg_shasum=9c13accb1a9e59ab3affde0e60ef9a2149ed4d6e8f99c93c7a5b97499ee323fd\npkg_dirname=${pkg_distname}-${pkg_version}\npkg_deps=(core/glibc)\npkg_build_deps=(core/autoconf
         core/automake core/diffutils core/patch core/make core/gcc core/sed)\npkg_lib_dirs=(lib)\npkg_include_dirs=(include)\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:42 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:37 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/libtool/2.4.6/20170513213706
@@ -4696,13 +4696,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:43 GMT
+      - Thu, 23 Aug 2018 21:54:37 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1027-SEA
+      - cache-sea1026-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4717,7 +4717,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:43 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:37 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/libtool/2.4.6/20170513213706
@@ -4767,13 +4767,13 @@ http_interactions:
       Content-Length:
       - '1789'
       Date:
-      - Thu, 23 Aug 2018 21:43:43 GMT
+      - Thu, 23 Aug 2018 21:54:37 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1022-SEA
+      - cache-sea1047-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4823,7 +4823,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/m4)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"binutils","origin":"core","release":"20170513201927","version":"2.25.1"},{"name":"coreutils","origin":"core","release":"20170513213226","version":"8.25"},{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"gmp","origin":"core","release":"20170513202112","version":"6.1.0"},{"name":"grep","origin":"core","release":"20170513213444","version":"2.22"},{"name":"libcap","origin":"core","release":"20170513213120","version":"2.24"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"},{"name":"sed","origin":"core","release":"20170513213123","version":"4.2.2"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:43 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:37 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/libxml2/2.9.6/20171025112053
@@ -4863,13 +4863,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:43 GMT
+      - Thu, 23 Aug 2018 21:54:37 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1039-SEA
+      - cache-sea1034-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4884,7 +4884,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:43 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:37 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/libxml2/2.9.6/20171025112053
@@ -4934,13 +4934,13 @@ http_interactions:
       Content-Length:
       - '1172'
       Date:
-      - Thu, 23 Aug 2018 21:43:43 GMT
+      - Thu, 23 Aug 2018 21:54:38 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1024-SEA
+      - cache-sea1029-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -4980,7 +4980,7 @@ http_interactions:
         {\n  ./configure --prefix=\"$pkg_prefix\" --without-python  --with-zlib=\"$(pkg_path_for
         zlib)\"\n  make\n}\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:43 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:38 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/libyaml/0.1.6/20170514013335
@@ -5020,13 +5020,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:43 GMT
+      - Thu, 23 Aug 2018 21:54:38 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1027-SEA
+      - cache-sea1031-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5041,7 +5041,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:43 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:38 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/libyaml/0.1.6/20170514013335
@@ -5091,13 +5091,13 @@ http_interactions:
       Content-Length:
       - '979'
       Date:
-      - Thu, 23 Aug 2018 21:43:43 GMT
+      - Thu, 23 Aug 2018 21:54:38 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1048-SEA
+      - cache-sea1039-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5130,7 +5130,7 @@ http_interactions:
         Habitat Maintainers <humans@habitat.sh>\"\npkg_dirname=yaml-${pkg_version}\npkg_source=http://pyyaml.org/download/${pkg_name}/yaml-${pkg_version}.tar.gz\npkg_filename=yaml-${pkg_version}.tar.gz\npkg_shasum=7da6971b4bd08a986dd2a61353bc422362bd0edcc67d7ebaac68c95f74182749\npkg_deps=(core/glibc)\npkg_build_deps=(core/coreutils
         core/make core/gcc)\npkg_lib_dirs=(lib)\npkg_include_dirs=(include)\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:43 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:38 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/linux-headers/4.3/20170513200956
@@ -5170,13 +5170,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:44 GMT
+      - Thu, 23 Aug 2018 21:54:38 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1050-SEA
+      - cache-sea1036-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5191,7 +5191,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:44 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:38 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956
@@ -5241,7 +5241,7 @@ http_interactions:
       Content-Length:
       - '1302'
       Date:
-      - Thu, 23 Aug 2018 21:43:44 GMT
+      - Thu, 23 Aug 2018 21:54:38 GMT
       Via:
       - 1.1 varnish
       Connection:
@@ -5287,7 +5287,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:44 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:38 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/ncurses/6.0/20170513213009
@@ -5327,13 +5327,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:44 GMT
+      - Thu, 23 Aug 2018 21:54:38 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1047-SEA
+      - cache-sea1041-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5348,7 +5348,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:44 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:38 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/ncurses/6.0/20170513213009
@@ -5398,13 +5398,13 @@ http_interactions:
       Content-Length:
       - '2000'
       Date:
-      - Thu, 23 Aug 2018 21:43:44 GMT
+      - Thu, 23 Aug 2018 21:54:39 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1039-SEA
+      - cache-sea1030-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5465,7 +5465,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:44 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:39 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/nghttp2/1.31.0/20180329185155
@@ -5505,13 +5505,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:44 GMT
+      - Thu, 23 Aug 2018 21:54:39 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1020-SEA
+      - cache-sea1044-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5526,7 +5526,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:44 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:39 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/nghttp2/1.31.0/20180329185155
@@ -5576,13 +5576,13 @@ http_interactions:
       Content-Length:
       - '968'
       Date:
-      - Thu, 23 Aug 2018 21:43:44 GMT
+      - Thu, 23 Aug 2018 21:54:39 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1028-SEA
+      - cache-sea1036-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5613,7 +5613,7 @@ http_interactions:
         is an open source HTTP/2 C Library.\"\npkg_upstream_url=https://nghttp2.org/\npkg_maintainer=\"The
         Habitat Maintainers <humans@habitat.sh>\"\npkg_license=(''MIT'')\npkg_source=https://github.com/${pkg_name}/${pkg_name}/releases/download/v${pkg_version}/${pkg_name}-${pkg_version}.tar.gz\npkg_shasum=6a2d02c441cf8d4279aea3c98d22763f8464808c3955db5c308291fe59d17cab\npkg_dirname=${pkg_name}-${pkg_version}\npkg_build_deps=(\n  core/make\n  core/gcc\n)\npkg_lib_dirs=(lib)\npkg_include_dirs=(include)\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:44 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:39 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/openssl/1.0.2l/20171014213633
@@ -5653,13 +5653,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:45 GMT
+      - Thu, 23 Aug 2018 21:54:39 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1025-SEA
+      - cache-sea1033-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5674,7 +5674,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:45 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:39 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/openssl/1.0.2l/20171014213633
@@ -5724,13 +5724,13 @@ http_interactions:
       Content-Length:
       - '2388'
       Date:
-      - Thu, 23 Aug 2018 21:43:45 GMT
+      - Thu, 23 Aug 2018 21:54:39 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1027-SEA
+      - cache-sea1039-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5802,7 +5802,7 @@ http_interactions:
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils
         core/sed core/grep core/perl core/diffutils core/make core/patch)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"cacerts","origin":"core","release":"20171014212239","version":"2017.09.20"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:45 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:39 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/pcre/8.38/20170513213423
@@ -5842,13 +5842,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:45 GMT
+      - Thu, 23 Aug 2018 21:54:39 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1030-SEA
+      - cache-sea1042-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5863,7 +5863,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:45 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:39 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/pcre/8.38/20170513213423
@@ -5913,13 +5913,13 @@ http_interactions:
       Content-Length:
       - '1546'
       Date:
-      - Thu, 23 Aug 2018 21:43:45 GMT
+      - Thu, 23 Aug 2018 21:54:40 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1048-SEA
+      - cache-sea1036-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -5966,7 +5966,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:45 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:40 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/perl/5.22.1/20170513213942
@@ -6006,13 +6006,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:45 GMT
+      - Thu, 23 Aug 2018 21:54:40 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1034-SEA
+      - cache-sea1023-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6027,7 +6027,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:45 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:40 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/perl/5.22.1/20170513213942
@@ -6077,13 +6077,13 @@ http_interactions:
       Content-Length:
       - '3143'
       Date:
-      - Thu, 23 Aug 2018 21:43:45 GMT
+      - Thu, 23 Aug 2018 21:54:40 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1027-SEA
+      - cache-sea1046-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6178,7 +6178,7 @@ http_interactions:
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/procps-ng
         core/inetutils core/iana-etc)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"bzip2","origin":"core","release":"20170513212938","version":"1.0.6"},{"name":"coreutils","origin":"core","release":"20170513213226","version":"8.25"},{"name":"db","origin":"core","release":"20170513213734","version":"5.3.28"},{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"gdbm","origin":"core","release":"20170513213716","version":"1.11"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"gmp","origin":"core","release":"20170513202112","version":"6.1.0"},{"name":"less","origin":"core","release":"20170513213936","version":"481"},{"name":"libcap","origin":"core","release":"20170513213120","version":"2.24"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"ncurses","origin":"core","release":"20170513213009","version":"6.0"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:45 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:40 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/postgresql/9.6.8/20180423183113
@@ -6218,13 +6218,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:46 GMT
+      - Thu, 23 Aug 2018 21:54:40 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1040-SEA
+      - cache-sea1031-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6239,7 +6239,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:46 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:40 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/postgresql/9.6.8/20180423183113
@@ -6289,13 +6289,13 @@ http_interactions:
       Content-Length:
       - '2932'
       Date:
-      - Thu, 23 Aug 2018 21:43:46 GMT
+      - Thu, 23 Aug 2018 21:54:40 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1039-SEA
+      - cache-sea1033-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6374,7 +6374,7 @@ http_interactions:
         \"Building ${ext_postgis_dirname}\"\n  ./configure --prefix=\"$pkg_prefix\"\n  make\n\n  build_line
         \"Installing ${ext_postgis_dirname}\"\n  make install\n\n  popd > /dev/null\n}\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"bash","origin":"core","release":"20170513213519","version":"4.3.42"},{"name":"bzip2","origin":"core","release":"20170513212938","version":"1.0.6"},{"name":"cacerts","origin":"core","release":"20171014212239","version":"2017.09.20"},{"name":"coreutils","origin":"core","release":"20170513213226","version":"8.25"},{"name":"db","origin":"core","release":"20170513213734","version":"5.3.28"},{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"gdal","origin":"core","release":"20171025112525","version":"2.2.1"},{"name":"gdbm","origin":"core","release":"20170513213716","version":"1.11"},{"name":"geos","origin":"core","release":"20171025112556","version":"3.6.2"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"gmp","origin":"core","release":"20170513202112","version":"6.1.0"},{"name":"less","origin":"core","release":"20170513213936","version":"481"},{"name":"libcap","origin":"core","release":"20170513213120","version":"2.24"},{"name":"libossp-uuid","origin":"core","release":"20170514001348","version":"1.6.2"},{"name":"libxml2","origin":"core","release":"20171025112053","version":"2.9.6"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"ncurses","origin":"core","release":"20170513213009","version":"6.0"},{"name":"openssl","origin":"core","release":"20171014213633","version":"1.0.2l"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"},{"name":"perl","origin":"core","release":"20170513213942","version":"5.22.1"},{"name":"proj","origin":"core","release":"20171025112633","version":"4.9.3"},{"name":"readline","origin":"core","release":"20170513213506","version":"6.3.8"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:46 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:40 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/proj/4.9.3/20171025112633
@@ -6414,13 +6414,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:46 GMT
+      - Thu, 23 Aug 2018 21:54:40 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1037-SEA
+      - cache-sea1035-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6435,7 +6435,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:46 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:40 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/proj/4.9.3/20171025112633
@@ -6485,13 +6485,13 @@ http_interactions:
       Content-Length:
       - '1026'
       Date:
-      - Thu, 23 Aug 2018 21:43:46 GMT
+      - Thu, 23 Aug 2018 21:54:41 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1031-SEA
+      - cache-sea1042-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6524,7 +6524,7 @@ http_interactions:
         Projections Library\"\npkg_upstream_url=https://github.com/OSGeo/proj.4\npkg_license=(''MIT'')\npkg_maintainer=\"The
         Habitat Maintainers <humans@habitat.sh>\"\npkg_source=http://download.osgeo.org/proj/proj-${pkg_version}.tar.gz\npkg_shasum=6984542fea333488de5c82eea58d699e4aff4b359200a9971537cd7e047185f7\npkg_build_deps=(\n  core/gcc\n  core/make\n)\npkg_deps=(\n  core/glibc\n)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:46 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:41 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/readline/6.3.8/20170513213506
@@ -6564,13 +6564,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:46 GMT
+      - Thu, 23 Aug 2018 21:54:41 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1029-SEA
+      - cache-sea1041-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6585,7 +6585,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:46 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:41 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/readline/6.3.8/20170513213506
@@ -6635,13 +6635,13 @@ http_interactions:
       Content-Length:
       - '2278'
       Date:
-      - Thu, 23 Aug 2018 21:43:46 GMT
+      - Thu, 23 Aug 2018 21:54:41 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1033-SEA
+      - cache-sea1022-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6707,7 +6707,7 @@ http_interactions:
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/bison
         core/grep)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"ncurses","origin":"core","release":"20170513213009","version":"6.0"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:46 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:41 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/ruby/2.4.2/20171014214232
@@ -6747,13 +6747,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:47 GMT
+      - Thu, 23 Aug 2018 21:54:41 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1048-SEA
+      - cache-sea1036-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6768,7 +6768,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:47 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:41 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/ruby/2.4.2/20171014214232
@@ -6818,13 +6818,13 @@ http_interactions:
       Content-Length:
       - '1965'
       Date:
-      - Thu, 23 Aug 2018 21:43:47 GMT
+      - Thu, 23 Aug 2018 21:54:41 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1041-SEA
+      - cache-sea1033-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6882,7 +6882,7 @@ http_interactions:
         {\n  make test\n}\n\ndo_install() {\n  do_default_install\n  gem update --system
         --no-document\n  gem install rb-readline --no-document\n}\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"binutils","origin":"core","release":"20170513201927","version":"2.25.1"},{"name":"cacerts","origin":"core","release":"20171014212239","version":"2017.09.20"},{"name":"coreutils","origin":"core","release":"20170513213226","version":"8.25"},{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"gmp","origin":"core","release":"20170513202112","version":"6.1.0"},{"name":"grep","origin":"core","release":"20170513213444","version":"2.22"},{"name":"libcap","origin":"core","release":"20170513213120","version":"2.24"},{"name":"libffi","origin":"core","release":"20170514003538","version":"3.2.1"},{"name":"libtool","origin":"core","release":"20170513213706","version":"2.4.6"},{"name":"libyaml","origin":"core","release":"20170514013335","version":"0.1.6"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},{"name":"ncurses","origin":"core","release":"20170513213009","version":"6.0"},{"name":"openssl","origin":"core","release":"20171014213633","version":"1.0.2l"},{"name":"pcre","origin":"core","release":"20170513213423","version":"8.38"},{"name":"readline","origin":"core","release":"20170513213506","version":"6.3.8"},{"name":"sed","origin":"core","release":"20170513213123","version":"4.2.2"},{"name":"zlib","origin":"core","release":"20170513201911","version":"1.2.8"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:47 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:41 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/sed/4.2.2/20170513213123
@@ -6922,13 +6922,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:47 GMT
+      - Thu, 23 Aug 2018 21:54:41 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1028-SEA
+      - cache-sea1051-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -6943,7 +6943,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:47 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:41 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/sed/4.2.2/20170513213123
@@ -6993,13 +6993,13 @@ http_interactions:
       Content-Length:
       - '1337'
       Date:
-      - Thu, 23 Aug 2018 21:43:47 GMT
+      - Thu, 23 Aug 2018 21:54:42 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1037-SEA
+      - cache-sea1045-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -7042,7 +7042,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"acl","origin":"core","release":"20170513213108","version":"2.2.52"},{"name":"attr","origin":"core","release":"20170513213059","version":"2.4.47"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:47 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:42 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/xz/5.2.2/20170513214327
@@ -7082,13 +7082,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:47 GMT
+      - Thu, 23 Aug 2018 21:54:42 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1038-SEA
+      - cache-sea1046-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -7103,7 +7103,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:47 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:42 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/xz/5.2.2/20170513214327
@@ -7153,13 +7153,13 @@ http_interactions:
       Content-Length:
       - '1324'
       Date:
-      - Thu, 23 Aug 2018 21:43:47 GMT
+      - Thu, 23 Aug 2018 21:54:42 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1034-SEA
+      - cache-sea1022-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -7201,7 +7201,7 @@ http_interactions:
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils
         core/sed core/diffutils)\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:47 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:42 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/zeromq/4.2.2/20171018132502
@@ -7241,13 +7241,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:48 GMT
+      - Thu, 23 Aug 2018 21:54:42 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1035-SEA
+      - cache-sea1020-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -7262,7 +7262,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:48 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:42 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/zeromq/4.2.2/20171018132502
@@ -7312,13 +7312,13 @@ http_interactions:
       Content-Length:
       - '1271'
       Date:
-      - Thu, 23 Aug 2018 21:43:48 GMT
+      - Thu, 23 Aug 2018 21:54:42 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1045-SEA
+      - cache-sea1041-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -7358,7 +7358,7 @@ http_interactions:
         {\n  do_default_install\n    # shellcheck disable=SC2038\n  find \"$pkg_prefix/lib\"
         -name \"*.so\" | xargs -I ''%'' patchelf --set-rpath \"$LD_RUN_PATH\" %\n}\n```","target":"x86_64-linux","tdeps":[{"name":"gcc-libs","origin":"core","release":"20170513212920","version":"5.2.0"},{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"libsodium","origin":"core","release":"20170905223149","version":"1.0.13"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:48 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:42 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/zlib/1.2.8/20170513201911
@@ -7398,13 +7398,13 @@ http_interactions:
       Content-Length:
       - '50'
       Date:
-      - Thu, 23 Aug 2018 21:43:48 GMT
+      - Thu, 23 Aug 2018 21:54:43 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1030-SEA
+      - cache-sea1024-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -7419,7 +7419,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":4,"msg":"vt:origin-channel-package-get:0"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:48 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:43 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/zlib/1.2.8/20170513201911
@@ -7469,13 +7469,13 @@ http_interactions:
       Content-Length:
       - '1575'
       Date:
-      - Thu, 23 Aug 2018 21:43:48 GMT
+      - Thu, 23 Aug 2018 21:54:43 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1022-SEA
+      - cache-sea1051-SEA
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -7524,5 +7524,5 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 21:43:48 GMT
+  recorded_at: Thu, 23 Aug 2018 21:54:43 GMT
 recorded_with: VCR 4.0.0

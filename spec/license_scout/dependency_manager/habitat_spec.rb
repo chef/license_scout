@@ -141,7 +141,9 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
       end
     end
 
-    context "when an channel_for_origin is used but packages are not in that origin" do
+    # VCR's filenames are too long for windows
+    # WHEN: channel_for_origin is configured, but some tdeps are not present in that origin
+    context "when packages are not in channel_for_origin" do
       let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat") }
       before do
         LicenseScout::Config.habitat.channel_for_origin = [{
@@ -154,7 +156,10 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
         LicenseScout::Config.habitat.channel_for_origin = []
       end
 
-      it "returns an array of dependencies found in the directory, fetching them from the fallback origin" do
+      # VCR filename workaround:
+      # it returns an array of depdendencies with dependencies not present in
+      # channel_for_origin fetched from the fallback origin
+      it "returns an array of dependencies found in the directory" do
         dependencies = subject.dependencies
 
         # make sure we have the right count
@@ -175,7 +180,9 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
       end
     end
 
-    context "when an channel_for_origin is used, packages are not in that origin, but full ident is given for deps" do
+    # VCR filename workaround:
+    # when an channel_for_origin is used, packages are not in that origin, but full ident is given for deps
+    context "when full ident is given for deps" do
       let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat-full-ident") }
       before do
         LicenseScout::Config.habitat.channel_for_origin = [{
@@ -188,7 +195,9 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
         LicenseScout::Config.habitat.channel_for_origin = []
       end
 
-      it "returns an array of dependencies found in the directory, fetching them from the fallback origin" do
+      # it returns an array of dependencies found in the directory, fetching
+      # dependencies specified by a full ident from the unstable channel
+      it "returns an array of dependencies found in the directory" do
         dependencies = subject.dependencies
 
         # make sure we have the right count
