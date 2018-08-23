@@ -212,7 +212,6 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
       end
     end
 
-
     context "when a plan.sh is found" do
       let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat") }
 
