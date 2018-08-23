@@ -70,6 +70,10 @@ module LicenseScout
         end.compact
       end
 
+      def fetched_urls
+        @fetched_urls ||= {}
+      end
+
       private
 
       def license_from_manifest(manifest_content)
@@ -136,7 +140,9 @@ module LicenseScout
         end
 
         LicenseScout::Log.debug("[habitat] Fetching pkg_info from #{base_api_uri}")
-        FFI_Yajl::Parser.parse(open(base_api_uri).read)
+        FFI_Yajl::Parser.parse(open(base_api_uri).read).tap do |bldr_info|
+          fetched_urls["#{origin}/#{name}"] = base_api_uri
+        end
       rescue OpenURI::HTTPError
         nil
       end

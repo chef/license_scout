@@ -132,10 +132,12 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
         expect(glibc.version).to eq("2.27-20180608041157")
         expect(glibc.license.records.first.id).to eql("GPL-2.0")
         expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.27/20180608041157")
+        expect(subject.fetched_urls["core/glibc"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.27/20180608041157")
 
         expect(linux_headers.version).to eq("4.15.9-20180608041107")
         expect(linux_headers.license.records.first.id).to eql("GPL-2.0")
         expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.15.9/20180608041107")
+        expect(subject.fetched_urls["core/linux-headers"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.15.9/20180608041107")
       end
     end
 
@@ -154,10 +156,12 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
         expect(glibc.version).to eq("2.22-20170513201042")
         expect(glibc.license.records.first.id).to eql("GPL-2.0")
         expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042")
+        expect(subject.fetched_urls["core/glibc"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042")
 
         expect(linux_headers.version).to eq("4.3-20170513200956")
         expect(linux_headers.license.records.first.id).to eql("GPL-2.0")
         expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956")
+        expect(subject.fetched_urls["core/linux-headers"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956")
       end
     end
 
@@ -176,10 +180,12 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
         expect(glibc.version).to eq("2.22-20170513201042")
         expect(glibc.license.records.first.id).to eql("GPL-2.0")
         expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042")
+        expect(subject.fetched_urls["core/glibc"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042")
 
         expect(linux_headers.version).to eq("4.3-20170513200956")
         expect(linux_headers.license.records.first.id).to eql("GPL-2.0")
         expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956")
+        expect(subject.fetched_urls["core/linux-headers"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956")
       end
     end
   end
