@@ -23,6 +23,7 @@ require "mixlib/shellout"
 module LicenseScout
   module DependencyManager
     class Habitat < Base
+      DEFAULT_CHANNEL = "stable".freeze
 
       def name
         "habitat"
@@ -53,13 +54,14 @@ module LicenseScout
 
         tdeps.sort.map do |tdep|
           o, n, v, r = tdep.split("/")
+          c = channel_for_origin(o)
           dep_name = "#{o}/#{n}"
           dep_version = "#{v}-#{r}"
 
           dependency = new_dependency(dep_name, dep_version, nil)
 
           license_from_manifest(pkg_info(tdep)["manifest"]).each do |spdx|
-            dependency.add_license(spdx, "https://bldr.habitat.sh/v1/depot/channels/#{o}/stable/pkgs/#{n}/#{v}/#{r}")
+            dependency.add_license(spdx, "https://bldr.habitat.sh/v1/depot/channels/#{o}/#{c}/pkgs/#{n}/#{v}/#{r}")
           end
 
           dependency
@@ -94,8 +96,9 @@ module LicenseScout
         $habitat_pkg_info ||= {}
         $habitat_pkg_info[pkg_ident] ||= begin
           pkg_origin, pkg_name, pkg_version, pkg_release = pkg_ident.split("/")
+          pkg_channel = channel_for_origin(pkg_origin)
 
-          base_api_uri = "https://bldr.habitat.sh/v1/depot/channels/#{pkg_origin}/stable/pkgs/#{pkg_name}"
+          base_api_uri = "https://bldr.habitat.sh/v1/depot/channels/#{pkg_origin}/#{pkg_channel}/pkgs/#{pkg_name}"
           if pkg_version.nil? && pkg_release.nil?
             base_api_uri += "/latest"
           elsif pkg_release.nil?
@@ -110,7 +113,16 @@ module LicenseScout
           pkg_origin, pkg_name, = pkg_ident.split("/")
 
           LicenseScout::Log.warn("[habitat] Could not find pkg_info for #{pkg_ident} - trying for the latest version of #{pkg_origin}/#{pkg_name}")
-          FFI_Yajl::Parser.parse(open("https://bldr.habitat.sh/v1/depot/channels/#{pkg_origin}/stable/pkgs/#{pkg_name}/latest").read)
+          FFI_Yajl::Parser.parse(open("https://bldr.habitat.sh/v1/depot/channels/#{pkg_origin}/#{pkg_channel}/pkgs/#{pkg_name}/latest").read)
+        end
+      end
+
+      def channel_for_origin(pkg_origin)
+        override = LicenseScout::Config.habitat.channel_for_origin.find { |t| t["origin"] == pkg_origin }
+        if override
+          override["channel"]
+        else
+          DEFAULT_CHANNEL
         end
       end
 

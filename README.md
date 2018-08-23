@@ -179,6 +179,22 @@ license_content | A URL to a file where the raw text of the license can be downl
 
 In addition to including any files Licensee identified as potential license files (but couldn't identify), License Scout will also include the Fallback License you specified in the Dependency Manifest.
 
+## Habitat Channel Configuration
+
+By default License Scout searches for Habitat package in the `stable`
+channel. If your build process publishes packages to another channel
+by default, you can use the `channel_for_origin` habitat configuration
+option:
+
+```yaml
+habitat:
+  channel_for_origin:
+    - origin: yourorigin
+      channel: dev
+    - origin: someotherorigin
+      channel: prod
+```
+
 ## Exporting a Dependency Manifest to another format
 
 By default, License Scout creates the Dependency Manifest as a JSON file. We do this because it provides a single document that can be easily processed into many different forms. License Scout has the ability to also export that JSON file into other formats.
@@ -223,4 +239,3 @@ Pull requests in this project are merged when they have two :+1:s from maintaine
 
 - [Dan DeLeo](https://github.com/danielsdeleo)
 - [Tom Duffield](https://github.com/tduffield)
-

@@ -62,6 +62,10 @@ module LicenseScout
       default :ruby, []
     end
 
+    config_context :habitat do
+      default :channel_for_origin, []
+    end
+
     # Runtime Parameters - if you add any bins, make sure to update the habitat/plan.sh
     # to ensure we override the defaults to scope to the Habitat path
     default :environment, {}
