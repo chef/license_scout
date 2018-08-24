@@ -175,7 +175,7 @@ module LicenseScout
       puts "  * Please add exceptions for the 'Flagged' or 'Not Allowed' dependencies"           if @needs_exception
       puts "         https://github.com/chef/license_scout#dependency-exceptions"                if @needs_exception
 
-      exit 1 if @did_fail
+      raise Exceptions::FailExit.new("missing or not allowed licenses detected") if @did_fail
     end
 
     def generate_dependency_license_manifest

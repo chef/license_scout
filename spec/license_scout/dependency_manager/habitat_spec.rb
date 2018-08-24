@@ -132,10 +132,97 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
         expect(glibc.version).to eq("2.27-20180608041157")
         expect(glibc.license.records.first.id).to eql("GPL-2.0")
         expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.27/20180608041157")
+        expect(subject.fetched_urls["core/glibc"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.27/20180608041157")
 
         expect(linux_headers.version).to eq("4.15.9-20180608041107")
         expect(linux_headers.license.records.first.id).to eql("GPL-2.0")
         expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.15.9/20180608041107")
+        expect(subject.fetched_urls["core/linux-headers"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.15.9/20180608041107")
+      end
+    end
+
+    # VCR's filenames are too long for windows
+    # WHEN: channel_for_origin is configured, but some tdeps are not present in that origin
+    context "when packages are not in channel_for_origin" do
+      let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat") }
+      before do
+        LicenseScout::Config.habitat.channel_for_origin = [{
+                                                             "origin" => "core",
+                                                             "channel" => "froghornetsnest",
+                                                           }]
+      end
+
+      after do
+        LicenseScout::Config.habitat.channel_for_origin = []
+      end
+
+      # VCR filename workaround:
+      # it returns an array of depdendencies with dependencies not present in
+      # channel_for_origin fetched from the fallback origin
+      it "returns an array of dependencies found in the directory" do
+        dependencies = subject.dependencies
+
+        # make sure we have the right count
+        expect(dependencies.length).to eq(3)
+
+        glibc = dependencies.find { |d| d.name == "core/glibc" }
+        linux_headers = dependencies.find { |d| d.name == "core/linux-headers" }
+
+        expect(glibc.version).to eq("2.27-20180608041157")
+        expect(glibc.license.records.first.id).to eql("GPL-2.0")
+        expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.27/20180608041157")
+        expect(subject.fetched_urls["core/glibc"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.27/20180608041157")
+
+        expect(linux_headers.version).to eq("4.15.9-20180608041107")
+        expect(linux_headers.license.records.first.id).to eql("GPL-2.0")
+        expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.15.9/20180608041107")
+        expect(subject.fetched_urls["core/linux-headers"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.15.9/20180608041107")
+      end
+    end
+
+    # VCR filename workaround:
+    # when an channel_for_origin is used, packages are not in that origin, but full ident is given for deps
+    context "when full ident is given for deps" do
+      let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat-full-ident") }
+      before do
+        LicenseScout::Config.habitat.channel_for_origin = [{
+                                                             "origin" => "core",
+                                                             "channel" => "froghornetsnest",
+                                                           }]
+      end
+
+      after do
+        LicenseScout::Config.habitat.channel_for_origin = []
+      end
+
+      # it returns an array of dependencies found in the directory, fetching
+      # dependencies specified by a full ident from the unstable channel
+      it "returns an array of dependencies found in the directory" do
+        dependencies = subject.dependencies
+
+        # make sure we have the right count
+        expect(dependencies.length).to eq(44)
+
+        csc = dependencies.find { |d| d.name == "chef/chef-server-ctl" }
+
+        expect(csc.version).to eq("12.17.49-20180503181308")
+        expect(csc.license.records.first.id).to eql("Apache-2.0")
+        expect(csc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/chef/unstable/pkgs/chef-server-ctl/12.17.49/20180503181308")
+        expect(subject.fetched_urls["chef/chef-server-ctl"]).to eql("https://bldr.habitat.sh/v1/depot/channels/chef/unstable/pkgs/chef-server-ctl/12.17.49/20180503181308")
+      end
+    end
+
+    context "when a package doesn't exist" do
+      let(:directory) { File.join(SPEC_FIXTURES_DIR, "habitat-pkg-missing") }
+
+      # it returns an array of dependencies found in the directory, fetching
+      # dependencies specified by a full ident from the unstable channel
+      it "raises HabitatPackageNotFound" do
+        expect { subject.dependencies }.to raise_error(LicenseScout::Exceptions::HabitatPackageNotFound) do |e|
+          # ensure it will be rescued if we rescue the more generic parent class
+          expect(e).to be_a_kind_of(LicenseScout::Exceptions::PackageNotFound)
+          expect(e.message).to eq("Could not find Habitat package chef/no-such-package-by-this-name")
+        end
       end
     end
 
@@ -153,11 +240,13 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
 
         expect(glibc.version).to eq("2.22-20170513201042")
         expect(glibc.license.records.first.id).to eql("GPL-2.0")
-        expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042")
+        expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.22/20170513201042")
+        expect(subject.fetched_urls["core/glibc"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042")
 
         expect(linux_headers.version).to eq("4.3-20170513200956")
         expect(linux_headers.license.records.first.id).to eql("GPL-2.0")
-        expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956")
+        expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.3/20170513200956")
+        expect(subject.fetched_urls["core/linux-headers"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956")
       end
     end
 
@@ -175,11 +264,13 @@ RSpec.describe LicenseScout::DependencyManager::Habitat do
 
         expect(glibc.version).to eq("2.22-20170513201042")
         expect(glibc.license.records.first.id).to eql("GPL-2.0")
-        expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042")
+        expect(glibc.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.22/20170513201042")
+        expect(subject.fetched_urls["core/glibc"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042")
 
         expect(linux_headers.version).to eq("4.3-20170513200956")
         expect(linux_headers.license.records.first.id).to eql("GPL-2.0")
-        expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956")
+        expect(linux_headers.license.records.first.source).to eql("https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.3/20170513200956")
+        expect(subject.fetched_urls["core/linux-headers"]).to eql("https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956")
       end
     end
   end

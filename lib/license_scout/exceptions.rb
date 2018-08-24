@@ -21,5 +21,8 @@ module LicenseScout
     class ConfigError < Error; end
     class MissingSourceDirectory < Error; end
     class UnsupportedExporter < Error; end
+    class PackageNotFound < Error; end
+    class HabitatPackageNotFound < PackageNotFound; end
+    class FailExit < Error; end
   end
 end
