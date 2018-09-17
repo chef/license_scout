@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.1.2 -->
+## [v2.1.2](https://github.com/chef/license_scout/tree/v2.1.2) (2018-09-17)
+
+#### Merged Pull Requests
+- Provide better error handling for Habitat packages [#179](https://github.com/chef/license_scout/pull/179) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.1.1 -->
+### Changes since 2.1.1 release
+
+#### Merged Pull Requests
+- Provide better error handling for Habitat packages [#179](https://github.com/chef/license_scout/pull/179) ([tduffield](https://github.com/tduffield)) <!-- 2.1.2 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
