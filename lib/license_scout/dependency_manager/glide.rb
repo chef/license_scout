@@ -15,7 +15,6 @@
 # limitations under the License.
 #
 
-require "psych"
 require "license_scout/dependency_manager/base"
 
 module LicenseScout

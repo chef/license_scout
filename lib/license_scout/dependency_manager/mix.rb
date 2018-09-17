@@ -16,10 +16,6 @@
 #
 
 require "license_scout/dependency_manager/base"
-require "license_scout/exceptions"
-
-require "mixlib/shellout"
-require "ffi_yajl"
 
 module LicenseScout
   module DependencyManager
@@ -95,10 +91,19 @@ module LicenseScout
       end
 
       def hex_info(package_name)
-        FFI_Yajl::Parser.parse(open("https://hex.pm/api/packages/#{package_name}").read)
-      rescue OpenURI::HTTPError
-        LicenseScout::Log.debug("[elixir] Unable to download hex.pm info for #{package_name}")
-        {}
+        response = Net::HTTP.get_response(URI("https://hex.pm/api/packages/#{package_name}"))
+
+        if response.is_a?(Net::HTTPSuccess)
+          FFI_Yajl::Parser.parse(response.body)
+        else
+          case response.code
+          when "404"
+            LicenseScout::Log.debug("[elixir] Unable to download hex.pm info for #{package_name}")
+            {}
+          else
+            raise LicenseScout::Exceptions::UpstreamFetchError.new("Received \"#{response.code} #{response.msg}\" when attempting to fetch package information for the #{package_name} Hex package")
+          end
+        end
       end
     end
   end

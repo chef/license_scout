@@ -15,8 +15,6 @@
 # limitations under the License.
 #
 
-require "set"
-require "ffi_yajl"
 require "license_scout/dependency_manager/base"
 
 module LicenseScout
