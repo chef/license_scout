@@ -13,52 +13,55 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 404
       message: Not Found
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
-      Content-Type:
-      - application/json; charset=utf-8
+      - Content-Disposition
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       Accept-Ranges:
+      - bytes
+      - bytes
       - bytes
       - bytes
       Age:
       - '0'
       - '0'
-      Content-Length:
-      - '57'
-      Date:
-      - Thu, 23 Aug 2018 23:35:50 GMT
+      - '0'
+      - '0'
       Via:
       - 1.1 varnish
+      - 1.1 varnish
+      Content-Length:
+      - '0'
+      Date:
+      - Mon, 17 Sep 2018 17:29:00 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1049-SEA
+      - cache-sea1051-SEA, cache-dfw18634-DFW
       X-Cache:
-      - MISS
+      - MISS, MISS
       X-Cache-Hits:
-      - '0'
-      Vary:
-      - Accept-Encoding
+      - 0, 0
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"code":4,"msg":"vt:origin-channel-package-latest-get:0"}'
+      string: ''
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 23:35:50 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:00 GMT
 recorded_with: VCR 4.0.0

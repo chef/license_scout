@@ -25,28 +25,28 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 22:34:24 GMT
+      - Mon, 17 Sep 2018 17:28:46 GMT
       Via:
       - 1.1 varnish
       Age:
-      - '3'
+      - '0'
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18637-DFW
+      - cache-dfw18642-DFW
       X-Cache:
-      - HIT
+      - MISS
       X-Cache-Hits:
-      - '1'
+      - '0'
       Vary:
       - Accept-Encoding
       X-Fastly-Request-Id:
-      - 2e0a85546cff301b5dab61e0b62d72f880f6a999
+      - 50521cb7c5c8593880bc5d93750511703ed5df1e
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:24 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:46 GMT
 - request:
     method: get
     uri: https://raw.githubusercontent.com/broofa/node-uuid/master/LICENSE.md
@@ -84,35 +84,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 6A36:30FB:304F4:31F80:5AD6766D
+      - 9AD8:6779:175212:18F21A:5B9FE442
       Content-Length:
       - '672'
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 22:34:24 GMT
+      - Mon, 17 Sep 2018 17:28:46 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18623-DFW
+      - cache-dfw18625-DFW
       X-Cache:
       - HIT
       X-Cache-Hits:
-      - '1'
+      - '4'
       X-Timer:
-      - S1524004465.553918,VS0,VE0
+      - S1537205326.314607,VS0,VE0
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 886725aa298bb39a643ec2e458f54c49077ca009
+      - 78ae2c53c31d120073c12014ffcc6c8535d3906f
       Expires:
-      - Tue, 17 Apr 2018 22:39:24 GMT
+      - Mon, 17 Sep 2018 17:33:46 GMT
       Source-Age:
-      - '3'
+      - '11'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -138,7 +138,7 @@ http_interactions:
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
         SOFTWARE.
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:24 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:46 GMT
 - request:
     method: get
     uri: http://github.com/hueniverse/sntp/raw/master/LICENSE
@@ -165,7 +165,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:24 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:46 GMT
 - request:
     method: get
     uri: https://github.com/hueniverse/sntp/raw/master/LICENSE
@@ -187,7 +187,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Tue, 17 Apr 2018 22:34:21 GMT
+      - Mon, 17 Sep 2018 17:28:35 GMT
       Content-Type:
       - text/html; charset=utf-8
       Status:
@@ -196,16 +196,12 @@ http_interactions:
       - no-cache
       Vary:
       - X-PJAX
-      X-Ratelimit-Limit:
-      - '100'
-      X-Ratelimit-Remaining:
-      - '100'
       Access-Control-Allow-Origin:
       - https://render.githubusercontent.com
       Location:
       - https://raw.githubusercontent.com/hueniverse/sntp/master/LICENSE
       X-Runtime:
-      - '0.041823'
+      - '0.041836'
       Strict-Transport-Security:
       - max-age=31536000; includeSubdomains; preload
       X-Frame-Options:
@@ -217,29 +213,29 @@ http_interactions:
       Expect-Ct:
       - max-age=2592000, report-uri="https://api.github.com/_private/browser/errors"
       Content-Security-Policy:
-      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; child-src
-        render.githubusercontent.com; connect-src ''self'' uploads.github.com status.github.com
-        collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com
-        github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com
-        github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com;
-        font-src assets-cdn.github.com; form-action ''self'' github.com gist.github.com;
-        frame-ancestors ''none''; img-src ''self'' data: assets-cdn.github.com identicons.github.com
-        collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com;
-        manifest-src ''self''; media-src ''none''; script-src assets-cdn.github.com;
-        style-src ''unsafe-inline'' assets-cdn.github.com'
+      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; connect-src
+        ''self'' uploads.github.com status.github.com collector.githubapp.com api.github.com
+        www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com
+        github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com
+        wss://live.github.com; font-src assets-cdn.github.com; form-action ''self''
+        github.com gist.github.com; frame-ancestors ''none''; frame-src render.githubusercontent.com;
+        img-src ''self'' data: assets-cdn.github.com identicons.github.com collector.githubapp.com
+        github-cloud.s3.amazonaws.com *.githubusercontent.com; manifest-src ''self'';
+        media-src ''none''; script-src assets-cdn.github.com; style-src ''unsafe-inline''
+        assets-cdn.github.com'
       X-Runtime-Rack:
-      - '0.047208'
+      - '0.049909'
       Age:
-      - '3'
+      - '11'
       Content-Length:
       - '130'
       X-Github-Request-Id:
-      - CBD2:605D:D70DF1:1AAE16D:5AD67670
+      - DDBB:2550:6DBFD6:B8B5A1:5B9FE44E
     body:
       encoding: UTF-8
       string: <html><body>You are being <a href="https://raw.githubusercontent.com/hueniverse/sntp/master/LICENSE">redirected</a>.</body></html>
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:24 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:46 GMT
 - request:
     method: get
     uri: https://raw.githubusercontent.com/hueniverse/sntp/master/LICENSE
@@ -277,35 +273,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 4F6C:1722:38D63:3C025:5AD6766D
+      - 453E:6E05:AC072:C184D:5B9FE443
       Content-Length:
       - '865'
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 22:34:25 GMT
+      - Mon, 17 Sep 2018 17:28:46 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18638-DFW
+      - cache-dfw18646-DFW
       X-Cache:
       - HIT
       X-Cache-Hits:
-      - '1'
+      - '2'
       X-Timer:
-      - S1524004465.049371,VS0,VE1
+      - S1537205327.824017,VS0,VE0
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 1a6c5ae277dcccdfa83a35a1b898fde4a993d27d
+      - 7b2a8a8a947603a83a4175a0f53b52b81ef47625
       Expires:
-      - Tue, 17 Apr 2018 22:39:25 GMT
+      - Mon, 17 Sep 2018 17:33:46 GMT
       Source-Age:
-      - '3'
+      - '12'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -338,7 +334,7 @@ http_interactions:
 
         The complete list of contributors can be found at: https://github.com/hueniverse/sntp/graphs/contributors
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:25 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:46 GMT
 - request:
     method: get
     uri: https://raw.githubusercontent.com/dominictarr/config-chain/master/LICENCE
@@ -376,35 +372,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - DC0E:72AF:5298:5A15:5AD6766E
+      - 3EEC:5B8A:1946E8:1C28F2:5B9FE443
       Content-Length:
       - '646'
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 22:34:25 GMT
+      - Mon, 17 Sep 2018 17:28:47 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18646-DFW
+      - cache-dfw18647-DFW
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1524004465.313614,VS0,VE1
+      - S1537205327.115000,VS0,VE1
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 0b98bc8f96f17afb3b07e2ecae5a0a332e832ec0
+      - 48dda887377fc2130b89a3cd3a2b2eb6434d2b22
       Expires:
-      - Tue, 17 Apr 2018 22:39:25 GMT
+      - Mon, 17 Sep 2018 17:33:47 GMT
       Source-Age:
-      - '3'
+      - '11'
     body:
       encoding: ASCII-8BIT
       string: "Copyright (c) 2011 Dominic Tarr\n\nPermission is hereby granted, free
@@ -423,7 +419,7 @@ http_interactions:
         FROM, OUT OF OR IN CONNECTION WITH THE \nSOFTWARE OR THE USE OR OTHER DEALINGS
         IN THE SOFTWARE."
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:25 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:47 GMT
 - request:
     method: get
     uri: https://raw.githubusercontent.com/3rd-Eden/useragent/master/LICENSE
@@ -461,35 +457,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 23CE:1727:1ABBB:1C21E:5AD6766D
+      - 43C0:0942:D8035:F8131:5B9FE443
       Content-Length:
       - '680'
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 22:34:25 GMT
+      - Mon, 17 Sep 2018 17:28:47 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18644-DFW
+      - cache-dfw18626-DFW
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1524004466.641123,VS0,VE1
+      - S1537205327.448257,VS0,VE1
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 4b52d73ae18e986d649ffef1deda017a30014ced
+      - af05a645df0c05679b571338b0d5717435d756e4
       Expires:
-      - Tue, 17 Apr 2018 22:39:25 GMT
+      - Mon, 17 Sep 2018 17:33:47 GMT
       Source-Age:
-      - '3'
+      - '11'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -513,7 +509,7 @@ http_interactions:
         # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         # THE SOFTWARE.
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:25 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:47 GMT
 - request:
     method: get
     uri: http://github.com/isaacs/node-lru-cache/raw/master/LICENSE
@@ -540,7 +536,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:25 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:47 GMT
 - request:
     method: get
     uri: https://github.com/isaacs/node-lru-cache/raw/master/LICENSE
@@ -562,7 +558,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Tue, 17 Apr 2018 22:34:23 GMT
+      - Mon, 17 Sep 2018 17:28:42 GMT
       Content-Type:
       - text/html; charset=utf-8
       Status:
@@ -571,16 +567,12 @@ http_interactions:
       - no-cache
       Vary:
       - X-PJAX
-      X-Ratelimit-Limit:
-      - '100'
-      X-Ratelimit-Remaining:
-      - '100'
       Access-Control-Allow-Origin:
       - https://render.githubusercontent.com
       Location:
       - https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE
       X-Runtime:
-      - '0.058411'
+      - '0.060196'
       Strict-Transport-Security:
       - max-age=31536000; includeSubdomains; preload
       X-Frame-Options:
@@ -592,29 +584,29 @@ http_interactions:
       Expect-Ct:
       - max-age=2592000, report-uri="https://api.github.com/_private/browser/errors"
       Content-Security-Policy:
-      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; child-src
-        render.githubusercontent.com; connect-src ''self'' uploads.github.com status.github.com
-        collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com
-        github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com
-        github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com;
-        font-src assets-cdn.github.com; form-action ''self'' github.com gist.github.com;
-        frame-ancestors ''none''; img-src ''self'' data: assets-cdn.github.com identicons.github.com
-        collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com;
-        manifest-src ''self''; media-src ''none''; script-src assets-cdn.github.com;
-        style-src ''unsafe-inline'' assets-cdn.github.com'
+      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; connect-src
+        ''self'' uploads.github.com status.github.com collector.githubapp.com api.github.com
+        www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com
+        github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com
+        wss://live.github.com; font-src assets-cdn.github.com; form-action ''self''
+        github.com gist.github.com; frame-ancestors ''none''; frame-src render.githubusercontent.com;
+        img-src ''self'' data: assets-cdn.github.com identicons.github.com collector.githubapp.com
+        github-cloud.s3.amazonaws.com *.githubusercontent.com; manifest-src ''self'';
+        media-src ''none''; script-src assets-cdn.github.com; style-src ''unsafe-inline''
+        assets-cdn.github.com'
       X-Runtime-Rack:
-      - '0.063980'
+      - '0.068235'
       Age:
-      - '3'
+      - '5'
       Content-Length:
       - '136'
       X-Github-Request-Id:
-      - CBD7:605B:852BEB:1131B71:5AD67671
+      - DDC0:2550:6DC0C3:B8B737:5B9FE44F
     body:
       encoding: UTF-8
       string: <html><body>You are being <a href="https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE">redirected</a>.</body></html>
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:25 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:47 GMT
 - request:
     method: get
     uri: https://raw.githubusercontent.com/isaacs/node-lru-cache/master/LICENSE
@@ -652,35 +644,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - EFFE:0950:4CBC0:4FC03:5AD6766E
+      - 1EFC:3CAC:164448:181353:5B9FE444
       Content-Length:
       - '490'
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 22:34:26 GMT
+      - Mon, 17 Sep 2018 17:28:47 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18643-DFW
+      - cache-dfw18636-DFW
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1524004466.072453,VS0,VE0
+      - S1537205328.902636,VS0,VE1
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - cafd6c3fc8e8d96a3207e2c24b587ad20cd48dfd
+      - 6ec28fd5f174558d54063f9554f9fbecd0e53387
       Expires:
-      - Tue, 17 Apr 2018 22:39:26 GMT
+      - Mon, 17 Sep 2018 17:33:47 GMT
       Source-Age:
-      - '3'
+      - '11'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -700,7 +692,7 @@ http_interactions:
         ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
         IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:26 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:47 GMT
 - request:
     method: get
     uri: https://raw.github.com/broofa/node-mime/master/LICENSE
@@ -726,28 +718,28 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 22:34:26 GMT
+      - Mon, 17 Sep 2018 17:28:48 GMT
       Via:
       - 1.1 varnish
       Age:
-      - '2'
+      - '0'
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18640-DFW
+      - cache-dfw18642-DFW
       X-Cache:
-      - HIT
+      - MISS
       X-Cache-Hits:
-      - '1'
+      - '0'
       Vary:
       - Accept-Encoding
       X-Fastly-Request-Id:
-      - 6f5282db979e351b1c44487b7e9a94bead48102c
+      - 1f7d6db1f7fea2fc09e1ea11789341677242b36a
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:26 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:48 GMT
 - request:
     method: get
     uri: https://raw.githubusercontent.com/broofa/node-mime/master/LICENSE
@@ -785,35 +777,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 6424:5053:34333:36FB6:5AD6766F
+      - 6F2A:6E06:13A0CB:15FBE8:5B9FE445
       Content-Length:
       - '666'
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 22:34:26 GMT
+      - Mon, 17 Sep 2018 17:28:48 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-dfw18624-DFW
+      - cache-dfw18633-DFW
       X-Cache:
       - HIT
       X-Cache-Hits:
-      - '1'
+      - '3'
       X-Timer:
-      - S1524004466.422231,VS0,VE0
+      - S1537205328.442018,VS0,VE0
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 53a59d68cf9ea2492a6b20af4a7d5b888ae105ff
+      - 5e6b512110e948932f8d24745754f37b906c3930
       Expires:
-      - Tue, 17 Apr 2018 22:39:26 GMT
+      - Mon, 17 Sep 2018 17:33:48 GMT
       Source-Age:
-      - '2'
+      - '11'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -839,5 +831,5 @@ http_interactions:
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
     http_version: 
-  recorded_at: Tue, 17 Apr 2018 22:34:26 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:48 GMT
 recorded_with: VCR 4.0.0

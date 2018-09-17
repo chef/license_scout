@@ -35,6 +35,10 @@ module LicenseScout
       dependency_managers.each { |d| collect_licenses_from(d) }
 
       LicenseScout::Log.info("[collector] All licenses successfully collected")
+    rescue Exceptions::UpstreamFetchError => e
+      LicenseScout::Log.error("[collector] Encountered an error attempting to fetch package metadata from upstream source:")
+      LicenseScout::Log.error("[collector] #{e}")
+      raise Exceptions::FailExit.new(e)
     rescue Exceptions::PackageNotFound => e
       LicenseScout::Log.error("[collector] One of the project's transitive dependencies could not be found:")
       LicenseScout::Log.error("[collector] #{e}")

@@ -42,5 +42,4 @@ promote:
   action:
     - built_in:rollover_changelog
     - built_in:publish_rubygems
-    - bash:.expeditor/promote-hab-pkg.sh:
-        post_commit: true
+    - built_in:promote_habitat_packages

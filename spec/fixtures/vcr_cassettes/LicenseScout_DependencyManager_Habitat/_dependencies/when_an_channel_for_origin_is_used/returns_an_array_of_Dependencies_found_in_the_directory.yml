@@ -13,25 +13,29 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Cache-Control:
       - private, no-cache, no-store, private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - 953093152ce8208332cebcb87e625069a68486ce502874792e9867e6ef7ae6f0
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       Accept-Ranges:
       - bytes
       - bytes
@@ -46,25 +50,23 @@ http_interactions:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '6591'
+      - '16922'
       Date:
-      - Thu, 23 Aug 2018 10:23:35 GMT
+      - Mon, 17 Sep 2018 17:28:59 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1030-SEA, cache-lhr6333-LHR
+      - cache-sea1029-SEA, cache-dfw18643-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"953093152ce8208332cebcb87e625069a68486ce502874792e9867e6ef7ae6f0","config":"","deps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"exposes":[],"ident":{"name":"glibc","origin":"core","release":"20180608041157","version":"2.27"},"is_a_service":false,"manifest":"#
         core / glibc\nThe GNU C Library project provides the core libraries for the
         GNU system and GNU/Linux systems, as well as many other systems that use Linux
@@ -250,7 +252,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 10:23:35 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:59 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/musl/latest
@@ -264,25 +266,29 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Cache-Control:
       - private, no-cache, no-store, private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - 63019db59c548ba1f12c8b238c6ef2615807dc1922b94293606fc8e7f2ed9d30
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       Accept-Ranges:
       - bytes
       - bytes
@@ -297,25 +303,23 @@ http_interactions:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '1651'
+      - '3846'
       Date:
-      - Thu, 23 Aug 2018 10:23:35 GMT
+      - Mon, 17 Sep 2018 17:28:59 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1041-SEA, cache-lhr6326-LHR
+      - cache-sea1023-SEA, cache-dfw18620-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"63019db59c548ba1f12c8b238c6ef2615807dc1922b94293606fc8e7f2ed9d30","config":"","deps":[],"exposes":[],"ident":{"name":"musl","origin":"core","release":"20180608102708","version":"1.1.19"},"is_a_service":false,"manifest":"#
         core / musl\nmusl is a new standard library to power a new generation of Linux-based
         devices. musl is lightweight, fast, simple, free, and strives to be correct
@@ -352,7 +356,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 10:23:36 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:59 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/glibc/2.27/20180608041157
@@ -366,27 +370,31 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Alternate-Protocol:
       - 443:npn-spdy/3
       Cache-Control:
       - private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - 953093152ce8208332cebcb87e625069a68486ce502874792e9867e6ef7ae6f0
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       X-Content-Type-Options:
       - nosniff
       X-Ua-Compatible:
@@ -407,25 +415,23 @@ http_interactions:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '6591'
+      - '16922'
       Date:
-      - Thu, 23 Aug 2018 10:23:36 GMT
+      - Mon, 17 Sep 2018 17:28:59 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1036-SEA, cache-lhr6329-LHR
+      - cache-sea1034-SEA, cache-dfw18645-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"953093152ce8208332cebcb87e625069a68486ce502874792e9867e6ef7ae6f0","config":"","deps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"exposes":[],"ident":{"name":"glibc","origin":"core","release":"20180608041157","version":"2.27"},"is_a_service":false,"manifest":"#
         core / glibc\nThe GNU C Library project provides the core libraries for the
         GNU system and GNU/Linux systems, as well as many other systems that use Linux
@@ -611,7 +617,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 10:23:36 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:59 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/musl/1.1.19/20180608102708
@@ -625,27 +631,31 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Alternate-Protocol:
       - 443:npn-spdy/3
       Cache-Control:
       - private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - 63019db59c548ba1f12c8b238c6ef2615807dc1922b94293606fc8e7f2ed9d30
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       X-Content-Type-Options:
       - nosniff
       X-Ua-Compatible:
@@ -666,25 +676,23 @@ http_interactions:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '1651'
+      - '3846'
       Date:
-      - Thu, 23 Aug 2018 10:23:36 GMT
+      - Mon, 17 Sep 2018 17:29:00 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1046-SEA, cache-lhr6321-LHR
+      - cache-sea1043-SEA, cache-dfw18634-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"63019db59c548ba1f12c8b238c6ef2615807dc1922b94293606fc8e7f2ed9d30","config":"","deps":[],"exposes":[],"ident":{"name":"musl","origin":"core","release":"20180608102708","version":"1.1.19"},"is_a_service":false,"manifest":"#
         core / musl\nmusl is a new standard library to power a new generation of Linux-based
         devices. musl is lightweight, fast, simple, free, and strives to be correct
@@ -721,7 +729,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 10:23:36 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:00 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/unstable/pkgs/linux-headers/4.15.9/20180608041107
@@ -735,27 +743,31 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Alternate-Protocol:
       - 443:npn-spdy/3
       Cache-Control:
       - private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - a8d8f5f74c5bde1f5078bc344bc52ef97a28a0325203673268aa9986b532fa85
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       X-Content-Type-Options:
       - nosniff
       X-Ua-Compatible:
@@ -776,25 +788,23 @@ http_interactions:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '1366'
+      - '3074'
       Date:
-      - Thu, 23 Aug 2018 10:23:36 GMT
+      - Mon, 17 Sep 2018 17:29:00 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1022-SEA, cache-lhr6334-LHR
+      - cache-sea1051-SEA, cache-dfw18627-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"a8d8f5f74c5bde1f5078bc344bc52ef97a28a0325203673268aa9986b532fa85","config":"","deps":[],"exposes":[],"ident":{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"},"is_a_service":false,"manifest":"#
         core / linux-headers\nThe Linux kernel headers\n\n* __Maintainer__: The Habitat
         Maintainers <humans@habitat.sh>\n* __Version__: 4.15.9\n* __Release__: 20180608041107\n*
@@ -823,5 +833,5 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 10:23:36 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:00 GMT
 recorded_with: VCR 4.0.0

@@ -13,85 +13,98 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Cache-Control:
       - private, no-cache, no-store, private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - 953093152ce8208332cebcb87e625069a68486ce502874792e9867e6ef7ae6f0
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
+      Accept-Ranges:
+      - bytes
+      - bytes
+      - bytes
+      - bytes
+      Age:
+      - '0'
+      - '0'
+      - '0'
+      - '0'
       Via:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '6382'
-      Accept-Ranges:
-      - bytes
+      - '16922'
       Date:
-      - Thu, 12 Apr 2018 15:17:28 GMT
-      Age:
-      - '0'
+      - Mon, 17 Sep 2018 17:28:33 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1034-SEA, cache-dfw18646-DFW
+      - cache-sea1026-SEA, cache-dfw18651-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
-      string: '{"channels":["stable","unstable"],"checksum":"1929b3c8d6ea5cabb81f0e32cf814608f7c6e4232a22cef5d71d0671b48b2c45","config":"","deps":[{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"exposes":[],"ident":{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},"is_a_service":false,"manifest":"#
-        core / glibc\n  The GNU C Library project provides the core libraries for
-        the GNU system and GNU/Linux systems,\n  as well as many other systems that
-        use Linux as the kernel. These libraries provide critical\n  APIs including
-        ISO C11, POSIX.1-2008, BSD, OS-specific APIs and more. These APIs include
-        such\n  foundational facilities as open, read, write, malloc, printf, getaddrinfo,
-        dlopen,\n  pthread_create, crypt, login, exit and more.\n\n* __Maintainer__:
-        The Habitat Maintainers <humans@habitat.sh>\n* __Version__: 2.22\n* __Release__:
-        20170513201042\n* __Architecture__: x86_64\n* __System__: linux\n* __Target__:
-        x86_64-linux\n* __Upstream URL__: [https://www.gnu.org/software/libc](https://www.gnu.org/software/libc)\n*
-        __License__: gplv2 lgplv2 \n* __Source__: [http://ftp.gnu.org/gnu/glibc/glibc-2.22.tar.xz](http://ftp.gnu.org/gnu/glibc/glibc-2.22.tar.xz)\n*
-        __SHA__: `eb731406903befef1d8f878a46be75ef862b9056ab0cde1626d08a7a05328948`\n*
-        __Path__: `/hab/pkgs/core/glibc/2.22/20170513201042`\n* __Build Dependencies__:
-        `core/coreutils core/diffutils core/patch core/make core/gcc core/sed core/perl
-        `\n* __Dependencies__: `core/linux-headers `\n* __Interpreters__: no interpreters
-        or undefined\n\n# Plan\n\n## Build Flags\n\n```bash\nCFLAGS: no CFLAGS\nCPPFLAGS:
-        -I/hab/pkgs/core/linux-headers/4.3/20170513200956/include -I/hab/pkgs/core/make/4.2.1/20161214000256/include
-        -I/hab/pkgs/core/gcc/5.2.0/20161208212815/include\nCXXFLAGS: -I/hab/pkgs/core/linux-headers/4.3/20170513200956/include
-        -I/hab/pkgs/core/make/4.2.1/20161214000256/include -I/hab/pkgs/core/gcc/5.2.0/20161208212815/include\nLDFLAGS:
-        -Wl,--dynamic-linker=/hab/pkgs/core/glibc/2.22/20170513201042/lib/ld-linux-x86-64.so.2\nLD_RUN_PATH:
-        no LD_RUN_PATH\n```\n\n## Plan Source\n\n```bash\npkg_name=glibc\npkg_origin=core\npkg_version=2.22\npkg_maintainer=\"The
-        Habitat Maintainers <humans@habitat.sh>\"\npkg_license=(''gplv2'' ''lgplv2'')\npkg_description=\"$(cat
-        << EOF\n  The GNU C Library project provides the core libraries for the GNU
-        system and GNU/Linux systems,\n  as well as many other systems that use Linux
-        as the kernel. These libraries provide critical\n  APIs including ISO C11,
-        POSIX.1-2008, BSD, OS-specific APIs and more. These APIs include such\n  foundational
-        facilities as open, read, write, malloc, printf, getaddrinfo, dlopen,\n  pthread_create,
-        crypt, login, exit and more.\nEOF\n)\"\npkg_source=http://ftp.gnu.org/gnu/$pkg_name/${pkg_name}-${pkg_version}.tar.xz\npkg_shasum=eb731406903befef1d8f878a46be75ef862b9056ab0cde1626d08a7a05328948\npkg_upstream_url=https://www.gnu.org/software/libc\npkg_deps=(core/linux-headers)\npkg_build_deps=(core/coreutils
-        core/diffutils core/patch core/make core/gcc core/sed core/perl)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_prepare()
+      encoding: UTF-8
+      string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"953093152ce8208332cebcb87e625069a68486ce502874792e9867e6ef7ae6f0","config":"","deps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"exposes":[],"ident":{"name":"glibc","origin":"core","release":"20180608041157","version":"2.27"},"is_a_service":false,"manifest":"#
+        core / glibc\nThe GNU C Library project provides the core libraries for the
+        GNU system and GNU/Linux systems, as well as many other systems that use Linux
+        as the kernel. These libraries provide critical APIs including ISO C11, POSIX.1-2008,
+        BSD, OS-specific APIs and more. These APIs include such foundational facilities
+        as open, read, write, malloc, printf, getaddrinfo, dlopen, pthread_create,
+        crypt, login, exit and more.\n\n* __Maintainer__: The Habitat Maintainers
+        <humans@habitat.sh>\n* __Version__: 2.27\n* __Release__: 20180608041157\n*
+        __Architecture__: x86_64\n* __System__: linux\n* __Target__: x86_64-linux\n*
+        __Upstream URL__: [https://www.gnu.org/software/libc](https://www.gnu.org/software/libc)\n*
+        __License__: GPL-2.0 LGPL-2.0 \n* __Source__: [http://ftp.gnu.org/gnu/glibc/glibc-2.27.tar.xz](http://ftp.gnu.org/gnu/glibc/glibc-2.27.tar.xz)\n*
+        __SHA__: `5172de54318ec0b7f2735e5a91d908afe1c9ca291fec16b5374d9faadfc1fc72`\n*
+        __Path__: `/hab/pkgs/core/glibc/2.27/20180608041157`\n* __Build Dependencies__:
+        `core/coreutils core/bison core/diffutils core/patch core/make core/gcc core/sed
+        core/perl `\n* __Dependencies__: `core/linux-headers `\n* __Interpreters__:
+        no interpreters or undefined\n\n# Plan\n\n## Build Flags\n\n```bash\nCFLAGS:
+        no CFLAGS\nCPPFLAGS: -I/hab/pkgs/core/linux-headers/4.15.9/20180608041107/include
+        -I/hab/pkgs/core/make/4.2.1/20180608031320/include -I/hab/pkgs/core/gcc/7.3.0/20180607201502/include\nCXXFLAGS:
+        -I/hab/pkgs/core/linux-headers/4.15.9/20180608041107/include -I/hab/pkgs/core/make/4.2.1/20180608031320/include
+        -I/hab/pkgs/core/gcc/7.3.0/20180607201502/include\nLDFLAGS: -Wl,--dynamic-linker=/hab/pkgs/core/glibc/2.27/20180608041157/lib/ld-linux-x86-64.so.2\nLD_RUN_PATH:
+        no LD_RUN_PATH\n```\n\n## Plan Source\n\n```bash\npkg_name=glibc\npkg_origin=core\npkg_version=2.27\npkg_maintainer=\"The
+        Habitat Maintainers <humans@habitat.sh>\"\npkg_description=\"\\\nThe GNU C
+        Library project provides the core libraries for the GNU system and \\\nGNU/Linux
+        systems, as well as many other systems that use Linux as the \\\nkernel. These
+        libraries provide critical APIs including ISO C11, \\\nPOSIX.1-2008, BSD,
+        OS-specific APIs and more. These APIs include such \\\nfoundational facilities
+        as open, read, write, malloc, printf, getaddrinfo, \\\ndlopen, pthread_create,
+        crypt, login, exit and more.\\\n\"\npkg_upstream_url=\"https://www.gnu.org/software/libc\"\npkg_license=(''GPL-2.0''
+        ''LGPL-2.0'')\npkg_source=\"http://ftp.gnu.org/gnu/$pkg_name/${pkg_name}-${pkg_version}.tar.xz\"\npkg_shasum=\"5172de54318ec0b7f2735e5a91d908afe1c9ca291fec16b5374d9faadfc1fc72\"\npkg_deps=(\n  core/linux-headers\n)\npkg_build_deps=(\n  core/coreutils\n  core/bison\n  core/diffutils\n  core/patch\n  core/make\n  core/gcc\n  core/sed\n  core/perl\n)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_prepare()
         {\n  # The `/bin/pwd` path is hardcoded, so we''ll add a symlink if needed.\n  if
-        [[ ! -r /bin/pwd ]]; then\n    ln -sv \"$(pkg_path_for coreutils)/bin/pwd\"
-        /bin/pwd\n    _clean_pwd=true\n  fi\n\n  # Determine the full path to the
-        linker which will be produced.\n  dynamic_linker=\"$pkg_prefix/lib/ld-linux-x86-64.so.2\"\n\n  #
+        [[ ! -r /bin/pwd ]]; then\n    # We can''t use the `command -v pwd` trick
+        here, as `pwd` is a shell\n    # builtin, and therefore returns the string
+        of \"pwd\" (i.e. not the full\n    # path to the executable on `$PATH`). In
+        a stage1 Studio, the coreutils\n    # package isn''t built yet so we can''t
+        rely on using the `pkg_path_for`\n    # helper either.  Sweet twist, no?\n    if
+        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n      ln -sv /tools/bin/pwd /bin/pwd\n    else\n      ln
+        -sv \"$(pkg_path_for coreutils)/bin/pwd\" /bin/pwd\n    fi\n    _clean_pwd=true\n  fi\n\n  #
+        Determine the full path to the linker which will be produced.\n  dynamic_linker=\"$pkg_prefix/lib/ld-linux-x86-64.so.2\"\n\n  #
         We don''t want glibc to try and reference itself before it''s installed,\n  #
         no `$LD_RUN_PATH`s here\n  unset LD_RUN_PATH\n  build_line \"Overriding LD_RUN_PATH=$LD_RUN_PATH\"\n\n  unset
         CFLAGS\n  build_line \"Overriding CFLAGS=$CFLAGS\"\n\n  # Add a dynamic-linker
@@ -110,9 +123,7 @@ http_interactions:
         for the scanf15 and scanf17 tests for arches that need\n  # misc/bits/syscall.h.
         This problem is present once a custom location is used\n  # for the Linux
         Kernel headers.\n  #\n  # Source: https://lists.debian.org/debian-glibc/2013/11/msg00116.html\n  patch
-        -p1 < \"$PLAN_CONTEXT/testsuite-fix.patch\"\n\n  # Fix for CVE-2015-7547 and
-        more\n  #\n  # Source: http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-2.22-upstream_fixes-1.patch\n  patch
-        -p1 < \"$PLAN_CONTEXT/glibc-2.22-upstream_fixes-1.patch\"\n\n  # Adjust `scripts/test-installation.pl`
+        -p1 < \"$PLAN_CONTEXT/testsuite-fix.patch\"\n\n  # Adjust `scripts/test-installation.pl`
         to use our new dynamic linker\n  sed -i \"s|libs -o|libs -L${pkg_prefix}/lib
         -Wl,-dynamic-linker=${dynamic_linker} -o|\" \\\n    scripts/test-installation.pl\n}\n\ndo_build()
         {\n  rm -rf ../${pkg_name}-build\n  mkdir ../${pkg_name}-build\n  pushd ../${pkg_name}-build
@@ -126,7 +137,7 @@ http_interactions:
         > /dev/null\n}\n\n# Running a `make check` is considered one critical test
         of the correctness of\n# the resulting glibc build. Unfortunetly, the time
         to complete the test suite\n# rougly triples the build time of this Plan and
-        there are at least 4 known\n# failures which means that `make check` certainly
+        there are at least 2 known\n# failures which means that `make check` certainly
         returns a non-zero exit\n# code. Despite these downsides, it is still worth
         the pain when building the\n# first time in a new environment, or when a new
         upstream version is attempted.\n#\n# There are known failures in `make check`,
@@ -138,26 +149,29 @@ http_interactions:
         is considered the default and hence the value\n# 0x12. If you see such a difference,
         you should check that the size\n# corresponds to your prefix, i.e. `(length
         of prefix path + 1)` to ensure that\n# you haven''t really broken abi with
-        your change.\"\n#\n# Source: https://sourceware.org/glibc/wiki/Testing/Testsuite#Known_testsuite_failures\n#\n#
-        ## FAIL: elf/tst-protected1a\n#\n# \"The elf/tst-protected1a and elf/tst-protected1b
-        tests are known to fail with\n# the current stable version of binutils.\"\n#\n#
-        Source: http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html\n#
-        Source: https://sourceware.org/glibc/wiki/Release/2.22\n#\n# ## FAIL: elf/tst-protected1b\n#\n#
-        Same as above.\n#\n# ## FAIL: posix/tst-getaddrinfo4\n#\n# \"This test will
-        always fail due to not having the necessary networking\n# applications when
-        the tests are run.\"\n#\n# Source: http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html\n#\ndo_check()
+        your change.\"\n#\n# Source:\n# https://sourceware.org/glibc/wiki/Testing/Testsuite#Known_testsuite_failures\n#\n#
+        ## FAIL: posix/tst-getaddrinfo4\n#\n# \"This test will always fail due to
+        not having the necessary networking\n# applications when the tests are run.\"\n#\n#
+        Source: http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html\n#\ndo_check()
         {\n  pushd ../${pkg_name}-build > /dev/null\n    # One of the tests uses the
-        hardcoded `bin/cat` path, so we''ll add it, if\n    # it doesn''t exist.\n    if
-        [[ ! -r /bin/cat ]]; then\n      ln -sv \"$(pkg_path_for coreutils)/bin/cat\"
+        hardcoded `bin/cat` path, so we''ll add it, if\n    # it doesn''t exist.\n    #
+        Checking for the binary on `$PATH` will work in both stage1 and default\n    #
+        Studios.\n    if [[ ! -r /bin/cat ]]; then\n      ln -sv \"$(command -v cat)\"
         /bin/cat\n      _clean_cat=true\n    fi\n    # One of the tests uses the hardcoded
         `bin/echo` path, so we''ll add it, if\n    # it doesn''t exist.\n    if [[
-        ! -r /bin/echo ]]; then\n      ln -sv \"$(pkg_path_for coreutils)/bin/echo\"
-        /bin/echo\n      _clean_echo=true\n    fi\n\n    # \"If the test system does
-        not have suitable copies of libgcc_s.so and\n    # libstdc++.so installed
-        in system library directories, it is necessary to\n    # copy or symlink them
-        into the build directory before testing (see\n    # https://sourceware.org/ml/libc-alpha/2012-04/msg01014.html
+        ! -r /bin/echo ]]; then\n      # We can''t use the `command -v echo` trick
+        here, as `echo` is a shell\n      # builtin, and therefore returns the string
+        of \"echo\" (i.e. not the full\n      # path to the executable on `$PATH`).
+        In a stage1 Studio, the coreutils\n      # package isn''t built yet so we
+        can''t rely on using the `pkg_path_for`\n      # helper either. Sweet twist,
+        no?\n      if [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n        ln -sv /tools/bin/echo
+        /bin/echo\n      else\n        ln -sv \"$(pkg_path_for coreutils)/bin/echo\"
+        /bin/echo\n      fi\n      _clean_echo=true\n    fi\n\n    # \"If the test
+        system does not have suitable copies of libgcc_s.so and\n    # libstdc++.so
+        installed in system library directories, it is necessary to\n    # copy or
+        symlink them into the build directory before testing (see\n    # https://sourceware.org/ml/libc-alpha/2012-04/msg01014.html
         regarding the\n    # use of system library directories here).\"\n    #\n    #
-        Source: https://sourceware.org/glibc/wiki/Release/2.22\n    # Source: http://www0.cs.ucl.ac.uk/staff/ucacbbl/glibc/index.html#bug-atexit3\n    if
+        Source: https://sourceware.org/glibc/wiki/Release/2.23\n    # Source: http://www0.cs.ucl.ac.uk/staff/ucacbbl/glibc/index.html#bug-atexit3\n    if
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n      ln -sv /tools/lib/libgcc_s.so.1
         .\n      ln -sv /tools/lib/libstdc++.so.6 .\n    else\n      ln -sv \"$(pkg_path_for
         gcc)/lib/libgcc_s.so.1\" .\n      ln -sv \"$(pkg_path_for gcc)/lib/libstdc++.so.6\"
@@ -172,7 +186,7 @@ http_interactions:
         \"$pkg_prefix/etc/ld.so.conf\"\n\n    # To ensure the `make install` checks
         at the end succeed. Unfortunately,\n    # a multilib installation is assumed
         (i.e. 32-bit and 64-bit). We will\n    # fool this check by symlinking a \"32-bit\"
-        file to the real loader.\n    mkdir -p \"$pkg_prefix/lib\"\n    ln -sv ld-2.22.so
+        file to the real loader.\n    mkdir -p \"$pkg_prefix/lib\"\n    ln -sv ld-${pkg_version}.so
         \"$pkg_prefix/lib/ld-linux.so.2\"\n\n    # Add a `lib64` -> `lib` symlink
         for `bin/ldd` to work correctly.\n    #\n    # Thanks to: https://github.com/NixOS/nixpkgs/blob/55b03266cfc25ae019af3cdd2cfcad0facdc68f2/pkgs/development/libraries/glibc/builder.sh#L43-L47\n    ln
         -sv lib \"$pkg_prefix/lib64\"\n\n    if [[ \"$STUDIO_TYPE\" = \"stage1\" ]];
@@ -229,16 +243,16 @@ http_interactions:
         plan is sourced externally\n    pkg_filename=\"$(basename $pkg_source)\"\n    pkg_dirname=\"${pkg_name}-${pkg_version}\"\n    CACHE_PATH=\"$HAB_CACHE_SRC_PATH/$pkg_dirname\"\n\n    build_line
         \"Downloading $pkg_source\"\n    do_download\n    build_line \"Verifying $pkg_filename\"\n    do_verify\n    build_line
         \"Clean the cache\"\n    do_clean\n    build_line \"Unpacking $pkg_filename\"\n    do_unpack\n    mv
-        -v \"$HAB_CACHE_SRC_PATH/$pkg_dirname\" \"$HAB_CACHE_SRC_PATH/$build_dirname/$plan\"\n  )\n}\n\n\n#
+        -v \"$HAB_CACHE_SRC_PATH/$pkg_dirname\" \\\n      \"$HAB_CACHE_SRC_PATH/$build_dirname/$plan\"\n  )\n}\n\n\n#
         ----------------------------------------------------------------------------\n#
         **NOTICE:** What follows are implementation details required for building
         a\n# first-pass, \"stage1\" toolchain and environment. It is only used when
         running\n# in a \"stage1\" Studio and can be safely ignored by almost everyone.
         Having\n# said that, it performs a vital bootstrapping process and cannot
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
-        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
+        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:28 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:33 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/musl/latest
@@ -252,76 +266,84 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Cache-Control:
       - private, no-cache, no-store, private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - 63019db59c548ba1f12c8b238c6ef2615807dc1922b94293606fc8e7f2ed9d30
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
+      Accept-Ranges:
+      - bytes
+      - bytes
+      - bytes
+      - bytes
+      Age:
+      - '0'
+      - '0'
+      - '0'
+      - '0'
       Via:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '1632'
-      Accept-Ranges:
-      - bytes
+      - '3846'
       Date:
-      - Thu, 12 Apr 2018 15:17:29 GMT
-      Age:
-      - '0'
+      - Mon, 17 Sep 2018 17:28:33 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1027-SEA, cache-dfw18620-DFW
+      - cache-sea1035-SEA, cache-dfw18638-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
-      string: '{"channels":["bldr-934274506564550656","stable","unstable"],"checksum":"65280111617075be6ba2c645641b1a90bbfcbd08041bbe9b827e69236f140ea1","config":"","deps":[],"exposes":[],"ident":{"name":"musl","origin":"core","release":"20180310000919","version":"1.1.18"},"is_a_service":false,"manifest":"#
+      encoding: UTF-8
+      string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"63019db59c548ba1f12c8b238c6ef2615807dc1922b94293606fc8e7f2ed9d30","config":"","deps":[],"exposes":[],"ident":{"name":"musl","origin":"core","release":"20180608102708","version":"1.1.19"},"is_a_service":false,"manifest":"#
         core / musl\nmusl is a new standard library to power a new generation of Linux-based
         devices. musl is lightweight, fast, simple, free, and strives to be correct
         in the sense of standards-conformance and safety.\n\n* __Maintainer__: The
-        Habitat Maintainers <humans@habitat.sh>\n* __Version__: 1.1.18\n* __Release__:
-        20180310000919\n* __Architecture__: x86_64\n* __System__: linux\n* __Target__:
+        Habitat Maintainers <humans@habitat.sh>\n* __Version__: 1.1.19\n* __Release__:
+        20180608102708\n* __Architecture__: x86_64\n* __System__: linux\n* __Target__:
         x86_64-linux\n* __Upstream URL__: [https://www.musl-libc.org/](https://www.musl-libc.org/)\n*
-        __License__: MIT \n* __Source__: [http://www.musl-libc.org/releases/musl-1.1.18.tar.gz](http://www.musl-libc.org/releases/musl-1.1.18.tar.gz)\n*
-        __SHA__: `d017ee5d01aec0c522a1330fdff06b1e428cb409e1db819cc4935d5da4a5a118`\n*
-        __Path__: `/hab/pkgs/core/musl/1.1.18/20180310000919`\n* __Build Dependencies__:
+        __License__: MIT \n* __Source__: [http://www.musl-libc.org/releases/musl-1.1.19.tar.gz](http://www.musl-libc.org/releases/musl-1.1.19.tar.gz)\n*
+        __SHA__: `db59a8578226b98373f5b27e61f0dd29ad2456f4aa9cec587ba8c24508e4c1d9`\n*
+        __Path__: `/hab/pkgs/core/musl/1.1.19/20180608102708`\n* __Build Dependencies__:
         `core/coreutils core/diffutils core/gcc core/make core/patch core/sed `\n*
         __Dependencies__: no runtime dependencies or undefined\n* __Interpreters__:
         no interpreters or undefined\n\n# Plan\n\n## Build Flags\n\n```bash\nCFLAGS:
-        -I/hab/pkgs/core/gcc/5.2.0/20170513202244/include -I/hab/pkgs/core/make/4.2.1/20170513214620/include\nCPPFLAGS:
-        -I/hab/pkgs/core/gcc/5.2.0/20170513202244/include -I/hab/pkgs/core/make/4.2.1/20170513214620/include\nCXXFLAGS:
-        -I/hab/pkgs/core/gcc/5.2.0/20170513202244/include -I/hab/pkgs/core/make/4.2.1/20170513214620/include\nLDFLAGS:
-        -L/hab/pkgs/core/gcc/5.2.0/20170513202244/lib\nLD_RUN_PATH: /hab/pkgs/core/musl/1.1.18/20180310000919/lib\n```\n\n##
-        Plan Source\n\n```bash\npkg_name=musl\npkg_origin=core\npkg_version=1.1.18\npkg_license=(''MIT'')\npkg_maintainer=\"The
-        Habitat Maintainers <humans@habitat.sh>\"\npkg_description=\"musl is a new
-        standard library to power a new generation of Linux-based devices. musl is
-        lightweight, fast, simple, free, and strives to be correct in the sense of
-        standards-conformance and safety.\"\npkg_upstream_url=\"https://www.musl-libc.org/\"\npkg_source=\"http://www.musl-libc.org/releases/${pkg_name}-${pkg_version}.tar.gz\"\npkg_shasum=\"d017ee5d01aec0c522a1330fdff06b1e428cb409e1db819cc4935d5da4a5a118\"\npkg_deps=()\npkg_build_deps=(\n  core/coreutils\n  core/diffutils\n  core/gcc\n  core/make\n  core/patch\n  core/sed\n)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_prepare()
+        -I/hab/pkgs/core/gcc/7.3.0/20180608051919/include -I/hab/pkgs/core/make/4.2.1/20180608100733/include\nCPPFLAGS:
+        -I/hab/pkgs/core/gcc/7.3.0/20180608051919/include -I/hab/pkgs/core/make/4.2.1/20180608100733/include\nCXXFLAGS:
+        -I/hab/pkgs/core/gcc/7.3.0/20180608051919/include -I/hab/pkgs/core/make/4.2.1/20180608100733/include\nLDFLAGS:
+        -L/hab/pkgs/core/gcc/7.3.0/20180608051919/lib\nLD_RUN_PATH: /hab/pkgs/core/musl/1.1.19/20180608102708/lib\n```\n\n##
+        Plan Source\n\n```bash\npkg_name=musl\npkg_origin=core\npkg_version=1.1.19\npkg_maintainer=\"The
+        Habitat Maintainers <humans@habitat.sh>\"\npkg_description=\"\\\nmusl is a
+        new standard library to power a new generation of Linux-based \\\ndevices.
+        musl is lightweight, fast, simple, free, and strives to be correct \\\nin
+        the sense of standards-conformance and safety.\\\n\"\npkg_upstream_url=\"https://www.musl-libc.org/\"\npkg_license=(''MIT'')\npkg_source=\"http://www.musl-libc.org/releases/${pkg_name}-${pkg_version}.tar.gz\"\npkg_shasum=\"db59a8578226b98373f5b27e61f0dd29ad2456f4aa9cec587ba8c24508e4c1d9\"\npkg_deps=()\npkg_build_deps=(\n  core/coreutils\n  core/diffutils\n  core/gcc\n  core/make\n  core/patch\n  core/sed\n)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_prepare()
         {\n  stack_size=\"2097152\"\n  build_line \"Setting default stack size to
-        ''$stack_size'' from default of ''81920''\"\n  sed -i \"s/#define DEFAULT_STACK_SIZE
+        ''$stack_size'' from default ''81920''\"\n  sed \\\n    -i \"s/#define DEFAULT_STACK_SIZE
         .*/#define DEFAULT_STACK_SIZE $stack_size/\" \\\n    src/internal/pthread_impl.h\n}\n\ndo_build()
         {\n  ./configure \\\n    --prefix=\"$pkg_prefix\" \\\n    --syslibdir=\"$pkg_prefix/lib\"\n  make
         -j \"$(nproc)\"\n}\n\ndo_install() {\n  do_default_install\n\n  # Install
@@ -332,13 +354,12 @@ http_interactions:
         running\n# in a \"stage1\" Studio and can be safely ignored by almost everyone.
         Having\n# said that, it performs a vital bootstrapping process and cannot
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
-        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils
-        core/sed core/diffutils core/make core/patch)\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
+        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:29 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:33 GMT
 - request:
     method: get
-    uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.22/20170513201042
+    uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/2.27/20180608041157
     body:
       encoding: US-ASCII
       string: ''
@@ -349,93 +370,106 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Alternate-Protocol:
       - 443:npn-spdy/3
       Cache-Control:
       - private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - 953093152ce8208332cebcb87e625069a68486ce502874792e9867e6ef7ae6f0
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       X-Content-Type-Options:
       - nosniff
       X-Ua-Compatible:
       - IE=Edge
       X-Xss-Protection:
       - 1; mode=block
+      Accept-Ranges:
+      - bytes
+      - bytes
+      - bytes
+      - bytes
+      Age:
+      - '0'
+      - '0'
+      - '0'
+      - '0'
       Via:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '6382'
-      Accept-Ranges:
-      - bytes
+      - '16922'
       Date:
-      - Thu, 12 Apr 2018 15:17:31 GMT
-      Age:
-      - '0'
+      - Mon, 17 Sep 2018 17:28:33 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1046-SEA, cache-dfw18625-DFW
+      - cache-sea1024-SEA, cache-dfw18624-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
-      string: '{"channels":["stable","unstable"],"checksum":"1929b3c8d6ea5cabb81f0e32cf814608f7c6e4232a22cef5d71d0671b48b2c45","config":"","deps":[{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"exposes":[],"ident":{"name":"glibc","origin":"core","release":"20170513201042","version":"2.22"},"is_a_service":false,"manifest":"#
-        core / glibc\n  The GNU C Library project provides the core libraries for
-        the GNU system and GNU/Linux systems,\n  as well as many other systems that
-        use Linux as the kernel. These libraries provide critical\n  APIs including
-        ISO C11, POSIX.1-2008, BSD, OS-specific APIs and more. These APIs include
-        such\n  foundational facilities as open, read, write, malloc, printf, getaddrinfo,
-        dlopen,\n  pthread_create, crypt, login, exit and more.\n\n* __Maintainer__:
-        The Habitat Maintainers <humans@habitat.sh>\n* __Version__: 2.22\n* __Release__:
-        20170513201042\n* __Architecture__: x86_64\n* __System__: linux\n* __Target__:
-        x86_64-linux\n* __Upstream URL__: [https://www.gnu.org/software/libc](https://www.gnu.org/software/libc)\n*
-        __License__: gplv2 lgplv2 \n* __Source__: [http://ftp.gnu.org/gnu/glibc/glibc-2.22.tar.xz](http://ftp.gnu.org/gnu/glibc/glibc-2.22.tar.xz)\n*
-        __SHA__: `eb731406903befef1d8f878a46be75ef862b9056ab0cde1626d08a7a05328948`\n*
-        __Path__: `/hab/pkgs/core/glibc/2.22/20170513201042`\n* __Build Dependencies__:
-        `core/coreutils core/diffutils core/patch core/make core/gcc core/sed core/perl
-        `\n* __Dependencies__: `core/linux-headers `\n* __Interpreters__: no interpreters
-        or undefined\n\n# Plan\n\n## Build Flags\n\n```bash\nCFLAGS: no CFLAGS\nCPPFLAGS:
-        -I/hab/pkgs/core/linux-headers/4.3/20170513200956/include -I/hab/pkgs/core/make/4.2.1/20161214000256/include
-        -I/hab/pkgs/core/gcc/5.2.0/20161208212815/include\nCXXFLAGS: -I/hab/pkgs/core/linux-headers/4.3/20170513200956/include
-        -I/hab/pkgs/core/make/4.2.1/20161214000256/include -I/hab/pkgs/core/gcc/5.2.0/20161208212815/include\nLDFLAGS:
-        -Wl,--dynamic-linker=/hab/pkgs/core/glibc/2.22/20170513201042/lib/ld-linux-x86-64.so.2\nLD_RUN_PATH:
-        no LD_RUN_PATH\n```\n\n## Plan Source\n\n```bash\npkg_name=glibc\npkg_origin=core\npkg_version=2.22\npkg_maintainer=\"The
-        Habitat Maintainers <humans@habitat.sh>\"\npkg_license=(''gplv2'' ''lgplv2'')\npkg_description=\"$(cat
-        << EOF\n  The GNU C Library project provides the core libraries for the GNU
-        system and GNU/Linux systems,\n  as well as many other systems that use Linux
-        as the kernel. These libraries provide critical\n  APIs including ISO C11,
-        POSIX.1-2008, BSD, OS-specific APIs and more. These APIs include such\n  foundational
-        facilities as open, read, write, malloc, printf, getaddrinfo, dlopen,\n  pthread_create,
-        crypt, login, exit and more.\nEOF\n)\"\npkg_source=http://ftp.gnu.org/gnu/$pkg_name/${pkg_name}-${pkg_version}.tar.xz\npkg_shasum=eb731406903befef1d8f878a46be75ef862b9056ab0cde1626d08a7a05328948\npkg_upstream_url=https://www.gnu.org/software/libc\npkg_deps=(core/linux-headers)\npkg_build_deps=(core/coreutils
-        core/diffutils core/patch core/make core/gcc core/sed core/perl)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_prepare()
+      encoding: UTF-8
+      string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"953093152ce8208332cebcb87e625069a68486ce502874792e9867e6ef7ae6f0","config":"","deps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"exposes":[],"ident":{"name":"glibc","origin":"core","release":"20180608041157","version":"2.27"},"is_a_service":false,"manifest":"#
+        core / glibc\nThe GNU C Library project provides the core libraries for the
+        GNU system and GNU/Linux systems, as well as many other systems that use Linux
+        as the kernel. These libraries provide critical APIs including ISO C11, POSIX.1-2008,
+        BSD, OS-specific APIs and more. These APIs include such foundational facilities
+        as open, read, write, malloc, printf, getaddrinfo, dlopen, pthread_create,
+        crypt, login, exit and more.\n\n* __Maintainer__: The Habitat Maintainers
+        <humans@habitat.sh>\n* __Version__: 2.27\n* __Release__: 20180608041157\n*
+        __Architecture__: x86_64\n* __System__: linux\n* __Target__: x86_64-linux\n*
+        __Upstream URL__: [https://www.gnu.org/software/libc](https://www.gnu.org/software/libc)\n*
+        __License__: GPL-2.0 LGPL-2.0 \n* __Source__: [http://ftp.gnu.org/gnu/glibc/glibc-2.27.tar.xz](http://ftp.gnu.org/gnu/glibc/glibc-2.27.tar.xz)\n*
+        __SHA__: `5172de54318ec0b7f2735e5a91d908afe1c9ca291fec16b5374d9faadfc1fc72`\n*
+        __Path__: `/hab/pkgs/core/glibc/2.27/20180608041157`\n* __Build Dependencies__:
+        `core/coreutils core/bison core/diffutils core/patch core/make core/gcc core/sed
+        core/perl `\n* __Dependencies__: `core/linux-headers `\n* __Interpreters__:
+        no interpreters or undefined\n\n# Plan\n\n## Build Flags\n\n```bash\nCFLAGS:
+        no CFLAGS\nCPPFLAGS: -I/hab/pkgs/core/linux-headers/4.15.9/20180608041107/include
+        -I/hab/pkgs/core/make/4.2.1/20180608031320/include -I/hab/pkgs/core/gcc/7.3.0/20180607201502/include\nCXXFLAGS:
+        -I/hab/pkgs/core/linux-headers/4.15.9/20180608041107/include -I/hab/pkgs/core/make/4.2.1/20180608031320/include
+        -I/hab/pkgs/core/gcc/7.3.0/20180607201502/include\nLDFLAGS: -Wl,--dynamic-linker=/hab/pkgs/core/glibc/2.27/20180608041157/lib/ld-linux-x86-64.so.2\nLD_RUN_PATH:
+        no LD_RUN_PATH\n```\n\n## Plan Source\n\n```bash\npkg_name=glibc\npkg_origin=core\npkg_version=2.27\npkg_maintainer=\"The
+        Habitat Maintainers <humans@habitat.sh>\"\npkg_description=\"\\\nThe GNU C
+        Library project provides the core libraries for the GNU system and \\\nGNU/Linux
+        systems, as well as many other systems that use Linux as the \\\nkernel. These
+        libraries provide critical APIs including ISO C11, \\\nPOSIX.1-2008, BSD,
+        OS-specific APIs and more. These APIs include such \\\nfoundational facilities
+        as open, read, write, malloc, printf, getaddrinfo, \\\ndlopen, pthread_create,
+        crypt, login, exit and more.\\\n\"\npkg_upstream_url=\"https://www.gnu.org/software/libc\"\npkg_license=(''GPL-2.0''
+        ''LGPL-2.0'')\npkg_source=\"http://ftp.gnu.org/gnu/$pkg_name/${pkg_name}-${pkg_version}.tar.xz\"\npkg_shasum=\"5172de54318ec0b7f2735e5a91d908afe1c9ca291fec16b5374d9faadfc1fc72\"\npkg_deps=(\n  core/linux-headers\n)\npkg_build_deps=(\n  core/coreutils\n  core/bison\n  core/diffutils\n  core/patch\n  core/make\n  core/gcc\n  core/sed\n  core/perl\n)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_prepare()
         {\n  # The `/bin/pwd` path is hardcoded, so we''ll add a symlink if needed.\n  if
-        [[ ! -r /bin/pwd ]]; then\n    ln -sv \"$(pkg_path_for coreutils)/bin/pwd\"
-        /bin/pwd\n    _clean_pwd=true\n  fi\n\n  # Determine the full path to the
-        linker which will be produced.\n  dynamic_linker=\"$pkg_prefix/lib/ld-linux-x86-64.so.2\"\n\n  #
+        [[ ! -r /bin/pwd ]]; then\n    # We can''t use the `command -v pwd` trick
+        here, as `pwd` is a shell\n    # builtin, and therefore returns the string
+        of \"pwd\" (i.e. not the full\n    # path to the executable on `$PATH`). In
+        a stage1 Studio, the coreutils\n    # package isn''t built yet so we can''t
+        rely on using the `pkg_path_for`\n    # helper either.  Sweet twist, no?\n    if
+        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n      ln -sv /tools/bin/pwd /bin/pwd\n    else\n      ln
+        -sv \"$(pkg_path_for coreutils)/bin/pwd\" /bin/pwd\n    fi\n    _clean_pwd=true\n  fi\n\n  #
+        Determine the full path to the linker which will be produced.\n  dynamic_linker=\"$pkg_prefix/lib/ld-linux-x86-64.so.2\"\n\n  #
         We don''t want glibc to try and reference itself before it''s installed,\n  #
         no `$LD_RUN_PATH`s here\n  unset LD_RUN_PATH\n  build_line \"Overriding LD_RUN_PATH=$LD_RUN_PATH\"\n\n  unset
         CFLAGS\n  build_line \"Overriding CFLAGS=$CFLAGS\"\n\n  # Add a dynamic-linker
@@ -454,9 +488,7 @@ http_interactions:
         for the scanf15 and scanf17 tests for arches that need\n  # misc/bits/syscall.h.
         This problem is present once a custom location is used\n  # for the Linux
         Kernel headers.\n  #\n  # Source: https://lists.debian.org/debian-glibc/2013/11/msg00116.html\n  patch
-        -p1 < \"$PLAN_CONTEXT/testsuite-fix.patch\"\n\n  # Fix for CVE-2015-7547 and
-        more\n  #\n  # Source: http://www.linuxfromscratch.org/patches/downloads/glibc/glibc-2.22-upstream_fixes-1.patch\n  patch
-        -p1 < \"$PLAN_CONTEXT/glibc-2.22-upstream_fixes-1.patch\"\n\n  # Adjust `scripts/test-installation.pl`
+        -p1 < \"$PLAN_CONTEXT/testsuite-fix.patch\"\n\n  # Adjust `scripts/test-installation.pl`
         to use our new dynamic linker\n  sed -i \"s|libs -o|libs -L${pkg_prefix}/lib
         -Wl,-dynamic-linker=${dynamic_linker} -o|\" \\\n    scripts/test-installation.pl\n}\n\ndo_build()
         {\n  rm -rf ../${pkg_name}-build\n  mkdir ../${pkg_name}-build\n  pushd ../${pkg_name}-build
@@ -470,7 +502,7 @@ http_interactions:
         > /dev/null\n}\n\n# Running a `make check` is considered one critical test
         of the correctness of\n# the resulting glibc build. Unfortunetly, the time
         to complete the test suite\n# rougly triples the build time of this Plan and
-        there are at least 4 known\n# failures which means that `make check` certainly
+        there are at least 2 known\n# failures which means that `make check` certainly
         returns a non-zero exit\n# code. Despite these downsides, it is still worth
         the pain when building the\n# first time in a new environment, or when a new
         upstream version is attempted.\n#\n# There are known failures in `make check`,
@@ -482,26 +514,29 @@ http_interactions:
         is considered the default and hence the value\n# 0x12. If you see such a difference,
         you should check that the size\n# corresponds to your prefix, i.e. `(length
         of prefix path + 1)` to ensure that\n# you haven''t really broken abi with
-        your change.\"\n#\n# Source: https://sourceware.org/glibc/wiki/Testing/Testsuite#Known_testsuite_failures\n#\n#
-        ## FAIL: elf/tst-protected1a\n#\n# \"The elf/tst-protected1a and elf/tst-protected1b
-        tests are known to fail with\n# the current stable version of binutils.\"\n#\n#
-        Source: http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html\n#
-        Source: https://sourceware.org/glibc/wiki/Release/2.22\n#\n# ## FAIL: elf/tst-protected1b\n#\n#
-        Same as above.\n#\n# ## FAIL: posix/tst-getaddrinfo4\n#\n# \"This test will
-        always fail due to not having the necessary networking\n# applications when
-        the tests are run.\"\n#\n# Source: http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html\n#\ndo_check()
+        your change.\"\n#\n# Source:\n# https://sourceware.org/glibc/wiki/Testing/Testsuite#Known_testsuite_failures\n#\n#
+        ## FAIL: posix/tst-getaddrinfo4\n#\n# \"This test will always fail due to
+        not having the necessary networking\n# applications when the tests are run.\"\n#\n#
+        Source: http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html\n#\ndo_check()
         {\n  pushd ../${pkg_name}-build > /dev/null\n    # One of the tests uses the
-        hardcoded `bin/cat` path, so we''ll add it, if\n    # it doesn''t exist.\n    if
-        [[ ! -r /bin/cat ]]; then\n      ln -sv \"$(pkg_path_for coreutils)/bin/cat\"
+        hardcoded `bin/cat` path, so we''ll add it, if\n    # it doesn''t exist.\n    #
+        Checking for the binary on `$PATH` will work in both stage1 and default\n    #
+        Studios.\n    if [[ ! -r /bin/cat ]]; then\n      ln -sv \"$(command -v cat)\"
         /bin/cat\n      _clean_cat=true\n    fi\n    # One of the tests uses the hardcoded
         `bin/echo` path, so we''ll add it, if\n    # it doesn''t exist.\n    if [[
-        ! -r /bin/echo ]]; then\n      ln -sv \"$(pkg_path_for coreutils)/bin/echo\"
-        /bin/echo\n      _clean_echo=true\n    fi\n\n    # \"If the test system does
-        not have suitable copies of libgcc_s.so and\n    # libstdc++.so installed
-        in system library directories, it is necessary to\n    # copy or symlink them
-        into the build directory before testing (see\n    # https://sourceware.org/ml/libc-alpha/2012-04/msg01014.html
+        ! -r /bin/echo ]]; then\n      # We can''t use the `command -v echo` trick
+        here, as `echo` is a shell\n      # builtin, and therefore returns the string
+        of \"echo\" (i.e. not the full\n      # path to the executable on `$PATH`).
+        In a stage1 Studio, the coreutils\n      # package isn''t built yet so we
+        can''t rely on using the `pkg_path_for`\n      # helper either. Sweet twist,
+        no?\n      if [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n        ln -sv /tools/bin/echo
+        /bin/echo\n      else\n        ln -sv \"$(pkg_path_for coreutils)/bin/echo\"
+        /bin/echo\n      fi\n      _clean_echo=true\n    fi\n\n    # \"If the test
+        system does not have suitable copies of libgcc_s.so and\n    # libstdc++.so
+        installed in system library directories, it is necessary to\n    # copy or
+        symlink them into the build directory before testing (see\n    # https://sourceware.org/ml/libc-alpha/2012-04/msg01014.html
         regarding the\n    # use of system library directories here).\"\n    #\n    #
-        Source: https://sourceware.org/glibc/wiki/Release/2.22\n    # Source: http://www0.cs.ucl.ac.uk/staff/ucacbbl/glibc/index.html#bug-atexit3\n    if
+        Source: https://sourceware.org/glibc/wiki/Release/2.23\n    # Source: http://www0.cs.ucl.ac.uk/staff/ucacbbl/glibc/index.html#bug-atexit3\n    if
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n      ln -sv /tools/lib/libgcc_s.so.1
         .\n      ln -sv /tools/lib/libstdc++.so.6 .\n    else\n      ln -sv \"$(pkg_path_for
         gcc)/lib/libgcc_s.so.1\" .\n      ln -sv \"$(pkg_path_for gcc)/lib/libstdc++.so.6\"
@@ -516,7 +551,7 @@ http_interactions:
         \"$pkg_prefix/etc/ld.so.conf\"\n\n    # To ensure the `make install` checks
         at the end succeed. Unfortunately,\n    # a multilib installation is assumed
         (i.e. 32-bit and 64-bit). We will\n    # fool this check by symlinking a \"32-bit\"
-        file to the real loader.\n    mkdir -p \"$pkg_prefix/lib\"\n    ln -sv ld-2.22.so
+        file to the real loader.\n    mkdir -p \"$pkg_prefix/lib\"\n    ln -sv ld-${pkg_version}.so
         \"$pkg_prefix/lib/ld-linux.so.2\"\n\n    # Add a `lib64` -> `lib` symlink
         for `bin/ldd` to work correctly.\n    #\n    # Thanks to: https://github.com/NixOS/nixpkgs/blob/55b03266cfc25ae019af3cdd2cfcad0facdc68f2/pkgs/development/libraries/glibc/builder.sh#L43-L47\n    ln
         -sv lib \"$pkg_prefix/lib64\"\n\n    if [[ \"$STUDIO_TYPE\" = \"stage1\" ]];
@@ -573,19 +608,19 @@ http_interactions:
         plan is sourced externally\n    pkg_filename=\"$(basename $pkg_source)\"\n    pkg_dirname=\"${pkg_name}-${pkg_version}\"\n    CACHE_PATH=\"$HAB_CACHE_SRC_PATH/$pkg_dirname\"\n\n    build_line
         \"Downloading $pkg_source\"\n    do_download\n    build_line \"Verifying $pkg_filename\"\n    do_verify\n    build_line
         \"Clean the cache\"\n    do_clean\n    build_line \"Unpacking $pkg_filename\"\n    do_unpack\n    mv
-        -v \"$HAB_CACHE_SRC_PATH/$pkg_dirname\" \"$HAB_CACHE_SRC_PATH/$build_dirname/$plan\"\n  )\n}\n\n\n#
+        -v \"$HAB_CACHE_SRC_PATH/$pkg_dirname\" \\\n      \"$HAB_CACHE_SRC_PATH/$build_dirname/$plan\"\n  )\n}\n\n\n#
         ----------------------------------------------------------------------------\n#
         **NOTICE:** What follows are implementation details required for building
         a\n# first-pass, \"stage1\" toolchain and environment. It is only used when
         running\n# in a \"stage1\" Studio and can be safely ignored by almost everyone.
         Having\n# said that, it performs a vital bootstrapping process and cannot
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
-        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"}],"visibility":"public"}'
+        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:31 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:33 GMT
 - request:
     method: get
-    uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/musl/1.1.18/20180310000919
+    uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/musl/1.1.19/20180608102708
     body:
       encoding: US-ASCII
       string: ''
@@ -596,84 +631,92 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Alternate-Protocol:
       - 443:npn-spdy/3
       Cache-Control:
       - private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - 63019db59c548ba1f12c8b238c6ef2615807dc1922b94293606fc8e7f2ed9d30
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       X-Content-Type-Options:
       - nosniff
       X-Ua-Compatible:
       - IE=Edge
       X-Xss-Protection:
       - 1; mode=block
+      Accept-Ranges:
+      - bytes
+      - bytes
+      - bytes
+      - bytes
+      Age:
+      - '0'
+      - '0'
+      - '0'
+      - '0'
       Via:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '1632'
-      Accept-Ranges:
-      - bytes
+      - '3846'
       Date:
-      - Thu, 12 Apr 2018 15:17:31 GMT
-      Age:
-      - '0'
+      - Mon, 17 Sep 2018 17:28:33 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1043-SEA, cache-dfw18627-DFW
+      - cache-sea1047-SEA, cache-dfw18627-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
-      string: '{"channels":["bldr-934274506564550656","stable","unstable"],"checksum":"65280111617075be6ba2c645641b1a90bbfcbd08041bbe9b827e69236f140ea1","config":"","deps":[],"exposes":[],"ident":{"name":"musl","origin":"core","release":"20180310000919","version":"1.1.18"},"is_a_service":false,"manifest":"#
+      encoding: UTF-8
+      string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"63019db59c548ba1f12c8b238c6ef2615807dc1922b94293606fc8e7f2ed9d30","config":"","deps":[],"exposes":[],"ident":{"name":"musl","origin":"core","release":"20180608102708","version":"1.1.19"},"is_a_service":false,"manifest":"#
         core / musl\nmusl is a new standard library to power a new generation of Linux-based
         devices. musl is lightweight, fast, simple, free, and strives to be correct
         in the sense of standards-conformance and safety.\n\n* __Maintainer__: The
-        Habitat Maintainers <humans@habitat.sh>\n* __Version__: 1.1.18\n* __Release__:
-        20180310000919\n* __Architecture__: x86_64\n* __System__: linux\n* __Target__:
+        Habitat Maintainers <humans@habitat.sh>\n* __Version__: 1.1.19\n* __Release__:
+        20180608102708\n* __Architecture__: x86_64\n* __System__: linux\n* __Target__:
         x86_64-linux\n* __Upstream URL__: [https://www.musl-libc.org/](https://www.musl-libc.org/)\n*
-        __License__: MIT \n* __Source__: [http://www.musl-libc.org/releases/musl-1.1.18.tar.gz](http://www.musl-libc.org/releases/musl-1.1.18.tar.gz)\n*
-        __SHA__: `d017ee5d01aec0c522a1330fdff06b1e428cb409e1db819cc4935d5da4a5a118`\n*
-        __Path__: `/hab/pkgs/core/musl/1.1.18/20180310000919`\n* __Build Dependencies__:
+        __License__: MIT \n* __Source__: [http://www.musl-libc.org/releases/musl-1.1.19.tar.gz](http://www.musl-libc.org/releases/musl-1.1.19.tar.gz)\n*
+        __SHA__: `db59a8578226b98373f5b27e61f0dd29ad2456f4aa9cec587ba8c24508e4c1d9`\n*
+        __Path__: `/hab/pkgs/core/musl/1.1.19/20180608102708`\n* __Build Dependencies__:
         `core/coreutils core/diffutils core/gcc core/make core/patch core/sed `\n*
         __Dependencies__: no runtime dependencies or undefined\n* __Interpreters__:
         no interpreters or undefined\n\n# Plan\n\n## Build Flags\n\n```bash\nCFLAGS:
-        -I/hab/pkgs/core/gcc/5.2.0/20170513202244/include -I/hab/pkgs/core/make/4.2.1/20170513214620/include\nCPPFLAGS:
-        -I/hab/pkgs/core/gcc/5.2.0/20170513202244/include -I/hab/pkgs/core/make/4.2.1/20170513214620/include\nCXXFLAGS:
-        -I/hab/pkgs/core/gcc/5.2.0/20170513202244/include -I/hab/pkgs/core/make/4.2.1/20170513214620/include\nLDFLAGS:
-        -L/hab/pkgs/core/gcc/5.2.0/20170513202244/lib\nLD_RUN_PATH: /hab/pkgs/core/musl/1.1.18/20180310000919/lib\n```\n\n##
-        Plan Source\n\n```bash\npkg_name=musl\npkg_origin=core\npkg_version=1.1.18\npkg_license=(''MIT'')\npkg_maintainer=\"The
-        Habitat Maintainers <humans@habitat.sh>\"\npkg_description=\"musl is a new
-        standard library to power a new generation of Linux-based devices. musl is
-        lightweight, fast, simple, free, and strives to be correct in the sense of
-        standards-conformance and safety.\"\npkg_upstream_url=\"https://www.musl-libc.org/\"\npkg_source=\"http://www.musl-libc.org/releases/${pkg_name}-${pkg_version}.tar.gz\"\npkg_shasum=\"d017ee5d01aec0c522a1330fdff06b1e428cb409e1db819cc4935d5da4a5a118\"\npkg_deps=()\npkg_build_deps=(\n  core/coreutils\n  core/diffutils\n  core/gcc\n  core/make\n  core/patch\n  core/sed\n)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_prepare()
+        -I/hab/pkgs/core/gcc/7.3.0/20180608051919/include -I/hab/pkgs/core/make/4.2.1/20180608100733/include\nCPPFLAGS:
+        -I/hab/pkgs/core/gcc/7.3.0/20180608051919/include -I/hab/pkgs/core/make/4.2.1/20180608100733/include\nCXXFLAGS:
+        -I/hab/pkgs/core/gcc/7.3.0/20180608051919/include -I/hab/pkgs/core/make/4.2.1/20180608100733/include\nLDFLAGS:
+        -L/hab/pkgs/core/gcc/7.3.0/20180608051919/lib\nLD_RUN_PATH: /hab/pkgs/core/musl/1.1.19/20180608102708/lib\n```\n\n##
+        Plan Source\n\n```bash\npkg_name=musl\npkg_origin=core\npkg_version=1.1.19\npkg_maintainer=\"The
+        Habitat Maintainers <humans@habitat.sh>\"\npkg_description=\"\\\nmusl is a
+        new standard library to power a new generation of Linux-based \\\ndevices.
+        musl is lightweight, fast, simple, free, and strives to be correct \\\nin
+        the sense of standards-conformance and safety.\\\n\"\npkg_upstream_url=\"https://www.musl-libc.org/\"\npkg_license=(''MIT'')\npkg_source=\"http://www.musl-libc.org/releases/${pkg_name}-${pkg_version}.tar.gz\"\npkg_shasum=\"db59a8578226b98373f5b27e61f0dd29ad2456f4aa9cec587ba8c24508e4c1d9\"\npkg_deps=()\npkg_build_deps=(\n  core/coreutils\n  core/diffutils\n  core/gcc\n  core/make\n  core/patch\n  core/sed\n)\npkg_bin_dirs=(bin)\npkg_include_dirs=(include)\npkg_lib_dirs=(lib)\n\ndo_prepare()
         {\n  stack_size=\"2097152\"\n  build_line \"Setting default stack size to
-        ''$stack_size'' from default of ''81920''\"\n  sed -i \"s/#define DEFAULT_STACK_SIZE
+        ''$stack_size'' from default ''81920''\"\n  sed \\\n    -i \"s/#define DEFAULT_STACK_SIZE
         .*/#define DEFAULT_STACK_SIZE $stack_size/\" \\\n    src/internal/pthread_impl.h\n}\n\ndo_build()
         {\n  ./configure \\\n    --prefix=\"$pkg_prefix\" \\\n    --syslibdir=\"$pkg_prefix/lib\"\n  make
         -j \"$(nproc)\"\n}\n\ndo_install() {\n  do_default_install\n\n  # Install
@@ -684,13 +727,12 @@ http_interactions:
         running\n# in a \"stage1\" Studio and can be safely ignored by almost everyone.
         Having\n# said that, it performs a vital bootstrapping process and cannot
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
-        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(core/gcc core/coreutils
-        core/sed core/diffutils core/make core/patch)\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
+        [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:31 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:33 GMT
 - request:
     method: get
-    uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.3/20170513200956
+    uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/linux-headers/4.15.9/20180608041107
     body:
       encoding: US-ASCII
       string: ''
@@ -701,80 +743,89 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - authorization, range
+      - Authorization
       Access-Control-Allow-Methods:
-      - PUT, DELETE, PATCH
+      - DELETE, PATCH, POST, PUT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - content-disposition
+      - Content-Disposition
       Alternate-Protocol:
       - 443:npn-spdy/3
       Cache-Control:
       - private, no-cache, no-store
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
+      Etag:
+      - a8d8f5f74c5bde1f5078bc344bc52ef97a28a0325203673268aa9986b532fa85
       Server:
-      - nginx/1.13.10
+      - nginx/1.15.3
       X-Content-Type-Options:
       - nosniff
       X-Ua-Compatible:
       - IE=Edge
       X-Xss-Protection:
       - 1; mode=block
+      Accept-Ranges:
+      - bytes
+      - bytes
+      - bytes
+      - bytes
+      Age:
+      - '0'
+      - '0'
+      - '0'
+      - '0'
       Via:
       - 1.1 varnish
       - 1.1 varnish
       Content-Length:
-      - '1302'
-      Accept-Ranges:
-      - bytes
+      - '3074'
       Date:
-      - Thu, 12 Apr 2018 15:17:31 GMT
-      Age:
-      - '0'
+      - Mon, 17 Sep 2018 17:28:34 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1042-SEA, cache-dfw18638-DFW
+      - cache-sea1045-SEA, cache-dfw18637-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
       - 0, 0
-      Vary:
-      - Accept-Encoding
       Strict-Transport-Security:
       - max-age= 7776000; includeSubDomains
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: ASCII-8BIT
-      string: '{"channels":["stable","unstable"],"checksum":"8f5d28dbe6e77d01f859eba9300df981f758312724f5d25925f1f22c0cc8ff77","config":"","deps":[],"exposes":[],"ident":{"name":"linux-headers","origin":"core","release":"20170513200956","version":"4.3"},"is_a_service":false,"manifest":"#
-        core / linux-headers\n\n\n* __Maintainer__: The Habitat Maintainers <humans@habitat.sh>\n*
-        __Version__: 4.3\n* __Release__: 20170513200956\n* __Architecture__: x86_64\n*
-        __System__: linux\n* __Target__: x86_64-linux\n* __Upstream URL__: upstream
-        project''s website or home page is not defined\n* __License__: gplv2 \n* __Source__:
-        [https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz)\n*
-        __SHA__: `4a622cc84b8a3c38d39bc17195b0c064d2b46945dfde0dae18f77b120bc9f3ae`\n*
-        __Path__: `/hab/pkgs/core/linux-headers/4.3/20170513200956`\n* __Build Dependencies__:
-        `core/coreutils core/diffutils core/patch core/make core/gcc `\n* __Dependencies__:
-        no runtime dependencies or undefined\n* __Interpreters__: no interpreters
-        or undefined\n\n# Plan\n\n## Build Flags\n\n```bash\nCFLAGS: -I/hab/pkgs/core/make/4.2.1/20161214000256/include
-        -I/hab/pkgs/core/gcc/5.2.0/20161208212815/include\nCPPFLAGS: -I/hab/pkgs/core/make/4.2.1/20161214000256/include
-        -I/hab/pkgs/core/gcc/5.2.0/20161208212815/include\nCXXFLAGS: -I/hab/pkgs/core/make/4.2.1/20161214000256/include
-        -I/hab/pkgs/core/gcc/5.2.0/20161208212815/include\nLDFLAGS: -L/hab/pkgs/core/gcc/5.2.0/20161208212815/lib\nLD_RUN_PATH:
-        no LD_RUN_PATH\n```\n\n## Plan Source\n\n```bash\npkg_name=linux-headers\npkg_origin=core\npkg_version=4.3\npkg_maintainer=\"The
-        Habitat Maintainers <humans@habitat.sh>\"\npkg_license=(''gplv2'')\npkg_source=https://www.kernel.org/pub/linux/kernel/v4.x/linux-${pkg_version}.tar.xz\npkg_shasum=4a622cc84b8a3c38d39bc17195b0c064d2b46945dfde0dae18f77b120bc9f3ae\npkg_dirname=linux-$pkg_version\npkg_deps=()\npkg_build_deps=(core/coreutils
-        core/diffutils core/patch core/make core/gcc)\npkg_include_dirs=(include)\n\ndo_build()
+      encoding: UTF-8
+      string: '{"channels":["base-plans-2018-06","stable","unstable"],"checksum":"a8d8f5f74c5bde1f5078bc344bc52ef97a28a0325203673268aa9986b532fa85","config":"","deps":[],"exposes":[],"ident":{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"},"is_a_service":false,"manifest":"#
+        core / linux-headers\nThe Linux kernel headers\n\n* __Maintainer__: The Habitat
+        Maintainers <humans@habitat.sh>\n* __Version__: 4.15.9\n* __Release__: 20180608041107\n*
+        __Architecture__: x86_64\n* __System__: linux\n* __Target__: x86_64-linux\n*
+        __Upstream URL__: [https://kernel.org](https://kernel.org)\n* __License__:
+        gplv2 \n* __Source__: [https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.15.9.tar.xz](https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.15.9.tar.xz)\n*
+        __SHA__: `dda015b2042e71c6d0df56de553846df1252eac486514000c76b741cde6d4492`\n*
+        __Path__: `/hab/pkgs/core/linux-headers/4.15.9/20180608041107`\n* __Build
+        Dependencies__: `core/coreutils core/diffutils core/patch core/make core/gcc
+        `\n* __Dependencies__: no runtime dependencies or undefined\n* __Interpreters__:
+        no interpreters or undefined\n\n# Plan\n\n## Build Flags\n\n```bash\nCFLAGS:
+        -I/hab/pkgs/core/make/4.2.1/20180608031320/include -I/hab/pkgs/core/gcc/7.3.0/20180607201502/include\nCPPFLAGS:
+        -I/hab/pkgs/core/make/4.2.1/20180608031320/include -I/hab/pkgs/core/gcc/7.3.0/20180607201502/include\nCXXFLAGS:
+        -I/hab/pkgs/core/make/4.2.1/20180608031320/include -I/hab/pkgs/core/gcc/7.3.0/20180607201502/include\nLDFLAGS:
+        -L/hab/pkgs/core/gcc/7.3.0/20180607201502/lib\nLD_RUN_PATH: no LD_RUN_PATH\n```\n\n##
+        Plan Source\n\n```bash\npkg_name=linux-headers\npkg_origin=core\npkg_version=4.15.9\npkg_maintainer=\"The
+        Habitat Maintainers <humans@habitat.sh>\"\npkg_description=\"The Linux kernel
+        headers\"\npkg_upstream_url=\"https://kernel.org\"\npkg_license=(''gplv2'')\npkg_source=\"https://www.kernel.org/pub/linux/kernel/v4.x/linux-${pkg_version}.tar.xz\"\npkg_shasum=\"dda015b2042e71c6d0df56de553846df1252eac486514000c76b741cde6d4492\"\npkg_dirname=\"linux-$pkg_version\"\npkg_deps=()\npkg_build_deps=(\n  core/coreutils\n  core/diffutils\n  core/patch\n  core/make\n  core/gcc\n)\npkg_include_dirs=(include)\n\ndo_build()
         {\n  make headers_install ARCH=x86 INSTALL_HDR_PATH=\"$pkg_prefix\"\n}\n\ndo_install()
-        {\n  find \"$pkg_prefix/include\" \\( -name ..install.cmd -o -name .install
-        \\) -print0 | xargs -0 rm -v\n}\n\n\n# ----------------------------------------------------------------------------\n#
+        {\n  find \"$pkg_prefix/include\" \\\n    \\( -name ..install.cmd -o -name
+        .install \\) \\\n    -print0 \\\n  | xargs -0 rm -v\n}\n\n\n# ----------------------------------------------------------------------------\n#
         **NOTICE:** What follows are implementation details required for building
         a\n# first-pass, \"stage1\" toolchain and environment. It is only used when
         running\n# in a \"stage1\" Studio and can be safely ignored by almost everyone.
@@ -782,5 +833,5 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 15:17:31 GMT
+  recorded_at: Mon, 17 Sep 2018 17:28:34 GMT
 recorded_with: VCR 4.0.0

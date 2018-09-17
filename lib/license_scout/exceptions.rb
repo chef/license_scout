@@ -24,5 +24,6 @@ module LicenseScout
     class PackageNotFound < Error; end
     class HabitatPackageNotFound < PackageNotFound; end
     class FailExit < Error; end
+    class UpstreamFetchError < Error; end
   end
 end
