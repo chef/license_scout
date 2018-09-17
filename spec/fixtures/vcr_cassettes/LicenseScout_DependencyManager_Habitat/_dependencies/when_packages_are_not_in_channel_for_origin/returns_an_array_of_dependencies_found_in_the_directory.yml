@@ -13,6 +13,8 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 404
@@ -44,11 +46,11 @@ http_interactions:
       Content-Length:
       - '0'
       Date:
-      - Mon, 17 Sep 2018 16:25:45 GMT
+      - Mon, 17 Sep 2018 16:57:47 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1030-SEA, cache-dfw18636-DFW
+      - cache-sea1049-SEA, cache-dfw18639-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -61,7 +63,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:25:45 GMT
+  recorded_at: Mon, 17 Sep 2018 16:57:47 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/latest
@@ -75,6 +77,8 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
@@ -107,15 +111,14 @@ http_interactions:
       Age:
       - '0'
       - '0'
-      - '0'
       Content-Length:
       - '16922'
       Date:
-      - Mon, 17 Sep 2018 16:25:45 GMT
+      - Mon, 17 Sep 2018 16:57:47 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1047-SEA, cache-dfw18626-DFW
+      - cache-sea1030-SEA, cache-dfw18623-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -311,7 +314,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:25:45 GMT
+  recorded_at: Mon, 17 Sep 2018 16:57:47 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/musl/latest
@@ -325,6 +328,8 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 404
@@ -356,11 +361,11 @@ http_interactions:
       Content-Length:
       - '0'
       Date:
-      - Mon, 17 Sep 2018 16:25:45 GMT
+      - Mon, 17 Sep 2018 16:57:47 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1026-SEA, cache-dfw18631-DFW
+      - cache-sea1043-SEA, cache-dfw18624-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -373,7 +378,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:25:45 GMT
+  recorded_at: Mon, 17 Sep 2018 16:57:47 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/musl/latest
@@ -387,6 +392,8 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
@@ -413,22 +420,20 @@ http_interactions:
       - bytes
       - bytes
       - bytes
-      Age:
-      - '0'
-      - '0'
-      - '0'
-      - '0'
       Via:
       - 1.1 varnish
       - 1.1 varnish
+      Age:
+      - '0'
+      - '0'
       Content-Length:
       - '3846'
       Date:
-      - Mon, 17 Sep 2018 16:25:45 GMT
+      - Mon, 17 Sep 2018 16:57:48 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1038-SEA, cache-dfw18646-DFW
+      - cache-sea1028-SEA, cache-dfw18621-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -475,7 +480,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:25:45 GMT
+  recorded_at: Mon, 17 Sep 2018 16:57:48 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/glibc/2.27/20180608041157
@@ -489,6 +494,8 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
@@ -534,11 +541,11 @@ http_interactions:
       Content-Length:
       - '16922'
       Date:
-      - Mon, 17 Sep 2018 16:25:46 GMT
+      - Mon, 17 Sep 2018 16:57:48 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1044-SEA, cache-dfw18626-DFW
+      - cache-sea1032-SEA, cache-dfw18650-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -734,7 +741,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:25:46 GMT
+  recorded_at: Mon, 17 Sep 2018 16:57:48 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/musl/1.1.19/20180608102708
@@ -748,6 +755,8 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
@@ -793,11 +802,11 @@ http_interactions:
       Content-Length:
       - '3846'
       Date:
-      - Mon, 17 Sep 2018 16:25:46 GMT
+      - Mon, 17 Sep 2018 16:57:48 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1040-SEA, cache-dfw18651-DFW
+      - cache-sea1025-SEA, cache-dfw18645-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -844,7 +853,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:25:46 GMT
+  recorded_at: Mon, 17 Sep 2018 16:57:48 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/linux-headers/4.15.9/20180608041107
@@ -858,6 +867,8 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - bldr.habitat.sh
   response:
     status:
       code: 200
@@ -903,11 +914,11 @@ http_interactions:
       Content-Length:
       - '3074'
       Date:
-      - Mon, 17 Sep 2018 16:25:46 GMT
+      - Mon, 17 Sep 2018 16:57:48 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1037-SEA, cache-dfw18650-DFW
+      - cache-sea1028-SEA, cache-dfw18628-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -946,5 +957,5 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:25:46 GMT
+  recorded_at: Mon, 17 Sep 2018 16:57:48 GMT
 recorded_with: VCR 4.0.0
