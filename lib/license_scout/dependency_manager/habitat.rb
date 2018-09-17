@@ -74,10 +74,6 @@ module LicenseScout
         end.compact
       end
 
-      def fetched_urls
-        @fetched_urls ||= {}
-      end
-
       private
 
       def license_from_manifest(manifest_content)
@@ -147,15 +143,13 @@ module LicenseScout
         response = Net::HTTP.get_response(URI(base_api_uri))
 
         if response.is_a?(Net::HTTPSuccess)
-          FFI_Yajl::Parser.parse(response.body).tap do |bldr_info|
-            fetched_urls["#{origin}/#{name}"] = base_api_uri
-          end
+          FFI_Yajl::Parser.parse(response.body)
         else
           case response.code
           when "404"
-            return nil
+            nil
           else
-            raise LicenseScout::Exceptions::UpstreamFetchError.new("Received \"#{response.code} #{response.message}\" when attempting to fetch package information for the #{origin}/#{name} Habitat package")
+            raise LicenseScout::Exceptions::UpstreamFetchError.new("Received \"#{response.code} #{response.msg}\" when attempting to fetch package information for the #{origin}/#{name} Habitat package")
           end
         end
       end
