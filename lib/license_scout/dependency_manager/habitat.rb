@@ -18,7 +18,7 @@
 require "license_scout/dependency_manager/base"
 require "license_scout/exceptions"
 
-require "open-uri"
+require "net/http"
 require "mixlib/shellout"
 
 module LicenseScout
@@ -144,11 +144,20 @@ module LicenseScout
         end
 
         LicenseScout::Log.debug("[habitat] Fetching pkg_info from #{base_api_uri}")
-        FFI_Yajl::Parser.parse(open(base_api_uri).read).tap do |bldr_info|
-          fetched_urls["#{origin}/#{name}"] = base_api_uri
+        response = Net::HTTP.get_response(URI(base_api_uri))
+
+        if response.is_a?(Net::HTTPSuccess)
+          FFI_Yajl::Parser.parse(response.body).tap do |bldr_info|
+            fetched_urls["#{origin}/#{name}"] = base_api_uri
+          end
+        else
+          case response.code
+          when "404"
+            return nil
+          else
+            raise LicenseScout::Exceptions::UpstreamFetchError.new("Received \"#{response.code} #{response.message}\" when attempting to fetch package information for the #{origin}/#{name} Habitat package")
+          end
         end
-      rescue OpenURI::HTTPError
-        nil
       end
 
       def channel_for_origin(pkg_origin)
