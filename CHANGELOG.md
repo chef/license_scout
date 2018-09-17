@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.1.3 -->
+## [v2.1.3](https://github.com/chef/license_scout/tree/v2.1.3) (2018-09-17)
+
+#### Merged Pull Requests
+- Consolidate all the gem requires and use net/http in mix [#180](https://github.com/chef/license_scout/pull/180) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.1.2 -->
+### Changes since 2.1.2 release
+
+#### Merged Pull Requests
+- Consolidate all the gem requires and use net/http in mix [#180](https://github.com/chef/license_scout/pull/180) ([tduffield](https://github.com/tduffield)) <!-- 2.1.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
