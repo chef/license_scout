@@ -147,8 +147,14 @@ module LicenseScout
         FFI_Yajl::Parser.parse(open(base_api_uri).read).tap do |bldr_info|
           fetched_urls["#{origin}/#{name}"] = base_api_uri
         end
-      rescue OpenURI::HTTPError
-        nil
+      rescue OpenURI::HTTPError => e
+        response_code = e.io.status.first
+        case response_code
+        when "404"
+          return nil
+        else
+          raise e
+        end
       end
 
       def channel_for_origin(pkg_origin)
