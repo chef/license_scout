@@ -17,6 +17,17 @@
 
 require "licensee"
 require "license_scout/dependency"
+require "license_scout/exceptions"
+
+require "bundler"
+require "ffi_yajl"
+require "net/http"
+require "mixlib/shellout"
+require "pathname"
+require "psych"
+require "set"
+require "toml-rb"
+require "yaml"
 
 module LicenseScout
   # The DependencyManager module (or more accurately, implementations of it) are responsible for recognizing

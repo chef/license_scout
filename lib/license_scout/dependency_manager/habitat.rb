@@ -16,10 +16,6 @@
 #
 
 require "license_scout/dependency_manager/base"
-require "license_scout/exceptions"
-
-require "net/http"
-require "mixlib/shellout"
 
 module LicenseScout
   module DependencyManager

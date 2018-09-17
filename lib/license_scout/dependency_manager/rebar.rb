@@ -16,10 +16,6 @@
 #
 
 require "license_scout/dependency_manager/base"
-require "license_scout/exceptions"
-
-require "mixlib/shellout"
-require "ffi_yajl"
 
 module LicenseScout
   module DependencyManager

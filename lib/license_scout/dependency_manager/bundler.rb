@@ -17,11 +17,6 @@
 
 require "license_scout/dependency_manager/base"
 
-require "bundler"
-require "mixlib/shellout"
-require "ffi_yajl"
-require "pathname"
-
 module LicenseScout
   module DependencyManager
     class Bundler < Base

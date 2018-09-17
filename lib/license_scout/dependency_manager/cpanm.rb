@@ -17,10 +17,6 @@
 
 require "license_scout/dependency_manager/base"
 
-require "ffi_yajl"
-require "psych"
-require "mixlib/shellout"
-
 module LicenseScout
   module DependencyManager
     class Cpanm < Base
