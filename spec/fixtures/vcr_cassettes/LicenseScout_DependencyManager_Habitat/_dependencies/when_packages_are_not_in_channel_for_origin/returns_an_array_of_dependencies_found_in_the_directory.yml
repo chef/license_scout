@@ -46,11 +46,11 @@ http_interactions:
       Content-Length:
       - '0'
       Date:
-      - Mon, 17 Sep 2018 16:57:47 GMT
+      - Mon, 17 Sep 2018 17:29:01 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1049-SEA, cache-dfw18639-DFW
+      - cache-sea1040-SEA, cache-dfw18620-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -63,7 +63,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:57:47 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:01 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/glibc/latest
@@ -114,11 +114,11 @@ http_interactions:
       Content-Length:
       - '16922'
       Date:
-      - Mon, 17 Sep 2018 16:57:47 GMT
+      - Mon, 17 Sep 2018 17:29:02 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1030-SEA, cache-dfw18623-DFW
+      - cache-sea1022-SEA, cache-dfw18624-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -314,7 +314,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:57:47 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:02 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/musl/latest
@@ -361,11 +361,11 @@ http_interactions:
       Content-Length:
       - '0'
       Date:
-      - Mon, 17 Sep 2018 16:57:47 GMT
+      - Mon, 17 Sep 2018 17:29:02 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1043-SEA, cache-dfw18624-DFW
+      - cache-sea1031-SEA, cache-dfw18647-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -378,7 +378,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:57:47 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:02 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/musl/latest
@@ -429,11 +429,11 @@ http_interactions:
       Content-Length:
       - '3846'
       Date:
-      - Mon, 17 Sep 2018 16:57:48 GMT
+      - Mon, 17 Sep 2018 17:29:02 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1028-SEA, cache-dfw18621-DFW
+      - cache-sea1043-SEA, cache-dfw18648-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -480,7 +480,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:57:48 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:02 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/glibc/2.27/20180608041157
@@ -541,11 +541,11 @@ http_interactions:
       Content-Length:
       - '16922'
       Date:
-      - Mon, 17 Sep 2018 16:57:48 GMT
+      - Mon, 17 Sep 2018 17:29:02 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1032-SEA, cache-dfw18650-DFW
+      - cache-sea1021-SEA, cache-dfw18622-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -741,7 +741,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[{"name":"linux-headers","origin":"core","release":"20180608041107","version":"4.15.9"}],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:57:48 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:03 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/musl/1.1.19/20180608102708
@@ -802,11 +802,11 @@ http_interactions:
       Content-Length:
       - '3846'
       Date:
-      - Mon, 17 Sep 2018 16:57:48 GMT
+      - Mon, 17 Sep 2018 17:29:03 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1025-SEA, cache-dfw18645-DFW
+      - cache-sea1036-SEA, cache-dfw18624-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -853,7 +853,7 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=(\n    core/gcc\n    core/coreutils\n    core/sed\n    core/diffutils\n    core/make\n    core/patch\n  )\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:57:48 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:03 GMT
 - request:
     method: get
     uri: https://bldr.habitat.sh/v1/depot/channels/core/froghornetsnest/pkgs/linux-headers/4.15.9/20180608041107
@@ -914,11 +914,11 @@ http_interactions:
       Content-Length:
       - '3074'
       Date:
-      - Mon, 17 Sep 2018 16:57:48 GMT
+      - Mon, 17 Sep 2018 17:29:03 GMT
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sea1028-SEA, cache-dfw18628-DFW
+      - cache-sea1024-SEA, cache-dfw18631-DFW
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
@@ -957,5 +957,5 @@ http_interactions:
         be removed or\n# significantly altered. Thank you!\n# ----------------------------------------------------------------------------\nif
         [[ \"$STUDIO_TYPE\" = \"stage1\" ]]; then\n  pkg_build_deps=()\nfi\n```","target":"x86_64-linux","tdeps":[],"visibility":"public"}'
     http_version: 
-  recorded_at: Mon, 17 Sep 2018 16:57:48 GMT
+  recorded_at: Mon, 17 Sep 2018 17:29:03 GMT
 recorded_with: VCR 4.0.0
