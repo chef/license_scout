@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.0.16 -->
+## [v1.0.16](https://github.com/chef/license_scout/tree/v1.0.16) (2018-09-27)
+
+#### Merged Pull Requests
+- Add overrides for JS NPM needle, npm-bundled, and minipass [#181](https://github.com/chef/license_scout/pull/181) ([btm](https://github.com/btm))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.1.3 -->
+### Changes since 2.1.3 release
+
+#### Merged Pull Requests
+- Add overrides for JS NPM needle, npm-bundled, and minipass [#181](https://github.com/chef/license_scout/pull/181) ([btm](https://github.com/btm)) <!-- 1.0.16 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
