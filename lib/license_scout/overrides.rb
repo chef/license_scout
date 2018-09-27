@@ -885,7 +885,10 @@ module LicenseScout
         ["buffer-fill", nil, [canonical("MIT")]],
         ["ipaddr.js", "MIT", ["https://raw.githubusercontent.com/whitequark/ipaddr.js/master/LICENSE"]],
         ["psl", "MIT", ["https://raw.githubusercontent.com/wrangr/psl/master/README.md"]],
-        ["is-my-ip-valid", "MIT", ["https://raw.githubusercontent.com/LinusU/is-my-ip-valid/master/LICENSE"]]
+        ["is-my-ip-valid", "MIT", ["https://raw.githubusercontent.com/LinusU/is-my-ip-valid/master/LICENSE"]],
+        ["minipass", "ISC", ["https://raw.githubusercontent.com/isaacs/minipass/master/LICENSE"]],
+        ["npm-bundled", "ISC", ["https://raw.githubusercontent.com/npm/npm-bundled/master/LICENSE"]],
+        ["needle", "MIT", ["https://raw.githubusercontent.com/tomas/needle/master/license.txt"]]
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
