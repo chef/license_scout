@@ -36,11 +36,14 @@ require "json"
 dependencies = []
 
 Bundler.load.specs.each do |gem_spec|
+  gem_license = gem_spec.licenses.nil? ? gem_spec.license : gem_spec.licenses.first
+
   dependencies << {
     name: gem_spec.name,
     version: gem_spec.version.to_s,
-    license: gem_spec.license,
+    license: gem_license,
     path: gem_spec.full_gem_path,
+    homepage: gem_spec.homepage,
   }
 end
 
