@@ -51,6 +51,7 @@ module LicenseScout
         dependency_data.map do |gem_data|
           dep_name = gem_data["name"]
           dep_version = gem_data["version"]
+          dep_license = gem_data["license"]
 
           dep_path = if dep_name == "bundler"
                        # Bundler is weird. It inserts itself as a dependency, but is a
@@ -58,18 +59,18 @@ module LicenseScout
                        # Additionally, rubygems reports the gem path as a path inside
                        # bundler's lib/ dir, so we have to munge it.
                        "https://github.com/bundler/bundler"
-                     elsif dep_name == "json"
-                       # json is different weird. When project is using the json that is prepackaged with
-                       # Ruby, its included not as a full fledged gem but an *.rb file at:
-                       # /opt/opscode/embedded/lib/ruby/2.2.0/json.rb
-                       # Because of this its license is reported as nil and its license files can not be
-                       # found. That is why we need to provide them manually here.
-                       "https://github.com/flori/json"
                      else
                        gem_data["path"]
                      end
 
-          new_dependency(dep_name, dep_version, dep_path)
+          dependency = new_dependency(dep_name, dep_version, dep_path)
+
+          # If the gemspec has defined a license, include that as well.
+          unless dep_license.nil?
+            dependency.add_license(dep_license, "https://rubygems.org/gems/#{dep_name}/versions/#{dep_version}")
+          end
+
+          dependency
         end.compact
       end
 

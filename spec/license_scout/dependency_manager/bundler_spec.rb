@@ -105,16 +105,18 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
 
       # We check the bundler intentionally because we are ;pruy;handling it differently
       bundler_info = dependencies.find { |d| d.name == "bundler" }
-      expect(bundler_info.license.records.length).to eq(2)
+      expect(bundler_info.license.records.length).to eq(3)
       expect(bundler_info.license.records.first.id).to eq("MIT")
       expect(bundler_info.license.records.first.source).to eql("README.md")
 
       # We check mixlib-install an example out of 10 dependencies.
       mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
       expect(mixlib_install_info.version).to eq("1.1.0")
-      expect(mixlib_install_info.license.records.length).to eq(1)
+      expect(mixlib_install_info.license.records.length).to eq(2)
       expect(mixlib_install_info.license.records.first.id).to eq("Apache-2.0")
       expect(mixlib_install_info.license.records.first.source).to eq("LICENSE")
+      expect(mixlib_install_info.license.records[1].id).to eql("Apache-2.0")
+      expect(mixlib_install_info.license.records[1].source).to eql("https://rubygems.org/gems/mixlib-install/versions/1.1.0")
     end
   end
 end
