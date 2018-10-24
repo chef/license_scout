@@ -60,12 +60,12 @@ module LicenseScout
                        # bundler's lib/ dir, so we have to munge it.
                        "https://github.com/bundler/bundler"
                      elsif dep_name == "json"
-                        # json is different weird. When project is using the json that is prepackaged with
-                        # Ruby, its included not as a full fledged gem but an *.rb file at:
-                        # /opt/opscode/embedded/lib/ruby/2.2.0/json.rb
-                        # Because of this its license is reported as nil and its license files can not be
-                        # found. That is why we need to provide them manually here.
-                        "https://github.com/flori/json"
+                       # json is different weird. When project is using the json that is prepackaged with
+                       # Ruby, its included not as a full fledged gem but an *.rb file at:
+                       # /opt/opscode/embedded/lib/ruby/2.2.0/json.rb
+                       # Because of this its license is reported as nil and its license files can not be
+                       # found. That is why we need to provide them manually here.
+                       "https://github.com/flori/json"
                      else
                        gem_data["path"]
                      end
