@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.1.4 -->
+## [v2.1.4](https://github.com/chef/license_scout/tree/v2.1.4) (2018-10-24)
+
+#### Merged Pull Requests
+- Include gemspec license info [#182](https://github.com/chef/license_scout/pull/182) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.1.3 -->
+### Changes since 2.1.3 release
+
+#### Merged Pull Requests
+- Include gemspec license info [#182](https://github.com/chef/license_scout/pull/182) ([tduffield](https://github.com/tduffield)) <!-- 2.1.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
