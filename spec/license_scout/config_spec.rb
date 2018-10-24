@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,37 +20,37 @@ RSpec.describe LicenseScout::Config do
   describe "merging config" do
     let(:initial_config) do
       {
-        :blacklist => [
+        flagged_licenses: [
           "Apache-2.0"
         ],
-        :fallbacks => {
-          :habitat => {
-            :name => "core/foo",
-            :license_id => "Apache-2.0",
-            :license_content => "http://example.com"
-          }
-        }
+        fallbacks: {
+          habitat: {
+            name: "core/foo",
+            license_id: "Apache-2.0",
+            license_content: "http://example.com",
+          },
+        },
       }
     end
 
     let(:supplemental_config) do
       {
-        :blacklist => [
+        flagged_licenses: [
           "MIT"
         ],
-        :fallbacks => {
-          :habitat => [
+        fallbacks: {
+          habitat: [
             {
-              :name => "core/foo",
-              :license_id => "Apache-2.0",
-              :license_content => "http://example.com/apache.license",
+              name: "core/foo",
+              license_id: "Apache-2.0",
+              license_content: "http://example.com/apache.license",
             },
           ],
-          :ruby => [
+          ruby: [
             {
-              :name => "foo",
-              :license_id => "MIT",
-              :license_content => "http://example.com/mit.license",
+              name: "foo",
+              license_id: "MIT",
+              license_content: "http://example.com/mit.license",
             },
           ],
         },
@@ -61,16 +61,16 @@ RSpec.describe LicenseScout::Config do
       LicenseScout::Config.merge!(initial_config)
       LicenseScout::Config.merge!(supplemental_config)
 
-      expect(LicenseScout::Config.blacklist).to eql(["MIT"])
+      expect(LicenseScout::Config.flagged_licenses).to eql(["MIT"])
       expect(LicenseScout::Config.fallbacks.habitat).to eql([{
-        :name => "core/foo",
-        :license_id => "Apache-2.0",
-        :license_content => "http://example.com/apache.license",
+        name: "core/foo",
+        license_id: "Apache-2.0",
+        license_content: "http://example.com/apache.license",
       }])
       expect(LicenseScout::Config.fallbacks.ruby).to eql([{
-        :name => "foo",
-        :license_id => "MIT",
-        :license_content => "http://example.com/mit.license",
+        name: "foo",
+        license_id: "MIT",
+        license_content: "http://example.com/mit.license",
       }])
     end
   end

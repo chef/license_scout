@@ -183,7 +183,7 @@ module LicenseScout
         license_manifest_version: 2,
         generated_on: DateTime.now.to_s,
         name: LicenseScout::Config.name,
-        dependencies: []
+        dependencies: [],
       }
 
       all_dependencies.each do |dep|

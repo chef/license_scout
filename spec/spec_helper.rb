@@ -65,7 +65,7 @@ RSpec.configure do |config|
   # aliases for `it`, `describe`, and `context` that include `:focus`
   # metadata: `fit`, `fdescribe` and `fcontext`, respectively.
   config.filter_run_when_matching :focus
-  config.filter_run_excluding :no_windows => true if !!(RUBY_PLATFORM =~ /mswin|mingw|windows/)
+  config.filter_run_excluding no_windows: true if !!(RUBY_PLATFORM =~ /mswin|mingw|windows/)
 
   # Allows RSpec to persist some state between runs in order to support
   # the `--only-failures` and `--next-failure` CLI options. We recommend
@@ -80,7 +80,7 @@ RSpec.configure do |config|
   config.disable_monkey_patching!
 
   # Berks and its deps create too much noise to enable warnings right now :(
-  #config.warnings = true
+  # config.warnings = true
 
   # Many RSpec users commonly either run the entire suite or an individual
   # file, and it's useful to allow more verbose output when running an

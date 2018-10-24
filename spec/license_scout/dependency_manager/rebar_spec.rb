@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -122,9 +122,9 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
     def mock_git_rev_parse_for(name, sha, cwd: File.join(directory, "deps", name))
       mock = instance_double("Mixlib::ShellOut")
 
-      allow(Mixlib::ShellOut).to receive(:new).
-        with("git rev-parse HEAD", cwd: cwd).
-        and_return(mock)
+      allow(Mixlib::ShellOut).to receive(:new)
+        .with("git rev-parse HEAD", cwd: cwd)
+        .and_return(mock)
 
       allow(mock).to receive(:run_command)
       allow(mock).to receive(:error!)
@@ -185,9 +185,9 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
         rebar_lock_path = File.join(directory, "rebar.lock")
         mock = instance_double("Mixlib::ShellOut")
 
-        allow(Mixlib::ShellOut).to receive(:new).
-          with("#{LicenseScout::Config.escript_bin} #{rebar_lock_json_path} #{rebar_lock_path}", environment: {}).
-          and_return(mock)
+        allow(Mixlib::ShellOut).to receive(:new)
+          .with("#{LicenseScout::Config.escript_bin} #{rebar_lock_json_path} #{rebar_lock_path}", environment: {})
+          .and_return(mock)
 
         allow(mock).to receive(:run_command)
         allow(mock).to receive(:error!)
