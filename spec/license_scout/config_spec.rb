@@ -20,7 +20,7 @@ RSpec.describe LicenseScout::Config do
   describe "merging config" do
     let(:initial_config) do
       {
-        :blacklist => [
+        :flagged_licenses => [
           "Apache-2.0"
         ],
         :fallbacks => {
@@ -35,7 +35,7 @@ RSpec.describe LicenseScout::Config do
 
     let(:supplemental_config) do
       {
-        :blacklist => [
+        :flagged_licenses => [
           "MIT"
         ],
         :fallbacks => {
@@ -61,7 +61,7 @@ RSpec.describe LicenseScout::Config do
       LicenseScout::Config.merge!(initial_config)
       LicenseScout::Config.merge!(supplemental_config)
 
-      expect(LicenseScout::Config.blacklist).to eql(["MIT"])
+      expect(LicenseScout::Config.flagged_licenses).to eql(["MIT"])
       expect(LicenseScout::Config.fallbacks.habitat).to eql([{
         :name => "core/foo",
         :license_id => "Apache-2.0",
