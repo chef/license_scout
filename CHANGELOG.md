@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.18 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.18](https://github.com/chef/license_scout/tree/v1.0.18) (2018-11-26)
 
 #### Merged Pull Requests
 - Add missing bracket [#185](https://github.com/chef/license_scout/pull/185) ([btm](https://github.com/btm))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.1.5 -->
-### Changes since 2.1.5 release
-
-#### Merged Pull Requests
-- Add missing bracket [#185](https://github.com/chef/license_scout/pull/185) ([btm](https://github.com/btm)) <!-- 1.0.18 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.17](https://github.com/chef/license_scout/tree/v1.0.17) (2018-11-26)
 
 #### Merged Pull Requests
 - Add uri-js override for A1 [#184](https://github.com/chef/license_scout/pull/184) ([btm](https://github.com/btm))
-<!-- latest_stable_release -->
 
 ## [v1.0.16](https://github.com/chef/license_scout/tree/v1.0.16) (2018-09-27)
 
