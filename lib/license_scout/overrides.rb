@@ -889,7 +889,7 @@ module LicenseScout
         ["minipass", "ISC", ["https://raw.githubusercontent.com/isaacs/minipass/master/LICENSE"]],
         ["npm-bundled", "ISC", ["https://raw.githubusercontent.com/npm/npm-bundled/master/LICENSE"]],
         ["needle", "MIT", ["https://raw.githubusercontent.com/tomas/needle/master/license.txt"]],
-        ["uri-js", "BSD-2-Clause", "https://raw.githubusercontent.com/garycourt/uri-js/master/README.md"]]
+        ["uri-js", "BSD-2-Clause", ["https://raw.githubusercontent.com/garycourt/uri-js/master/README.md"]]
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
