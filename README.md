@@ -1,5 +1,7 @@
 # license_scout
 
+[![Build Status](https://travis-ci.org/chef/license_scout.svg?branch=1-stable)](https://travis-ci.org/chef/license_scout)
+
 LicenseScout discovers and collects the licenses of a project and its
 dependencies, including transitive dependencies.
 
@@ -36,5 +38,4 @@ Pull requests in this project are merged when they have two :+1:s from maintaine
 ## Maintainers
 
 - [Dan DeLeo](https://github.com/danielsdeleo)
-- [Serdar Sutay](https://github.com/sersut)
 - [Ryan Cragun](https://github.com/ryancragun)
