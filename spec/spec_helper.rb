@@ -50,7 +50,6 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-
   # Global before each: prevent network calls via NetFetcher
   # By default LicenseScout::Overrides contains the default set of overrides,
   # any of which can configure the system to fetch a license file from the
@@ -78,8 +77,8 @@ RSpec.configure do |config|
   # ```
   #
   config.before do
-    allow(LicenseScout::NetFetcher).to receive(:new).
-      and_raise("Network calls should be avoided. Maybe you forgot to pass `exclude_default: true` when creating the Overrides object?")
+    allow(LicenseScout::NetFetcher).to receive(:new)
+      .and_raise("Network calls should be avoided. Maybe you forgot to pass `exclude_default: true` when creating the Overrides object?")
   end
 
   # This allows you to limit a spec run to individual examples or groups
@@ -88,7 +87,7 @@ RSpec.configure do |config|
   # aliases for `it`, `describe`, and `context` that include `:focus`
   # metadata: `fit`, `fdescribe` and `fcontext`, respectively.
   config.filter_run_when_matching :focus
-  config.filter_run_excluding :no_windows => true if !!(RUBY_PLATFORM =~ /mswin|mingw|windows/)
+  config.filter_run_excluding no_windows: true if !!(RUBY_PLATFORM =~ /mswin|mingw|windows/)
 
   # Allows RSpec to persist some state between runs in order to support
   # the `--only-failures` and `--next-failure` CLI options. We recommend
@@ -103,7 +102,7 @@ RSpec.configure do |config|
   config.disable_monkey_patching!
 
   # Berks and its deps create too much noise to enable warnings right now :(
-  #config.warnings = true
+  # config.warnings = true
 
   # Many RSpec users commonly either run the entire suite or an individual
   # file, and it's useful to allow more verbose output when running an
@@ -112,7 +111,7 @@ RSpec.configure do |config|
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
     # (e.g. via a command-line flag).
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   # Print the 10 slowest examples and example groups at the

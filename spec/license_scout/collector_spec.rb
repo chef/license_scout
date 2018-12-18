@@ -64,7 +64,7 @@ module LicenseScout
 
           override_files = options.overrides.license_files_for(name, dependency[:name], dependency[:version])
           if !override_files.empty?
-            #license_files = override_files.map { |f| File.join(SPEC_FIXTURES_DIR, "test_licenses/#{f}") }
+            # license_files = override_files.map { |f| File.join(SPEC_FIXTURES_DIR, "test_licenses/#{f}") }
             license_files = override_files.resolve_locations(File.join(SPEC_FIXTURES_DIR, "test_licenses"))
           else
             license_files = dependency[:files]
@@ -139,8 +139,8 @@ RSpec.describe(LicenseScout::Collector) do
   describe "when run on a supported project type" do
 
     before do
-      allow(LicenseScout::DependencyManager).to receive(:implementations).
-        and_return([LicenseScout::DependencyManager::TestDepManager])
+      allow(LicenseScout::DependencyManager).to receive(:implementations)
+        .and_return([LicenseScout::DependencyManager::TestDepManager])
       Dir.mkdir(project_dir)
     end
 
@@ -216,8 +216,8 @@ RSpec.describe(LicenseScout::Collector) do
     context "when a dependency's license cannot be detected" do
 
       before do
-        allow(LicenseScout::DependencyManager).to receive(:implementations).
-          and_return([LicenseScout::DependencyManager::MissingLicenseDepManager])
+        allow(LicenseScout::DependencyManager).to receive(:implementations)
+          .and_return([LicenseScout::DependencyManager::MissingLicenseDepManager])
       end
 
       context "and the dependency's license is not manually specified" do
@@ -333,8 +333,8 @@ RSpec.describe(LicenseScout::Collector) do
   describe "when run on an unsupported project type" do
 
     before do
-      allow(LicenseScout::DependencyManager).to receive(:implementations).
-        and_return([LicenseScout::DependencyManager::UnsupportedProjectTypeDepManager])
+      allow(LicenseScout::DependencyManager).to receive(:implementations)
+        .and_return([LicenseScout::DependencyManager::UnsupportedProjectTypeDepManager])
       Dir.mkdir(project_dir)
     end
 

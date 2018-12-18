@@ -37,7 +37,7 @@ module LicenseScout
         deps = File.open(root_dep_file) do |f|
           TomlRB.parse(f)
         end
-        return [] unless deps.has_key?("projects")
+        return [] unless deps.key?("projects")
         deps["projects"].map do |pkg_info|
           pkg_import_name = pkg_info["name"]
           pkg_file_name = pkg_import_name.tr("/", "_")
