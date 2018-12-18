@@ -340,9 +340,6 @@ module LicenseScout
         # Overrides that require file fetching from internet
         ["sfl", "Ruby", ["https://raw.githubusercontent.com/ujihisa/spawn-for-legacy/master/LICENCE.md"]],
         ["json_pure", nil, ["https://raw.githubusercontent.com/flori/json/master/README.md"]],
-        ["aws-sdk-core", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
-        ["aws-sdk-resources", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
-        ["aws-sdk", nil, ["https://raw.githubusercontent.com/aws/aws-sdk-ruby/master/README.md"]],
         ["fuzzyurl", nil, ["https://raw.githubusercontent.com/gamache/fuzzyurl/master/LICENSE.txt"]],
         ["jwt", nil, ["https://raw.githubusercontent.com/jwt/ruby-jwt/master/LICENSE"]],
         ["win32-process", "Artistic-2.0", ["https://raw.githubusercontent.com/chef/win32-process/ffi/README.md"]],
