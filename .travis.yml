@@ -1,11 +1,25 @@
-language: ruby
 sudo: false
+language: ruby
+cache: bundler
+dist: xenial
+
+matrix:
+  include:
+    - rvm: 2.2.10
+    - rvm: 2.3.8
+    - rvm: 2.4.5
+    - rvm: 2.5.3
+    - rvm: 2.6
+    - rvm: ruby-head
+  allow_failures:
+    - rvm: ruby-head
 
 # do not run expensive spec tests on PRs, only on branches
 branches:
   only:
   - master
+  - 1-stable
 
-before_install: gem install bundler
-rvm:
-  - 2.2.6
+bundler_args: --jobs 7 --without docs debug
+
+before_install: gem install bundler || true

@@ -121,9 +121,9 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
     def mock_git_rev_parse_for(name, sha, cwd: File.join(project_dir, "deps", name))
       mock = instance_double("Mixlib::ShellOut")
 
-      allow(Mixlib::ShellOut).to receive(:new).
-        with("git rev-parse HEAD", cwd: cwd).
-        and_return(mock)
+      allow(Mixlib::ShellOut).to receive(:new)
+        .with("git rev-parse HEAD", cwd: cwd)
+        .and_return(mock)
 
       allow(mock).to receive(:run_command)
       allow(mock).to receive(:error!)
@@ -253,9 +253,9 @@ RSpec.describe(LicenseScout::DependencyManager::Rebar) do
         rebar_lock_path = File.join(project_dir, "rebar.lock")
         mock = instance_double("Mixlib::ShellOut")
 
-        allow(Mixlib::ShellOut).to receive(:new).
-          with("#{rebar_lock_json_path} #{rebar_lock_path}", environment: {}).
-          and_return(mock)
+        allow(Mixlib::ShellOut).to receive(:new)
+          .with("#{rebar_lock_json_path} #{rebar_lock_path}", environment: {})
+          .and_return(mock)
 
         allow(mock).to receive(:run_command)
         allow(mock).to receive(:error!)

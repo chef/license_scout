@@ -53,7 +53,7 @@ module LicenseScout
         BSD_LICENSE
         LICENSE.BSD
         UNLICENSE
-      }
+      }.freeze
 
       attr_reader :project_dir
       attr_reader :options

@@ -34,8 +34,9 @@ RSpec.describe(LicenseScout::NetFetcher) do
   end
 
   subject(:fetcher) { described_class.new(url) }
-
-  let(:url) { "https://chef-license-spec.s3.amazonaws.com/README" }
+  let(:fetcher_repo) { ENV["TRAVIS_PULL_REQUEST_SLUG"].empty? ? "chef/license_scout" : ENV["TRAVIS_PULL_REQUEST_SLUG"] }
+  let(:fetcher_branch) { ENV["TRAVIS_PULL_REQUEST_BRANCH"].empty? ? "1-stable" : ENV["TRAVIS_PULL_REQUEST_BRANCH"] }
+  let(:url) { "https://raw.githubusercontent.com/#{fetcher_repo}/#{fetcher_branch}/spec/fixtures/FETCHER_README" }
   let(:expected_download_content) do
     <<-EOS
 This folder and file is being used for testing by the following project:

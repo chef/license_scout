@@ -156,7 +156,7 @@ module LicenseScout
             found_license = LicenseScout::LicenseFileAnalyzer.find_by_text(IO.read(license_file))
             found_license ? found_license.short_name : nil
           end
-          license_names.find {|x| x}
+          license_names.find { |x| x }
         end
       end
 

@@ -81,7 +81,7 @@ module LicenseScout
 
       begin
         options = {
-          :read_timeout => 300,
+          read_timeout: 300,
         }
 
         open(from_url, options) do |f|

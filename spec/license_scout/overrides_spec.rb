@@ -77,8 +77,8 @@ RSpec.describe(LicenseScout::Overrides::OverrideLicenseSet) do
         let(:license_locations) { [ "NOPE-LICENSE" ] }
 
         it "raises InvalidOverride" do
-          expect { override_license_set.resolve_locations(dep_dir) }.
-            to raise_error(LicenseScout::Exceptions::InvalidOverride)
+          expect { override_license_set.resolve_locations(dep_dir) }
+            .to raise_error(LicenseScout::Exceptions::InvalidOverride)
         end
 
       end
@@ -159,8 +159,8 @@ RSpec.describe(LicenseScout::Overrides) do
         library_map.each_key do |library_name|
           license_files = overrides.license_files_for(dep_manager, library_name, nil)
           if license_files.license_locations.any? { |location| location.include?("(\/\/|www\.)github.com") }
-            fail "You must use raw.githubusercontent.com instead of github.com for overrides. \n" +
-                 "Dependency type: #{dep_manager}\nDependency name: #{library_name}\nLicense location: #{license_files.license_locations}"
+            raise "You must use raw.githubusercontent.com instead of github.com for overrides. \n" +
+              "Dependency type: #{dep_manager}\nDependency name: #{library_name}\nLicense location: #{license_files.license_locations}"
           end
         end
       end

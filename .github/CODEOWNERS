@@ -1,3 +1,4 @@
 # Order is important. The last matching pattern has the most precedence.
 
 * @chef/jex-team
+README.md @chef/docs-team
