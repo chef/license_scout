@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.22 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.22](https://github.com/chef/license_scout/tree/v1.0.22) (2019-01-17)
 
 #### Merged Pull Requests
 - Use the URL to the jaro_winkler license file [#191](https://github.com/chef/license_scout/pull/191) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.1.5 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Use the URL to the jaro_winkler license file [#191](https://github.com/chef/license_scout/pull/191) ([tas50](https://github.com/tas50)) <!-- 1.0.22 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.21](https://github.com/chef/license_scout/tree/v1.0.21) (2019-01-17)
 
 #### Merged Pull Requests
 - Add jaro_winkler as a MIT project [#190](https://github.com/chef/license_scout/pull/190) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v1.0.20](https://github.com/chef/license_scout/tree/v1.0.20) (2018-12-18)
 
