@@ -293,6 +293,7 @@ module LicenseScout
         ["httpclient", "Ruby", ["README.md"]],
         ["inifile", "MIT", ["README.md"]],
         ["ipaddress", "MIT", nil],
+        ["jaro_winkler", "MIT", ["LICENSE.txt"]],
         ["jsonschema", "MIT", ["README.rdoc"]],
         ["knife-opc", "Apache-2.0", nil],
         ["little-plugger", "MIT", ["README.rdoc"]],
