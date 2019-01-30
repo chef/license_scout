@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.1.6 -->
-## [v2.1.6](https://github.com/chef/license_scout/tree/v2.1.6) (2019-01-30)
+<!-- latest_release 2.1.7 -->
+## [v2.1.7](https://github.com/chef/license_scout/tree/v2.1.7) (2019-01-30)
 
 #### Merged Pull Requests
-- Add project alias [#192](https://github.com/chef/license_scout/pull/192) ([tduffield](https://github.com/tduffield))
+- Only print failure header if we failed [#193](https://github.com/chef/license_scout/pull/193) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.1.5 -->
 ### Changes since 2.1.5 release
 
 #### Merged Pull Requests
+- Only print failure header if we failed [#193](https://github.com/chef/license_scout/pull/193) ([tduffield](https://github.com/tduffield)) <!-- 2.1.7 -->
 - Add project alias [#192](https://github.com/chef/license_scout/pull/192) ([tduffield](https://github.com/tduffield)) <!-- 2.1.6 -->
 <!-- release_rollup -->
 
