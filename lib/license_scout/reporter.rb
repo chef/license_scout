@@ -168,14 +168,16 @@ module LicenseScout
 
       puts table unless LicenseScout::Config.only_show_failures && !@did_fail
 
-      puts
-      puts "Additional steps are required in order to pass Open Source license compliance:"
-      puts "  * Please add fallback licenses for the 'Missing' or 'Undetermined' dependencies"   if @needs_fallback
-      puts "         https://github.com/chef/license_scout#fallback-licenses"                    if @needs_fallback
-      puts "  * Please add exceptions for the 'Flagged' or 'Not Allowed' dependencies"           if @needs_exception
-      puts "         https://github.com/chef/license_scout#dependency-exceptions"                if @needs_exception
+      if @did_fail
+        puts
+        puts "Additional steps are required in order to pass Open Source license compliance:"
+        puts "  * Please add fallback licenses for the 'Missing' or 'Undetermined' dependencies"   if @needs_fallback
+        puts "         https://github.com/chef/license_scout#fallback-licenses"                    if @needs_fallback
+        puts "  * Please add exceptions for the 'Flagged' or 'Not Allowed' dependencies"           if @needs_exception
+        puts "         https://github.com/chef/license_scout#dependency-exceptions"                if @needs_exception
 
-      raise Exceptions::FailExit.new("missing or not allowed licenses detected") if @did_fail
+        raise Exceptions::FailExit.new("missing or not allowed licenses detected")
+      end
     end
 
     def generate_dependency_license_manifest
