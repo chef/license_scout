@@ -105,7 +105,6 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
 
       # We check the bundler intentionally because we are handling it differently
       bundler_info = dependencies.find { |d| d.name == "bundler" }
-      expect(bundler_info.license.records.length).to eq(1)
       expect(bundler_info.license.records.first.id).to eq("MIT")
       expect(bundler_info.license.records.first.source).to eql("LICENSE.md")
 
