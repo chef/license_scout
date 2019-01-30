@@ -158,7 +158,7 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
         expect(deps_with_license_files.size).to eql(32)
 
         undetected_licenses = deps_with_license_files.select { |d| d.license.records.first.id.nil? }
-        expect(undetected_licenses.size).to eql(6)
+        expect(undetected_licenses.size).to eql(5)
         expect(undetected_licenses.map(&:name)).to include("bcrypt")
 
         # Spot check some licenses:
