@@ -1,4 +1,7 @@
 ---
+project:
+  alias: license_scout
+
 slack:
   notify_channel: releng-notify
 
