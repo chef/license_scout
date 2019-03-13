@@ -9,7 +9,7 @@ github:
   version_tag_format: "v{{version}}"
   delete_branch_on_merge: true
   minor_bump_labels:
-    - "Version: Bump Minor"
+    - "Expeditor: Bump Version Minor"
   release_branch:
     - master:
         version_constraint: 2.*
@@ -22,27 +22,33 @@ habitat_packages:
 rubygems:
   - license_scout
 
+pipelines:
+  - verify:
+      organization: chef-oss
+
 merge_actions:
   - built_in:bump_version:
       ignore_labels:
-        - "Version: Skip Bump"
+        - "Expeditor: Skip Version Bump"
         - "Expeditor: Skip All"
   - bash:.expeditor/update_version.sh:
       only_if:
         - built_in:bump_version
   - built_in:update_changelog:
       ignore_labels:
-        - "Changelog: Skip Update"
+        - "Expeditor: Skip Changelog"
         - "Expeditor: Skip All"
   - built_in:build_gem:
       only_if:
         - built_in:bump_version
   - built_in:trigger_habitat_package_build:
+      ignore_labels:
+        - "Expeditor: Skip Habitat"
       only_if:
         - built_in:bump_version
 
 promote:
-  action:
+  actions:
     - built_in:rollover_changelog
     - built_in:publish_rubygems
     - built_in:promote_habitat_packages
