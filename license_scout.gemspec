@@ -22,8 +22,8 @@ require "license_scout/version"
 Gem::Specification.new do |spec|
   spec.name          = "license_scout"
   spec.version       = LicenseScout::VERSION
-  spec.authors       = [ "Serdar Sutay", "Tom Duffield" ]
-  spec.email         = [ "serdar@chef.io", "tom@chef.io" ]
+  spec.authors       = [ "Tom Duffield" ]
+  spec.email         = [ "tom@chef.io" ]
   spec.license       = "Apache-2.0"
 
   spec.summary       = "Discovers license files of a project's dependencies."
