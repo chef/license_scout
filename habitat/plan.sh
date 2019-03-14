@@ -1,6 +1,6 @@
 pkg_name=license_scout
 pkg_origin=chef
-pkg_version="2.1.7"
+pkg_version="2.2.0"
 pkg_license=("Apache-2.0")
 pkg_maintainer="Chef Release Engineering <releng@chef.io>"
 pkg_upstream_url="https://github.com/chef/license_scout"
