@@ -20,7 +20,7 @@ RSpec.describe LicenseScout::Dependency do
   let(:name) { "artifactory" }
   let(:version) { "2.3.3" }
   let(:type) { "ruby" }
-  let(:path) { File.join(SPEC_FIXTURES_DIR, "bundler_gems_dir", "gems", "#{name}-#{version}") }
+  let(:path) { File.join(SPEC_FIXTURES_DIR, "bundler_1x_gems_dir", "gems", "#{name}-#{version}") }
 
   let(:license) { LicenseScout::License.new }
 

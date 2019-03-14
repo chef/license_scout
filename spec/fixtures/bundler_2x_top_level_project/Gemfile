@@ -1,0 +1,5 @@
+# Gemfile used to test bundler dependency manager.
+
+source "https://rubygems.org"
+
+gem "test-kitchen"
