@@ -79,43 +79,76 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
   end
 
   describe "#dependencies", :vcr do
-    let(:tmpdir) { Dir.mktmpdir }
-    let(:directory) { File.join(tmpdir, "bundler_project") }
+    context "bundler 1.x project" do
+      let(:tmpdir) { Dir.mktmpdir }
+      let(:directory) { File.join(tmpdir, "bundler1_project") }
 
-    let(:bundler_project_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_top_level_project") }
-    let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_gems_dir") }
-    let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
+      let(:bundler_project_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_1x_top_level_project") }
+      let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_1x_gems_dir") }
+      let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
 
-    before do
-      FileUtils.cp_r(bundler_project_fixture, directory)
-      FileUtils.mkdir_p(bundler_gems_dir)
-      FileUtils.cp_r("#{bundler_gems_fixture}/.", bundler_gems_dir)
+      before do
+        FileUtils.cp_r(bundler_project_fixture, directory)
+        FileUtils.mkdir_p(bundler_gems_dir)
+        FileUtils.cp_r("#{bundler_gems_fixture}/.", bundler_gems_dir)
+      end
+
+      it "returns an array of Dependencies found in the directory" do
+        dependencies = subject.dependencies
+
+        # Make sure we have the right count
+        expect(dependencies.length).to eq(10)
+
+        # We check the bundler intentionally because we are handling it differently
+        bundler_info = dependencies.find { |d| d.name == "bundler" }
+        expect(bundler_info.license.records.first.id).to eq("MIT")
+        expect(bundler_info.license.records.first.source).to eql("LICENSE.md")
+
+        # We check mixlib-install an example out of 10 dependencies.
+        mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
+        expect(mixlib_install_info.version).to eq("1.1.0")
+        expect(mixlib_install_info.license.records.length).to eq(2)
+        expect(mixlib_install_info.license.records.first.id).to eq("Apache-2.0")
+        expect(mixlib_install_info.license.records.first.source).to eq("LICENSE")
+        expect(mixlib_install_info.license.records[1].id).to eql("Apache-2.0")
+        expect(mixlib_install_info.license.records[1].source).to eql("https://rubygems.org/gems/mixlib-install/versions/1.1.0")
+      end
     end
 
-    # tmpdir when running as non-root on OS X is a symlink which we have to resolve
-    def gem_rel_path(path)
-      Pathname(File.join(bundler_gems_dir, path)).realpath.to_s
-    end
+    context "bundler 2.x project" do
+      let(:tmpdir) { Dir.mktmpdir }
+      let(:directory) { File.join(tmpdir, "bundler2_project") }
 
-    it "returns an array of Dependencies found in the directory" do
-      dependencies = subject.dependencies
+      let(:bundler_project_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_2x_top_level_project") }
+      let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_2x_gems_dir") }
+      let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
 
-      # Make sure we have the right count
-      expect(dependencies.length).to eq(10)
+      before do
+        FileUtils.cp_r(bundler_project_fixture, directory)
+        FileUtils.mkdir_p(bundler_gems_dir)
+        FileUtils.cp_r("#{bundler_gems_fixture}/.", bundler_gems_dir)
+      end
 
-      # We check the bundler intentionally because we are handling it differently
-      bundler_info = dependencies.find { |d| d.name == "bundler" }
-      expect(bundler_info.license.records.first.id).to eq("MIT")
-      expect(bundler_info.license.records.first.source).to eql("LICENSE.md")
+      it "returns an array of Dependencies found in the directory" do
+        dependencies = subject.dependencies
 
-      # We check mixlib-install an example out of 10 dependencies.
-      mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
-      expect(mixlib_install_info.version).to eq("1.1.0")
-      expect(mixlib_install_info.license.records.length).to eq(2)
-      expect(mixlib_install_info.license.records.first.id).to eq("Apache-2.0")
-      expect(mixlib_install_info.license.records.first.source).to eq("LICENSE")
-      expect(mixlib_install_info.license.records[1].id).to eql("Apache-2.0")
-      expect(mixlib_install_info.license.records[1].source).to eql("https://rubygems.org/gems/mixlib-install/versions/1.1.0")
+        # Make sure we have the right count
+        expect(dependencies.length).to eq(24)
+
+        # We check the bundler intentionally because we are handling it differently
+        bundler_info = dependencies.find { |d| d.name == "bundler" }
+        expect(bundler_info.license.records.first.id).to eq("MIT")
+        expect(bundler_info.license.records.first.source).to eql("LICENSE.md")
+
+        # We check mixlib-install an example out of 10 dependencies.
+        mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
+        expect(mixlib_install_info.version).to eq("3.11.11")
+        expect(mixlib_install_info.license.records.length).to eq(2)
+        expect(mixlib_install_info.license.records.first.id).to eq("Apache-2.0")
+        expect(mixlib_install_info.license.records.first.source).to eq("LICENSE")
+        expect(mixlib_install_info.license.records[1].id).to eql("Apache-2.0")
+        expect(mixlib_install_info.license.records[1].source).to eql("https://rubygems.org/gems/mixlib-install/versions/3.11.11")
+      end
     end
   end
 end

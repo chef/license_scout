@@ -1,0 +1,1 @@
+/Users/tom/code/chef/license_scout/spec/fixtures/bundler_2x_top_level_project/vendor/bundle/ruby/2.6.0/gems/ffi-1.10.0/ext/ffi_c/libffi/src/x86/ffitarget.h
