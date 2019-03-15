@@ -1,27 +1,24 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.2.0 -->
-## [v2.2.0](https://github.com/chef/license_scout/tree/v2.2.0) (2019-03-14)
-
-#### Merged Pull Requests
-- Update supported ruby to 2.6.1 [#196](https://github.com/chef/license_scout/pull/196) ([tduffield](https://github.com/tduffield))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.1.5 -->
-### Changes since 2.1.5 release
-
-#### Merged Pull Requests
-- Update supported ruby to 2.6.1 [#196](https://github.com/chef/license_scout/pull/196) ([tduffield](https://github.com/tduffield)) <!-- 2.2.0 -->
-- Only print failure header if we failed [#193](https://github.com/chef/license_scout/pull/193) ([tduffield](https://github.com/tduffield)) <!-- 2.1.7 -->
-- Add project alias [#192](https://github.com/chef/license_scout/pull/192) ([tduffield](https://github.com/tduffield)) <!-- 2.1.6 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v2.2.0](https://github.com/chef/license_scout/tree/v2.2.0) (2019-03-15)
+
+#### Merged Pull Requests
+- Add project alias [#192](https://github.com/chef/license_scout/pull/192) ([tduffield](https://github.com/tduffield))
+- Only print failure header if we failed [#193](https://github.com/chef/license_scout/pull/193) ([tduffield](https://github.com/tduffield))
+- Update supported ruby to 2.6.1 [#196](https://github.com/chef/license_scout/pull/196) ([tduffield](https://github.com/tduffield))
+<!-- latest_stable_release -->
+
 ## [v2.1.5](https://github.com/chef/license_scout/tree/v2.1.5) (2018-10-24)
 
 #### Merged Pull Requests
 - Re-add special JSON case [#183](https://github.com/chef/license_scout/pull/183) ([tduffield](https://github.com/tduffield))
-<!-- latest_stable_release -->
 
 ## [v2.1.4](https://github.com/chef/license_scout/tree/v2.1.4) (2018-10-24)
 
