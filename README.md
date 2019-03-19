@@ -20,7 +20,7 @@ ruby | bundler
 ### Ruby Gem
 
 ```
-gem install license_scout
+gem install license_scout --no-document
 ```
 
 #### Dependencies
