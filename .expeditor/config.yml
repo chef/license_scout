@@ -24,7 +24,7 @@ rubygems:
 
 pipelines:
   - verify:
-      organization: chef-oss
+      public: true
 
 merge_actions:
   - built_in:bump_version:
