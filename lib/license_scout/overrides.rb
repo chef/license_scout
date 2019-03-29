@@ -105,6 +105,8 @@ module LicenseScout
           aws-sdk-alexaforbusiness
           aws-sdk-amplify
           aws-sdk-apigateway
+          aws-sdk-apigatewaymanagementapi
+          aws-sdk-apigatewayv2
           aws-sdk-applicationautoscaling
           aws-sdk-applicationdiscoveryservice
           aws-sdk-appmesh
@@ -113,6 +115,7 @@ module LicenseScout
           aws-sdk-athena
           aws-sdk-autoscaling
           aws-sdk-autoscalingplans
+          aws-sdk-backup
           aws-sdk-batch
           aws-sdk-budgets
           aws-sdk-chime
@@ -151,6 +154,7 @@ module LicenseScout
           aws-sdk-directconnect
           aws-sdk-directoryservice
           aws-sdk-dlm
+          aws-sdk-docdb
           aws-sdk-dynamodb
           aws-sdk-dynamodbstreams
           aws-sdk-ec2
@@ -261,12 +265,15 @@ module LicenseScout
           aws-sdk-storagegateway
           aws-sdk-support
           aws-sdk-swf
+          aws-sdk-textract
           aws-sdk-translate
           aws-sdk-transcribeservice
+          aws-sdk-transcribestreamingservice
           aws-sdk-transfer
           aws-sdk-waf
           aws-sdk-wafregional
           aws-sdk-workdocs
+          aws-sdk-worklink
           aws-sdk-workmail
           aws-sdk-workspaces
           aws-sdk-xray
