@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.0.23 -->
+## [v1.0.23](https://github.com/chef/license_scout/tree/v1.0.23) (2019-03-29)
+
+#### Merged Pull Requests
+- Override trasitive dependencies for automate1 [#199](https://github.com/chef/license_scout/pull/199) ([jaymalasinha](https://github.com/jaymalasinha))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.2.0 -->
+### Changes since 2.2.0 release
+
+#### Merged Pull Requests
+- Override trasitive dependencies for automate1 [#199](https://github.com/chef/license_scout/pull/199) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 1.0.23 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
