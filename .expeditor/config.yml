@@ -1,51 +1,45 @@
+# Documentation available at https://expeditor.chef.io/docs/getting-started/
 ---
+# Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
   notify_channel: releng-notify
 
+# This publish is triggered by the `built_in:publish_rubygems` artifact_action.
+rubygems:
+  - license_scout
+
 github:
-  version_tag_format: "v{{version}}"
+  # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
+  version_tag_format: "v{{version}}"
+  # allow bumping the minor release via label
   minor_bump_labels:
-    - "Expeditor: Bump Version Minor"
+    - "Expeditor: Bump Minor Version"
   release_branch:
     - master:
         version_constraint: 2.*
     - 1-stable:
         version_constraint: 1.*
 
-habitat_packages:
-  - license_scout
+changelog:
+  rollup_header: Changes not yet released to rubygems.org
 
-rubygems:
-  - license_scout
-
-pipelines:
-  - verify:
-      public: true
-
+# These actions are taken, in order they are specified, anytime a Pull Request is merged.
 merge_actions:
   - built_in:bump_version:
       ignore_labels:
         - "Expeditor: Skip Version Bump"
         - "Expeditor: Skip All"
   - bash:.expeditor/update_version.sh:
-      only_if:
-        - built_in:bump_version
+      only_if: built_in:bump_version
   - built_in:update_changelog:
       ignore_labels:
-        - "Expeditor: Skip Changelog"
+        - "Expeditor: Exclude From Changelog"
         - "Expeditor: Skip All"
   - built_in:build_gem:
-      only_if:
-        - built_in:bump_version
-  - built_in:trigger_habitat_package_build:
-      ignore_labels:
-        - "Expeditor: Skip Habitat"
-      only_if:
-        - built_in:bump_version
+      only_if: built_in:bump_version
 
 promote:
   actions:
     - built_in:rollover_changelog
     - built_in:publish_rubygems
-    - built_in:promote_habitat_packages
