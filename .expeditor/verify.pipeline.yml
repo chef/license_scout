@@ -1,0 +1,10 @@
+steps:
+  - label: ":linux: :ruby:"
+    commands:
+      - bundle install
+      - bundle exec rake
+    expeditor:
+      executor:
+        docker:
+
+  # Windows Coming Soon
