@@ -1,26 +1,23 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.24 -->
-## [v1.0.24](https://github.com/chef/license_scout/tree/v1.0.24) (2019-04-01)
-
-#### Merged Pull Requests
-- Fix expeditor config and gemspec [#200](https://github.com/chef/license_scout/pull/200) ([jaymalasinha](https://github.com/jaymalasinha))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.2.0 -->
-### Changes since 2.2.0 release
-
-#### Merged Pull Requests
-- Fix expeditor config and gemspec [#200](https://github.com/chef/license_scout/pull/200) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 1.0.24 -->
-- Override trasitive dependencies for automate1 [#199](https://github.com/chef/license_scout/pull/199) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 1.0.23 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.0.24](https://github.com/chef/license_scout/tree/v1.0.24) (2019-04-01)
+
+#### Merged Pull Requests
+- Override trasitive dependencies for automate1 [#199](https://github.com/chef/license_scout/pull/199) ([jaymalasinha](https://github.com/jaymalasinha))
+- Fix expeditor config and gemspec [#200](https://github.com/chef/license_scout/pull/200) ([jaymalasinha](https://github.com/jaymalasinha))
+<!-- latest_stable_release -->
+
 ## [v1.0.22](https://github.com/chef/license_scout/tree/v1.0.22) (2019-01-17)
 
 #### Merged Pull Requests
 - Use the URL to the jaro_winkler license file [#191](https://github.com/chef/license_scout/pull/191) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v1.0.21](https://github.com/chef/license_scout/tree/v1.0.21) (2019-01-17)
 
