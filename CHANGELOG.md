@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.2.1 -->
+## [v2.2.1](https://github.com/chef/license_scout/tree/v2.2.1) (2019-04-01)
+
+#### Merged Pull Requests
+- Leverage the new &#39;v2&#39; Habitat builds in Expeditor [#201](https://github.com/chef/license_scout/pull/201) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.2.0 -->
+### Changes since 2.2.0 release
+
+#### Merged Pull Requests
+- Leverage the new &#39;v2&#39; Habitat builds in Expeditor [#201](https://github.com/chef/license_scout/pull/201) ([tduffield](https://github.com/tduffield)) <!-- 2.2.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
