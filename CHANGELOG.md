@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.23 -->
-## [v1.0.23](https://github.com/chef/license_scout/tree/v1.0.23) (2019-03-29)
+<!-- latest_release 1.0.24 -->
+## [v1.0.24](https://github.com/chef/license_scout/tree/v1.0.24) (2019-04-01)
 
 #### Merged Pull Requests
-- Override trasitive dependencies for automate1 [#199](https://github.com/chef/license_scout/pull/199) ([jaymalasinha](https://github.com/jaymalasinha))
+- Fix expeditor config and gemspec [#200](https://github.com/chef/license_scout/pull/200) ([jaymalasinha](https://github.com/jaymalasinha))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.2.0 -->
 ### Changes since 2.2.0 release
 
 #### Merged Pull Requests
+- Fix expeditor config and gemspec [#200](https://github.com/chef/license_scout/pull/200) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 1.0.24 -->
 - Override trasitive dependencies for automate1 [#199](https://github.com/chef/license_scout/pull/199) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 1.0.23 -->
 <!-- release_rollup -->
 
