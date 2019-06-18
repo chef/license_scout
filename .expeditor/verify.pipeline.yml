@@ -6,5 +6,15 @@ steps:
     expeditor:
       executor:
         docker:
+          image: rubydistros/ubuntu-18.04
 
-  # Windows Coming Soon
+  - label: ":windows: :ruby:"
+    commands:
+      - bundle install
+      - bundle exec rake
+    timeout_in_minutes: 59
+    expeditor:
+      executor:
+        docker:
+          image: tduffield/rubywin:latest
+          host_os: windows
