@@ -7,7 +7,7 @@ winrm quickconfig -q
 
 # Install cmake
 choco install cmake
-$Env:path += ";C:\Program Files\CMake\mingw64\bin;C:\Program Files\CMake\usr\bin"
+$Env:path += ";C:\Program Files\CMake\bin"
 
 echo $Env:path
 
