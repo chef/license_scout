@@ -126,7 +126,7 @@ module LicenseScout
 
     def raw_github_url(url)
       case url
-      when /github.com\/(.+)\/blob\/(.+)/
+      when %r{github.com/(.+)/blob/(.+)}
         "https://raw.githubusercontent.com/#{$1}/#{$2}"
       else
         url

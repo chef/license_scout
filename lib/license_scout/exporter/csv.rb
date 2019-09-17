@@ -65,7 +65,7 @@ module LicenseScout
                 (exception_reason.nil? ? "" : exception_reason),
                 id,
                 source,
-                content
+                content,
               ]
             end
           end

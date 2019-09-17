@@ -94,7 +94,7 @@ module LicenseScout
 
     # @return [Boolean] Whether or not this object is equal to another one. Used for Set uniqueness.
     def eql?(other)
-      other.kind_of?(self.class) && other.hash == hash
+      other.is_a?(self.class) && other.hash == hash
     end
 
     # @return [Integer] A hashcode that can be used to idenitfy this object. Used for Set uniqueness.
