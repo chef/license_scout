@@ -7,4 +7,14 @@ steps:
       executor:
         docker:
 
-  # Windows Coming Soon
+  - label: ":windows: :ruby:"
+    command:
+      - /workdir/.expeditor/buildkite/verify.ps1
+    expeditor:
+      executor:
+        docker:
+          host_os: windows
+          environment:
+            - FORCE_FFI_YAJL=ext
+            - CHEF_LICENSE=accept-no-persist
+          shell: ["powershell", "-Command"]
