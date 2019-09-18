@@ -8,6 +8,8 @@ steps:
     expeditor:
       executor:
         docker:
+          environment:
+            - FORCE_FFI_YAJL=ext
 
   - label: ":windows: :ruby:"
     command:

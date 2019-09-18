@@ -9,12 +9,13 @@ winrm quickconfig -q
 choco install cmake
 $Env:path += ";C:\Program Files\CMake\bin"
 
+gem update bundler --no-document
+
+echo "--- Print Runtime Environment"
 echo $Env:path
-
-gem update bundler
-
 ruby -v
 bundle --version
+bundle env
 
 echo "--- bundle install"
 bundle install
