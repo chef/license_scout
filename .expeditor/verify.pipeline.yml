@@ -1,6 +1,8 @@
 steps:
   - label: ":linux: :ruby:"
     commands:
+      - ruby --version
+      - bundler --version
       - bundle install
       - bundle exec rake
     expeditor:

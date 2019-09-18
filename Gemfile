@@ -17,6 +17,7 @@
 
 source "https://rubygems.org"
 
+gem "rugged", "= 0.27" # Pin rugged to 0.27 as it breaks on windows https://github.com/libgit2/rugged/issues/791
 gemspec
 
 group :development do

@@ -11,8 +11,6 @@ $Env:path += ";C:\Program Files\CMake\bin"
 
 echo $Env:path
 
-which cmake
-
 ruby -v
 bundle --version
 
