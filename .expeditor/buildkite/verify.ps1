@@ -11,6 +11,8 @@ $Env:path += ";C:\Program Files\CMake\bin"
 
 echo $Env:path
 
+gem update bundler
+
 ruby -v
 bundle --version
 
