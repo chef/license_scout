@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-RSpec.describe LicenseScout::DependencyManager::Habitat do
+RSpec.describe LicenseScout::DependencyManager::Habitat, :no_windows do
 
   let(:subject) { described_class.new(directory) }
   let(:directory) { "/some/random/directory" }

@@ -44,7 +44,7 @@ RSpec.describe LicenseScout::Collector do
         LicenseScout::Config.directories = [ File.join(SPEC_FIXTURES_DIR, "habitat"), File.join(SPEC_FIXTURES_DIR, "empty_project") ]
       end
 
-      it "collects all of the dependencies for all the supported implementations" do
+      it "collects all of the dependencies for all the supported implementations", :no_windows do
         subject.collect
         expect(subject.dependencies.length).to eql(3)
         expect(subject.dependencies.map(&:name)).to eql(["core/glibc", "core/linux-headers", "core/musl"])
