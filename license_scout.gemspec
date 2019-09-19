@@ -51,5 +51,5 @@ Gem::Specification.new do |spec|
   # project it needs to include it seperately in its gem bundle. We have a nice
   # error message when they do not. But we add berkshelf as a development
   # dependency so that we can run our tests.
-  spec.add_development_dependency "berkshelf", "~> 4.3"
+  spec.add_development_dependency "berkshelf", "~> 7.0"
 end
