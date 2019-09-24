@@ -21,7 +21,7 @@ RSpec.describe LicenseScout::Config do
     let(:initial_config) do
       {
         flagged_licenses: [
-          "Apache-2.0"
+          "Apache-2.0",
         ],
         fallbacks: {
           habitat: {
@@ -36,7 +36,7 @@ RSpec.describe LicenseScout::Config do
     let(:supplemental_config) do
       {
         flagged_licenses: [
-          "MIT"
+          "MIT",
         ],
         fallbacks: {
           habitat: [

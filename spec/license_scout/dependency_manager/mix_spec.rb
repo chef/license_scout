@@ -77,7 +77,7 @@ RSpec.describe LicenseScout::DependencyManager::Mix do
   describe "#dependencies", :vcr do
     let(:directory) { File.join(SPEC_FIXTURES_DIR, "mix") }
 
-    it "returns an array of Dependencies found in the directory" do
+    it "returns an array of Dependencies found in the directory", :no_windows do
       dependencies = subject.dependencies
 
       # Make sure we have the right count

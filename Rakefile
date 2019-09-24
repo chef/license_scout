@@ -37,7 +37,7 @@ rescue LoadError
 end
 
 desc "Run all tests"
-task test: [:spec, :style]
+task test: %i{spec style}
 
 desc "Refresh the SPDX JSON database"
 task :spdx do

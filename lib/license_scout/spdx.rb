@@ -32,6 +32,7 @@ module LicenseScout
       def find(license_id, force = false)
         return license_id if force
         return nil if license_id.nil? || %w{ NOASSERTION NONE }.include?(license_id)
+
         lookup(license_id) || find_by_special_case(license_id) || closest(license_id) || license_id
       end
 
@@ -71,6 +72,7 @@ module LicenseScout
       def find_by_special_case(license_id)
         gpl = gpl_match(license_id)
         return gpl unless gpl.nil?
+
         lookup(special_cases[license_id.downcase])
       end
 
@@ -81,6 +83,7 @@ module LicenseScout
       def gpl_match(license_id)
         match = license_id.match(/^(l|a)?gpl-?\s?_?v?(1|2|3)\.?(\d)?(\+)?$/i)
         return unless match
+
         lookup("#{match[1]}GPL-#{match[2]}.#{match[3] || 0}#{match[4]}".upcase)
       end
 

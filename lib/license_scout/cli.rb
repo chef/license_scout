@@ -52,7 +52,7 @@ module LicenseScout
       short: "-l LEVEL",
       long: "--log-level LEVEL",
       description: "Set the log level",
-      in: [:debug, :info, :warn, :error, :fatal],
+      in: %i{debug info warn error fatal},
       default: :info,
       proc: Proc.new { |l| l.to_sym }
 

@@ -60,7 +60,7 @@ module LicenseScout
       end
 
       def gopath(pkg)
-        "#{ENV['GOPATH']}/src/#{pkg}"
+        "#{ENV["GOPATH"]}/src/#{pkg}"
       end
     end
   end
