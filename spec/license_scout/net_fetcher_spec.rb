@@ -34,8 +34,8 @@ RSpec.describe(LicenseScout::NetFetcher) do
   end
 
   subject(:fetcher) { described_class.new(url) }
-  let(:fetcher_repo) { ENV["TRAVIS_PULL_REQUEST_SLUG"].blank? ? "chef/license_scout" : ENV["TRAVIS_PULL_REQUEST_SLUG"] }
-  let(:fetcher_branch) { ENV["TRAVIS_PULL_REQUEST_BRANCH"].blank? ? "1-stable" : ENV["TRAVIS_PULL_REQUEST_BRANCH"] }
+  let(:fetcher_repo) { ENV["BK_PULL_REQUEST_SLUG"].blank? ? "chef/license_scout" : ENV["BK_PULL_REQUEST_SLUG"] }
+  let(:fetcher_branch) { ENV["BK_PULL_REQUEST_BRANCH"].blank? ? "1-stable" : ENV["BK_PULL_REQUEST_BRANCH"] }
   let(:url) { "https://raw.githubusercontent.com/#{fetcher_repo}/#{fetcher_branch}/spec/fixtures/FETCHER_README" }
   let(:expected_download_content) do
     <<-EOS

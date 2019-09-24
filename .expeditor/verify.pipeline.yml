@@ -7,4 +7,11 @@ steps:
       executor:
         docker:
 
-  # Windows Coming Soon
+  - label: ":windows: :ruby:"
+    command:
+      - /workdir/.expeditor/buildkite/verify.ps1
+    expeditor:
+      executor:
+        docker:
+          host_os: windows
+          shell: ["powershell", "-Command"]
