@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.2.1 -->
-## [v2.2.1](https://github.com/chef/license_scout/tree/v2.2.1) (2019-04-01)
+<!-- latest_release 2.2.2 -->
+## [v2.2.2](https://github.com/chef/license_scout/tree/v2.2.2) (2019-09-24)
 
 #### Merged Pull Requests
-- Leverage the new &#39;v2&#39; Habitat builds in Expeditor [#201](https://github.com/chef/license_scout/pull/201) ([tduffield](https://github.com/tduffield))
+- Migrate tests to buildkite [#203](https://github.com/chef/license_scout/pull/203) ([jaymalasinha](https://github.com/jaymalasinha))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.2.0 -->
 ### Changes since 2.2.0 release
 
 #### Merged Pull Requests
+- Migrate tests to buildkite [#203](https://github.com/chef/license_scout/pull/203) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 2.2.2 -->
 - Leverage the new &#39;v2&#39; Habitat builds in Expeditor [#201](https://github.com/chef/license_scout/pull/201) ([tduffield](https://github.com/tduffield)) <!-- 2.2.1 -->
 <!-- release_rollup -->
 
