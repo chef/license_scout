@@ -123,6 +123,8 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
       let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_2x_gems_dir") }
       let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
 
+      let(:expected_count) { Gem.win_platform? ? 26 : 24 }
+
       before do
         FileUtils.cp_r(bundler_project_fixture, directory)
         FileUtils.mkdir_p(bundler_gems_dir)
@@ -133,7 +135,7 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
         dependencies = subject.dependencies
 
         # Make sure we have the right count
-        expect(dependencies.length).to eq(24)
+        expect(dependencies.length).to eq(expected_count)
 
         # We check the bundler intentionally because we are handling it differently
         bundler_info = dependencies.find { |d| d.name == "bundler" }
