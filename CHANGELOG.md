@@ -1,26 +1,23 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.25 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.25](https://github.com/chef/license_scout/tree/v1.0.25) (2019-09-25)
 
 #### Merged Pull Requests
 - Add interception as a MIT project [#209](https://github.com/chef/license_scout/pull/209) ([christopher-snapp](https://github.com/christopher-snapp))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.2.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add interception as a MIT project [#209](https://github.com/chef/license_scout/pull/209) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 1.0.25 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.24](https://github.com/chef/license_scout/tree/v1.0.24) (2019-04-01)
 
 #### Merged Pull Requests
 - Override trasitive dependencies for automate1 [#199](https://github.com/chef/license_scout/pull/199) ([jaymalasinha](https://github.com/jaymalasinha))
 - Fix expeditor config and gemspec [#200](https://github.com/chef/license_scout/pull/200) ([jaymalasinha](https://github.com/jaymalasinha))
-<!-- latest_stable_release -->
 
 ## [v1.0.22](https://github.com/chef/license_scout/tree/v1.0.22) (2019-01-17)
 
