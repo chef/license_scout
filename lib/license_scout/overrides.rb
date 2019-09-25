@@ -370,6 +370,7 @@ module LicenseScout
         ["http_parser.rb", nil, ["https://raw.githubusercontent.com/tmm1/http_parser.rb/master/LICENSE-MIT"]],
         ["inspec-msccm", nil, [canonical("Chef-MLSA")]],
         ["inspec-scap", nil, [canonical("Chef-MLSA")]],
+        ["interception", "MIT", ["https://raw.githubusercontent.com/ConradIrwin/interception/master/LICENSE.MIT"]],
         ["jaro_winkler", "MIT", ["https://raw.githubusercontent.com/tonytonyjan/jaro_winkler/master/LICENSE.txt"]],
         ["json_pure", nil, ["https://raw.githubusercontent.com/flori/json/master/README.md"]],
         ["jwt", nil, ["https://raw.githubusercontent.com/jwt/ruby-jwt/master/LICENSE"]],
