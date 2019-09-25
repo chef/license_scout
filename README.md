@@ -179,12 +179,21 @@ license_content | A URL to a file where the raw text of the license can be downl
 
 In addition to including any files Licensee identified as potential license files (but couldn't identify), License Scout will also include the Fallback License you specified in the Dependency Manifest.
 
+### Searching Nested Subdirectories
+
+The default behavior of License Scout is to only look for dependency manager files in the root of the `directories` you configure. This is the default behavior to provide the maximum control over which dependencies you want to appear in your report. For example, your project may include an internal only tool for which you do not wish to enforce license acceptance.
+
+However, License Scout also supports deep scanning all of the listed directories for all dependency manager files and generating a full report on all dependencies that the project uses. To do this, either specify the `--include-sub-directories` command line flag, or set `include_subdirectories` to true in your configuration file.
+
+A common use case for this functionality is to run `license_scout` from the root of a project and get a full report for that project.
+
+```
+license_scout --include-sub-directories
+```
+
 ## Habitat Channel Configuration
 
-By default License Scout searches for Habitat package in the `stable`
-channel. If your build process publishes packages to another channel
-by default, you can use the `channel_for_origin` habitat configuration
-option:
+By default License Scout searches for Habitat package in the `stable` channel. If your build process publishes packages to another channel by default, you can use the `channel_for_origin` habitat configuration option:
 
 ```yaml
 habitat:
@@ -216,6 +225,7 @@ Format | Description
 Value | Description | Default
 --- | --- | ---
 directories | The fully-qualified local paths to the directories you wish to scan | _The current working directory._ |
+include_subdirectories | Whether or not to include all nested sub-directories of `directories` in the search. | `false` |
 name | The name you want to give to the scan result. | _The basename of the first directory to be scanned._ |
 output_directory | The path to the directory where the output JSON file should be saved. | _The current working directory._ |
 log_level | What log information should be included in STDOUT | `info` |

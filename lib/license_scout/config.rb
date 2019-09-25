@@ -28,6 +28,7 @@ module LicenseScout
 
     # Inputs
     default :directories, [File.expand_path(Dir.pwd)]
+    default :include_subdirectories, false
     default :name, File.basename(directories.first)
     default :config_files, [File.join(File.expand_path(Dir.pwd), ".license_scout.yml")]
 
@@ -78,6 +79,23 @@ module LicenseScout
     #
 
     class << self
+
+      def all_directories
+        if include_subdirectories
+          new_directories = []
+
+          directories.each do |old_directory|
+            new_directories << old_directory
+            Dir.chdir(old_directory) do
+              new_directories << Dir.glob("**/*").select { |f| File.directory?(f) }.map { |d| File.join(old_directory, d) }
+            end
+          end
+
+          new_directories.flatten.compact
+        else
+          directories
+        end
+      end
 
       def validate!
         if !allowed_licenses.empty? && !flagged_licenses.empty?

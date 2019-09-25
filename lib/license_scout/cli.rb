@@ -42,6 +42,11 @@ module LicenseScout
       description: "Comma-separated list of directories to scan",
       proc: Proc.new { |d| d.split(",") }
 
+    option :include_subdirectories,
+      long: "--include-sub-directories",
+      description: "Include all sub-directories of 'directories' in the analysis",
+      boolean: true
+
     option :format,
       long: "--format FORMAT",
       description: "When exporting a Dependency Manifest, export to this format",

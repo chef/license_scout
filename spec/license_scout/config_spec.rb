@@ -75,6 +75,58 @@ RSpec.describe LicenseScout::Config do
     end
   end
 
+  describe ".all_directories" do
+    let(:initial_config) do
+      {
+        directories: [
+          File.join(SPEC_FIXTURES_DIR, "deps_gopath"),
+        ],
+      }
+    end
+
+    let(:expected_directories) do
+      %W{
+        #{SPEC_FIXTURES_DIR}/deps_gopath
+      }
+    end
+
+    it "returns the list of directories" do
+      LicenseScout::Config.merge!(initial_config)
+
+      expect(LicenseScout::Config.all_directories).to match_array(expected_directories)
+    end
+
+    context "with include-sub-directories" do
+      let(:initial_config) do
+        {
+          include_subdirectories: true,
+          directories: [
+            File.join(SPEC_FIXTURES_DIR, "deps_gopath"),
+          ],
+        }
+      end
+
+      let(:expected_directories) do
+        %W{
+          #{SPEC_FIXTURES_DIR}/deps_gopath
+          #{SPEC_FIXTURES_DIR}/deps_gopath/src
+          #{SPEC_FIXTURES_DIR}/deps_gopath/src/gopkg.in
+          #{SPEC_FIXTURES_DIR}/deps_gopath/src/gopkg.in/foo
+          #{SPEC_FIXTURES_DIR}/deps_gopath/src/gopkg.in/foo/baz
+          #{SPEC_FIXTURES_DIR}/deps_gopath/src/github.com
+          #{SPEC_FIXTURES_DIR}/deps_gopath/src/github.com/foo
+          #{SPEC_FIXTURES_DIR}/deps_gopath/src/github.com/foo/bar
+        }
+      end
+
+      it "returns all subdirectories as well" do
+        LicenseScout::Config.merge!(initial_config)
+
+        expect(LicenseScout::Config.all_directories).to match_array(expected_directories)
+      end
+    end
+  end
+
   describe ".validate!" do
     context "when both an allowed and flagged list are specified" do
       before do
