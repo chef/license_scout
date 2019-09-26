@@ -57,7 +57,7 @@ module LicenseScout
     end
 
     def dependency_managers
-      @dependency_managers ||= LicenseScout::Config.directories.map do |dir|
+      @dependency_managers ||= LicenseScout::Config.all_directories.map do |dir|
         LicenseScout::DependencyManager.implementations.map do |implementation|
           dep_mgr = implementation.new(File.expand_path(dir))
           if dep_mgr.detected?
