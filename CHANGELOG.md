@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.26 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.26](https://github.com/chef/license_scout/tree/v1.0.26) (2019-09-26)
 
 #### Merged Pull Requests
 - Add http-accept as a MIT project [#211](https://github.com/chef/license_scout/pull/211) ([christopher-snapp](https://github.com/christopher-snapp))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.2.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add http-accept as a MIT project [#211](https://github.com/chef/license_scout/pull/211) ([christopher-snapp](https://github.com/christopher-snapp)) <!-- 1.0.26 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.25](https://github.com/chef/license_scout/tree/v1.0.25) (2019-09-25)
 
 #### Merged Pull Requests
 - Add interception as a MIT project [#209](https://github.com/chef/license_scout/pull/209) ([christopher-snapp](https://github.com/christopher-snapp))
-<!-- latest_stable_release -->
 
 ## [v1.0.24](https://github.com/chef/license_scout/tree/v1.0.24) (2019-04-01)
 
