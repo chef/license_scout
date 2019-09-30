@@ -19,6 +19,7 @@ require "license_scout/dependency_manager/base"
 
 require "license_scout/dependency_manager/berkshelf"
 require "license_scout/dependency_manager/bundler"
+require "license_scout/dependency_manager/cargo"
 require "license_scout/dependency_manager/cpanm"
 require "license_scout/dependency_manager/dep"
 require "license_scout/dependency_manager/glide"
@@ -34,6 +35,7 @@ module LicenseScout
       [
         Berkshelf,
         Bundler,
+        Cargo,
         Cpanm,
         Dep,
         Glide,

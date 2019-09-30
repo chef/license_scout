@@ -14,6 +14,7 @@ habitat | habitat
 nodejs | npm
 perl | cpan
 ruby | bundler
+rust | cargo
 
 ## Installation
 
@@ -27,6 +28,7 @@ gem install license_scout
 
 * If you wish to scan for `berkshelf` dependencies, you'll need to manually install the Berkshelf gem in the same Ruby as License Scout
 * If you wish to scan for `mix` or `rebar` dependencies, you'll need to install Erlang OTP 18.3 or greater.
+* If you wish to scan for `cargo` dependencies, you'll need to manually install cargo
 
 ### Habitat
 

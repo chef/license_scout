@@ -23,6 +23,7 @@ RSpec.describe LicenseScout::DependencyManager do
       [
         described_class::Berkshelf,
         described_class::Bundler,
+        described_class::Cargo,
         described_class::Cpanm,
         described_class::Dep,
         described_class::Glide,
