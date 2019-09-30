@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.0.27 -->
+## [v1.0.27](https://github.com/chef/license_scout/tree/v1.0.27) (2019-09-30)
+
+#### Merged Pull Requests
+- Add licensing information for Term-ReadKey [#213](https://github.com/chef/license_scout/pull/213) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.2.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add licensing information for Term-ReadKey [#213](https://github.com/chef/license_scout/pull/213) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit)) <!-- 1.0.27 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
