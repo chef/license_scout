@@ -521,6 +521,7 @@ module LicenseScout
         ["Variable-Magic", nil, ["README"]],
         ["Class-Data-Inheritable", nil, ["https://raw.githubusercontent.com/tmtmtmtm/class-data-inheritable/master/README"]],
         ["File-ShareDir", "Perl-5", ["lib/File/ShareDir.pm"]],
+        ["TermReadKey", "nil", ["LICENSE"]]
       ].each do |override_data|
         override_license "perl_cpanm", override_data[0] do |version|
           {}.tap do |d|
