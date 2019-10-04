@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.3.0 -->
-## [v2.3.0](https://github.com/chef/license_scout/tree/v2.3.0) (2019-09-26)
+<!-- latest_release 2.4.0 -->
+## [v2.4.0](https://github.com/chef/license_scout/tree/v2.4.0) (2019-10-04)
 
 #### Merged Pull Requests
-- Add flag that allows you to easily search all subdirectories [#210](https://github.com/chef/license_scout/pull/210) ([tduffield](https://github.com/tduffield))
+- Add rust support [#216](https://github.com/chef/license_scout/pull/216) ([nellshamrell](https://github.com/nellshamrell))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.2.0 -->
 ### Changes since 2.2.0 release
 
 #### Merged Pull Requests
+- Add rust support [#216](https://github.com/chef/license_scout/pull/216) ([nellshamrell](https://github.com/nellshamrell)) <!-- 2.4.0 -->
 - Add flag that allows you to easily search all subdirectories [#210](https://github.com/chef/license_scout/pull/210) ([tduffield](https://github.com/tduffield)) <!-- 2.3.0 -->
 - Migrate tests to buildkite [#203](https://github.com/chef/license_scout/pull/203) ([jaymalasinha](https://github.com/jaymalasinha)) <!-- 2.2.2 -->
 - Leverage the new &#39;v2&#39; Habitat builds in Expeditor [#201](https://github.com/chef/license_scout/pull/201) ([tduffield](https://github.com/tduffield)) <!-- 2.2.1 -->
