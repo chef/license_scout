@@ -50,6 +50,7 @@ module LicenseScout
       default :nodejs, []
       default :perl, []
       default :ruby, []
+      default :rust, []
     end
 
     config_context :fallbacks do
@@ -61,6 +62,7 @@ module LicenseScout
       default :nodejs, []
       default :perl, []
       default :ruby, []
+      default :rust, []
     end
 
     config_context :habitat do

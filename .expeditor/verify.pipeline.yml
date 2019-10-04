@@ -1,10 +1,7 @@
 steps:
   - label: ":linux: :ruby:"
     commands:
-      - ruby --version
-      - bundler --version
-      - bundle install
-      - bundle exec rake
+      - .expeditor/buildkite/verify.sh
     expeditor:
       executor:
         docker:
@@ -13,7 +10,7 @@ steps:
 
   - label: ":windows: :ruby:"
     command:
-      - /workdir/.expeditor/buildkite/verify.ps1
+      - .expeditor/buildkite/verify.ps1
     timeout_in_minutes: 20
     expeditor:
       executor:
