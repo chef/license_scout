@@ -59,7 +59,7 @@ module LicenseScout
         Dir.chdir(directory) do
           install_cargo_license_crate
 
-          s = Mixlib::ShellOut.new("cargo license -d -j")
+          s = Mixlib::ShellOut.new("#{LicenseScout::Config.cargo_bin} license -d -j")
           s.run_command
           s.error!
 
@@ -70,7 +70,7 @@ module LicenseScout
 
       def install_cargo_license_crate
         # Attempt to install cargo-license
-        s = Mixlib::ShellOut.new("cargo install cargo-license")
+        s = Mixlib::ShellOut.new("#{LicenseScout::Config.cargo_bin} install cargo-license")
         s.run_command
 
         # If cargo-license is already installed, it will return an error

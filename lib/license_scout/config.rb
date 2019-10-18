@@ -74,6 +74,7 @@ module LicenseScout
     default :environment, {}
     default :ruby_bin, "ruby"
     default :escript_bin, "escript"
+    default :cargo_bin, "cargo"
     default :cpanm_root, "#{ENV["HOME"]}/.cpanm"
 
     #
