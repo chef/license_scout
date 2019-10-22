@@ -63,7 +63,7 @@ module LicenseScout
             dependency = new_dependency(dep_name, dep_version, nil)
 
             if pkg_info(tdep).nil?
-             LicenseScout::Log.warn("Could not find information for #{tdep} -- skipping")
+              LicenseScout::Log.warn("Could not find information for #{tdep} -- skipping")
             else
               license_from_manifest(pkg_info(tdep)["manifest"]).each do |spdx|
                 # We hard code the channel to "unstable" because a package could be
