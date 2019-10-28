@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "ffi-yajl",         "~> 2.2"
   spec.add_dependency "mixlib-shellout",  ">= 2.2", "< 4.0"
-  spec.add_dependency "toml-rb",  "~> 1.0"
+  spec.add_dependency "toml-rb",  ">= 1", "< 3"
 
   spec.add_development_dependency "rake", ">= 10.0", "< 14"
   spec.add_development_dependency "rspec"
