@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.0.29 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.0.29](https://github.com/chef/license_scout/tree/v1.0.29) (2019-11-20)
 
 #### Merged Pull Requests
 - Allow mixlib-shellout 3.x [#220](https://github.com/chef/license_scout/pull/220) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.4.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Allow mixlib-shellout 3.x [#220](https://github.com/chef/license_scout/pull/220) ([tas50](https://github.com/tas50)) <!-- 1.0.29 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.0.28](https://github.com/chef/license_scout/tree/v1.0.28) (2019-09-30)
 
 #### Merged Pull Requests
 - The readme has the license for Term-Readkey [#215](https://github.com/chef/license_scout/pull/215) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
-<!-- latest_stable_release -->
 
 ## [v1.0.27](https://github.com/chef/license_scout/tree/v1.0.27) (2019-09-30)
 
