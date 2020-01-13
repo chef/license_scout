@@ -41,11 +41,11 @@ steps:
       docker:
         image: ruby:2.7-buster
 
-  - label: ":windows: :ruby:"
-    command:
-      - /workdir/.expeditor/buildkite/verify.ps1
-    expeditor:
-      executor:
-        docker:
-          host_os: windows
-          shell: ["powershell", "-Command"]
+- label: ":windows: :ruby:"
+  command:
+    - /workdir/.expeditor/buildkite/verify.ps1
+  expeditor:
+    executor:
+      docker:
+        host_os: windows
+        shell: ["powershell", "-Command"]
