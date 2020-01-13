@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.1.0 -->
-## [v1.1.0](https://github.com/chef/license_scout/tree/v1.1.0) (2020-01-13)
+<!-- latest_release 1.1.1 -->
+## [v1.1.1](https://github.com/chef/license_scout/tree/v1.1.1) (2020-01-13)
 
 #### Merged Pull Requests
-- Officially drop Ruby 2.2 support and resolve chefstyle warnings [#221](https://github.com/chef/license_scout/pull/221) ([tas50](https://github.com/tas50))
+- Update toml-rb requirement from ~&gt; 1.0 to &gt;= 1, &lt; 3 [#219](https://github.com/chef/license_scout/pull/219) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.4.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update toml-rb requirement from ~&gt; 1.0 to &gt;= 1, &lt; 3 [#219](https://github.com/chef/license_scout/pull/219) ([dependabot-preview[bot]](https://github.com/dependabot-preview[bot])) <!-- 1.1.1 -->
 - Officially drop Ruby 2.2 support and resolve chefstyle warnings [#221](https://github.com/chef/license_scout/pull/221) ([tas50](https://github.com/tas50)) <!-- 1.1.0 -->
 - Define the expeditor test pipeline [#222](https://github.com/chef/license_scout/pull/222) ([tas50](https://github.com/tas50)) <!-- 1.0.30 -->
 <!-- release_rollup -->
