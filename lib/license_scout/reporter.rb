@@ -76,7 +76,7 @@ module LicenseScout
         problems << "Dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing license files information."
       else
         dependency["license_files"].each do |license_file|
-          if !File.exist?(full_path_for(license_file))
+          unless File.exist?(full_path_for(license_file))
             problems << "License file '#{license_file}' for the dependency '#{dependency["name"]}' version '#{dependency["version"]}' under '#{dependency_manager}' is missing."
           end
         end
@@ -86,7 +86,7 @@ module LicenseScout
     end
 
     def find_license_manifest!
-      if !File.exist?(output_directory)
+      unless File.exist?(output_directory)
         raise LicenseScout::Exceptions::InvalidOutputReport.new("Output directory '#{output_directory}' does not exist.")
       end
 

@@ -50,13 +50,13 @@ module LicenseScout
       end
 
       def validate_input!
-        if !options.manual_licenses.is_a?(Array)
+        unless options.manual_licenses.is_a?(Array)
           raise LicenseScout::Exceptions::InvalidManualDependency.new("Invalid manual dependency is specified. :manual_licenses should be an Array in options.")
         end
 
         options.manual_licenses.each do |l|
           l.keys.each do |k|
-            if ![:name, :version, :license, :license_files, :dependency_manager].include?(k)
+            unless %i{name version license license_files dependency_manager}.include?(k)
               raise LicenseScout::Exceptions::InvalidManualDependency.new("Invalid manual dependency is specified. Key '#{k}' is not supported.")
             end
           end

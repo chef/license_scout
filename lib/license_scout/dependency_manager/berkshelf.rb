@@ -40,7 +40,7 @@ module LicenseScout
       end
 
       def dependencies
-        if !berkshelf_available?
+        unless berkshelf_available?
           raise LicenseScout::Exceptions::Error.new "Project at '#{project_dir}' is a Berkshelf project but berkshelf gem is not available in your bundle. Add berkshelf to your bundle in order to collect licenses for this project."
         end
 

@@ -30,11 +30,11 @@ module LicenseScout
       class CpanmDependency
 
         LICENSE_TYPE_MAP = {
-          "perl_5"      => "Perl-5",
-          "perl"        => "Perl-5",
-          "apache_2_0"  => "Apache-2.0",
-          "artistic_2"  => "Artistic-2.0",
-          "gpl_3"       => "GPL-3.0",
+          "perl_5" => "Perl-5",
+          "perl" => "Perl-5",
+          "apache_2_0" => "Apache-2.0",
+          "artistic_2" => "Artistic-2.0",
+          "gpl_3" => "GPL-3.0",
         }.freeze
 
         attr_reader :unpack_path

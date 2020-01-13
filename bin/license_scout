@@ -41,38 +41,38 @@ report = collector.issue_report
 unless report.empty?
   puts report
 
-  puts <<-EXPLANATION
+  puts <<~EXPLANATION
 
-How to fix this depends on what information license_scout was unable to
-determine:
+    How to fix this depends on what information license_scout was unable to
+    determine:
 
-* If the package is missing license information, that means license_scout was
-  unable to determine which license the package was released under. Depending
-  on the package manager, this is usually specified in the package's metadata,
-  for example, in the gemspec file for rubygems or in the package.json for npm.
-  If you know which license a package was released under, MIT for example, you
-  can add an override in license_scout's overrides.rb file in the section for
-  the appropriate package manager like this:
-    ["package-name", "MIT", nil]
+    * If the package is missing license information, that means license_scout was
+      unable to determine which license the package was released under. Depending
+      on the package manager, this is usually specified in the package's metadata,
+      for example, in the gemspec file for rubygems or in the package.json for npm.
+      If you know which license a package was released under, MIT for example, you
+      can add an override in license_scout's overrides.rb file in the section for
+      the appropriate package manager like this:
+        ["package-name", "MIT", nil]
 
-* If the package is missing the license file, that means license_scout could not
-  find the license text in any of the places the license is typically found, for
-  example, in a file named LICENSE in the root of the package. If the package
-  includes the license text in a non standard location or in its source repo,
-  you can indicate this by adding an override in license_scout's overrides.rb
-  file in the section for the appropriate package manager like this:
-    ["package-name", nil, ["https://example.com/foocorp/package-name/master/LICENSE"]],
+    * If the package is missing the license file, that means license_scout could not
+      find the license text in any of the places the license is typically found, for
+      example, in a file named LICENSE in the root of the package. If the package
+      includes the license text in a non standard location or in its source repo,
+      you can indicate this by adding an override in license_scout's overrides.rb
+      file in the section for the appropriate package manager like this:
+        ["package-name", nil, ["https://example.com/foocorp/package-name/master/LICENSE"]],
 
-  If you know that the package was released under one of the common software
-  licenses, MIT for example, but does not include the license text in packaged
-  releases or in its source repo, you can add an override in license_scout's
-  overrides.rb file in the section for the appropriate package manager like
-  this:
-    ["package-name", nil, [canonical("MIT")]]
+      If you know that the package was released under one of the common software
+      licenses, MIT for example, but does not include the license text in packaged
+      releases or in its source repo, you can add an override in license_scout's
+      overrides.rb file in the section for the appropriate package manager like
+      this:
+        ["package-name", nil, [canonical("MIT")]]
 
-See the closed pull requests on the license_scout repo for examples of how to
-do this:
-https://github.com/chef/license_scout/pulls?q=is%3Apr+is%3Aclosed
+    See the closed pull requests on the license_scout repo for examples of how to
+    do this:
+    https://github.com/chef/license_scout/pulls?q=is%3Apr+is%3Aclosed
   EXPLANATION
 
   exit 2

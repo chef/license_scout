@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2016-2018, Chef Software Inc.
+# Copyright:: Copyright 2016-2020, Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,6 +34,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
   spec.executables   = %w{license_scout}
   spec.require_paths = %w{lib}
+
+  spec.required_ruby_version = ">= 2.3"
 
   spec.add_dependency "ffi-yajl",         "~> 2.2"
   spec.add_dependency "mixlib-shellout",  ">= 2.2", "< 4.0"

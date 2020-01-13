@@ -38,13 +38,13 @@ RSpec.describe(LicenseScout::NetFetcher) do
   let(:fetcher_branch) { ENV["BK_PULL_REQUEST_BRANCH"].blank? ? "1-stable" : ENV["BK_PULL_REQUEST_BRANCH"] }
   let(:url) { "https://raw.githubusercontent.com/#{fetcher_repo}/#{fetcher_branch}/spec/fixtures/FETCHER_README" }
   let(:expected_download_content) do
-    <<-EOS
-This folder and file is being used for testing by the following project:
+    <<~EOS
+      This folder and file is being used for testing by the following project:
 
-https://github.com/chef/license_scout
+      https://github.com/chef/license_scout
 
-Please do not delete!
-EOS
+      Please do not delete!
+    EOS
   end
 
   let(:expected_cache_path) { fetcher.cache_path }

@@ -38,20 +38,22 @@ module LicenseScout
     end
 
     def dependency_managers
-      @dependency_managers ||= all_dependency_managers.select { |m| m.detected? }
+      @dependency_managers ||= all_dependency_managers.select(&:detected?)
     end
 
     def run
       reset_license_manifest
 
-      if !File.exist?(project_dir)
+      unless File.exist?(project_dir)
         raise LicenseScout::Exceptions::ProjectDirectoryMissing.new(project_dir)
       end
+
       FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
 
       if dependency_managers.empty?
         raise LicenseScout::Exceptions::UnsupportedProjectType.new(project_dir)
       end
+
       dependency_managers.each { |d| collect_licenses_from(d) }
 
       File.open(license_manifest_path, "w+") do |file|

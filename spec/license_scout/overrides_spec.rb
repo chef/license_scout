@@ -105,7 +105,7 @@ end
 RSpec.describe(LicenseScout::Overrides) do
 
   subject(:overrides) do
-    LicenseScout::Overrides.new() do
+    LicenseScout::Overrides.new do
       override_license "test_dep_manager", "example1" do |version|
         {
           license: "BSD",
@@ -152,7 +152,7 @@ RSpec.describe(LicenseScout::Overrides) do
   end
 
   describe "#default_overrides" do
-    let(:overrides) { LicenseScout::Overrides.new() }
+    let(:overrides) { LicenseScout::Overrides.new }
 
     it "doesn't pull license info from non-raw github URLs" do
       overrides.override_rules.each do |dep_manager, library_map|

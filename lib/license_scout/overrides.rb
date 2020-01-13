@@ -87,6 +87,7 @@ module LicenseScout
 
     def license_data_for(dependency_manager, dependency_name, dependency_version)
       return nil unless have_override_for?(dependency_manager, dependency_name, dependency_version)
+
       override_rules[dependency_manager][dependency_name].call(dependency_version)
     end
 
@@ -521,7 +522,7 @@ module LicenseScout
         ["Variable-Magic", nil, ["README"]],
         ["Class-Data-Inheritable", nil, ["https://raw.githubusercontent.com/tmtmtmtm/class-data-inheritable/master/README"]],
         ["File-ShareDir", "Perl-5", ["lib/File/ShareDir.pm"]],
-        ["TermReadKey", "nil", ["README"]]
+        ["TermReadKey", "nil", ["README"]],
       ].each do |override_data|
         override_license "perl_cpanm", override_data[0] do |version|
           {}.tap do |d|
@@ -939,7 +940,7 @@ module LicenseScout
         ["minipass", "ISC", ["https://raw.githubusercontent.com/isaacs/minipass/master/LICENSE"]],
         ["npm-bundled", "ISC", ["https://raw.githubusercontent.com/npm/npm-bundled/master/LICENSE"]],
         ["needle", "MIT", ["https://raw.githubusercontent.com/tomas/needle/master/license.txt"]],
-        ["uri-js", "BSD-2-Clause", ["https://raw.githubusercontent.com/garycourt/uri-js/master/README.md"]]
+        ["uri-js", "BSD-2-Clause", ["https://raw.githubusercontent.com/garycourt/uri-js/master/README.md"]],
       ].each do |override_data|
         override_license "js_npm", override_data[0] do |version|
           {}.tap do |d|
@@ -1058,7 +1059,7 @@ module LicenseScout
         ["github.com/spf13/jwalterweatherman", "MIT", ["https://raw.githubusercontent.com/spf13/jWalterWeatherman/master/LICENSE"]],
         ["github.com/spf13/viper", "MIT", ["https://raw.githubusercontent.com/spf13/viper/master/LICENSE"]],
         ["github.com/satori/go.uuid", "MIT", ["https://raw.githubusercontent.com/satori/go.uuid/master/LICENSE"]],
-        ["github.com/teambition/rrule-go", "MIT", ["https://raw.githubusercontent.com/teambition/rrule-go/master/LICENSE"]]
+        ["github.com/teambition/rrule-go", "MIT", ["https://raw.githubusercontent.com/teambition/rrule-go/master/LICENSE"]],
       ].each do |override_data|
         override_license "go", override_data[0] do |version|
           {}.tap do |d|

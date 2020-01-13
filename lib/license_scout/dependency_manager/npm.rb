@@ -113,7 +113,7 @@ module LicenseScout
           when Hash
             license_metadata["type"]
           when Array
-            if (map = license_metadata.first) && map.kind_of?(Hash) && (type = map["type"])
+            if (map = license_metadata.first) && map.is_a?(Hash) && (type = map["type"])
               type
             else
               nil
@@ -129,6 +129,7 @@ module LicenseScout
       # If there are multiple options, we want to pick just one to keep it simple.
       def select_best_license(license_string)
         return nil if license_string.nil?
+
         options = license_string.tr("(", "").tr(")", "").split(" OR ")
         options.inject do |selected_license, license|
           if license_rank(selected_license) < license_rank(license)

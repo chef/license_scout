@@ -59,7 +59,7 @@ module LicenseScout
       end
 
       def gopath(pkg)
-        "#{ENV['GOPATH']}/src/#{pkg}"
+        "#{ENV["GOPATH"]}/src/#{pkg}"
       end
 
       def find_license_files_for_package_in_gopath(pkg)
