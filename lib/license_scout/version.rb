@@ -16,5 +16,5 @@
 #
 
 module LicenseScout
-  VERSION = "1.0.29".freeze
+  VERSION = "1.0.30".freeze
 end
