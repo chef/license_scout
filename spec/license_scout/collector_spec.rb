@@ -269,7 +269,7 @@ RSpec.describe(LicenseScout::Collector) do
 
       context "and the dependency's license is manually specified" do
         let(:overrides) do
-          LicenseScout::Overrides.new() do
+          LicenseScout::Overrides.new do
             override_license "missing_license_dep_manager", "example1" do |version|
               {
                 license: "BSD",

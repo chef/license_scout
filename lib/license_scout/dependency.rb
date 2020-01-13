@@ -19,7 +19,7 @@ module LicenseScout
   Dependency = Struct.new(:name, :version, :license, :license_files, :dep_mgr_name) do
 
     def eql?(other)
-      other.kind_of?(self.class) && other.hash == hash
+      other.is_a?(self.class) && other.hash == hash
     end
 
     # hash code for when Dependency is used as a key in a Hash or member of a

@@ -142,7 +142,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
 
     describe "when only license files are overridden." do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new do
           override_license "ruby_bundler", "mixlib-install" do |version|
             {
               license_files: [ "CHANGELOG.md" ], # pick any file from mixlib-install
@@ -165,7 +165,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
 
     describe "when correct overrides are provided." do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new do
           override_license "ruby_bundler", "mixlib-install" do |version|
             {
               license: "Apache",
@@ -189,7 +189,7 @@ RSpec.describe(LicenseScout::DependencyManager::Bundler) do
 
     describe "when overrides with missing license file paths are provided" do
       let(:overrides) do
-        LicenseScout::Overrides.new() do
+        LicenseScout::Overrides.new do
           override_license "ruby_bundler", "mixlib-install" do |version|
             {
               license: "Apache",

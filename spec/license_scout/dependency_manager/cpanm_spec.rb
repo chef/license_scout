@@ -117,7 +117,7 @@ RSpec.describe(LicenseScout::DependencyManager::Cpanm) do
           override_license "perl_cpanm", "Any-Moose" do |version|
             {
               license: "MIT",
-              license_files: ["README"] # any file in Capture-Tiny there
+              license_files: ["README"], # any file in Capture-Tiny there
             }
           end
         end

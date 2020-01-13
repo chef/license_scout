@@ -138,7 +138,7 @@ RSpec.describe(LicenseScout::DependencyManager::NPM) do
 
     describe "with default overrides enabled" do
 
-      let(:overrides) { LicenseScout::Overrides.new() }
+      let(:overrides) { LicenseScout::Overrides.new }
 
       before do
         allow(LicenseScout::NetFetcher).to receive(:new).and_call_original

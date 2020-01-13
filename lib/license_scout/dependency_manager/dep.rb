@@ -38,6 +38,7 @@ module LicenseScout
           TomlRB.parse(f)
         end
         return [] unless deps.key?("projects")
+
         deps["projects"].map do |pkg_info|
           pkg_import_name = pkg_info["name"]
           pkg_file_name = pkg_import_name.tr("/", "_")
@@ -71,7 +72,7 @@ module LicenseScout
       end
 
       def gopath(pkg)
-        "#{ENV['GOPATH']}/src/#{pkg}"
+        "#{ENV["GOPATH"]}/src/#{pkg}"
       end
 
       def vendor_dir(pkg = nil)

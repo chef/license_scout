@@ -19,7 +19,7 @@ require "license_scout/overrides"
 
 module LicenseScout
   class Options
-    SUPPORTED_OPTIONS = [:overrides, :environment, :ruby_bin, :cpan_cache, :manual_licenses].freeze
+    SUPPORTED_OPTIONS = %i{overrides environment ruby_bin cpan_cache manual_licenses}.freeze
 
     SUPPORTED_OPTIONS.each do |o|
       send(:attr_reader, o)

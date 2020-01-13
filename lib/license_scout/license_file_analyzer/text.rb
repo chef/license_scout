@@ -25,14 +25,14 @@
 module LicenseScout
   module LicenseFileAnalyzer
     module Text
-      SPACES = /[[:space:]]+/
-      QUOTES = /['`"]{1,2}/
-      PLACEHOLDERS = /<[^<>]+>/
+      SPACES = /[[:space:]]+/.freeze
+      QUOTES = /['`"]{1,2}/.freeze
+      PLACEHOLDERS = /<[^<>]+>/.freeze
 
       def self.normalize_punctuation(text)
         text.gsub(SPACES, " ")
-            .gsub(QUOTES, '"')
-            .strip
+          .gsub(QUOTES, '"')
+          .strip
       end
 
       def self.compile_to_regex(text)
