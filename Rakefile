@@ -20,9 +20,8 @@ require "bundler/gem_tasks"
 begin
   require "rspec/core/rake_task"
 
-  desc "Run specs"
-  RSpec::Core::RakeTask.new(:spec) do |spec|
-    spec.pattern = "spec/**/*_spec.rb"
+  RSpec::Core::RakeTask.new do |t|
+    t.pattern = "spec/**/*_spec.rb"
   end
 rescue LoadError
   desc "rspec is not installed, this task is disabled"

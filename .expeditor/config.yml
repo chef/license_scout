@@ -1,5 +1,6 @@
 # Documentation available at https://expeditor.chef.io/docs/getting-started/
 ---
+
 # Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
   notify_channel: releng-notify
@@ -11,10 +12,17 @@ rubygems:
 github:
   # This deletes the GitHub PR branch after successfully merged into the release branch
   delete_branch_on_merge: true
+  # The tag format to use (e.g. v1.0.0)
   version_tag_format: "v{{version}}"
   # allow bumping the minor release via label
   minor_bump_labels:
-    - "Expeditor: Bump Minor Version"
+    - "Expeditor: Bump Version Minor"
+  # allow bumping the major release via label
+  major_bump_labels:
+    - "Expeditor: Bump Version Major"
+  # Which Github branches to build Omnibus releases from, and what versions
+  # (as determined by the value in the VERSION file) those branches are responsible
+  # for building.
   release_branch:
     - master:
         version_constraint: 2.*
@@ -34,7 +42,7 @@ merge_actions:
       only_if: built_in:bump_version
   - built_in:update_changelog:
       ignore_labels:
-        - "Expeditor: Exclude From Changelog"
+        - "Expeditor: Skip Changelog"
         - "Expeditor: Skip All"
   - built_in:build_gem:
       only_if: built_in:bump_version
