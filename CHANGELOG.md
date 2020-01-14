@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.1.3 -->
+## [v1.1.3](https://github.com/chef/license_scout/tree/v1.1.3) (2020-01-14)
+
+#### Merged Pull Requests
+- Fix the URL to the sync license [#224](https://github.com/chef/license_scout/pull/224) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.4.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Fix the URL to the sync license [#224](https://github.com/chef/license_scout/pull/224) ([tas50](https://github.com/tas50)) <!-- 1.1.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
