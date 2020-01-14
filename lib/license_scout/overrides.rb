@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2016-2020, Chef Software Inc.
+# Copyright:: Copyright 2016-2019, Chef Software Inc.
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -417,7 +417,7 @@ module LicenseScout
         ["word-salad", "MIT", ["https://raw.githubusercontent.com/alexvollmer/word_salad/master/README.txt"]],
         ["xml-simple", "Ruby", ["https://raw.githubusercontent.com/maik/xml-simple/master/README.md"]],
         ["zonefile", "MIT", ["https://raw.githubusercontent.com/boesemar/zonefile/master/LICENSE"]],
-        ["sync", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/sync/blob/master/LICENSE.txt"]],
+        ["sync", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/sync/master/LICENSE.txt"]],
       ]
       (aws_sdk_gems + other_gems).each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
