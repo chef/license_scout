@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.1.4 -->
+## [v1.1.4](https://github.com/chef/license_scout/tree/v1.1.4) (2020-02-13)
+
+#### Merged Pull Requests
+- Add license information for erlcloud [#226](https://github.com/chef/license_scout/pull/226) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.4.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add license information for erlcloud [#226](https://github.com/chef/license_scout/pull/226) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit)) <!-- 1.1.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
