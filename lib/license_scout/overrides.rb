@@ -549,6 +549,8 @@ module LicenseScout
         ["ibrowse", "BSD-2-Clause", nil],
         ["eunit_formatters", "Apache-2.0", ["https://raw.githubusercontent.com/seancribbs/eunit_formatters/master/README.md"]],
         ["erlware_commons", "MIT", ["https://raw.githubusercontent.com/erlware/erlware_commons/master/COPYING"]],
+        ["erlcloud", "BSD-2-Clause", ["https://raw.githubusercontent.com/erlcloud/erlcloud/master/COPYRIGHT"]],
+        ["lhttpc", "BSD-2-Clause", ["https://raw.githubusercontent.com/erlcloud/lhttpc/master/LICENCE"]],
         ["getopt", "MIT", nil],
         ["relx", "Apache-2.0", ["https://raw.githubusercontent.com/erlware/relx/master/LICENSE.md"]],
       ].each do |override_data|
