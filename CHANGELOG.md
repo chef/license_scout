@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.1.4 -->
-## [v1.1.4](https://github.com/chef/license_scout/tree/v1.1.4) (2020-02-13)
-
-#### Merged Pull Requests
-- Add license information for erlcloud [#226](https://github.com/chef/license_scout/pull/226) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.4.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add license information for erlcloud [#226](https://github.com/chef/license_scout/pull/226) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit)) <!-- 1.1.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.1.4](https://github.com/chef/license_scout/tree/v1.1.4) (2020-02-19)
+
+#### Merged Pull Requests
+- Add license information for erlcloud [#226](https://github.com/chef/license_scout/pull/226) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
+<!-- latest_stable_release -->
+
 ## [v1.1.3](https://github.com/chef/license_scout/tree/v1.1.3) (2020-01-14)
 
 #### Merged Pull Requests
 - Fix the URL to the sync license [#224](https://github.com/chef/license_scout/pull/224) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v1.1.2](https://github.com/chef/license_scout/tree/v1.1.2) (2020-01-13)
 
