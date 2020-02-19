@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.1.5 -->
+## [v1.1.5](https://github.com/chef/license_scout/tree/v1.1.5) (2020-02-19)
+
+#### Merged Pull Requests
+- lhttpc: This is the BSD-3-Clause, not BSD-2-Clause [#227](https://github.com/chef/license_scout/pull/227) ([btm](https://github.com/btm))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.4.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- lhttpc: This is the BSD-3-Clause, not BSD-2-Clause [#227](https://github.com/chef/license_scout/pull/227) ([btm](https://github.com/btm)) <!-- 1.1.5 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
