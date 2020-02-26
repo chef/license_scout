@@ -297,6 +297,7 @@ module LicenseScout
         ["em-http-request", "MIT", nil],
         ["equatable", "MIT", ["LICENSE.txt"]],
         ["erubis", "MIT", nil],
+        ["hana", "MIT", ["README.md"]],
         ["highline", "Ruby", ["LICENSE"]],
         ["httpclient", "Ruby", ["README.md"]],
         ["inifile", "MIT", ["README.md"]],
