@@ -28,6 +28,7 @@ RSpec.describe LicenseScout::DependencyManager do
         described_class::Dep,
         described_class::Glide,
         described_class::Godep,
+        described_class::Gomod,
         described_class::Habitat,
         described_class::Mix,
         described_class::Rebar,

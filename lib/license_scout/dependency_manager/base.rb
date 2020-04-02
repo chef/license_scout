@@ -51,6 +51,7 @@ module LicenseScout
       # @example Go's various package managers
       #   Name        Reference
       #   --------    -----------------------------------------------
+      #   go_mod      [`gomod`](https://golang.org/cmd/go/#hdr-The_go_mod_file)
       #   go_dep      [`godep`](https://github.com/tools/godep)
       #   go_godep    [`dep`](https://github.com/golang/dep)
       #   go_glide    [`glide`](https://github.com/Masterminds/glide)

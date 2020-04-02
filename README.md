@@ -9,7 +9,7 @@ Dependency Type | Supported Dependency Managers
 chef_cookbook | berkshelf
 erlang | rebar
 elixir | mix
-golang | dep, godep, glide
+golang | modules, dep, godep, glide
 habitat | habitat
 nodejs | npm
 perl | cpan
@@ -29,6 +29,7 @@ gem install license_scout
 * If you wish to scan for `berkshelf` dependencies, you'll need to manually install the Berkshelf gem in the same Ruby as License Scout
 * If you wish to scan for `mix` or `rebar` dependencies, you'll need to install Erlang OTP 18.3 or greater.
 * If you wish to scan for `cargo` dependencies, you'll need to manually install cargo
+* If you wish to scan for `go mod` dependencies, you'll need to manually install go
 
 ### Habitat
 
