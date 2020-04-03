@@ -12,5 +12,6 @@
 /license-cache/
 *-dependency-licenses.json
 results/
+/vendor/
 
 .DS_STORE
