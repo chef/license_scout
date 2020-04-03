@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.4.1 -->
+## [v2.4.1](https://github.com/chef/license_scout/tree/v2.4.1) (2020-04-03)
+
+#### Merged Pull Requests
+- Fix unit tests on master [#231](https://github.com/chef/license_scout/pull/231) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.4.0 -->
+### Changes since 2.4.0 release
+
+#### Merged Pull Requests
+- Fix unit tests on master [#231](https://github.com/chef/license_scout/pull/231) ([tduffield](https://github.com/tduffield)) <!-- 2.4.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
