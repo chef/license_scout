@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.email = "info@chef.io".freeze
   s.homepage = "https://github.com/chef/mixlib-versioning".freeze
   s.licenses = ["Apache-2.0".freeze]
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "General purpose Ruby library that allows you to parse, compare and manipulate version strings in multiple formats.".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 end
