@@ -15,6 +15,7 @@ echo "--- Print Runtime Environment"
 echo $Env:path
 ruby -v
 bundle --version
+bundle config set path 'vendor/bundle'
 bundle env
 
 echo "--- bundle install"

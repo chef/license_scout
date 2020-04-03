@@ -3,6 +3,8 @@ steps:
     commands:
       - .expeditor/buildkite/verify.sh
     expeditor:
+      cached_folders:
+        - vendor
       executor:
         docker:
           environment:
@@ -13,6 +15,8 @@ steps:
       - .expeditor/buildkite/verify.ps1
     timeout_in_minutes: 20
     expeditor:
+      cached_folders:
+        - vendor
       executor:
         docker:
           host_os: windows

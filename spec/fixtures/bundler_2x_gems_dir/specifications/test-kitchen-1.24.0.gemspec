@@ -16,10 +16,10 @@ Gem::Specification.new do |s|
   s.homepage = "https://kitchen.ci/".freeze
   s.licenses = ["Apache-2.0".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 2.3".freeze)
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "Test Kitchen is an integration tool for developing and testing infrastructure code and software on isolated target platforms.".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

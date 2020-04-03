@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.files = ["History.txt".freeze, "README.rdoc".freeze]
   s.homepage = "http://gemcutter.org/gems/little-plugger".freeze
   s.rdoc_options = ["--main".freeze, "README.rdoc".freeze]
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "LittlePlugger is a module that provides Gem based plugin management.".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

@@ -12,5 +12,9 @@
 /license-cache/
 *-dependency-licenses.json
 results/
+/vendor/
+
+mkmf.log
+gem_make.out
 
 .DS_STORE

@@ -14,10 +14,10 @@ Gem::Specification.new do |s|
   s.files = ["bin/mixlib-install".freeze]
   s.homepage = "https://github.com/chef/mixlib-install".freeze
   s.licenses = ["Apache-2.0".freeze]
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "A library for interacting with Chef Software Inc's software distribution systems.".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
