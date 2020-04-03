@@ -14,4 +14,7 @@
 results/
 /vendor/
 
+mkmf.log
+gem_make.out
+
 .DS_STORE
