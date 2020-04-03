@@ -59,7 +59,7 @@ module LicenseScout
         Dir.chdir(directory) do
           install_cargo_license_crate
 
-          s = Mixlib::ShellOut.new("cargo license -d -j")
+          s = Mixlib::ShellOut.new("cargo-license -d -j")
           s.run_command
           s.error!
 
