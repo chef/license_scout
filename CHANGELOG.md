@@ -1,9 +1,10 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 2.5.0 -->
+## [v2.5.0](https://github.com/chef/license_scout/tree/v2.5.0) (2020-04-06)
 
 #### Merged Pull Requests
+- Minor cleanup to the gomod plugin [#232](https://github.com/chef/license_scout/pull/232) ([tduffield](https://github.com/tduffield))
 - Add support for go mod dependencies [#230](https://github.com/chef/license_scout/pull/230) ([tsenart](https://github.com/tsenart))
 <!-- latest_release -->
 
@@ -11,6 +12,7 @@
 ### Changes since 2.4.0 release
 
 #### Merged Pull Requests
+- Minor cleanup to the gomod plugin [#232](https://github.com/chef/license_scout/pull/232) ([tduffield](https://github.com/tduffield)) <!-- 2.5.0 -->
 - Add support for go mod dependencies [#230](https://github.com/chef/license_scout/pull/230) ([tsenart](https://github.com/tsenart)) <!-- 2.4.1 -->
 - Fix unit tests on master [#231](https://github.com/chef/license_scout/pull/231) ([tduffield](https://github.com/tduffield)) <!-- 2.4.1 -->
 <!-- release_rollup -->
