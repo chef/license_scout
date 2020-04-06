@@ -24,6 +24,7 @@ require "license_scout/dependency_manager/cpanm"
 require "license_scout/dependency_manager/dep"
 require "license_scout/dependency_manager/glide"
 require "license_scout/dependency_manager/godep"
+require "license_scout/dependency_manager/gomod"
 require "license_scout/dependency_manager/habitat"
 require "license_scout/dependency_manager/mix"
 require "license_scout/dependency_manager/rebar"
@@ -40,6 +41,7 @@ module LicenseScout
         Dep,
         Glide,
         Godep,
+        Gomod,
         Habitat,
         Mix,
         Rebar,
