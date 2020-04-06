@@ -1,23 +1,20 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.5.0 -->
-## [v2.5.0](https://github.com/chef/license_scout/tree/v2.5.0) (2020-04-06)
-
-#### Merged Pull Requests
-- Minor cleanup to the gomod plugin [#232](https://github.com/chef/license_scout/pull/232) ([tduffield](https://github.com/tduffield))
-- Add support for go mod dependencies [#230](https://github.com/chef/license_scout/pull/230) ([tsenart](https://github.com/tsenart))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.4.0 -->
-### Changes since 2.4.0 release
-
-#### Merged Pull Requests
-- Minor cleanup to the gomod plugin [#232](https://github.com/chef/license_scout/pull/232) ([tduffield](https://github.com/tduffield)) <!-- 2.5.0 -->
-- Add support for go mod dependencies [#230](https://github.com/chef/license_scout/pull/230) ([tsenart](https://github.com/tsenart)) <!-- 2.4.1 -->
-- Fix unit tests on master [#231](https://github.com/chef/license_scout/pull/231) ([tduffield](https://github.com/tduffield)) <!-- 2.4.1 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v2.5.0](https://github.com/chef/license_scout/tree/v2.5.0) (2020-04-06)
+
+#### Merged Pull Requests
+- Fix unit tests on master [#231](https://github.com/chef/license_scout/pull/231) ([tduffield](https://github.com/tduffield))
+- Add support for go mod dependencies [#230](https://github.com/chef/license_scout/pull/230) ([tsenart](https://github.com/tsenart))
+- Minor cleanup to the gomod plugin [#232](https://github.com/chef/license_scout/pull/232) ([tduffield](https://github.com/tduffield))
+<!-- latest_stable_release -->
+
 ## [v2.4.0](https://github.com/chef/license_scout/tree/v2.4.0) (2019-10-04)
 
 #### Merged Pull Requests
@@ -25,7 +22,6 @@
 - Migrate tests to buildkite [#203](https://github.com/chef/license_scout/pull/203) ([jaymalasinha](https://github.com/jaymalasinha))
 - Add flag that allows you to easily search all subdirectories [#210](https://github.com/chef/license_scout/pull/210) ([tduffield](https://github.com/tduffield))
 - Add rust support [#216](https://github.com/chef/license_scout/pull/216) ([nellshamrell](https://github.com/nellshamrell))
-<!-- latest_stable_release -->
 
 ## [v2.2.0](https://github.com/chef/license_scout/tree/v2.2.0) (2019-03-15)
 
