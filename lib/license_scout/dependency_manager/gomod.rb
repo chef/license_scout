@@ -58,13 +58,11 @@ module LicenseScout
       end
 
       def go_modules
-        FFI_Yajl::Parser.parse(Dir.chdir(directory) {
-          go_modules_json
-        })
+        FFI_Yajl::Parser.parse(go_modules_json)
       end
 
       def go_modules_json
-        s = Mixlib::ShellOut.new("go list -m -json all")
+        s = Mixlib::ShellOut.new("go list -m -json all", cwd: directory, environment: LicenseScout::Config.environment)
         s.run_command
         s.error!
         "[" + s.stdout.gsub("}\n{", "},\n{") + "]"
