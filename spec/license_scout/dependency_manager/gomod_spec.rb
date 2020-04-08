@@ -99,4 +99,15 @@ RSpec.describe LicenseScout::DependencyManager::Gomod do
       expect(dep_b.license.records.first.source).to eql("LICENSE")
     end
   end
+  describe "#dependencies with vendored dependencies" do
+    let(:directory) { File.join(SPEC_FIXTURES_DIR, "gomod-vendor") }
+    it "returns an array of Dependencies found in the vendor directory" do
+      dependencies = subject.dependencies
+      expect(dependencies.length).to eq(1)
+      dep = dependencies[0]
+      expect(dep.version).to eq("v3.2.0+incompatible")
+      expect(dep.license.records.first.id).to eql("MIT")
+      expect(dep.license.records.first.source).to eql("LICENSE")
+    end
+  end
 end
