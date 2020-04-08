@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.5.1 -->
+## [v2.5.1](https://github.com/chef/license_scout/tree/v2.5.1) (2020-04-08)
+
+#### Merged Pull Requests
+- gomod: support vendored dependencies [#233](https://github.com/chef/license_scout/pull/233) ([stevendanna](https://github.com/stevendanna))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.0 -->
+### Changes since 2.5.0 release
+
+#### Merged Pull Requests
+- gomod: support vendored dependencies [#233](https://github.com/chef/license_scout/pull/233) ([stevendanna](https://github.com/stevendanna)) <!-- 2.5.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
