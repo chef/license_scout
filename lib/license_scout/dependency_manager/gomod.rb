@@ -57,8 +57,27 @@ module LicenseScout
         File.join(directory, "go.sum")
       end
 
+      def vendor_dir
+        File.join(directory, "vendor")
+      end
+
+      def modules_txt_file
+        File.join(vendor_dir, "modules.txt")
+      end
+
       def go_modules
-        FFI_Yajl::Parser.parse(go_modules_json)
+        if vendor_mode
+          GoModulesTxtParser.parse(File.read(modules_txt_file), vendor_dir)
+        else
+          FFI_Yajl::Parser.parse(go_modules_json)
+        end
+      end
+
+      def vendor_mode
+        if @vendor_mode.nil?
+          @vendor_mode = File.directory?(vendor_dir)
+        end
+        @vendor_mode
       end
 
       def go_modules_json
@@ -67,6 +86,28 @@ module LicenseScout
         s.error!
         "[" + s.stdout.gsub("}\n{", "},\n{") + "]"
       end
+    end
+  end
+
+  module GoModulesTxtParser
+    # The modules.txt file has lines that look like:
+    #
+    #     # gopkg.in/square/go-jose.v2 v2.1.3
+    #
+    # We parse these lines and return something that looks like `go
+    # list -m -json all` output.
+    def self.parse(data, base_path)
+      data.lines.map do |l|
+        if l.start_with?("#")
+          parts = l.split
+          {
+            "Main" => false,
+            "Path" => parts[1],
+            "Version" => parts[2],
+            "Dir" => File.join(base_path, parts[1]),
+          }
+        end
+      end.compact
     end
   end
 end
