@@ -46,28 +46,38 @@ module LicenseScout
       def dependencies
         tdeps = Set.new(pkg_deps)
 
-        pkg_deps.each do |pkg_dep|
-          pkg_info(pkg_dep)["tdeps"].each { |dep| tdeps << to_ident(dep) }
-        end
-
-        tdeps.sort.map do |tdep|
-          o, n, v, r = tdep.split("/")
-          dep_name = "#{o}/#{n}"
-          dep_version = "#{v}-#{r}"
-
-          dependency = new_dependency(dep_name, dep_version, nil)
-
-          license_from_manifest(pkg_info(tdep)["manifest"]).each do |spdx|
-            # We hard code the channel to "unstable" because a package could be
-            # demoted from any given channel except unstable in the future and
-            # we want the url metadata to be stable in order to give end users
-            # the ability to self-audit licenses
-            # tl;dr, we want a permalink not a nowlink
-            dependency.add_license(spdx, "https://bldr.habitat.sh/v1/depot/channels/#{o}/unstable/pkgs/#{n}/#{v}/#{r}")
+        if pkg_deps.any?
+          pkg_deps.each do |pkg_dep|
+            unless pkg_info(pkg_dep).nil?
+              pkg_info(pkg_dep)["tdeps"].each { |dep| tdeps << to_ident(dep) }
+            end
           end
 
-          dependency
-        end.compact
+          tdeps.delete(nil)
+
+          tdeps.sort.map do |tdep|
+            o, n, v, r = tdep.split("/")
+            dep_name = "#{o}/#{n}"
+            dep_version = "#{v}-#{r}"
+
+            dependency = new_dependency(dep_name, dep_version, nil)
+
+            if pkg_info(tdep).nil?
+              LicenseScout::Log.warn("Could not find information for #{tdep} -- skipping")
+            else
+              license_from_manifest(pkg_info(tdep)["manifest"]).each do |spdx|
+                # We hard code the channel to "unstable" because a package could be
+                # demoted from any given channel except unstable in the future and
+                # we want the url metadata to be stable in order to give end users
+                # the ability to self-audit licenses
+                # tl;dr, we want a permalink not a nowlink
+                dependency.add_license(spdx, "https://bldr.habitat.sh/v1/depot/channels/#{o}/unstable/pkgs/#{n}/#{v}/#{r}")
+              end
+            end
+
+            dependency
+          end.compact
+        end
       end
 
       private
@@ -86,7 +96,9 @@ module LicenseScout
           pkg_deps = c.stdout.split("\s")
 
           # Fetch the fully-qualified pkg_ident for each pkg
-          pkg_deps.map { |dep| to_ident(pkg_info(dep)["ident"]) }
+          pkg_deps.map do |dep|
+            to_ident(pkg_info(dep)["ident"]) unless pkg_info(dep).nil?
+          end
         end
       end
 
@@ -100,29 +112,31 @@ module LicenseScout
       end
 
       def pkg_info_with_channel_fallbacks(pkg_ident)
-        pkg_origin, pkg_name, pkg_version, pkg_release = pkg_ident.split("/")
-        pkg_channel = channel_for_origin(pkg_origin)
+        unless pkg_ident.nil?
+          pkg_origin, pkg_name, pkg_version, pkg_release = pkg_ident.split("/")
+          pkg_channel = channel_for_origin(pkg_origin)
 
-        # Channel selection here is similar to the logic that
-        # Habitat uses. First, search in the user-provided channel,
-        # then search in stable, then use unstable IF it is a fully
-        # qualified package
-        info = get_pkg_info(pkg_origin, pkg_channel, pkg_name, pkg_version, pkg_release)
-        return info if info
-
-        if pkg_channel != DEFAULT_CHANNEL
-          LicenseScout::Log.debug("[habitat] Looking for #{pkg_ident} in #{DEFAULT_CHANNEL} channel")
-          info = get_pkg_info(pkg_origin, DEFAULT_CHANNEL, pkg_name, pkg_version, pkg_release)
+          # Channel selection here is similar to the logic that
+          # Habitat uses. First, search in the user-provided channel,
+          # then search in stable, then use unstable IF it is a fully
+          # qualified package
+          info = get_pkg_info(pkg_origin, pkg_channel, pkg_name, pkg_version, pkg_release)
           return info if info
-        end
 
-        if !pkg_version.nil? && !pkg_release.nil?
-          LicenseScout::Log.debug("[habitat] Looking for #{pkg_ident} in #{FALLBACK_CHANNEL_FOR_FQ} channel since it is fully-qualified")
-          info = get_pkg_info(pkg_origin, FALLBACK_CHANNEL_FOR_FQ, pkg_name, pkg_version, pkg_release)
-          return info if info
-        end
+          if pkg_channel != DEFAULT_CHANNEL
+            LicenseScout::Log.debug("[habitat] Looking for #{pkg_ident} in #{DEFAULT_CHANNEL} channel")
+            info = get_pkg_info(pkg_origin, DEFAULT_CHANNEL, pkg_name, pkg_version, pkg_release)
+            return info if info
+          end
 
-        raise LicenseScout::Exceptions::HabitatPackageNotFound.new("Could not find Habitat package #{pkg_ident}")
+          if !pkg_version.nil? && !pkg_release.nil?
+            LicenseScout::Log.debug("[habitat] Looking for #{pkg_ident} in #{FALLBACK_CHANNEL_FOR_FQ} channel since it is fully-qualified")
+            info = get_pkg_info(pkg_origin, FALLBACK_CHANNEL_FOR_FQ, pkg_name, pkg_version, pkg_release)
+            return info if info
+          end
+
+          LicenseScout::Log.warn("Could not find information for #{pkg_ident} -- skipping")
+        end
       end
 
       def get_pkg_info(origin, channel, name, version, release)
