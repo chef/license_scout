@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.1.8 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.1.8](https://github.com/chef/license_scout/tree/v1.1.8) (2020-04-14)
 
 #### Merged Pull Requests
 - Update the URL to the win32-api readme file [#234](https://github.com/chef/license_scout/pull/234) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.5.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update the URL to the win32-api readme file [#234](https://github.com/chef/license_scout/pull/234) ([tas50](https://github.com/tas50)) <!-- 1.1.8 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.1.7](https://github.com/chef/license_scout/tree/v1.1.7) (2020-02-26)
 
 #### Merged Pull Requests
 - Add an override for uri_template and fix the chef-sugar URL [#229](https://github.com/chef/license_scout/pull/229) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v1.1.6](https://github.com/chef/license_scout/tree/v1.1.6) (2020-02-26)
 
