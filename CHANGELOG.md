@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.1.8 -->
+## [v1.1.8](https://github.com/chef/license_scout/tree/v1.1.8) (2020-04-14)
+
+#### Merged Pull Requests
+- Update the URL to the win32-api readme file [#234](https://github.com/chef/license_scout/pull/234) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Update the URL to the win32-api readme file [#234](https://github.com/chef/license_scout/pull/234) ([tas50](https://github.com/tas50)) <!-- 1.1.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
