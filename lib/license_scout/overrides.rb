@@ -420,6 +420,8 @@ module LicenseScout
         ["xml-simple", "Ruby", ["https://raw.githubusercontent.com/maik/xml-simple/master/README.md"]],
         ["zonefile", "MIT", ["https://raw.githubusercontent.com/boesemar/zonefile/master/LICENSE"]],
         ["sync", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/sync/master/LICENSE.txt"]],
+        ["sprockets", nil, [canonical("MIT")]],
+        ["nio4r", nil, ["https://raw.githubusercontent.com/socketry/nio4r/master/README.md"]],
       ]
       (aws_sdk_gems + other_gems).each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
