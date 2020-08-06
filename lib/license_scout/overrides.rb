@@ -336,6 +336,7 @@ module LicenseScout
         ["source-map-resolve", "MIT", ["LICENSE"]],
         ["source-map-url", "MIT", ["LICENSE"]],
         ["spork", "MIT", nil],
+        ["sprockets", "MIT", ["https://raw.githubusercontent.com/rails/sprockets/master/MIT-LICENSE"]],
         ["syslog-logger", "MIT", ["README.rdoc"]],
         ["systemu", "BSD-2-Clause", nil],
         ["timeliness", "MIT", ["LICENSE"]],
@@ -381,6 +382,7 @@ module LicenseScout
         ["minitest", nil, ["https://raw.githubusercontent.com/seattlerb/minitest/master/README.rdoc"]],
         ["mocha", "MIT", ["https://raw.githubusercontent.com/freerange/mocha/master/MIT-LICENSE.md"]],
         ["net-http-spy", "Public-Domain", ["https://raw.githubusercontent.com/martinbtt/net-http-spy/master/readme.markdown"]],
+        ["nio4r", "MIT", ["https://raw.githubusercontent.com/socketry/nio4r/master/README.md"]],
         ["omniauth-chef", nil, ["https://raw.githubusercontent.com/chef/omniauth-chef/master/README.md"]],
         ["os", "MIT", ["https://raw.githubusercontent.com/rdp/os/master/LICENSE"]],
         ["overcommit", nil, ["https://raw.githubusercontent.com/brigade/overcommit/master/MIT-LICENSE"]],
@@ -420,8 +422,6 @@ module LicenseScout
         ["xml-simple", "Ruby", ["https://raw.githubusercontent.com/maik/xml-simple/master/README.md"]],
         ["zonefile", "MIT", ["https://raw.githubusercontent.com/boesemar/zonefile/master/LICENSE"]],
         ["sync", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/sync/master/LICENSE.txt"]],
-        ["sprockets", nil, [canonical("MIT")]],
-        ["nio4r", nil, ["https://raw.githubusercontent.com/socketry/nio4r/master/README.md"]],
       ]
       (aws_sdk_gems + other_gems).each do |override_data|
         override_license "ruby_bundler", override_data[0] do |version|
