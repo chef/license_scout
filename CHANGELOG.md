@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.1.10 -->
+## [v1.1.10](https://github.com/chef/license_scout/tree/v1.1.10) (2020-09-17)
+
+#### Merged Pull Requests
+- Add the location of the crack gem license [#236](https://github.com/chef/license_scout/pull/236) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add the location of the crack gem license [#236](https://github.com/chef/license_scout/pull/236) ([tas50](https://github.com/tas50)) <!-- 1.1.10 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
