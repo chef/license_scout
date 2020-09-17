@@ -15,10 +15,10 @@
 # limitations under the License.
 #
 
-require "open-uri"
-require "tmpdir"
-require "digest"
-require "socket" # Defines `SocketError`
+require "open-uri" unless defined?(OpenURI)
+require "tmpdir" unless defined?(Dir.mktmpdir)
+require "digest" unless defined?(Digest)
+require "socket" unless defined?(Socket) # Defines `SocketError`
 
 require "license_scout/exceptions"
 

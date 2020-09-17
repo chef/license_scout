@@ -15,8 +15,8 @@
 # limitations under the License.
 #
 
-require "set"
-require "ffi_yajl"
+require "set" unless defined?(Set)
+require "ffi_yajl" unless defined?(FFI_Yajl)
 require "license_scout/dependency_manager/base"
 
 module LicenseScout

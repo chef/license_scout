@@ -20,9 +20,9 @@ require "license_scout/net_fetcher"
 require "license_scout/exceptions"
 
 require "bundler"
-require "mixlib/shellout"
-require "ffi_yajl"
-require "pathname"
+require "mixlib/shellout" unless defined?(Mixlib::ShellOut)
+require "ffi_yajl" unless defined?(FFI_Yajl)
+require "pathname" unless defined?(Pathname)
 
 module LicenseScout
   module DependencyManager

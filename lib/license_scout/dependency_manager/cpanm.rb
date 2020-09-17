@@ -15,9 +15,9 @@
 # limitations under the License.
 #
 
-require "ffi_yajl"
+require "ffi_yajl" unless defined?(FFI_Yajl)
 require "psych"
-require "mixlib/shellout"
+require "mixlib/shellout" unless defined?(Mixlib::ShellOut)
 
 require "license_scout/dependency_manager/base"
 require "license_scout/exceptions"

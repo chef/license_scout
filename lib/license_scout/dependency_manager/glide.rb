@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-require "yaml"
+require "yaml" unless defined?(YAML)
 require "license_scout/dependency_manager/base"
 
 module LicenseScout

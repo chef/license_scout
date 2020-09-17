@@ -20,8 +20,8 @@ require "license_scout/net_fetcher"
 require "license_scout/exceptions"
 require "license_scout/license_file_analyzer"
 
-require "mixlib/shellout"
-require "ffi_yajl"
+require "mixlib/shellout" unless defined?(Mixlib::ShellOut)
+require "ffi_yajl" unless defined?(FFI_Yajl)
 
 module LicenseScout
   module DependencyManager
