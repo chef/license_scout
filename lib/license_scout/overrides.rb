@@ -17,7 +17,7 @@
 
 require "license_scout/net_fetcher"
 
-require "pathname"
+require "pathname" unless defined?(Pathname)
 
 module LicenseScout
   class Overrides

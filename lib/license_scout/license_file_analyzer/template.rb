@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-require "pathname"
+require "pathname" unless defined?(Pathname)
 
 require "license_scout/license_file_analyzer/text"
 

@@ -15,8 +15,8 @@
 # limitations under the License.
 #
 
-require "ffi_yajl"
-require "yaml"
+require "ffi_yajl" unless defined?(FFI_Yajl)
+require "yaml" unless defined?(YAML)
 require "toml-rb"
 require "license_scout/dependency_manager/base"
 

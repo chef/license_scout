@@ -19,7 +19,7 @@ require "license_scout/exceptions"
 require "license_scout/dependency_manager"
 require "license_scout/reporter"
 
-require "ffi_yajl"
+require "ffi_yajl" unless defined?(FFI_Yajl)
 
 module LicenseScout
   class Collector

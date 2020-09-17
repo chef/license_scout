@@ -30,7 +30,7 @@
 require "bundler/setup"
 
 # We're only using things that are in the stdlib.
-require "json"
+require "json" unless defined?(JSON)
 
 dependencies = []
 
