@@ -17,7 +17,7 @@
 
 # This library was inspired by (and pulls some logic from) librariesio/spdx
 
-require "ffi_yajl"
+require "ffi_yajl" unless defined?(FFI_Yajl)
 require "fuzzy_match"
 
 module LicenseScout
@@ -45,12 +45,12 @@ module LicenseScout
 
       # @return [Hash] The SPDX license data in Hash form
       def licenses
-        @@license_data ||= FFI_Yajl::Parser.parse(File.read(File.expand_path("../data/licenses.json", __FILE__)))["licenses"]
+        @@license_data ||= FFI_Yajl::Parser.parse(File.read(File.expand_path("data/licenses.json", __dir__)))["licenses"]
       end
 
       # @return [Hash] The SPDX license data in Hash form
       def exceptions
-        @@license_data ||= FFI_Yajl::Parser.parse(File.read(File.expand_path("../data/exceptions.json", __FILE__)))["exceptions"]
+        @@license_data ||= FFI_Yajl::Parser.parse(File.read(File.expand_path("data/exceptions.json", __dir__)))["exceptions"]
       end
 
       def known_ids

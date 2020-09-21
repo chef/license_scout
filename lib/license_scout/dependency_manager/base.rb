@@ -20,14 +20,14 @@ require "license_scout/dependency"
 require "license_scout/exceptions"
 
 require "bundler"
-require "ffi_yajl"
-require "net/http"
-require "mixlib/shellout"
-require "pathname"
+require "ffi_yajl" unless defined?(FFI_Yajl)
+require "net/http" unless defined?(Net::HTTP)
+require "mixlib/shellout" unless defined?(Mixlib::ShellOut)
+require "pathname" unless defined?(Pathname)
 require "psych"
-require "set"
+require "set" unless defined?(Set)
 require "toml-rb"
-require "yaml"
+require "yaml" unless defined?(YAML)
 
 module LicenseScout
   # The DependencyManager module (or more accurately, implementations of it) are responsible for recognizing

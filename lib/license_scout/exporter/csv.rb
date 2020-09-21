@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-require "csv"
+require "csv" unless defined?(CSV)
 
 module LicenseScout
   class Exporter
