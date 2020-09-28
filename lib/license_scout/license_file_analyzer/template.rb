@@ -29,7 +29,7 @@ require "license_scout/license_file_analyzer/text"
 module LicenseScout
   module LicenseFileAnalyzer
     class Template
-      TEMPLATE_PATH = Pathname.new(File.expand_path("../templates", __FILE__))
+      TEMPLATE_PATH = Pathname.new(File.expand_path("templates", __dir__))
 
       def self.named(name)
         new TEMPLATE_PATH.join("#{name}.txt").read

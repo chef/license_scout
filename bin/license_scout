@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-$:.unshift File.expand_path("../../lib", __FILE__)
+$:.unshift File.expand_path("../lib", __dir__)
 
 require "license_scout/collector"
 require "license_scout/overrides"
