@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.1.11 -->
+## [v1.1.11](https://github.com/chef/license_scout/tree/v1.1.11) (2020-09-28)
+
+#### Merged Pull Requests
+- Add ruby strscan license [#239](https://github.com/chef/license_scout/pull/239) ([stevendanna](https://github.com/stevendanna))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add ruby strscan license [#239](https://github.com/chef/license_scout/pull/239) ([stevendanna](https://github.com/stevendanna)) <!-- 1.1.11 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
