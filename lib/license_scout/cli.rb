@@ -15,9 +15,9 @@
 # limitations under the License.
 #
 
-require "zlib" # Temporarily require before rugged to fix https://github.com/prontolabs/pronto/issues/23
+require "zlib" unless defined?(Zlib) # Temporarily require before rugged to fix https://github.com/prontolabs/pronto/issues/23
 
-require "mixlib/cli"
+require "mixlib/cli" unless defined?(Mixlib::CLI)
 require "license_scout/config"
 require "license_scout/exporter"
 require "license_scout/collector"
@@ -85,7 +85,7 @@ module LicenseScout
 
       LicenseScout::Config.config_files.each do |config_file|
         if config_file =~ /^http/
-          require "open-uri"
+          require "open-uri" unless defined?(OpenURI)
 
           LicenseScout::Log.info("[cli] Loading config from #{config_file}")
 
