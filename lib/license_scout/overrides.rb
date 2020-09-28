@@ -401,6 +401,7 @@ module LicenseScout
         ["slack-notifier", "MIT", ["https://raw.githubusercontent.com/stevenosloan/slack-notifier/master/LICENSE"]],
         ["sslshake", "MPL-2.0", ["https://raw.githubusercontent.com/arlimus/sslshake/master/README.md"]],
         ["sprockets", "MIT", ["https://raw.githubusercontent.com/rails/sprockets/master/MIT-LICENSE"]],
+        ["strscan", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/strscan/master/LICENSE.txt"]],
         ["structured_warnings", "MIT", ["https://raw.githubusercontent.com/schmidt/structured_warnings/master/LICENSE.txt"]],
         ["unicorn-rails", "MIT", ["https://raw.githubusercontent.com/samuelkadolph/unicorn-rails/master/LICENSE"]],
         ["uri_template", "MIT", ["https://raw.githubusercontent.com/hannesg/uri_template/master/uri_template.gemspec"]],
