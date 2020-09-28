@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.5.2 -->
-## [v2.5.2](https://github.com/chef/license_scout/tree/v2.5.2) (2020-04-14)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- do not fail when unable to find a transitive hab dependency [#218](https://github.com/chef/license_scout/pull/218) ([nellshamrell](https://github.com/nellshamrell))
+- Fix chefstyle violations. [#238](https://github.com/chef/license_scout/pull/238) ([phiggins](https://github.com/phiggins))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.5.1 -->
 ### Changes since 2.5.1 release
 
 #### Merged Pull Requests
+- Fix chefstyle violations. [#238](https://github.com/chef/license_scout/pull/238) ([phiggins](https://github.com/phiggins)) <!-- 2.5.2 -->
 - do not fail when unable to find a transitive hab dependency [#218](https://github.com/chef/license_scout/pull/218) ([nellshamrell](https://github.com/nellshamrell)) <!-- 2.5.2 -->
 <!-- release_rollup -->
 
