@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.2.0 -->
+## [v1.2.0](https://github.com/chef/license_scout/tree/v1.2.0) (2020-09-29)
+
+#### Merged Pull Requests
+- Remove 2.4 support; Use native Expeditor vendoring in Buildkite tests [#240](https://github.com/chef/license_scout/pull/240) ([tduffield](https://github.com/tduffield))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Remove 2.4 support; Use native Expeditor vendoring in Buildkite tests [#240](https://github.com/chef/license_scout/pull/240) ([tduffield](https://github.com/tduffield)) <!-- 1.2.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
