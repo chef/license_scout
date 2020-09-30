@@ -56,5 +56,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "berkshelf", "~> 4.3"
 
   # There was a breaking change added in chef 16.5.77 that prevents the tests working with Ruby 2.5
-  spec.add_development_dependency "chef-config", "< 16.5.77"
+  spec.add_development_dependency "chef-config", "< 16.5.78"
 end
