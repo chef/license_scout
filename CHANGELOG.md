@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.0 -->
-## [v1.2.0](https://github.com/chef/license_scout/tree/v1.2.0) (2020-09-29)
+<!-- latest_release 1.2.1 -->
+## [v1.2.1](https://github.com/chef/license_scout/tree/v1.2.1) (2020-09-30)
 
 #### Merged Pull Requests
-- Remove 2.4 support; Use native Expeditor vendoring in Buildkite tests [#240](https://github.com/chef/license_scout/pull/240) ([tduffield](https://github.com/tduffield))
+- license for `therubyracer` gem [#237](https://github.com/chef/license_scout/pull/237) ([antima-gupta](https://github.com/antima-gupta))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.5.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- license for `therubyracer` gem [#237](https://github.com/chef/license_scout/pull/237) ([antima-gupta](https://github.com/antima-gupta)) <!-- 1.2.1 -->
 - Remove 2.4 support; Use native Expeditor vendoring in Buildkite tests [#240](https://github.com/chef/license_scout/pull/240) ([tduffield](https://github.com/tduffield)) <!-- 1.2.0 -->
 <!-- release_rollup -->
 
