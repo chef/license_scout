@@ -1,27 +1,24 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.2 -->
-## [v1.2.2](https://github.com/chef/license_scout/tree/v1.2.2) (2020-10-07)
-
-#### Merged Pull Requests
-- Add license for parser gem [#242](https://github.com/chef/license_scout/pull/242) ([stevendanna](https://github.com/stevendanna))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.5.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add license for parser gem [#242](https://github.com/chef/license_scout/pull/242) ([stevendanna](https://github.com/stevendanna)) <!-- 1.2.2 -->
-- license for `therubyracer` gem [#237](https://github.com/chef/license_scout/pull/237) ([antima-gupta](https://github.com/antima-gupta)) <!-- 1.2.1 -->
-- Remove 2.4 support; Use native Expeditor vendoring in Buildkite tests [#240](https://github.com/chef/license_scout/pull/240) ([tduffield](https://github.com/tduffield)) <!-- 1.2.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.2.2](https://github.com/chef/license_scout/tree/v1.2.2) (2020-10-07)
+
+#### Merged Pull Requests
+- Remove 2.4 support; Use native Expeditor vendoring in Buildkite tests [#240](https://github.com/chef/license_scout/pull/240) ([tduffield](https://github.com/tduffield))
+- license for `therubyracer` gem [#237](https://github.com/chef/license_scout/pull/237) ([antima-gupta](https://github.com/antima-gupta))
+- Add license for parser gem [#242](https://github.com/chef/license_scout/pull/242) ([stevendanna](https://github.com/stevendanna))
+<!-- latest_stable_release -->
+
 ## [v1.1.11](https://github.com/chef/license_scout/tree/v1.1.11) (2020-09-28)
 
 #### Merged Pull Requests
 - Add ruby strscan license [#239](https://github.com/chef/license_scout/pull/239) ([stevendanna](https://github.com/stevendanna))
-<!-- latest_stable_release -->
 
 ## [v1.1.10](https://github.com/chef/license_scout/tree/v1.1.10) (2020-09-17)
 
