@@ -385,6 +385,7 @@ module LicenseScout
         ["omniauth-chef", nil, ["https://raw.githubusercontent.com/chef/omniauth-chef/master/README.md"]],
         ["os", "MIT", ["https://raw.githubusercontent.com/rdp/os/master/LICENSE"]],
         ["overcommit", nil, ["https://raw.githubusercontent.com/brigade/overcommit/master/MIT-LICENSE"]],
+        ["parser", "MIT", ["https://raw.githubusercontent.com/whitequark/parser/v2.7.2.0/LICENSE.txt"]],
         ["parslet", "MIT", ["https://raw.githubusercontent.com/kschiess/parslet/master/LICENSE"]],
         ["pbkdf2", "MIT", ["https://raw.githubusercontent.com/emerose/pbkdf2-ruby/master/LICENSE.TXT"]],
         ["rack-accept", "MIT", ["https://raw.githubusercontent.com/mjackson/rack-accept/master/README.md"]],
