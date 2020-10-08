@@ -18,7 +18,7 @@ pkg_build_deps=(
 pkg_deps=(
   core/openssl
   core/zlib
-  core/ruby25
+  core/ruby26
   core/git
   core/curl
   core/coreutils
@@ -34,12 +34,12 @@ do_unpack() {
 do_prepare() {
   build_line "Scoping default paths to Habitat installation"
   sed -i -r "s|^(\s*)default :escript_bin, \".+\"|\1default :escript_bin, \"$(hab pkg path core/erlang18)/bin/escript\"|" "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib/license_scout/config.rb"
-  sed -i -r "s|^(\s*)default :ruby_bin, \".+\"|\1default :ruby_bin, \"$(hab pkg path core/ruby25)/bin/ruby\"|" "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib/license_scout/config.rb"
+  sed -i -r "s|^(\s*)default :ruby_bin, \".+\"|\1default :ruby_bin, \"$(hab pkg path core/ruby26)/bin/ruby\"|" "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib/license_scout/config.rb"
 
-  local _ruby_gems=$(pkg_path_for "core/ruby25")/lib/ruby/gems/2.5.0
+  local _ruby_gems=$(pkg_path_for "core/ruby26")/lib/ruby/gems/2.6.0
   local _pkg_gems="$pkg_prefix/lib"
 
-  export GEM_HOME="${_pkg_gems}/ruby/2.5.0"
+  export GEM_HOME="${_pkg_gems}/ruby/2.6.0"
   build_line "Setting GEM_HOME=$GEM_HOME"
 
   export GEM_PATH="${_ruby_gems}:${GEM_HOME}"
@@ -85,7 +85,7 @@ do_install() {
   build_line "Ensure license_scout binaries are executable from anywhere"
   wrap_license_scout_bin
 
-  fix_interpreter "$pkg_prefix/bin/gemfile_json" core/ruby25 ruby
+  fix_interpreter "$pkg_prefix/bin/gemfile_json" core/ruby26 ruby
 }
 
 wrap_license_scout_bin() {
@@ -102,7 +102,7 @@ export GEM_HOME="$GEM_HOME"
 export GEM_PATH="$GEM_PATH"
 unset RUBYOPT GEMRC
 
-exec $(pkg_path_for core/ruby25)/bin/ruby $real_bin \$@
+exec $(pkg_path_for core/ruby26)/bin/ruby $real_bin \$@
 EOF
   chmod -v 755 "$wrap_bin"
 }
