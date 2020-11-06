@@ -351,6 +351,7 @@ module LicenseScout
         # Overrides that require file fetching from internet
         ["amqp", "Ruby", ["https://raw.githubusercontent.com/ruby-amqp/amqp/master/README.md"]],
         ["aws-sigv4", "MIT", ["https://raw.githubusercontent.com/cmdrkeene/aws4/master/readme.md"]],
+        ["bigdecimal", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/bigdecimal/v1.3.5/LICENSE.txt"]],
         ["blankslate", "MIT", ["https://raw.githubusercontent.com/masover/blankslate/master/MIT-LICENSE"]],
         ["codecov", "MIT", ["https://raw.githubusercontent.com/codecov/codecov-ruby/master/LICENSE.txt"]],
         ["coffee-script-source", nil, ["https://raw.githubusercontent.com/jessedoyle/coffee-script-source/master/LICENSE"]],
