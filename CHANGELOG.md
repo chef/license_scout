@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.2.3 -->
+## [v1.2.3](https://github.com/chef/license_scout/tree/v1.2.3) (2020-11-11)
+
+#### Merged Pull Requests
+- license for bigdecimal gem [#245](https://github.com/chef/license_scout/pull/245) ([antima-gupta](https://github.com/antima-gupta))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- license for bigdecimal gem [#245](https://github.com/chef/license_scout/pull/245) ([antima-gupta](https://github.com/antima-gupta)) <!-- 1.2.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
