@@ -1,27 +1,24 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.3 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.2.3](https://github.com/chef/license_scout/tree/v1.2.3) (2020-11-11)
 
 #### Merged Pull Requests
 - license for bigdecimal gem [#245](https://github.com/chef/license_scout/pull/245) ([antima-gupta](https://github.com/antima-gupta))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.5.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- license for bigdecimal gem [#245](https://github.com/chef/license_scout/pull/245) ([antima-gupta](https://github.com/antima-gupta)) <!-- 1.2.3 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.2.2](https://github.com/chef/license_scout/tree/v1.2.2) (2020-10-07)
 
 #### Merged Pull Requests
 - Remove 2.4 support; Use native Expeditor vendoring in Buildkite tests [#240](https://github.com/chef/license_scout/pull/240) ([tduffield](https://github.com/tduffield))
 - license for `therubyracer` gem [#237](https://github.com/chef/license_scout/pull/237) ([antima-gupta](https://github.com/antima-gupta))
 - Add license for parser gem [#242](https://github.com/chef/license_scout/pull/242) ([stevendanna](https://github.com/stevendanna))
-<!-- latest_stable_release -->
 
 ## [v1.1.11](https://github.com/chef/license_scout/tree/v1.1.11) (2020-09-28)
 
