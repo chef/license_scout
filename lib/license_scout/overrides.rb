@@ -398,6 +398,7 @@ module LicenseScout
         ["rest-client", "MIT", ["https://raw.githubusercontent.com/rest-client/rest-client/master/LICENSE"]],
         ["rly", "MIT", ["https://raw.githubusercontent.com/farcaller/rly/master/LICENSE.txt"]],
         ["rspec-rerun", nil, ["https://raw.githubusercontent.com/dblock/rspec-rerun/master/LICENSE.md"]],
+        ["ruby2_keywords", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/ruby2_keywords/master/README.md"]],
         ["rubyzip", nil, ["https://raw.githubusercontent.com/rubyzip/rubyzip/master/README.md"]],
         ["sfl", "Ruby", ["https://raw.githubusercontent.com/ujihisa/spawn-for-legacy/master/LICENCE.md"]],
         ["slack-notifier", "MIT", ["https://raw.githubusercontent.com/stevenosloan/slack-notifier/master/LICENSE"]],
