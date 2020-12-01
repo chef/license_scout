@@ -333,6 +333,7 @@ module LicenseScout
         ["rework", "MIT", ["Readme.md"]],
         ["rspec", "MIT", nil],
         ["sequel", "MIT", nil],
+        ["simplecov_json_formatter", "MIT", nil],
         ["source-map-resolve", "MIT", ["LICENSE"]],
         ["source-map-url", "MIT", ["LICENSE"]],
         ["spork", "MIT", nil],
