@@ -3,15 +3,18 @@
 <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=1.2.4 -->
+### Changes not yet released to rubygems.org
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.2.4](https://github.com/chef/license_scout/tree/v1.2.4) (2020-12-02)
+<!-- latest_stable_release -->
+
 ## [v1.2.3](https://github.com/chef/license_scout/tree/v1.2.3) (2020-11-11)
 
 #### Merged Pull Requests
 - license for bigdecimal gem [#245](https://github.com/chef/license_scout/pull/245) ([antima-gupta](https://github.com/antima-gupta))
-<!-- latest_stable_release -->
 
 ## [v1.2.2](https://github.com/chef/license_scout/tree/v1.2.2) (2020-10-07)
 
