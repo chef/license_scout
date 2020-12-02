@@ -1,10 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.2.4 -->
+## [v1.2.4](https://github.com/chef/license_scout/tree/v1.2.4) (2020-12-02)
+
+#### Merged Pull Requests
+- Bump version to 1.2.4 [#249](https://github.com/chef/license_scout/pull/249) ([lbakerchef](https://github.com/lbakerchef))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.2.4 -->
 ### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Bump version to 1.2.4 [#249](https://github.com/chef/license_scout/pull/249) ([lbakerchef](https://github.com/lbakerchef)) <!-- 1.2.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
