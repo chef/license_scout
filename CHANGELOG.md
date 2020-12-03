@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.6 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.2.6](https://github.com/chef/license_scout/tree/v1.2.6) (2020-12-03)
 
 #### Merged Pull Requests
 - The name of the gem might not be the name of the repo [#251](https://github.com/chef/license_scout/pull/251) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.5.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- The name of the gem might not be the name of the repo [#251](https://github.com/chef/license_scout/pull/251) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit)) <!-- 1.2.6 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.2.5](https://github.com/chef/license_scout/tree/v1.2.5) (2020-12-03)
 
 #### Merged Pull Requests
 - Praj/simplecov json formatter [#250](https://github.com/chef/license_scout/pull/250) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
-<!-- latest_stable_release -->
 
 ## [v1.2.4](https://github.com/chef/license_scout/tree/v1.2.4) (2020-12-02)
 
