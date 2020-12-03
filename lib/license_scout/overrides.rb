@@ -399,7 +399,7 @@ module LicenseScout
         ["rly", "MIT", ["https://raw.githubusercontent.com/farcaller/rly/master/LICENSE.txt"]],
         ["rspec-rerun", nil, ["https://raw.githubusercontent.com/dblock/rspec-rerun/master/LICENSE.md"]],
         ["rubyzip", nil, ["https://raw.githubusercontent.com/rubyzip/rubyzip/master/README.md"]],
-        ["simplecov-json", "MIT", ["https://raw.githubusercontent.com/vicentllongo/simplecov-json/master/LICENSE"]],
+        ["simplecov_json_formatter", "MIT", ["https://raw.githubusercontent.com/codeclimate-community/simplecov_json_formatter/master/LICENSE"]],
         ["sfl", "Ruby", ["https://raw.githubusercontent.com/ujihisa/spawn-for-legacy/master/LICENCE.md"]],
         ["slack-notifier", "MIT", ["https://raw.githubusercontent.com/stevenosloan/slack-notifier/master/LICENSE"]],
         ["sslshake", "MPL-2.0", ["https://raw.githubusercontent.com/arlimus/sslshake/master/README.md"]],
