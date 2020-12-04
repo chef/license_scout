@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.2.7 -->
+## [v1.2.7](https://github.com/chef/license_scout/tree/v1.2.7) (2020-12-04)
+
+#### Merged Pull Requests
+- Add license information for libv8 and ref ruby_bundler dependencies [#252](https://github.com/chef/license_scout/pull/252) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add license information for libv8 and ref ruby_bundler dependencies [#252](https://github.com/chef/license_scout/pull/252) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit)) <!-- 1.2.7 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
