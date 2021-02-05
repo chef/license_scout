@@ -1,26 +1,23 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.9 -->
-## [v1.2.9](https://github.com/chef/license_scout/tree/v1.2.9) (2021-02-05)
-
-#### Merged Pull Requests
-- Remove cooline with zlib license [#255](https://github.com/chef/license_scout/pull/255) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.5.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Remove cooline with zlib license [#255](https://github.com/chef/license_scout/pull/255) ([tas50](https://github.com/tas50)) <!-- 1.2.9 -->
-- Fix missing license information for ruby_bundler. [#254](https://github.com/chef/license_scout/pull/254) ([lbakerchef](https://github.com/lbakerchef)) <!-- 1.2.8 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.2.9](https://github.com/chef/license_scout/tree/v1.2.9) (2021-02-05)
+
+#### Merged Pull Requests
+- Fix missing license information for ruby_bundler. [#254](https://github.com/chef/license_scout/pull/254) ([lbakerchef](https://github.com/lbakerchef))
+- Remove cooline with zlib license [#255](https://github.com/chef/license_scout/pull/255) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v1.2.7](https://github.com/chef/license_scout/tree/v1.2.7) (2020-12-07)
 
 #### Merged Pull Requests
 - Add license information for libv8 and ref ruby_bundler dependencies [#252](https://github.com/chef/license_scout/pull/252) ([PrajaktaPurohit](https://github.com/PrajaktaPurohit))
-<!-- latest_stable_release -->
 
 ## [v1.2.6](https://github.com/chef/license_scout/tree/v1.2.6) (2020-12-03)
 
