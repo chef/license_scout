@@ -565,6 +565,11 @@ module LicenseScout
         ["lhttpc", "BSD-3-Clause", ["https://raw.githubusercontent.com/erlcloud/lhttpc/master/LICENCE"]],
         ["getopt", "MIT", nil],
         ["relx", "Apache-2.0", ["https://raw.githubusercontent.com/erlware/relx/master/LICENSE.md"]],
+        ["coolline", "MIT", nil],
+        ["formatador", "MIT", nil],
+        ["lumberjack", "MIT", nil],
+        ["mustermann", "MIT", nil],
+        ["mustermann-grape", "MIT", nil],
       ].each do |override_data|
         override_license "erlang_rebar", override_data[0] do |version|
           {}.tap do |d|
