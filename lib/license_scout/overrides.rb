@@ -293,7 +293,6 @@ module LicenseScout
         ["chef", "Apache-2.0", ["LICENSE"]],
         ["cheffish", "Apache-2.0", ["LICENSE"]],
         ["coderay", nil, ["README_INDEX.rdoc"]],
-        ["coolline", "Zlib", ["LICENSE"]],
         ["debug_inspector", "MIT", ["README.md"]],
         ["em-http-request", "MIT", nil],
         ["equatable", "MIT", ["LICENSE.txt"]],
