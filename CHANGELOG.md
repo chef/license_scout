@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.2.8 -->
+## [v1.2.8](https://github.com/chef/license_scout/tree/v1.2.8) (2021-02-05)
+
+#### Merged Pull Requests
+- Fix missing license information for ruby_bundler. [#254](https://github.com/chef/license_scout/pull/254) ([lbakerchef](https://github.com/lbakerchef))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Fix missing license information for ruby_bundler. [#254](https://github.com/chef/license_scout/pull/254) ([lbakerchef](https://github.com/lbakerchef)) <!-- 1.2.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
