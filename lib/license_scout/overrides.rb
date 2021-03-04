@@ -373,6 +373,7 @@ module LicenseScout
         ["googleapis-common-protos", "Apache-2.0", ["https://raw.githubusercontent.com/googleapis/googleapis/master/LICENSE"]],
         ["grpc-google-iam-v1", "Apache-2.0", ["https://raw.githubusercontent.com/googleapis/googleapis/master/LICENSE"]],
         ["grpc", "Apache-2.0", ["https://raw.githubusercontent.com/grpc/grpc/master/LICENSE"]],
+        ["get_process_mem", "MIT", ["LICENSE"]],
         ["hoe", "MIT", ["https://raw.githubusercontent.com/seattlerb/hoe/master/README.rdoc"]],
         ["http-accept", "MIT", ["https://raw.githubusercontent.com/socketry/http-accept/master/README.md"]],
         ["http_parser.rb", nil, ["https://raw.githubusercontent.com/tmm1/http_parser.rb/master/LICENSE-MIT"]],
