@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.2.10 -->
+## [v1.2.10](https://github.com/chef/license_scout/tree/v1.2.10) (2021-03-17)
+
+#### Merged Pull Requests
+- Fix missing license information for get_process_mem [#256](https://github.com/chef/license_scout/pull/256) ([meet58](https://github.com/meet58))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Fix missing license information for get_process_mem [#256](https://github.com/chef/license_scout/pull/256) ([meet58](https://github.com/meet58)) <!-- 1.2.10 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
