@@ -284,6 +284,7 @@ module LicenseScout
 
       # Default overrides for ruby_bundler dependency manager.
       other_gems = [
+        ["transit-ruby", "Apache-2.0", ["LICENSE"]],
         ["binding_of_caller", "MIT", nil],
         ["bunny", "MIT", nil],
         ["chef-provisioning-aws", "Apache-2.0", ["LICENSE"]],
