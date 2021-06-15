@@ -469,7 +469,7 @@ module LicenseScout
       # Most of the overrides for perl_cpan are pointing to the README files
       # inside the modules we download to inspect for licensing information.
       [
-        ["sqitch", "MIT", "https://raw.githubusercontent.com/sqitchers/sqitch/develop/LICENSE.md"]
+        ["sqitch", "MIT", "https://raw.githubusercontent.com/sqitchers/sqitch/develop/LICENSE.md"],
         ["Scalar-List-Utils", nil, ["README"]],
         ["perl", nil, ["README"]],
         ["IO", nil, ["README"]],
