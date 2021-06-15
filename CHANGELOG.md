@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.11 -->
-## [v1.2.11](https://github.com/chef/license_scout/tree/v1.2.11) (2021-03-31)
+<!-- latest_release 1.2.12 -->
+## [v1.2.12](https://github.com/chef/license_scout/tree/v1.2.12) (2021-06-15)
 
 #### Merged Pull Requests
-- Added license for sqitch 09999 [#257](https://github.com/chef/license_scout/pull/257) ([jashaik](https://github.com/jashaik))
+- Add a license override for Sqitch [#259](https://github.com/chef/license_scout/pull/259) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.5.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add a license override for Sqitch [#259](https://github.com/chef/license_scout/pull/259) ([tas50](https://github.com/tas50)) <!-- 1.2.12 -->
 - Added license for sqitch 09999 [#257](https://github.com/chef/license_scout/pull/257) ([jashaik](https://github.com/jashaik)) <!-- 1.2.11 -->
 <!-- release_rollup -->
 
