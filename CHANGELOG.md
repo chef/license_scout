@@ -1,26 +1,23 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.12 -->
-## [v1.2.12](https://github.com/chef/license_scout/tree/v1.2.12) (2021-06-15)
-
-#### Merged Pull Requests
-- Add a license override for Sqitch [#259](https://github.com/chef/license_scout/pull/259) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.5.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add a license override for Sqitch [#259](https://github.com/chef/license_scout/pull/259) ([tas50](https://github.com/tas50)) <!-- 1.2.12 -->
-- Added license for sqitch 09999 [#257](https://github.com/chef/license_scout/pull/257) ([jashaik](https://github.com/jashaik)) <!-- 1.2.11 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.2.12](https://github.com/chef/license_scout/tree/v1.2.12) (2021-06-15)
+
+#### Merged Pull Requests
+- Added license for sqitch 09999 [#257](https://github.com/chef/license_scout/pull/257) ([jashaik](https://github.com/jashaik))
+- Add a license override for Sqitch [#259](https://github.com/chef/license_scout/pull/259) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v1.2.10](https://github.com/chef/license_scout/tree/v1.2.10) (2021-03-17)
 
 #### Merged Pull Requests
 - Fix missing license information for get_process_mem [#256](https://github.com/chef/license_scout/pull/256) ([meet58](https://github.com/meet58))
-<!-- latest_stable_release -->
 
 ## [v1.2.9](https://github.com/chef/license_scout/tree/v1.2.9) (2021-02-05)
 
