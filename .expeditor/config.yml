@@ -11,7 +11,7 @@ github:
   minor_bump_labels:
     - "Expeditor: Bump Version Minor"
 
-release_branchs:
+release_branches:
   - master:
       version_constraint: 2.*
   - 1-stable:
