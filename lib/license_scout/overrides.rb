@@ -402,7 +402,7 @@ module LicenseScout
         ["slack-notifier", "MIT", ["https://raw.githubusercontent.com/stevenosloan/slack-notifier/master/LICENSE"]],
         ["sslshake", "MPL-2.0", ["https://raw.githubusercontent.com/arlimus/sslshake/master/README.md"]],
         ["sprockets", "MIT", ["https://raw.githubusercontent.com/rails/sprockets/master/MIT-LICENSE"]],
-        ["sqlite3-ruby", nil, ["https://raw.githubusercontent.com/sparklemotion/sqlite3-ruby/master/LICENSE"]],
+        ["sqlite3-ruby", "BSD-3", ["https://raw.githubusercontent.com/sparklemotion/sqlite3-ruby/master/LICENSE"]],
         ["strscan", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/strscan/master/LICENSE.txt"]],
         ["structured_warnings", "MIT", ["https://raw.githubusercontent.com/schmidt/structured_warnings/master/LICENSE.txt"]],
         ["therubyracer", "MIT", ["https://raw.githubusercontent.com/rubyjs/therubyracer/master/README.md"]],
