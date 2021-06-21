@@ -1,26 +1,23 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.13 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.2.13](https://github.com/chef/license_scout/tree/v1.2.13) (2021-06-21)
 
 #### Merged Pull Requests
 - Added license for thin and sqlite3-ruby. [#261](https://github.com/chef/license_scout/pull/261) ([antima-gupta](https://github.com/antima-gupta))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.5.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Added license for thin and sqlite3-ruby. [#261](https://github.com/chef/license_scout/pull/261) ([antima-gupta](https://github.com/antima-gupta)) <!-- 1.2.13 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.2.12](https://github.com/chef/license_scout/tree/v1.2.12) (2021-06-15)
 
 #### Merged Pull Requests
 - Added license for sqitch 09999 [#257](https://github.com/chef/license_scout/pull/257) ([jashaik](https://github.com/jashaik))
 - Add a license override for Sqitch [#259](https://github.com/chef/license_scout/pull/259) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v1.2.10](https://github.com/chef/license_scout/tree/v1.2.10) (2021-03-17)
 
