@@ -27,12 +27,12 @@ RSpec.describe LicenseScout::License do
   let(:apache_license_content) { File.read(File.join(SPEC_FIXTURES_DIR, "empty_project", "LICENSE")) }
   let(:record) { described_class::Record.new(spdx, source, apache_license_content) }
 
-  before do
-    allow(described_class::Record).to receive(:new).with(spdx, source, apache_license_content).and_return(record)
-  end
-
   describe ".new" do
     let(:subject) { described_class.new(dependency_path) }
+
+    before do
+      allow(described_class::Record).to receive(:new).with(spdx, source, apache_license_content).and_return(record)
+    end
 
     context "when path is nil" do
       let(:dependency_path) { nil }
@@ -89,6 +89,25 @@ RSpec.describe LicenseScout::License do
       let(:flagged_licenses) { ["MIT"] }
 
       it { is_expected.to be false }
+    end
+  end
+
+  describe "#add_license" do
+    let(:license_url) { "https://url/to/license" }
+    let(:options) { { a: 42 } }
+
+    subject { described_class.new(dependency_path) }
+
+    it "downloads license body and adds a new record" do
+      expect(URI).to receive(:open).with(license_url).and_return(StringIO.new(apache_license_content))
+
+      subject.add_license(spdx, source, license_url, options)
+
+      new_record = subject.records.last
+      expect(new_record).not_to be_nil
+      expect(new_record.id).to eq(spdx)
+      expect(new_record.source).to eq(source)
+      expect(new_record.content).to eq(apache_license_content)
     end
   end
 end
