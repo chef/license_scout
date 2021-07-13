@@ -123,7 +123,7 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
       let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_2x_gems_dir") }
       let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
 
-      let(:expected_count) { Gem.win_platform? ? 26 : 24 }
+      let(:expected_count) { Gem.win_platform? ? 26 : 42 }
 
       before do
         FileUtils.cp_r(bundler_project_fixture, directory)
@@ -144,12 +144,12 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
 
         # We check mixlib-install an example out of 10 dependencies.
         mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
-        expect(mixlib_install_info.version).to eq("3.11.11")
+        expect(mixlib_install_info.version).to eq("3.12.11")
         expect(mixlib_install_info.license.records.length).to eq(2)
         expect(mixlib_install_info.license.records.first.id).to eq("Apache-2.0")
         expect(mixlib_install_info.license.records.first.source).to eq("LICENSE")
         expect(mixlib_install_info.license.records[1].id).to eql("Apache-2.0")
-        expect(mixlib_install_info.license.records[1].source).to eql("https://rubygems.org/gems/mixlib-install/versions/3.11.11")
+        expect(mixlib_install_info.license.records[1].source).to eql("https://rubygems.org/gems/mixlib-install/versions/3.12.11")
       end
     end
   end

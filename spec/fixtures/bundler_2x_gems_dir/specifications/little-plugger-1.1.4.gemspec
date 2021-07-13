@@ -15,19 +15,17 @@ Gem::Specification.new do |s|
   s.files = ["History.txt".freeze, "README.rdoc".freeze]
   s.homepage = "http://gemcutter.org/gems/little-plugger".freeze
   s.rdoc_options = ["--main".freeze, "README.rdoc".freeze]
-  s.rubygems_version = "3.0.3".freeze
+  s.rubygems_version = "3.1.4".freeze
   s.summary = "LittlePlugger is a module that provides Gem based plugin management.".freeze
 
-  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.1.4" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
+  end
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>.freeze, ["~> 3.3"])
-    else
-      s.add_dependency(%q<rspec>.freeze, ["~> 3.3"])
-    end
+  if s.respond_to? :add_runtime_dependency then
+    s.add_development_dependency(%q<rspec>.freeze, ["~> 3.3"])
   else
     s.add_dependency(%q<rspec>.freeze, ["~> 3.3"])
   end
