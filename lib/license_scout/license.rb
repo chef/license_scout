@@ -106,7 +106,7 @@ module LicenseScout
 
         begin
           LicenseScout::Log.debug("[license] Pulling license content for #{license_id} from #{new_url}")
-          open(new_url).read
+          URI.open(new_url).read
         rescue RuntimeError => e
           if e.message =~ /redirection forbidden/
             m = /redirection forbidden:\s+(.+)\s+->\s+(.+)/.match(e.message)
