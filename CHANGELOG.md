@@ -1,29 +1,26 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.6.2 -->
-## [v2.6.2](https://github.com/chef/license_scout/tree/v2.6.2) (2021-07-15)
-
-#### Merged Pull Requests
-- Fix warning: Kernel#open is deprecated [#264](https://github.com/chef/license_scout/pull/264) ([mttkay](https://github.com/mttkay))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.5.1 -->
-### Changes since 2.5.1 release
-
-#### Merged Pull Requests
-- Fix warning: Kernel#open is deprecated [#264](https://github.com/chef/license_scout/pull/264) ([mttkay](https://github.com/mttkay)) <!-- 2.6.2 -->
-- Fix Ruby spec tests [#267](https://github.com/chef/license_scout/pull/267) ([tduffield](https://github.com/tduffield)) <!-- 2.6.1 -->
-- update ruby version to 2.6 [#243](https://github.com/chef/license_scout/pull/243) ([jayashrig158](https://github.com/jayashrig158)) <!-- 2.6.0 -->
-- Fix chefstyle violations. [#238](https://github.com/chef/license_scout/pull/238) ([phiggins](https://github.com/phiggins)) <!-- 2.5.2 -->
-- do not fail when unable to find a transitive hab dependency [#218](https://github.com/chef/license_scout/pull/218) ([nellshamrell](https://github.com/nellshamrell)) <!-- 2.5.2 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v2.6.2](https://github.com/chef/license_scout/tree/v2.6.2) (2021-07-22)
+
+#### Merged Pull Requests
+- do not fail when unable to find a transitive hab dependency [#218](https://github.com/chef/license_scout/pull/218) ([nellshamrell](https://github.com/nellshamrell))
+- Fix chefstyle violations. [#238](https://github.com/chef/license_scout/pull/238) ([phiggins](https://github.com/phiggins))
+- update ruby version to 2.6 [#243](https://github.com/chef/license_scout/pull/243) ([jayashrig158](https://github.com/jayashrig158))
+- Fix Ruby spec tests [#267](https://github.com/chef/license_scout/pull/267) ([tduffield](https://github.com/tduffield))
+- Fix warning: Kernel#open is deprecated [#264](https://github.com/chef/license_scout/pull/264) ([mttkay](https://github.com/mttkay))
+<!-- latest_stable_release -->
+
 ## [v2.5.1](https://github.com/chef/license_scout/tree/v2.5.1) (2020-04-08)
 
 #### Merged Pull Requests
 - gomod: support vendored dependencies [#233](https://github.com/chef/license_scout/pull/233) ([stevendanna](https://github.com/stevendanna))
-<!-- latest_stable_release -->
 
 ## [v2.5.0](https://github.com/chef/license_scout/tree/v2.5.0) (2020-04-06)
 
