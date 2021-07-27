@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.6.3 -->
+## [v2.6.3](https://github.com/chef/license_scout/tree/v2.6.3) (2021-07-27)
+
+#### Merged Pull Requests
+- Change mixlib-shellout dependency pattern to allow 3.x [#269](https://github.com/chef/license_scout/pull/269) ([mttkay](https://github.com/mttkay))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.2 -->
+### Changes since 2.6.2 release
+
+#### Merged Pull Requests
+- Change mixlib-shellout dependency pattern to allow 3.x [#269](https://github.com/chef/license_scout/pull/269) ([mttkay](https://github.com/mttkay)) <!-- 2.6.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->

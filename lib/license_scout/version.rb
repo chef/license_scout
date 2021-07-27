@@ -16,5 +16,5 @@
 #
 
 module LicenseScout
-  VERSION = "2.6.2".freeze
+  VERSION = "2.6.3".freeze
 end
