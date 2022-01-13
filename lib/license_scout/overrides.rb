@@ -494,7 +494,7 @@ module LicenseScout
         ["ExtUtils-Install", nil, ["README"]],
         ["File-Path", nil, ["README"]],
         ["Getopt-Long", "Perl-5", ["README"]],
-        ["ExtUtils-ParseXS", "Perl-5", ["README"]],
+        ["ExtUtils-ParseXS", "Perl-5", ["META.json"]],
         ["version", nil, ["README"]],
         ["Data-Dumper", "Perl-5", ["Dumper.pm"]],
         ["Test-Harness", nil, ["README"]],
