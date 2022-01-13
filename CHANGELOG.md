@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.14 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.2.14](https://github.com/chef/license_scout/tree/v1.2.14) (2022-01-13)
 
 #### Merged Pull Requests
 - Fix override for ExtUtils-ParseXS [#270](https://github.com/chef/license_scout/pull/270) ([jeremiahsnapp](https://github.com/jeremiahsnapp))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.6.2 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix override for ExtUtils-ParseXS [#270](https://github.com/chef/license_scout/pull/270) ([jeremiahsnapp](https://github.com/jeremiahsnapp)) <!-- 1.2.14 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.2.13](https://github.com/chef/license_scout/tree/v1.2.13) (2021-06-21)
 
 #### Merged Pull Requests
 - Added license for thin and sqlite3-ruby. [#261](https://github.com/chef/license_scout/pull/261) ([antima-gupta](https://github.com/antima-gupta))
-<!-- latest_stable_release -->
 
 ## [v1.2.12](https://github.com/chef/license_scout/tree/v1.2.12) (2021-06-15)
 
