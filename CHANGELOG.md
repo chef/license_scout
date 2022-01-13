@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.2.14 -->
+## [v1.2.14](https://github.com/chef/license_scout/tree/v1.2.14) (2022-01-13)
+
+#### Merged Pull Requests
+- Fix override for ExtUtils-ParseXS [#270](https://github.com/chef/license_scout/pull/270) ([jeremiahsnapp](https://github.com/jeremiahsnapp))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.2 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Fix override for ExtUtils-ParseXS [#270](https://github.com/chef/license_scout/pull/270) ([jeremiahsnapp](https://github.com/jeremiahsnapp)) <!-- 1.2.14 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
