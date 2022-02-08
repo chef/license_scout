@@ -472,6 +472,7 @@ module LicenseScout
       # inside the modules we download to inspect for licensing information.
       [
         ["sqitch", "MIT", ["https://raw.githubusercontent.com/sqitchers/sqitch/develop/LICENSE.md"]],
+        ["sqitch", "MIT", ["https://raw.githubusercontent.com/theory/sqitch/master/README.md"]],
         ["Scalar-List-Utils", nil, ["README"]],
         ["perl", nil, ["README"]],
         ["IO", nil, ["README"]],
