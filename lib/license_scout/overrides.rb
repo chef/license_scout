@@ -362,6 +362,7 @@ module LicenseScout
         ["coffee-script-source", nil, ["https://raw.githubusercontent.com/jessedoyle/coffee-script-source/master/LICENSE"]],
         ["compass", "MIT", ["https://raw.githubusercontent.com/Compass/compass/stable/LICENSE.markdown"]],
         ["cucumber-wire", nil, ["https://raw.githubusercontent.com/cucumber/cucumber-ruby-wire/master/LICENSE"]],
+        ["date", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/date/master/README.md"]],
         ["dep_selector", nil, ["https://raw.githubusercontent.com/chef/dep-selector/master/LICENSE"]],
         ["enumerable-lazy", "MIT", ["https://raw.githubusercontent.com/yhara/enumerable-lazy/master/README.md"]],
         ["fast_xs", "MIT", ["https://raw.githubusercontent.com/brianmario/fast_xs/master/LICENSE"]],
