@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.2.15 -->
+## [v1.2.15](https://github.com/chef/license_scout/tree/v1.2.15) (2022-02-14)
+
+#### Merged Pull Requests
+- add missing license file for sqitch software definition and date gem [#271](https://github.com/chef/license_scout/pull/271) ([jayashrig158](https://github.com/jayashrig158))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.2 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- add missing license file for sqitch software definition and date gem [#271](https://github.com/chef/license_scout/pull/271) ([jayashrig158](https://github.com/jayashrig158)) <!-- 1.2.15 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
