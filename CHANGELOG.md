@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.2.16 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.2.16](https://github.com/chef/license_scout/tree/v1.2.16) (2022-04-12)
 
 #### Merged Pull Requests
 - IPACK-39 add overrides for ruby 3.1.1 [#272](https://github.com/chef/license_scout/pull/272) ([jeremiahsnapp](https://github.com/jeremiahsnapp))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.6.2 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- IPACK-39 add overrides for ruby 3.1.1 [#272](https://github.com/chef/license_scout/pull/272) ([jeremiahsnapp](https://github.com/jeremiahsnapp)) <!-- 1.2.16 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.2.15](https://github.com/chef/license_scout/tree/v1.2.15) (2022-02-14)
 
 #### Merged Pull Requests
 - add missing license file for sqitch software definition and date gem [#271](https://github.com/chef/license_scout/pull/271) ([jayashrig158](https://github.com/jayashrig158))
-<!-- latest_stable_release -->
 
 ## [v1.2.14](https://github.com/chef/license_scout/tree/v1.2.14) (2022-01-13)
 
