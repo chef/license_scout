@@ -392,6 +392,7 @@ module LicenseScout
         ["mocha", "MIT", ["https://raw.githubusercontent.com/freerange/mocha/master/MIT-LICENSE.md"]],
         ["net-http-spy", "Public-Domain", ["https://raw.githubusercontent.com/martinbtt/net-http-spy/master/readme.markdown"]],
         ["net-protocol", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/net-protocol/master/LICENSE.txt"]],
+        ["net-pop", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/net-pop/v0.1.1/LICENSE.txt"]],
         ["nio4r", "MIT", ["https://raw.githubusercontent.com/socketry/nio4r/master/README.md"]],
         ["omniauth-chef", nil, ["https://raw.githubusercontent.com/chef/omniauth-chef/master/README.md"]],
         ["os", "MIT", ["https://raw.githubusercontent.com/rdp/os/master/LICENSE"]],
