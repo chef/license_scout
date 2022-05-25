@@ -9,26 +9,6 @@ expeditor:
 
 steps:
 
-- label: run-lint-and-specs-ruby-2.5
-  command:
-    - .expeditor/buildkite/verify.sh
-  expeditor:
-    cached_folders:
-      - vendor
-    executor:
-      docker:
-        image: ruby:2.5-buster
-
-- label: run-lint-and-specs-ruby-2.6
-  command:
-    - .expeditor/buildkite/verify.sh
-  expeditor:
-    cached_folders:
-      - vendor
-    executor:
-      docker:
-        image: ruby:2.6-buster
-
 - label: run-lint-and-specs-ruby-2.7
   command:
     - .expeditor/buildkite/verify.sh

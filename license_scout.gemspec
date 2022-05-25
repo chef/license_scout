@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.executables   = %w{license_scout}
   spec.require_paths = %w{lib}
 
-  spec.required_ruby_version = ">= 2.3"
+  spec.required_ruby_version = ">= 2.7"
 
   spec.add_dependency "ffi-yajl",         "~> 2.2"
   spec.add_dependency "mixlib-shellout",  ">= 2.2", "< 4.0"
@@ -53,8 +53,7 @@ Gem::Specification.new do |spec|
   # project it needs to include it seperately in its gem bundle. We have a nice
   # error message when they do not. But we add berkshelf as a development
   # dependency so that we can run our tests.
-  spec.add_development_dependency "berkshelf", "~> 4.3"
+  spec.add_development_dependency "berkshelf"
 
-  # There was a breaking change added in chef 16.5.77 that prevents the tests working with Ruby 2.5
-  spec.add_development_dependency "chef-config", "< 16.5.77"
+  spec.add_development_dependency "chef-config"
 end
