@@ -36,7 +36,7 @@ module LicenseScout
                 "file in #{project_dir}"
         end
 
-        deps = YAML.load(File.read(glide_yaml_locked))
+        deps = YAML.safe_load(File.read(glide_yaml_locked), permitted_classes: [Date, Symbol, Time])
         deps["imports"].map { |i| add_glide_dep(i) }
       end
 
