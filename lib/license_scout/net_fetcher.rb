@@ -19,6 +19,7 @@ require "open-uri" unless defined?(OpenURI)
 require "tmpdir" unless defined?(Dir.mktmpdir)
 require "digest" unless defined?(Digest)
 require "socket" unless defined?(Socket) # Defines `SocketError`
+require "timeout" unless defined?(Timeout)
 
 require "license_scout/exceptions"
 
@@ -84,7 +85,7 @@ module LicenseScout
           read_timeout: 300,
         }
 
-        open(from_url, options) do |f|
+        URI.open(from_url, **options) do |f|
           save_to_cache(f)
         end
       rescue SocketError,

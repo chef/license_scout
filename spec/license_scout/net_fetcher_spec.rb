@@ -104,11 +104,11 @@ RSpec.describe(LicenseScout::NetFetcher) do
 
     before do
       @call_count = 0
-      original_open = fetcher.method(:open)
+      original_open = URI.method(:open)
 
-      allow(fetcher).to receive(:open) do |url, options, &block|
+      allow(URI).to receive(:open) do |url, options, &block|
         if @call_count == success_after_count
-          original_open.call(url, options, &block)
+          original_open.call(url, **options, &block)
         else
           @call_count += 1
           raise Errno::ENETUNREACH.new

@@ -9,26 +9,6 @@ expeditor:
 
 steps:
 
-- label: run-lint-and-specs-ruby-2.5
-  command:
-    - .expeditor/buildkite/verify.sh
-  expeditor:
-    cached_folders:
-      - vendor
-    executor:
-      docker:
-        image: ruby:2.5-buster
-
-- label: run-lint-and-specs-ruby-2.6
-  command:
-    - .expeditor/buildkite/verify.sh
-  expeditor:
-    cached_folders:
-      - vendor
-    executor:
-      docker:
-        image: ruby:2.6-buster
-
 - label: run-lint-and-specs-ruby-2.7
   command:
     - .expeditor/buildkite/verify.sh
@@ -39,6 +19,26 @@ steps:
       docker:
         image: ruby:2.7-buster
 
+- label: run-lint-and-specs-ruby-3.0
+  command:
+    - .expeditor/buildkite/verify.sh
+  expeditor:
+    cached_folders:
+      - vendor
+    executor:
+      docker:
+        image: ruby:3.0-buster
+
+- label: run-lint-and-specs-ruby-3.1
+  command:
+    - .expeditor/buildkite/verify.sh
+  expeditor:
+    cached_folders:
+      - vendor
+    executor:
+      docker:
+        image: ruby:3.1-buster
+
 - label: ":windows: :ruby:"
   command:
     - /workdir/.expeditor/buildkite/verify.ps1
@@ -48,4 +48,5 @@ steps:
     executor:
       docker:
         host_os: windows
+        image: rubydistros/windows-2019:3.1
         shell: ["powershell", "-Command"]
