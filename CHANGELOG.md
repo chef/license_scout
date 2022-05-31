@@ -1,20 +1,18 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.6.3 -->
-## [v2.6.3](https://github.com/chef/license_scout/tree/v2.6.3) (2021-07-27)
-
-#### Merged Pull Requests
-- Change mixlib-shellout dependency pattern to allow 3.x [#269](https://github.com/chef/license_scout/pull/269) ([mttkay](https://github.com/mttkay))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.6.2 -->
-### Changes since 2.6.2 release
-
-#### Merged Pull Requests
-- Change mixlib-shellout dependency pattern to allow 3.x [#269](https://github.com/chef/license_scout/pull/269) ([mttkay](https://github.com/mttkay)) <!-- 2.6.3 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v2.6.3](https://github.com/chef/license_scout/tree/v2.6.3) (2022-05-31)
+
+#### Merged Pull Requests
+- Change mixlib-shellout dependency pattern to allow 3.x [#269](https://github.com/chef/license_scout/pull/269) ([mttkay](https://github.com/mttkay))
+<!-- latest_stable_release -->
+
 ## [v2.6.2](https://github.com/chef/license_scout/tree/v2.6.2) (2021-07-22)
 
 #### Merged Pull Requests
@@ -23,7 +21,6 @@
 - update ruby version to 2.6 [#243](https://github.com/chef/license_scout/pull/243) ([jayashrig158](https://github.com/jayashrig158))
 - Fix Ruby spec tests [#267](https://github.com/chef/license_scout/pull/267) ([tduffield](https://github.com/tduffield))
 - Fix warning: Kernel#open is deprecated [#264](https://github.com/chef/license_scout/pull/264) ([mttkay](https://github.com/mttkay))
-<!-- latest_stable_release -->
 
 ## [v2.5.1](https://github.com/chef/license_scout/tree/v2.5.1) (2020-04-08)
 
