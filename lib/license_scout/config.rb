@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-require "mixlib/config" unless defined?(Mixlib::Config)
+require "mixlib/config"
 require "tmpdir" unless defined?(Dir.mktmpdir)
 
 require "license_scout/exceptions"
@@ -31,6 +31,7 @@ module LicenseScout
     default :include_subdirectories, false
     default :name, File.basename(directories.first)
     default :config_files, [File.join(File.expand_path(Dir.pwd), ".license_scout.yml")]
+    default :exclude_collectors, []
 
     # Output
     default :log_level, :info

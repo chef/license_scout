@@ -50,5 +50,18 @@ RSpec.describe LicenseScout::Collector do
         expect(subject.dependencies.map(&:name)).to eql(["core/glibc", "core/linux-headers", "core/musl"])
       end
     end
+
+    context "when dependency managers are skipped through config file" do
+      before do
+        LicenseScout::Config.exclude_collectors = ["habitat"]
+        LicenseScout::Config.directories = [ File.join(SPEC_FIXTURES_DIR, "habitat"), File.join(SPEC_FIXTURES_DIR, "gomod")]
+      end
+
+      it "collects all of the dependencies for all the supported implementations except skipped dependency manager" do
+        subject.collect
+        expect(subject.dependencies.length).to eql(2)
+        expect(subject.dependencies.map(&:name)).to eql(["github.com/klauspost/compress", "github.com/oklog/ulid"])
+      end
+    end
   end
 end

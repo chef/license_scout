@@ -60,7 +60,7 @@ module LicenseScout
       @dependency_managers ||= LicenseScout::Config.all_directories.map do |dir|
         LicenseScout::DependencyManager.implementations.map do |implementation|
           dep_mgr = implementation.new(File.expand_path(dir))
-          if dep_mgr.detected?
+          if dep_mgr.detected? && !(LicenseScout::Config.exclude_collectors.include? dep_mgr.name)
             LicenseScout::Log.info("[collector] Found #{dep_mgr.signature} in #{dir}")
             dep_mgr
           else
