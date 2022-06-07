@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.6.4 -->
+## [v2.6.4](https://github.com/chef/license_scout/tree/v2.6.4) (2022-06-07)
+
+#### Merged Pull Requests
+- Added input option to exclude collectors [#277](https://github.com/chef/license_scout/pull/277) ([Nik08](https://github.com/Nik08))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.3 -->
+### Changes since 2.6.3 release
+
+#### Merged Pull Requests
+- Added input option to exclude collectors [#277](https://github.com/chef/license_scout/pull/277) ([Nik08](https://github.com/Nik08)) <!-- 2.6.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
