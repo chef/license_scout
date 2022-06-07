@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "mixlib-shellout", ">= 2.2", "< 4.0"
   spec.add_runtime_dependency "toml-rb",         "~> 1.0"
   spec.add_runtime_dependency "licensee",        "~> 9.8"
-  spec.add_runtime_dependency "mixlib-config",   "~> 2.2"
+  spec.add_runtime_dependency "mixlib-config",   "~> 2.2", "< 4.0"
   spec.add_runtime_dependency "mixlib-cli"
   spec.add_runtime_dependency "mixlib-log"
   spec.add_runtime_dependency "terminal-table"
