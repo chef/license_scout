@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.2 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.3.2](https://github.com/chef/license_scout/tree/v1.3.2) (2022-06-08)
 
 #### Merged Pull Requests
 - updating licensing for the multipart-post gem [#279](https://github.com/chef/license_scout/pull/279) ([johnmccrae](https://github.com/johnmccrae))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.6.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- updating licensing for the multipart-post gem [#279](https://github.com/chef/license_scout/pull/279) ([johnmccrae](https://github.com/johnmccrae)) <!-- 1.3.2 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.3.1](https://github.com/chef/license_scout/tree/v1.3.1) (2022-05-27)
 
 #### Merged Pull Requests
 - Add overrides needed for inspec and train to 1-stable [#276](https://github.com/chef/license_scout/pull/276) ([clintoncwolfe](https://github.com/clintoncwolfe))
-<!-- latest_stable_release -->
 
 ## [v1.3.0](https://github.com/chef/license_scout/tree/v1.3.0) (2022-05-25)
 
