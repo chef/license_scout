@@ -22,7 +22,7 @@ pkg_deps=(
   core/git
   core/curl
   core/coreutils
-  core/erlang18/18.3
+  core/erlang20/20.3.8.26
   core/busybox-static
 )
 
