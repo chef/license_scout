@@ -22,7 +22,7 @@ pkg_deps=(
   core/git
   core/curl
   core/coreutils
-  core/erlang18/18.3
+  core/erlang20/20.3.8.26
   core/busybox-static
 )
 
@@ -33,7 +33,7 @@ do_unpack() {
 
 do_prepare() {
   build_line "Scoping default paths to Habitat installation"
-  sed -i -r "s|^(\s*)default :escript_bin, \".+\"|\1default :escript_bin, \"$(hab pkg path core/erlang18)/bin/escript\"|" "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib/license_scout/config.rb"
+  sed -i -r "s|^(\s*)default :escript_bin, \".+\"|\1default :escript_bin, \"$(hab pkg path core/erlang20)/bin/escript\"|" "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib/license_scout/config.rb"
   sed -i -r "s|^(\s*)default :ruby_bin, \".+\"|\1default :ruby_bin, \"$(hab pkg path core/ruby26)/bin/ruby\"|" "$HAB_CACHE_SRC_PATH/$pkg_dirname/lib/license_scout/config.rb"
 
   local _ruby_gems=$(pkg_path_for "core/ruby26")/lib/ruby/gems/2.6.0
