@@ -1,28 +1,25 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.6.7 -->
-## [v2.6.7](https://github.com/chef/license_scout/tree/v2.6.7) (2022-06-15)
-
-#### Merged Pull Requests
-- Build issues fix [#281](https://github.com/chef/license_scout/pull/281) ([Nik08](https://github.com/Nik08))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.6.3 -->
-### Changes since 2.6.3 release
-
-#### Merged Pull Requests
-- Build issues fix [#281](https://github.com/chef/license_scout/pull/281) ([Nik08](https://github.com/Nik08)) <!-- 2.6.7 -->
-- Use Mixlib config version &gt; 3.0 [#282](https://github.com/chef/license_scout/pull/282) ([Nik08](https://github.com/Nik08)) <!-- 2.6.6 -->
-- Upgrade erlang to version 20 to fix habitat build [#280](https://github.com/chef/license_scout/pull/280) ([Nik08](https://github.com/Nik08)) <!-- 2.6.5 -->
-- Added input option to exclude collectors [#277](https://github.com/chef/license_scout/pull/277) ([Nik08](https://github.com/Nik08)) <!-- 2.6.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v2.6.7](https://github.com/chef/license_scout/tree/v2.6.7) (2022-06-17)
+
+#### Merged Pull Requests
+- Added input option to exclude collectors [#277](https://github.com/chef/license_scout/pull/277) ([Nik08](https://github.com/Nik08))
+- Upgrade erlang to version 20 to fix habitat build [#280](https://github.com/chef/license_scout/pull/280) ([Nik08](https://github.com/Nik08))
+- Use Mixlib config version &gt; 3.0 [#282](https://github.com/chef/license_scout/pull/282) ([Nik08](https://github.com/Nik08))
+- Build issues fix [#281](https://github.com/chef/license_scout/pull/281) ([Nik08](https://github.com/Nik08))
+<!-- latest_stable_release -->
+
 ## [v2.6.3](https://github.com/chef/license_scout/tree/v2.6.3) (2022-05-31)
 
 #### Merged Pull Requests
 - Change mixlib-shellout dependency pattern to allow 3.x [#269](https://github.com/chef/license_scout/pull/269) ([mttkay](https://github.com/mttkay))
-<!-- latest_stable_release -->
 
 ## [v2.6.2](https://github.com/chef/license_scout/tree/v2.6.2) (2021-07-22)
 
