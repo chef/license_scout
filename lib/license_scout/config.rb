@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-require "mixlib/config"
+require "mixlib/config" unless defined?(Mixlib::Config)
 require "tmpdir" unless defined?(Dir.mktmpdir)
 
 require "license_scout/exceptions"
