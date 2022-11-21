@@ -571,6 +571,12 @@ module LicenseScout
 
       # erlang_rebar
       [
+        ["base16", "BSD-2-Clause", ["LICENSE"]],
+        ["eini", "Apache-2.0", ["LICENSE"]],
+        ["fs", "ISC", ["LICENSE"]],
+        ["goldrush", "ISC", ["LICENSE"]],
+        ["jsx", "MIT", ["LICENSE"]],
+        ["recon", "BSD-3-Clause", ["LICENSE"]],
         ["sync", "MIT", ["https://raw.githubusercontent.com/rustyio/sync/11df81d196eaab2d84caa3fbe8def5d476ef79d8/src/sync.erl"]],
         ["rebar_vsn_plugin", "Apache-2.0", ["https://raw.githubusercontent.com/erlware/rebar_vsn_plugin/master/src/rebar_vsn_plugin.erl"]],
         ["edown", "Erlang-Public", ["https://raw.githubusercontent.com/seth/edown/master/NOTICE"]],
