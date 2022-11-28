@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.3.3 -->
+## [v1.3.3](https://github.com/chef/license_scout/tree/v1.3.3) (2022-11-28)
+
+#### Merged Pull Requests
+- Add transitive dependency overrides for rebar3 upgrade [#284](https://github.com/chef/license_scout/pull/284) ([lbakerchef](https://github.com/lbakerchef))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.7 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add transitive dependency overrides for rebar3 upgrade [#284](https://github.com/chef/license_scout/pull/284) ([lbakerchef](https://github.com/lbakerchef)) <!-- 1.3.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
