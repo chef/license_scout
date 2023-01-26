@@ -59,3 +59,6 @@ pipelines:
   - verify:
       description: Pull Request validation tests
       public: true
+  - verify/private:
+      description: Pull Request validation tests
+      definition: .expeditor/release.omnibus.yml
