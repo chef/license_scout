@@ -23,6 +23,9 @@ rubygems:
 pipelines:
   - verify:
       public: true
+  - verify/private:
+     description: Pull Request validation tests
+     definition: .expeditor/verify.pipeline.yml      
   - habitat/build
 
 subscriptions:
