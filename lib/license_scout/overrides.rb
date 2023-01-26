@@ -394,7 +394,7 @@ module LicenseScout
         ["minitest", nil, ["https://raw.githubusercontent.com/seattlerb/minitest/master/README.rdoc"]],
         ["minitest-sprint", "MIT", ["https://raw.githubusercontent.com/seattlerb/minitest-sprint/master/README.rdoc"]],
         ["mocha", "MIT", ["https://raw.githubusercontent.com/freerange/mocha/master/MIT-LICENSE.md"]],
-        ["multipart-post", "MIT", ["https://raw.githubusercontent.com/socketry/multipart-post/main/README.md"]],
+        ["multipart-post", "MIT", ["https://raw.githubusercontent.com/socketry/multipart-post/main/license.md"]],
         ["net-http-spy", "Public-Domain", ["https://raw.githubusercontent.com/martinbtt/net-http-spy/master/readme.markdown"]],
         ["net-protocol", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/net-protocol/master/LICENSE.txt"]],
         ["nio4r", "MIT", ["https://raw.githubusercontent.com/socketry/nio4r/master/README.md"]],
