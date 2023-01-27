@@ -25,7 +25,7 @@ github:
 # (as determined by the value in the VERSION file) those branches are responsible
 # for building.
 release_branches:
-  - master:
+  - main:
       version_constraint: 2.*
   - 1-stable:
       version_constraint: 1.*
