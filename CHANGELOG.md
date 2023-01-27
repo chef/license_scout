@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 2.6.8 -->
+## [v2.6.8](https://github.com/chef/license_scout/tree/v2.6.8) (2023-01-27)
+
+#### Merged Pull Requests
+- Sean simmons progress/main private test [#289](https://github.com/chef/license_scout/pull/289) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.7 -->
+### Changes since 2.6.7 release
+
+#### Merged Pull Requests
+- Sean simmons progress/main private test [#289](https://github.com/chef/license_scout/pull/289) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 2.6.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
