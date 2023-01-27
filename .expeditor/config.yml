@@ -1,7 +1,7 @@
 # Documentation available at https://expeditor.chef.io/docs/getting-started/
 ---
 project:
-  alias: license_scout_1_stable
+  alias: license_scout_2_stable
 
 # Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
@@ -60,9 +60,9 @@ subscriptions:
       - built_in:publish_rubygems
 
 pipelines:
-  - verify:
-      description: Pull Request validation tests
-      public: true
+  # - verify:
+  #     description: Pull Request validation tests
+  #     public: true
   - verify/private:
       description: Pull Request validation tests
       definition: .expeditor/verify.pipeline.yml
