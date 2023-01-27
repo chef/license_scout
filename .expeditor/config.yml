@@ -6,6 +6,8 @@ slack:
 github:
   version_tag_format: "v{{version}}"
   delete_branch_on_merge: true
+  major_bump_labels:
+    - "Expeditor: Bump Version Major"  
   minor_bump_labels:
     - "Expeditor: Bump Version Minor"
 
