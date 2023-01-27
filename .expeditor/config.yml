@@ -60,9 +60,6 @@ subscriptions:
       - built_in:publish_rubygems
 
 pipelines:
-  # - verify:
-  #     description: Pull Request validation tests
-  #     public: true
   - verify/private:
       description: Pull Request validation tests
       definition: .expeditor/verify.pipeline.yml
