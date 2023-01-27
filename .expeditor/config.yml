@@ -1,7 +1,7 @@
 ---
 
 slack:
-  notify_channel: releng-notify
+  notify_channel: releng-notify 
 
 github:
   version_tag_format: "v{{version}}"
