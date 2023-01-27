@@ -16,6 +16,8 @@ release_branches:
       version_constraint: 2.*
   - 1-stable:
       version_constraint: 1.*
+  - 2-stable:
+      version_constraint: 1.*      
 
 rubygems:
   - license_scout
