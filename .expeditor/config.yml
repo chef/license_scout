@@ -1,5 +1,7 @@
 # Documentation available at https://expeditor.chef.io/docs/getting-started/
 ---
+project:
+  alias: license_scout
 
 # Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
