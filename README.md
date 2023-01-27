@@ -14,7 +14,7 @@ Currently supported project types are:
 * Perl - CPAN
 * Ruby - bundler
 
-## Usage
+## Usage 
 
 ```bash
 $ bin/license_scout /dir/to/scout/successfully/
