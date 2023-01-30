@@ -1,22 +1,20 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.6.10 -->
-## [v2.6.10](https://github.com/chef/license_scout/tree/v2.6.10) (2023-01-27)
-
-#### Merged Pull Requests
-- adding 3-test [#305](https://github.com/chef/license_scout/pull/305) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.6.7 -->
-### Changes since 2.6.7 release
-
-#### Merged Pull Requests
-- adding 3-test [#305](https://github.com/chef/license_scout/pull/305) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 2.6.10 -->
-- adding new release branch [#298](https://github.com/chef/license_scout/pull/298) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 2.6.9 -->
-- Sean simmons progress/main private test [#289](https://github.com/chef/license_scout/pull/289) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 2.6.8 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v2.6.10](https://github.com/chef/license_scout/tree/v2.6.10) (2023-01-30)
+
+#### Merged Pull Requests
+- Sean simmons progress/main private test [#289](https://github.com/chef/license_scout/pull/289) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+- adding new release branch [#298](https://github.com/chef/license_scout/pull/298) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+- adding 3-test [#305](https://github.com/chef/license_scout/pull/305) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+<!-- latest_stable_release -->
+
 ## [v2.6.7](https://github.com/chef/license_scout/tree/v2.6.7) (2022-06-17)
 
 #### Merged Pull Requests
@@ -24,7 +22,6 @@
 - Upgrade erlang to version 20 to fix habitat build [#280](https://github.com/chef/license_scout/pull/280) ([Nik08](https://github.com/Nik08))
 - Use Mixlib config version &gt; 3.0 [#282](https://github.com/chef/license_scout/pull/282) ([Nik08](https://github.com/Nik08))
 - Build issues fix [#281](https://github.com/chef/license_scout/pull/281) ([Nik08](https://github.com/Nik08))
-<!-- latest_stable_release -->
 
 ## [v2.6.3](https://github.com/chef/license_scout/tree/v2.6.3) (2022-05-31)
 
