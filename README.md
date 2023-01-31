@@ -6,7 +6,7 @@ LicenseScout discovers and collects the licenses of a project and its
 dependencies, including transitive dependencies.
 
 Currently supported project types are:
-
+ 
 * Chef - Berkshelf
 * Erlang - rebar
 * Golang - godeps
