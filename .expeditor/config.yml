@@ -16,10 +16,6 @@ release_branches:
       version_constraint: 2.*
   - 1-stable:
       version_constraint: 1.*
-  - 2-stable:
-      version_constraint: 1.*
-  - 3-test:
-      version_constraint: 98.*
 
 rubygems:
   - license_scout
@@ -27,9 +23,6 @@ rubygems:
 pipelines:
   - verify:
       public: true
-  - verify/private:
-      description: Pull Request validation tests
-      definition: .expeditor/verify.pipeline.yml
   - habitat/build
 
 subscriptions:
