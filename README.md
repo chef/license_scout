@@ -1,4 +1,4 @@
-# License Scout
+# License Scout 
 
 License Scout is a utility that discovers and aggregates the licenses for your software project's transitive dependencies.
 
