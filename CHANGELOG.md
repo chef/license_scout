@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 2.6.11 -->
-## [v2.6.11](https://github.com/chef/license_scout/tree/v2.6.11) (2023-01-31)
+<!-- latest_release 2.6.12 -->
+## [v2.6.12](https://github.com/chef/license_scout/tree/v2.6.12) (2023-01-31)
 
 #### Merged Pull Requests
-- cleaning up expeditor config [#312](https://github.com/chef/license_scout/pull/312) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+- cleaning up expeditor config [#313](https://github.com/chef/license_scout/pull/313) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.6.10 -->
 ### Changes since 2.6.10 release
 
 #### Merged Pull Requests
+- cleaning up expeditor config [#313](https://github.com/chef/license_scout/pull/313) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 2.6.12 -->
 - cleaning up expeditor config [#312](https://github.com/chef/license_scout/pull/312) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 2.6.11 -->
 <!-- release_rollup -->
 
