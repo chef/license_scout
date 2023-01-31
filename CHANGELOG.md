@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.3.4 -->
+## [v1.3.4](https://github.com/chef/license_scout/tree/v1.3.4) (2023-01-31)
+
+#### Merged Pull Requests
+- bumping version test [#314](https://github.com/chef/license_scout/pull/314) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.10 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- bumping version test [#314](https://github.com/chef/license_scout/pull/314) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 1.3.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
