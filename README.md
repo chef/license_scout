@@ -1,4 +1,4 @@
-# license_scout 
+# license_scout  
 
 [![Build Status](https://travis-ci.org/chef/license_scout.svg?branch=1-stable)](https://travis-ci.org/chef/license_scout)
 
