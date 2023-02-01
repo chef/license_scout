@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.4 -->
-## [v1.3.4](https://github.com/chef/license_scout/tree/v1.3.4) (2023-01-31)
-
-#### Merged Pull Requests
-- bumping version test [#314](https://github.com/chef/license_scout/pull/314) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- bumping version test [#314](https://github.com/chef/license_scout/pull/314) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 1.3.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.3.4](https://github.com/chef/license_scout/tree/v1.3.4) (2023-02-01)
+
+#### Merged Pull Requests
+- bumping version test [#314](https://github.com/chef/license_scout/pull/314) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
+<!-- latest_stable_release -->
+
 ## [v1.3.3](https://github.com/chef/license_scout/tree/v1.3.3) (2022-11-28)
 
 #### Merged Pull Requests
 - Add transitive dependency overrides for rebar3 upgrade [#284](https://github.com/chef/license_scout/pull/284) ([lbakerchef](https://github.com/lbakerchef))
-<!-- latest_stable_release -->
 
 ## [v1.3.2](https://github.com/chef/license_scout/tree/v1.3.2) (2022-06-08)
 
