@@ -326,6 +326,7 @@ module LicenseScout
         ["ohai", "Apache-2.0", ["LICENSE"]],
         ["plist", "MIT", nil],
         ["proxifier", "MIT", nil],
+        ["proxifier2", "MIT", nil],
         ["pry-remote", "MIT", nil],
         ["pry-stack_explorer", "MIT", nil],
         ["pry", "MIT", nil],
