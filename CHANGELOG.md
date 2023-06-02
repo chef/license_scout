@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.3.6 -->
+## [v1.3.6](https://github.com/chef/license_scout/tree/v1.3.6) (2023-06-02)
+
+#### Merged Pull Requests
+- chef server adhoc build fix - license of nio4r changed to readme.md [#316](https://github.com/chef/license_scout/pull/316) ([jashaik](https://github.com/jashaik))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.10 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- chef server adhoc build fix - license of nio4r changed to readme.md [#316](https://github.com/chef/license_scout/pull/316) ([jashaik](https://github.com/jashaik)) <!-- 1.3.6 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
