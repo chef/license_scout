@@ -327,6 +327,7 @@ module LicenseScout
         ["plist", "MIT", nil],
         ["proxifier", "MIT", nil],
         ["proxifier2", "MIT", nil],
+        ["ruby-shadow", "MIT", nil],
         ["pry-remote", "MIT", nil],
         ["pry-stack_explorer", "MIT", nil],
         ["pry", "MIT", nil],
