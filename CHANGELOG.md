@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.7 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.3.7](https://github.com/chef/license_scout/tree/v1.3.7) (2024-02-06)
 
 #### Merged Pull Requests
 - fixing casing on http-accept [#317](https://github.com/chef/license_scout/pull/317) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- fixing casing on http-accept [#317](https://github.com/chef/license_scout/pull/317) ([sean-simmons-progress](https://github.com/sean-simmons-progress)) <!-- 1.3.7 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.3.6](https://github.com/chef/license_scout/tree/v1.3.6) (2023-06-02)
 
 #### Merged Pull Requests
 - chef server adhoc build fix - license of nio4r changed to readme.md [#316](https://github.com/chef/license_scout/pull/316) ([jashaik](https://github.com/jashaik))
-<!-- latest_stable_release -->
 
 ## [v1.3.5](https://github.com/chef/license_scout/tree/v1.3.5) (2023-03-01)
 
