@@ -380,7 +380,7 @@ module LicenseScout
         ["get_process_mem", "MIT", ["https://raw.githubusercontent.com/schneems/get_process_mem/master/README.md"]],
         ["hoe", "MIT", ["https://raw.githubusercontent.com/seattlerb/hoe/master/README.rdoc"]],
         ["html-proofer", "MIT", ["https://raw.githubusercontent.com/gjtorikian/html-proofer/main/LICENSE.txt"]],
-        ["http-accept", "MIT", ["https://raw.githubusercontent.com/socketry/http-accept/master/README.md"]],
+        ["http-accept", "MIT", ["https://raw.githubusercontent.com/socketry/http-accept/master/readme.md"]],
         ["http_parser.rb", nil, ["https://raw.githubusercontent.com/tmm1/http_parser.rb/master/LICENSE-MIT"]],
         ["inspec-msccm", nil, [canonical("Chef-MLSA")]],
         ["inspec-scap", nil, [canonical("Chef-MLSA")]],
