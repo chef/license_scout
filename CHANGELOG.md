@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.8 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.3.8](https://github.com/chef/license_scout/tree/v1.3.8) (2024-06-03)
 
 #### Merged Pull Requests
 - Chef 13052 chef builds failing on license errorss [#318](https://github.com/chef/license_scout/pull/318) ([muthuja](https://github.com/muthuja))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Chef 13052 chef builds failing on license errorss [#318](https://github.com/chef/license_scout/pull/318) ([muthuja](https://github.com/muthuja)) <!-- 1.3.8 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.3.7](https://github.com/chef/license_scout/tree/v1.3.7) (2024-02-06)
 
 #### Merged Pull Requests
 - fixing casing on http-accept [#317](https://github.com/chef/license_scout/pull/317) ([sean-simmons-progress](https://github.com/sean-simmons-progress))
-<!-- latest_stable_release -->
 
 ## [v1.3.6](https://github.com/chef/license_scout/tree/v1.3.6) (2023-06-02)
 
