@@ -1,22 +1,19 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.9 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.3.9](https://github.com/chef/license_scout/tree/v1.3.9) (2024-06-04)
 
 #### Merged Pull Requests
 - Drop support for ruby 2.7 from verify pipeline/muthuja [#319](https://github.com/chef/license_scout/pull/319) ([muthuja](https://github.com/muthuja))
-<!-- latest_release -->
-
-<!-- release_rollup since=1.3.8 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Drop support for ruby 2.7 from verify pipeline/muthuja [#319](https://github.com/chef/license_scout/pull/319) ([muthuja](https://github.com/muthuja)) <!-- 1.3.9 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.3.8](https://github.com/chef/license_scout/tree/v1.3.8) (2024-06-03)
-<!-- latest_stable_release -->
 
 ## [v1.3.8](https://github.com/chef/license_scout/tree/v1.3.8) (2024-06-03)
 
