@@ -3,15 +3,18 @@
 <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=1.3.10 -->
+### Changes not yet released to rubygems.org
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
 ## [v1.3.10](https://github.com/chef/license_scout/tree/v1.3.10) (2024-06-14)
+<!-- latest_stable_release -->
+
+## [v1.3.10](https://github.com/chef/license_scout/tree/v1.3.10) (2024-06-14)
 
 #### Merged Pull Requests
 - Fix license error on infra client/muthuja [#320](https://github.com/chef/license_scout/pull/320) ([muthuja](https://github.com/muthuja))
-<!-- latest_stable_release -->
 
 ## [v1.3.9](https://github.com/chef/license_scout/tree/v1.3.9) (2024-06-04)
 
