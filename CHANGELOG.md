@@ -3,13 +3,15 @@
 <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=1.3.10 -->
+<!-- release_rollup since=1.3.8 -->
 ### Changes not yet released to rubygems.org
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
-## [v1.3.10](https://github.com/chef/license_scout/tree/v1.3.10) (2024-06-14)
+## [v1.3.8](https://github.com/chef/license_scout/tree/v1.3.8) (2024-08-12)
 <!-- latest_stable_release -->
+
+## [v1.3.10](https://github.com/chef/license_scout/tree/v1.3.10) (2024-06-14)
 
 ## [v1.3.10](https://github.com/chef/license_scout/tree/v1.3.10) (2024-06-14)
 
