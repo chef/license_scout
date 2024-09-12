@@ -1,22 +1,19 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.11 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.3.11](https://github.com/chef/license_scout/tree/v1.3.11) (2024-09-12)
 
 #### Merged Pull Requests
 - Update ruby/time license_url [#321](https://github.com/chef/license_scout/pull/321) ([neha-p6](https://github.com/neha-p6))
-<!-- latest_release -->
-
-<!-- release_rollup since=1.3.8 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update ruby/time license_url [#321](https://github.com/chef/license_scout/pull/321) ([neha-p6](https://github.com/neha-p6)) <!-- 1.3.11 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.3.8](https://github.com/chef/license_scout/tree/v1.3.8) (2024-08-12)
-<!-- latest_stable_release -->
 
 ## [v1.3.10](https://github.com/chef/license_scout/tree/v1.3.10) (2024-06-14)
 
