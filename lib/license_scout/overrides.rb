@@ -430,7 +430,7 @@ module LicenseScout
         ["structured_warnings", "MIT", ["https://raw.githubusercontent.com/schmidt/structured_warnings/master/LICENSE.txt"]],
         ["therubyracer", "MIT", ["https://raw.githubusercontent.com/rubyjs/therubyracer/master/README.md"]],
         ["thin", "BSD-2-Clause", ["https://raw.githubusercontent.com/macournoyer/thin/master/README.md"]],
-        ["time", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/time/master/BSDL"]],
+        ["time", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/time/master/LICENSE.txt"]],
         ["timeout", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/timeout/master/BSDL"]],
         ["unicorn-rails", "MIT", ["https://raw.githubusercontent.com/samuelkadolph/unicorn-rails/master/LICENSE"]],
         ["uri_template", "MIT", ["https://raw.githubusercontent.com/hannesg/uri_template/master/uri_template.gemspec"]],
