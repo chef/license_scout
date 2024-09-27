@@ -287,6 +287,7 @@ module LicenseScout
         ["transit-ruby", "Apache-2.0", ["LICENSE"]],
         ["binding_of_caller", "MIT", nil],
         ["bunny", "MIT", nil],
+        ["chef-licensing", "Apache-2.0", ["https://github.com/chef/chef-licensing/blob/main/LICENSE"]],
         ["chef-provisioning-aws", "Apache-2.0", ["LICENSE"]],
         ["chef-provisioning", "Apache-2.0", ["LICENSE"]],
         ["chef-rewind", "MIT", nil],
