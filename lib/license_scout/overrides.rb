@@ -391,6 +391,7 @@ module LicenseScout
         ["jwt", nil, ["https://raw.githubusercontent.com/jwt/ruby-jwt/master/LICENSE"]],
         ["libv8", "MIT", ["https://raw.githubusercontent.com/rubyjs/libv8/master/README.md"]],
         ["lockfile", "Ruby", ["https://rubygems.org/gems/lockfile"]],
+        ["logger", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/logger/master/BSDL"]]
         ["minitar", "Ruby", ["https://raw.githubusercontent.com/atoulme/minitar/master/README"]],
         ["minitest", nil, ["https://raw.githubusercontent.com/seattlerb/minitest/master/README.rdoc"]],
         ["minitest-sprint", "MIT", ["https://raw.githubusercontent.com/seattlerb/minitest-sprint/master/README.rdoc"]],
