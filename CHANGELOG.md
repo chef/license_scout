@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.12 -->
-## [v1.3.12](https://github.com/chef/license_scout/tree/v1.3.12) (2024-10-01)
+<!-- latest_release 1.3.13 -->
+## [v1.3.13](https://github.com/chef/license_scout/tree/v1.3.13) (2024-10-15)
 
 #### Merged Pull Requests
-- chore: drop ruby 3.0 test from buildkite [#323](https://github.com/chef/license_scout/pull/323) ([ahasunos](https://github.com/ahasunos))
+- Add gem `logger` to overrides [#325](https://github.com/chef/license_scout/pull/325) ([neha-p6](https://github.com/neha-p6))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.6.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add gem `logger` to overrides [#325](https://github.com/chef/license_scout/pull/325) ([neha-p6](https://github.com/neha-p6)) <!-- 1.3.13 -->
 - chore: drop ruby 3.0 test from buildkite [#323](https://github.com/chef/license_scout/pull/323) ([ahasunos](https://github.com/ahasunos)) <!-- 1.3.12 -->
 <!-- release_rollup -->
 
