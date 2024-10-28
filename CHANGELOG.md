@@ -1,27 +1,24 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.15 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.3.15](https://github.com/chef/license_scout/tree/v1.3.15) (2024-10-28)
 
 #### Merged Pull Requests
 - include license file for stringio [#326](https://github.com/chef/license_scout/pull/326) ([muthuja](https://github.com/muthuja))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- include license file for stringio [#326](https://github.com/chef/license_scout/pull/326) ([muthuja](https://github.com/muthuja)) <!-- 1.3.15 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.3.14](https://github.com/chef/license_scout/tree/v1.3.14) (2024-10-15)
 
 #### Merged Pull Requests
 - chore: drop ruby 3.0 test from buildkite [#323](https://github.com/chef/license_scout/pull/323) ([ahasunos](https://github.com/ahasunos))
 - Add gem `logger` to overrides [#325](https://github.com/chef/license_scout/pull/325) ([neha-p6](https://github.com/neha-p6))
 - chore: add chef/chef-licensing gem license location [#322](https://github.com/chef/license_scout/pull/322) ([ahasunos](https://github.com/ahasunos))
-<!-- latest_stable_release -->
 
 ## [v1.3.11](https://github.com/chef/license_scout/tree/v1.3.11) (2024-09-12)
 
