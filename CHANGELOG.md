@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.3.17 -->
+## [v1.3.17](https://github.com/chef/license_scout/tree/v1.3.17) (2025-01-31)
+
+#### Merged Pull Requests
+- Updating version [#329](https://github.com/chef/license_scout/pull/329) ([johnmccrae](https://github.com/johnmccrae))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.10 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Updating version [#329](https://github.com/chef/license_scout/pull/329) ([johnmccrae](https://github.com/johnmccrae)) <!-- 1.3.17 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
