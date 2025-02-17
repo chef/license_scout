@@ -1,0 +1,36 @@
+# stub to call Ruby CI pipeline from main and release branches for 
+# all application types (standard pipeline steps)
+name: Run ci-all-ruby-main from chef/common-github-actions
+
+on: 
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+  push:
+    branches:
+      - main
+      - 'releases/**'
+
+  workflow_dispatch:
+    inputs:
+      foo:
+          type: string
+          default: 'bar'
+           
+jobs: 
+  call-ci-ruby-main-pipeline:
+    #runs-on: ubuntu-latest
+    #steps:
+    #   - name: Call simple echo workflow
+      uses: chef/common-github-actions/.github/workflows/ci-all-ruby-main.yml@main
+      with:
+        message: 'hello world'
+ #       secrets: inherit
+
+  # CI-pipeline:
+  #   uses: 'chef/common-github-actions/.github/workflows/ci-release-go-cli.yml@main'
+  #   with:
+  #     application-name: "arch-sample-cli"
+
+  # Sonar:
+  #   uses: 'chef/common-github-actions/.github/workflows/sonarqube.yml@main'
+  #     secrets: inherit
