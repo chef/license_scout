@@ -9,28 +9,34 @@ on:
     branches:
       - main
       - 'releases/**'
+      # - master
+      # - develop
+      # - 'features/**' 
 
   workflow_dispatch:
-    inputs:
-      foo:
-          type: string
-          default: 'bar'
-           
+    # inputs:
+    #   language:
+    #     description: 'Primary language in the repository'
+    #     required: true
+    #     type: choice
+    #     options: 
+    #       - GoLang
+    #       - Ruby
+    #       - Rust
+    #   outputfilename:
+    #     description: 'Name of the SCC output file'
+    #     required: false
+    #     type: string
+    #     default: 'scc-output.txt'
+    #   message:
+    #     required: true
+    #     type: string
+
 jobs: 
   call-ci-ruby-main-pipeline:
-    #runs-on: ubuntu-latest
-    #steps:
-    #   - name: Call simple echo workflow
-      uses: chef/common-github-actions/.github/workflows/ci-all-ruby-main.yml@main
-      with:
-        message: 'hello world'
- #       secrets: inherit
-
-  # CI-pipeline:
-  #   uses: 'chef/common-github-actions/.github/workflows/ci-release-go-cli.yml@main'
-  #   with:
-  #     application-name: "arch-sample-cli"
-
-  # Sonar:
-  #   uses: 'chef/common-github-actions/.github/workflows/sonarqube.yml@main'
-  #     secrets: inherit
+    uses: chef/common-github-actions/.github/workflows/ci-all-ruby-main.yml@main
+    with:
+      language: 'Ruby'
+      outputfilename: 'scc-output.txt'
+      # message: ${{ inputs.message }}
+    secrets: inherit
