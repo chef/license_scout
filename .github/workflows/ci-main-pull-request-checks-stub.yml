@@ -1,0 +1,39 @@
+# stub to call CI PR checks (on PR) pipeline from main branch for 
+# all application types (standard pipeline steps)
+#
+# inputs:
+#   language:
+#     description: 'Primary language in the repository'
+#     required: true
+#     type: choice
+#     options: 
+#       - GoLang
+#       - Ruby
+#       - Rust
+#   outputfilename:
+#     description: 'Name of the SCC output file'
+#     required: false
+#     type: string
+#     default: 'scc-output.txt'
+
+name: ci-main-pull-request-checks
+
+on: 
+  pull_request:
+    branches: [ main, release/** ]
+      # types: [opened, synchronize, reopened, closed]
+  push:
+    branches: [ main, release/** ]
+      # - master
+      # - develop
+      # - 'features/**' 
+
+  workflow_dispatch:
+
+jobs: 
+  call-ci-ruby-main-pipeline:
+    uses: chef/common-github-actions/.github/workflows/ci-main-pull-request-checks.yml@main
+    with:
+      language: 'Ruby'
+      outputfilename: 'scc-output.txt'
+    secrets: inherit
