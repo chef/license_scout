@@ -1,39 +1,22 @@
-# stub to call CI PR checks (on PR) pipeline from main branch for 
-# all application types (standard pipeline steps)
-#
-# inputs:
-#   language:
-#     description: 'Primary language in the repository'
-#     required: true
-#     type: choice
-#     options: 
-#       - GoLang
-#       - Ruby
-#       - Rust
-#   outputfilename:
-#     description: 'Name of the SCC output file'
-#     required: false
-#     type: string
-#     default: 'scc-output.txt'
+# stub to call common GitHub Action (GA) as part of Continuous Integration (CI) Pull Request process checks for main branch
+# inputs are described in the <org>/common-github-actions/<GA.yml> with same name as this stub
 
 name: ci-main-pull-request-checks
 
 on: 
   pull_request:
     branches: [ main, release/** ]
-      # types: [opened, synchronize, reopened, closed]
   push:
     branches: [ main, release/** ]
-      # - master
-      # - develop
-      # - 'features/**' 
 
   workflow_dispatch:
 
 jobs: 
-  call-ci-ruby-main-pipeline:
+  call-ci-main-pr-check-pipeline:
     uses: chef/common-github-actions/.github/workflows/ci-main-pull-request-checks.yml@main
     with:
       language: 'Ruby'
-      outputfilename: 'scc-output.txt'
+      # outputfilename: 'scc-output.txt'
+      visibility: ${{ github.event.repository.visibility }} # optional, defaults to public
+      github-token: ${{ secrets.GITHUB_TOKEN }} # optional, and used only by back-level pipelines
     secrets: inherit
