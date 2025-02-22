@@ -19,7 +19,7 @@ jobs:
     uses: chef/common-github-actions/.github/workflows/ci-main-pull-request-checks.yml@main
     secrets: inherit
     with:   # named inputs for the GA
-      language: 'Ruby5'
+      language: 'Ruby'
       visibility: ${{ github.event.repository.visibility }} # optional, defaults to public
       skip-trufflehog: false
       skip-sonarqube: false
