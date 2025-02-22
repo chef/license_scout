@@ -13,6 +13,7 @@ on:
 
 env:  # set environment variables for the GA
   REPO_VISIBILITY: ${{ github.event.repository.visibility }}  # optional, defaults to public
+  FILENAME: 'ci-main-pull-request-checks-stub.yml' 
   # GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
 jobs: 
@@ -21,4 +22,5 @@ jobs:
     secrets: inherit
     with:   # named inputs for the GA
       language: 'Ruby'
-      visibility: ${{ env.REPO_VISIBILITY }} # optional, defaults to public
+      visibility: $REPO_VISIBILITY # optional, defaults to public
+      outputfilename: $FILENAME
