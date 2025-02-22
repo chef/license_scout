@@ -13,7 +13,7 @@ on:
 
 env:  # set environment variables for the GA
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  visibility: ${{ github.event.repository.visibility }}  # optional, defaults to public
+  REPO_VISIBILITY: ${{ github.event.repository.visibility }}  # optional, defaults to public
 
 jobs: 
   call-ci-main-pr-check-pipeline:
@@ -23,3 +23,4 @@ jobs:
       language: 'Ruby'
       # outputfilename: 'scc-output.txt'
       # github-token: ${{ secrets.GITHUB_TOKEN }} # deprecated, used only by back-level pipelines
+      visibility: $REPO_VISIBILITY # optional, defaults to public
