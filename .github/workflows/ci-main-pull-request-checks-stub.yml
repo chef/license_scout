@@ -11,12 +11,15 @@ on:
 
   workflow_dispatch:
 
+env:  # set environment variables for the GA
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  visibility: ${{ github.event.repository.visibility }}  # optional, defaults to public
+
 jobs: 
   call-ci-main-pr-check-pipeline:
     uses: chef/common-github-actions/.github/workflows/ci-main-pull-request-checks.yml@main
-    with:
+    secrets: inherit
+    with:   # named inputs for the GA
       language: 'Ruby'
       # outputfilename: 'scc-output.txt'
-      visibility: ${{ github.event.repository.visibility }} # optional, defaults to public
-      github-token: ${{ secrets.GITHUB_TOKEN }} # optional, and used only by back-level pipelines
-    secrets: inherit
+      # github-token: ${{ secrets.GITHUB_TOKEN }} # deprecated, used only by back-level pipelines
