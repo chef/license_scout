@@ -32,33 +32,10 @@ module LicenseScout
       def signature
         "node_modules directory"
       end
-      # def signature
-      #   puts "signature method is being executed"
-      #   if File.exist?('package.json') || Dir.exist?('node_modules')
-      #     puts "Found node_modules or package.json"
-      #     "node_modules directory"
-      #   else
-      #     puts "Neither package.json nor node_modules found"
-      #     "Missing package.json or node_modules directory"
-      #   end
-      # end
 
       def install_command
         "npm install"
       end
-      # def install_command
-      #   puts "install_command method is being executed"
-      #   command = "npm install"
-      #   begin
-      #     puts "Running: #{command}"
-      #     system(command)
-      #   rescue StandardError => e
-      #     puts "Error running 'npm install': #{e.message}"
-      #     command = "npm install --legacy-peer-deps"
-      #     puts "Running: #{command}"
-      #     system(command)
-      #   end
-      # end
 
 
       def detected?
@@ -139,6 +116,7 @@ module LicenseScout
       # def root_node_modules_path
       #   File.join(directory, "node_modules")
       # end
+      
       def root_node_modules_path
         # Check if node_modules directory does not exist
         unless File.exist?(File.join(directory, "package.json"))
