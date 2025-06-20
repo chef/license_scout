@@ -191,17 +191,17 @@ module LicenseScout
         @packaged_dependencies = dependencies
       end
 
-      def parse_version(ref_info)
-        if ref_info =~ /ref,"([^"]+)"/
-          $1
-        elsif ref_info =~ /branch,"([^"]+)"/
-          $1
-        elsif ref_info =~ /tag,"([^"]+)"/
-          $1
-        else
-          ref_info.strip
-        end
-      end
+      # def parse_version(ref_info)
+      #   if ref_info =~ /ref,"([^"]+)"/
+      #     $1
+      #   elsif ref_info =~ /branch,"([^"]+)"/
+      #     $1
+      #   elsif ref_info =~ /tag,"([^"]+)"/
+      #     $1
+      #   else
+      #     ref_info.strip
+      #   end
+      # end
 
       def git_rev_parse(dependency_dir)
         LicenseScout::Log.info("[rebar] Running git rev-parse in #{dependency_dir}")
