@@ -202,6 +202,7 @@ module LicenseScout
       #     ref_info.strip
       #   end
       # end
+      #
 
       def git_rev_parse(dependency_dir)
         LicenseScout::Log.info("[rebar] Running git rev-parse in #{dependency_dir}")
