@@ -248,7 +248,7 @@ https://github.com/chef/chef/blob/master/CONTRIBUTING.md
 
 Pull requests in this project are merged when they have two :+1:s from maintainers.
 
-## GitHub Tokens 
+## GitHub Tokens
 
 If you wish to scan private GitHub repositories or are hitting API rate limits, [create a GitHub token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) and set it to this environmental variable:
 
