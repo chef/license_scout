@@ -37,6 +37,7 @@ module LicenseScout
         "npm install"
       end
 
+
       def detected?
         File.exist?(root_node_modules_path)
       end
@@ -112,7 +113,23 @@ module LicenseScout
         all_files
       end
 
+      # def root_node_modules_path
+      #   File.join(directory, "node_modules")
+      # end
+      
       def root_node_modules_path
+        # Check if node_modules directory does not exist
+        unless File.exist?(File.join(directory, "package.json"))
+          puts "package.json file not found in the directory."
+          # You can handle this case accordingly, like raising an error or exiting.
+        else
+          unless File.exist?(File.join(directory, "node_modules"))
+            puts "node_modules directory not found. Running npm install --legacy-peer-deps"
+            system("npm install --legacy-peer-deps")
+          end
+        end
+
+        # Return the path to node_modules (whether it existed before or was just installed)
         File.join(directory, "node_modules")
       end
     end
