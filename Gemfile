@@ -26,8 +26,6 @@ gem 'httpclient', '~> 2.7.0'
 gem 'mutex_m'
 gem 'ffi', '~> 1.15'
 gem 'faraday', '~> 1.0'
-# gem 'webmock', '~> 3.25'
-# gem 'vcr', '~> 6.3'
 gemspec
 
 group :development do
