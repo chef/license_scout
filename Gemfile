@@ -25,7 +25,7 @@ gem 'logger'
 gem 'httpclient', '~> 2.7.0'
 gem 'mutex_m'
 gem 'ffi', '~> 1.15'
-gem 'faraday', '~> 1.0'
+gem 'faraday', '~> 0.9'
 gemspec
 
 group :development do
