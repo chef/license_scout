@@ -492,7 +492,6 @@ module LicenseScout
       # inside the modules we download to inspect for licensing information.
       [
         ["sqitch", "MIT", ["https://raw.githubusercontent.com/sqitchers/sqitch/develop/LICENSE.md"]],
-        ["sqitch", "MIT", ["https://raw.githubusercontent.com/theory/sqitch/master/README.md"]],
         ["Scalar-List-Utils", nil, ["README"]],
         ["perl", nil, ["README"]],
         ["IO", nil, ["README"]],
@@ -549,6 +548,7 @@ module LicenseScout
         ["Encode-Locale", nil, ["README"]],
         ["Hash-Merge", nil, ["README.md"]],
         ["Clone", nil, ["README.md"]],
+        ["Clone-PP", nil, ["README"]],
         ["Clone-Choose", nil, ["README.md"]],
         ["URI-db", nil, ["README"]],
         ["URI-Nested", nil, ["README.md"]],
