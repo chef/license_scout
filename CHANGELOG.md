@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.17 -->
-## [v1.3.17](https://github.com/chef/license_scout/tree/v1.3.17) (2025-01-31)
+<!-- latest_release 1.3.18 -->
+## [v1.3.18](https://github.com/chef/license_scout/tree/v1.3.18) (2025-06-25)
 
 #### Merged Pull Requests
-- Updating version [#329](https://github.com/chef/license_scout/pull/329) ([johnmccrae](https://github.com/johnmccrae))
+- Clone-PP override [#331](https://github.com/chef/license_scout/pull/331) ([marcparadise](https://github.com/marcparadise))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.6.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Clone-PP override [#331](https://github.com/chef/license_scout/pull/331) ([marcparadise](https://github.com/marcparadise)) <!-- 1.3.18 -->
 - Updating version [#329](https://github.com/chef/license_scout/pull/329) ([johnmccrae](https://github.com/johnmccrae)) <!-- 1.3.17 -->
 <!-- release_rollup -->
 
