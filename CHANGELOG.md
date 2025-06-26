@@ -3,16 +3,19 @@
 <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=unstable -->
+### Changes not yet released to rubygems.org
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [vunstable](https://github.com/chef/license_scout/tree/vunstable) (2025-06-26)
+<!-- latest_stable_release -->
+
 ## [v1.3.18](https://github.com/chef/license_scout/tree/v1.3.18) (2025-06-26)
 
 #### Merged Pull Requests
 - Updating version [#329](https://github.com/chef/license_scout/pull/329) ([johnmccrae](https://github.com/johnmccrae))
 - Clone-PP override [#331](https://github.com/chef/license_scout/pull/331) ([marcparadise](https://github.com/marcparadise))
-<!-- latest_stable_release -->
 
 ## [v1.3.17](https://github.com/chef/license_scout/tree/v1.3.17) (2025-01-31)
 
