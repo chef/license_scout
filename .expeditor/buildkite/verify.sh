@@ -19,6 +19,7 @@ rebar3 --version
 # Run the tests
 bundle exec rake
 
+
 # We currently use asdf to manage versions
 # export ASDF_RUBY_VERSION=$(cat .ruby-version)
 # ruby --version
