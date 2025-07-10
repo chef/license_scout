@@ -218,8 +218,6 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
         allow(mock).to receive(:run_command)
         allow(mock).to receive(:error!)
         allow(mock).to receive(:stdout).and_return(expected_rebar_lock_json_output)
-        #puts "Mocked stdout: #{mock.stdout}"
-        #puts "Expected output: #{expected_rebar_lock_json_output}"
       end
 
       before do
@@ -234,28 +232,7 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
           cwd: File.join(directory, "_build/default/lib/eper")
         )
       end
-
-      # it "returns an array of Dependencies found in the directory" do
-      #   dependencies = subject.dependencies
-      #   expect(dependencies.length).to eql(3)
-
-      #   bifrost = dependencies.find { |d| d.name == "bifrost" }
-      #   expect(bifrost).to be_nil
-
-      #   mochiweb = dependencies.find { |d| d.name == "mochiweb" }
-      #   expect(mochiweb.version).to eql("2.12.2")
-      #   expect(mochiweb.license.records.first.id).to be_nil
-      #   expect(mochiweb.license.records.first.source).to eql("LICENSE")
-
-      #   eper = dependencies.find { |d| d.name == "eper" }
-      #   expect(eper.version).to eq("43e0442863df9f713a5c88c9b43062b806d96adb")
-      #   expect(eper.license.records.first.id).to eql("MIT")
-      #   expect(eper.license.records.first.source).to eql("COPYING")
-
-      #   edown = dependencies.find { |d| d.name == "edown" }
-      #   expect(edown.version).to eq("30a9f7867d615af45783235faa52742d11a9348e")
-      #   expect(edown.license.records).to be_empty
-      # end
+      
       it "returns an array of Dependencies found in the directory" do
         dependencies = subject.dependencies
         expect(dependencies.length).to eql(4)
