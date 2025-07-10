@@ -62,6 +62,7 @@ module LicenseScout
         # else
         #   puts "Failed to download dependencies."
         # end
+        
         puts "Running `rebar3 get-deps` to fetch dependencies..."
         stdout, stderr, status = Open3.capture3("rebar3 get-deps")
 
