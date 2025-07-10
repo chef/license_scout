@@ -70,18 +70,41 @@ module LicenseScout
 
       private
 
+      # def parse_packaged_dependencies
+      #   mix_lock_to_json_path = File.expand_path("../../../bin/mix_lock_json", File.dirname(__FILE__))
+      #   s = Mixlib::ShellOut.new("#{LicenseScout::Config.escript_bin} #{mix_lock_to_json_path} #{mix_lock_path}", environment: LicenseScout::Config.environment)
+      #   s.run_command
+      #   s.error!
+
+      #   mix_lock_content = FFI_Yajl::Parser.parse(s.stdout)
+
+      #   mix_lock_content.each do |dep|
+      #     name = dep.keys.first
+      #     version = dep.values.first
+
+      #     @packaged_dependencies[name] = version
+      #   end
+      # end
+      
       def parse_packaged_dependencies
         mix_lock_to_json_path = File.expand_path("../../../bin/mix_lock_json", File.dirname(__FILE__))
         s = Mixlib::ShellOut.new("#{LicenseScout::Config.escript_bin} #{mix_lock_to_json_path} #{mix_lock_path}", environment: LicenseScout::Config.environment)
         s.run_command
         s.error!
-
+      
+        # Parse the JSON output from the escript
         mix_lock_content = FFI_Yajl::Parser.parse(s.stdout)
-
-        mix_lock_content.each do |dep|
-          name = dep.keys.first
-          version = dep.values.first
-
+      
+        # Ensure the JSON contains a "dependencies" key
+        dependencies = mix_lock_content["dependencies"]
+        raise "Invalid JSON structure: missing 'dependencies' key" unless dependencies.is_a?(Array)
+      
+        # Process each dependency
+        dependencies.each do |dep|
+          name = dep["name"]
+          version = dep["version"]
+      
+          # Store the dependency in @packaged_dependencies
           @packaged_dependencies[name] = version
         end
       end

@@ -16,6 +16,7 @@
 #
 
 require "license_scout/dependency_manager/base"
+require 'berkshelf'
 
 module LicenseScout
   module DependencyManager
@@ -55,6 +56,9 @@ module LicenseScout
           # lockfile that are no longer in the berksfile. It handles this case in
           # the Installer class which we are not using here. So we handle this
           # case in the same way Installer does.
+          puts File.methods.include?(:exists?)
+          puts File.class 
+
           berksfile.lockfile.reduce!
 
           cookbook_dependencies = berksfile.list

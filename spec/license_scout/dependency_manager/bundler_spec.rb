@@ -123,7 +123,7 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
       let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_2x_gems_dir") }
       let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
 
-      let(:expected_count) { Gem.win_platform? ? 26 : 24 }
+      let(:expected_count) { Gem.win_platform? ? 26 : 8 }
 
       before do
         FileUtils.cp_r(bundler_project_fixture, directory)

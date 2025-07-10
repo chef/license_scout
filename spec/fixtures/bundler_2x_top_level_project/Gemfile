@@ -1,5 +1,4 @@
-# Gemfile used to test bundler dependency manager.
-
 source "https://rubygems.org"
-
-gem "test-kitchen"
+gem "bundler", "~> 2.6"
+gem "ffi", "~> 1.15"
+gem "mixlib-install", "3.11.11"

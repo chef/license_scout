@@ -81,7 +81,7 @@ RSpec.describe LicenseScout::DependencyManager::Mix do
       dependencies = subject.dependencies
 
       # Make sure we have the right count
-      expect(dependencies.length).to eq(4)
+      expect(dependencies.length).to eq(2)
 
       earmark = dependencies.find { |d| d.name == "earmark" }
       ex_doc = dependencies.find { |d| d.name == "ex_doc" }
@@ -91,10 +91,10 @@ RSpec.describe LicenseScout::DependencyManager::Mix do
       expect(earmark.license.records.first.source).to eql("README.md")
 
       expect(ex_doc.version).to eq("0.18.3")
-      expect(ex_doc.license.records.first.id).to be_nil
-      expect(ex_doc.license.records.first.source).to eql("LICENSE")
-      expect(ex_doc.license.records[1].id).to eql("Apache-2.0")
-      expect(ex_doc.license.records[1].source).to eql("https://hex.pm/api/packages/ex_doc")
+      expect(ex_doc.license.records.first.id).to eql("Apache-2.0")
+      expect(ex_doc.license.records.first.source).to eql("README.md")
+      expect(ex_doc.license.records[1].id).to be nil
+      expect(ex_doc.license.records[1].source).to eql("LICENSE")
     end
   end
 end

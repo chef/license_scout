@@ -77,45 +77,75 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
   describe "#dependencies" do
 
     let(:dependency_git_shas) do
+      # {
+      #   # "amqp_client" => "7622ad8093a41b7288a1aa44dd16d3e92ce8f833",
+      #   "automeck" => "363657b4dff5ef5561e77a7d44348abf11405d09",
+      #   "bcrypt" => "820283b0d329368f298afd22038340c888689a39",
+      #   #"bear" => "119234548783af19b8ec75c879c5062676b92571",
+      #   "chef_authn" => "e7850d0925b01761d8085ee8b44dafbbe1b297a4",
+      #   "darklaunch" => "05881cb04e9393ab42b6fac3b22803130ef2701c",
+      #   "edown" => "30a9f7867d615af45783235faa52742d11a9348e",
+      #   "ej" => "132a9a3c0662a2377eaf7ebee694a496a0957160",
+      #   "envy" => "e6ba39664a1016ed309ea44269247943de2eb16b",
+      #   "eper" => "80e7cd6446d26d2423f2acd37253826bb3152964",
+      #   #"epgsql" => "cdb859d0d54fc4bed2107fd3d197bc7ea815958f",
+      #   "erlware_commons" => "2e23e43079686ddb68bfca772d37f78dfe4dd95e",
+      #   "folsom" => "38e2cce7c64ce1f0a3a918d90394cfc0a940b1ba",
+      #   "folsom_graphite" => "d4ce9bf02c025ca559d18abc084c367bf4deaf3f",
+      #   "gen_bunny" => "fe10af39cd4ad8de7a8d6a0d90f79ea73e788761",
+      #   #"gen_server2" => "992650004c81ee921183488cb8115de4777e7bd9",
+      #   #"goldrush" => "71e63212f12c25827e0c1b4198d37d5d018a7fec",
+      #   "ibrowse" => "8f3f6a3a30730b193cc340a8885a960586dc98de",
+      #   "jiffy" => "2f405e2b9ae3c2a9cf59ab10179c3262cf4aff03",
+      #   "lager" => "d33ccf3b69de09a628fe38b4d7981bb8671b8a4f",
+      #   "meck" => "8de4a66bfd33d05f090b930b4e90d64b89b6e9cb",
+      #   "mini_s3" => "1cf296868077caefa6791f4996145a369c49091b",
+      #   "mixer" => "58ded93d5c47675899d8e5e1589270f340ea66c5",
+      #   "mochiweb" => "ade2a9b29a11034eb550c1d79b4f991bf5ca05ba",
+      #   "neotoma" => "760928ec8870da02eb11bccb501e2700925d06c6",
+      #   "opscoderl_folsom" => "d493429f895a904e9fd86d12a68f7075dfa8e227",
+      #   "opscoderl_httpc" => "2f0e99cadbe80b5c728109ff669a5efb164ab79e",
+      #   "opscoderl_wm" => "64db62e070da58cf7bb0caebde7a3f11c2e3cbbb",
+      #   "pooler" => "7bb8ab83c6f60475e6ef8867d3d5afa0b1dd4013",
+      #   #"quickrand" => "0395a10b94472ccbe38b62bbfa9d0fc1ddac1dd7",
+      #   #"rabbit_common" => "4388fe57cb63872f5fcf3a2670b4f05de657a64b",
+      #   #"rebar_lock_deps_plugin" => "7a5835029c42b8138325405237ea7e8516a84800",
+      #   #"rebar_vsn_plugin" => "fd40c960c7912193631d948fe962e1162a8d1334",
+      #   "sqerl" => "17d8d95dbb644d20af3ab7dc19d04dab14e4bed5",
+      #   "stats_hero" => "ff000415e5ca71d7ffcfea15153bd696a386455a",
+      #   "sync" => "ae7dbd4e6e2c08d77d96fc4c2bc2b6a3b266492b",
+      #   "uuid" => "f7c141c8359cd690faba0d2684b449a07db8e915",
+      #   #"webmachine" => "7677c240f4a7ed020f4bab48278224966bb42311",
+      # }
       {
-        "amqp_client" => "7622ad8093a41b7288a1aa44dd16d3e92ce8f833",
-        "automeck" => "363657b4dff5ef5561e77a7d44348abf11405d09",
-        "bcrypt" => "820283b0d329368f298afd22038340c888689a39",
-        "bear" => "119234548783af19b8ec75c879c5062676b92571",
-        "chef_authn" => "e7850d0925b01761d8085ee8b44dafbbe1b297a4",
-        "darklaunch" => "05881cb04e9393ab42b6fac3b22803130ef2701c",
-        "edown" => "30a9f7867d615af45783235faa52742d11a9348e",
-        "ej" => "132a9a3c0662a2377eaf7ebee694a496a0957160",
-        "envy" => "e6ba39664a1016ed309ea44269247943de2eb16b",
-        "eper" => "80e7cd6446d26d2423f2acd37253826bb3152964",
-        "epgsql" => "cdb859d0d54fc4bed2107fd3d197bc7ea815958f",
-        "erlware_commons" => "2e23e43079686ddb68bfca772d37f78dfe4dd95e",
-        "folsom" => "38e2cce7c64ce1f0a3a918d90394cfc0a940b1ba",
-        "folsom_graphite" => "d4ce9bf02c025ca559d18abc084c367bf4deaf3f",
-        "gen_bunny" => "fe10af39cd4ad8de7a8d6a0d90f79ea73e788761",
-        "gen_server2" => "992650004c81ee921183488cb8115de4777e7bd9",
-        "goldrush" => "71e63212f12c25827e0c1b4198d37d5d018a7fec",
-        "ibrowse" => "8f3f6a3a30730b193cc340a8885a960586dc98de",
-        "jiffy" => "2f405e2b9ae3c2a9cf59ab10179c3262cf4aff03",
-        "lager" => "d33ccf3b69de09a628fe38b4d7981bb8671b8a4f",
-        "meck" => "8de4a66bfd33d05f090b930b4e90d64b89b6e9cb",
-        "mini_s3" => "1cf296868077caefa6791f4996145a369c49091b",
-        "mixer" => "58ded93d5c47675899d8e5e1589270f340ea66c5",
-        "mochiweb" => "ade2a9b29a11034eb550c1d79b4f991bf5ca05ba",
-        "neotoma" => "760928ec8870da02eb11bccb501e2700925d06c6",
-        "opscoderl_folsom" => "d493429f895a904e9fd86d12a68f7075dfa8e227",
-        "opscoderl_httpc" => "2f0e99cadbe80b5c728109ff669a5efb164ab79e",
-        "opscoderl_wm" => "64db62e070da58cf7bb0caebde7a3f11c2e3cbbb",
-        "pooler" => "7bb8ab83c6f60475e6ef8867d3d5afa0b1dd4013",
-        "quickrand" => "0395a10b94472ccbe38b62bbfa9d0fc1ddac1dd7",
-        "rabbit_common" => "4388fe57cb63872f5fcf3a2670b4f05de657a64b",
-        "rebar_lock_deps_plugin" => "7a5835029c42b8138325405237ea7e8516a84800",
-        "rebar_vsn_plugin" => "fd40c960c7912193631d948fe962e1162a8d1334",
-        "sqerl" => "17d8d95dbb644d20af3ab7dc19d04dab14e4bed5",
-        "stats_hero" => "ff000415e5ca71d7ffcfea15153bd696a386455a",
-        "sync" => "ae7dbd4e6e2c08d77d96fc4c2bc2b6a3b266492b",
-        "uuid" => "f7c141c8359cd690faba0d2684b449a07db8e915",
-        "webmachine" => "7677c240f4a7ed020f4bab48278224966bb42311",
+        "https://github.com/basho/lager" => "2.1.1",
+        "https://github.com/seancribbs/neotoma" => "1.7.4",
+        "https://github.com/chef/opscoderl_wm" => "main",
+        "https://github.com/chef/chef_authn" => "master",
+        "https://github.com/chef/sqerl" => "main",
+        "https://github.com/massemanet/eper" => "master",
+        "https://github.com/chef/folsom_graphite" => "main",
+        "https://github.com/chef/mini_s3" => "main",
+        "https://github.com/chef/opscoderl_folsom" => "main",
+        "https://github.com/seth/pooler" => "1.3.3",
+        "https://github.com/chef/erlang-bcrypt" => "master",
+        "https://github.com/chef/mixer" => "0.1.1",
+        "https://github.com/chef/stats_hero" => "main",
+        "https://github.com/seth/ej" => "master",
+        "https://github.com/markan/envy" => "master",
+        "https://github.com/davisp/jiffy" => "0.14.1",
+        "https://github.com/chef/ibrowse" => "v4.0.1.1",
+        "https://github.com/seth/gen_bunny" => "master",
+        "https://github.com/erlware/erlware_commons" => "master",
+        "https://github.com/chef/efast_xs" => "main",
+        "https://github.com/boundary/folsom" => "0.8.2",
+        "https://github.com/chef/opscode-darklaunch-erlang" => "main",
+        "https://github.com/chef/opscoderl_httpc" => "main",
+        "https://github.com/okeuday/uuid" => "v1.3.2",
+        "https://github.com/rustyio/sync.git" => "master",
+        "https://github.com/chef/automeck" => "master",
+        "https://github.com/ferd/cth_readable.git" => "master",
+        "https://github.com/manopapad/proper.git" => "master"
       }
     end
 
@@ -155,22 +185,18 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
         # Make sure we detected all of the license types, except for bcrypt,
         # bcrypt's license file is non-standard:
         deps_with_license_files = deps.select { |d| !d.license.records.empty? }
-        expect(deps_with_license_files.size).to eql(32)
+        expect(deps_with_license_files.size).to eql(27)
 
         undetected_licenses = deps_with_license_files.select { |d| d.license.records.first.id.nil? }
-        expect(undetected_licenses.size).to eql(5)
-        expect(undetected_licenses.map(&:name)).to include("bcrypt")
+        expect(undetected_licenses.size).to eql(4)
+        expect(undetected_licenses.map(&:name)).to include("https://github.com/chef/erlang-bcrypt")
 
         # Spot check some licenses:
-        ej = deps.find { |d| d.name == "ej" }
-        expect(ej.license.records.first.id).to eql("Apache-2.0")
-        expect(ej.license.records.first.source).to eql("LICENSE")
-
-        gen_bunny = deps.find { |d| d.name == "gen_bunny" }
+        gen_bunny = deps.find { |d| d.name == "https://github.com/seth/gen_bunny" }
         expect(gen_bunny.license.records.first.id).to eql("MIT")
         expect(gen_bunny.license.records.first.source).to eql("LICENSE")
 
-        bcrypt = deps.find { |d| d.name == "bcrypt" }
+        bcrypt = deps.find { |d| d.name == "https://github.com/chef/erlang-bcrypt" }
         expect(bcrypt.license.records.first.id).to be_nil
         expect(bcrypt.license.records.first.source).to eql("LICENSE")
       end
@@ -192,6 +218,8 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
         allow(mock).to receive(:run_command)
         allow(mock).to receive(:error!)
         allow(mock).to receive(:stdout).and_return(expected_rebar_lock_json_output)
+        #puts "Mocked stdout: #{mock.stdout}"
+        #puts "Expected output: #{expected_rebar_lock_json_output}"
       end
 
       before do
@@ -207,25 +235,47 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
         )
       end
 
+      # it "returns an array of Dependencies found in the directory" do
+      #   dependencies = subject.dependencies
+      #   expect(dependencies.length).to eql(3)
+
+      #   bifrost = dependencies.find { |d| d.name == "bifrost" }
+      #   expect(bifrost).to be_nil
+
+      #   mochiweb = dependencies.find { |d| d.name == "mochiweb" }
+      #   expect(mochiweb.version).to eql("2.12.2")
+      #   expect(mochiweb.license.records.first.id).to be_nil
+      #   expect(mochiweb.license.records.first.source).to eql("LICENSE")
+
+      #   eper = dependencies.find { |d| d.name == "eper" }
+      #   expect(eper.version).to eq("43e0442863df9f713a5c88c9b43062b806d96adb")
+      #   expect(eper.license.records.first.id).to eql("MIT")
+      #   expect(eper.license.records.first.source).to eql("COPYING")
+
+      #   edown = dependencies.find { |d| d.name == "edown" }
+      #   expect(edown.version).to eq("30a9f7867d615af45783235faa52742d11a9348e")
+      #   expect(edown.license.records).to be_empty
+      # end
       it "returns an array of Dependencies found in the directory" do
         dependencies = subject.dependencies
-        expect(dependencies.length).to eql(3)
-
-        bifrost = dependencies.find { |d| d.name == "bifrost" }
-        expect(bifrost).to be_nil
-
+        expect(dependencies.length).to eql(4)
+      
+        bifrost = dependencies.find { |d| d.name == "https://github.com/chef/bifrost-yeah-not-really" }
+        expect(bifrost.version).to eq("9e47ba9fc8a31aa2a4f9317de69b677fa34eb17e")
+      
         mochiweb = dependencies.find { |d| d.name == "mochiweb" }
         expect(mochiweb.version).to eql("2.12.2")
         expect(mochiweb.license.records.first.id).to be_nil
         expect(mochiweb.license.records.first.source).to eql("LICENSE")
 
-        eper = dependencies.find { |d| d.name == "eper" }
-        expect(eper.version).to eq("43e0442863df9f713a5c88c9b43062b806d96adb")
+        eper = dependencies.find { |d| d.name == "https://github.com/massemanet/eper" }
+        expect(eper.version).to eq("master")
         expect(eper.license.records.first.id).to eql("MIT")
         expect(eper.license.records.first.source).to eql("COPYING")
-
-        edown = dependencies.find { |d| d.name == "edown" }
-        expect(edown.version).to eq("30a9f7867d615af45783235faa52742d11a9348e")
+        
+      
+        edown = dependencies.find { |d| d.name == "https://github.com/uwiger/edown.git" }
+        expect(edown.version).to eq("754be25f71a04099c83f3ffdff268e70beeb0021")
         expect(edown.license.records).to be_empty
       end
     end

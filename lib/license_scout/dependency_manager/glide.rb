@@ -44,7 +44,16 @@ module LicenseScout
       def dependencies
         # We cannot use YAML.safe_load because Psych throws a fit about the
         # updated field. We should circle back and see what we can do to fix that.
-        YAML.load(File.read(glide_lock_path))["imports"].map do |import|
+        # YAML.load(File.read(glide_lock_path))["imports"].map do |import|
+        #   dep_name = import["name"]
+        #   dep_version = import["version"]
+        #   dep_path = gopath(dep_name)
+
+        #   new_dependency(dep_name, dep_version, dep_path)
+        # end.compact
+        yaml_content = File.read(glide_lock_path)
+        yaml_data = Psych.safe_load(yaml_content, permitted_classes: [Time])
+        yaml_data["imports"].map do |import|
           dep_name = import["name"]
           dep_version = import["version"]
           dep_path = gopath(dep_name)

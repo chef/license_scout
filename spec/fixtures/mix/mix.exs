@@ -6,15 +6,16 @@ defmodule InchTest.Mixfile do
      version: "0.0.1",
      elixir: "~> 1.0-dev",
      docs: [main: "README", readme: true],
-     deps: deps()]
+     deps: deps(),
+     escript: [main_module: MixLockJson.CLI]]
   end
 
   # Configuration for the OTP application
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
-  end
+  [applications: [:logger, :poison, :jason]]
+end
 
   # Dependencies can be Hex packages:
   #
@@ -28,6 +29,8 @@ defmodule InchTest.Mixfile do
   defp deps do
     [{:ex_doc, "~> 0.6"},
      {:earmark, ">= 0.0.0"},
-     {:inch_ex, "0.4.0-dev", only: :docs}]
+     {:inch_ex, "~> 2.0", only: :docs},
+     {:poison, "~> 5.0"},
+     {:jason, "~> 1.4"}]
   end
 end
