@@ -53,14 +53,23 @@ module LicenseScout
 
       def dependencies
         parse_rebar_config
-        
+
         return [] unless @rebar_deps
-        # Run `rebar get-deps` to ensure dependencies are downloaded
-        puts "Running `rebar get-deps` to fetch dependencies..."
-        if system("rebar3 get-deps")
+        # # Run `rebar get-deps` to ensure dependencies are downloaded
+        # puts "Running `rebar get-deps` to fetch dependencies..."
+        # if system("rebar3 get-deps")
+        #   puts "Dependencies downloaded successfully."
+        # else
+        #   puts "Failed to download dependencies."
+        # end
+        puts "Running `rebar3 get-deps` to fetch dependencies..."
+        stdout, stderr, status = Open3.capture3("rebar3 get-deps")
+
+        if status.success?
           puts "Dependencies downloaded successfully."
         else
           puts "Failed to download dependencies."
+          puts "Error: #{stderr.strip}" unless stderr.strip.empty?
         end
 
         # Loop through the rebar_deps hash and process each dependency
