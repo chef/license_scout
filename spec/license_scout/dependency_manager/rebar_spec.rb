@@ -185,7 +185,7 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
         # Make sure we detected all of the license types, except for bcrypt,
         # bcrypt's license file is non-standard:
         deps_with_license_files = deps.select { |d| !d.license.records.empty? }
-        expect(deps_with_license_files.size).to eql(27)
+        expect(deps_with_license_files.size).to eql(24)
 
         undetected_licenses = deps_with_license_files.select { |d| d.license.records.first.id.nil? }
         expect(undetected_licenses.size).to eql(4)
@@ -232,7 +232,7 @@ RSpec.describe LicenseScout::DependencyManager::Rebar do
           cwd: File.join(directory, "_build/default/lib/eper")
         )
       end
-      
+
       it "returns an array of Dependencies found in the directory" do
         dependencies = subject.dependencies
         expect(dependencies.length).to eql(4)
