@@ -1,6 +1,6 @@
-# InchEx [![Inline docs](http://inch-ci.org/github/rrrene/inch_ex.svg?branch=master)](http://inch-ci.org/github/rrrene/inch_ex)
+# Inch for Elixir [![Inline docs](http://inch-ci.org/github/rrrene/inch_ex.svg?branch=master)](http://inch-ci.org/github/rrrene/inch_ex)
 
-InchEx provides a Mix task to give you hints where to improve your inline docs. One Inch at a time.
+Inch for Elixir provides a Mix task to give you hints where to improve your inline docs. One Inch at a time.
 
 [Inch CI](http://inch-ci.org) is the corresponding web service that provides continuous coverage analysis for open source projects.
 
@@ -8,75 +8,51 @@ InchEx provides a Mix task to give you hints where to improve your inline docs. 
 
 ## What can it do?
 
-InchEx is a utility that suggests places in your codebase where documentation can be improved.
+Inch for Elixir is a utility that suggests places in your codebase where documentation can be improved.
 
-If there are no inline-docs yet, InchEx can tell you where to start.
+If there are no inline-docs yet, Inch for Elixir can tell you where to start.
 
 
 
 ## Installation
 
-Add InchEx as a dependency in your `mix.exs` file.
+Add Inch for Elixir as a dependency in your `mix.exs` file.
 
 ```elixir
 defp deps do
-  [{:inch_ex, only: :docs}]
+  [
+    {:inch_ex, github: "rrrene/inch_ex", only: [:dev, :test]}
+  ]
 end
 ```
 
 After you are done, run this in your shell to fetch the new dependency:
 
-    $ MIX_ENV=docs mix deps.get
+    $ mix deps.get
 
 
 ## Usage
 
 To run Inch, simply type
 
-    $ MIX_ENV=docs mix inch
+    $ mix inch
 
 and you will get something like the following:
 
 ```bash
-    $ MIX_ENV=docs mix inch
+$ mix inch
 
-    # Properly documented, could be improved:
+# Properly documented, could be improved:
 
-    ┃  B  ↑  Foo.complicated/5
+┃  B  ↑  Foo.complicated/5
 
-    # Undocumented:
+# Undocumented:
 
-    ┃  U  ↑  Foo
-    ┃  U  ↗  Foo.filename/1
+┃  U  ↑  Foo
+┃  U  ↗  Foo.filename/1
 
-    Grade distribution (undocumented, C, B, A):  █  ▁ ▄ ▄
+Grade distribution (undocumented, C, B, A):  █  ▁ ▄ ▄
 ```
-
-If you have Inch installed it will run locally. If not, it will use the API of [inch-ci.org](http://inch-ci.org/) to display results. If you want to specify a certain Inch version you have installed (e.g. for testing), you can set the `INCH_PATH` environment variable.
-
-
-
-## Adding a project to Inch CI
-
-[Inch CI](https://inch-ci.org/) is a web service based on Inch, that provides an evaluation of a project's docs and a corresponding badge:
-
-> [![Inline docs](http://inch-ci.org/github/rrrene/inch_ex.svg?branch=master)](http://inch-ci.org/github/rrrene/inch_ex)
-
-Adding your project to [Inch CI](https://inch-ci.org/) and getting a badge is easy:
-
-```bash
-    $ MIX_ENV=docs mix inchci.add
-
-                             Adding project to Inch CI ...
-
-    Successfully created build #1
-    URL: http://inch-ci.org/github/rrrene/inch_ex
-
-    [ snip ]
-```
-
-There is a blog post for [a screenshot and more information](http://trivelop.de/2015/05/19/elixir-inchci-add/).
-
 
 
 ## Philosophy
@@ -164,7 +140,7 @@ The grade distribution does a much better job of painting the bigger picture.
 
 ## Further information
 
-I will point you to the [original Inch README](https://github.com/rrrene/inch#philosophy) for more information about the Inch project.
+I will point you to the [Inch for Ruby README](https://github.com/rrrene/inch#philosophy) for more information about the Inch project.
 
 
 
@@ -186,11 +162,11 @@ René Föhring (@rrrene)
 
 ## Credits
 
-InchEx ows its existence to the extensive study and "code borrowing" from ExDoc.
+The first version of Inch for Elixir owed its existence to the extensive study and "code borrowing" from ExDoc.
 
 
 
 ## License
 
-InchEx is released under the MIT License. See the LICENSE file for further
+Inch for Elixir is released under the MIT License. See the LICENSE file for further
 details.

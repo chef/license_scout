@@ -17,16 +17,27 @@
 
 source "https://rubygems.org"
 
-gem "rugged", "= 0.27" # Pin rugged to 0.27 as it breaks on windows https://github.com/libgit2/rugged/issues/791
+#gem "rugged", "= 0.27" # Pin rugged to 0.27 as it breaks on windows https://github.com/libgit2/rugged/issues/791
+gem 'rugged', '~> 1.0'
+gem 'ostruct'
+gem 'csv'
+gem 'logger'
+gem 'httpclient', '~> 2.7.0'
+gem 'mutex_m'
+gem 'ffi', '~> 1.15'
+gem 'faraday', '~> 1.0'
+gem 'thor', '~> 1.0'
+gem 'minitar', '~> 0.9'
 gemspec
 
 group :development do
-  gem "rake", "~> 10.0"
+  #gem "rake", "~> 10.0"
+  gem 'rake', '~> 13.0'
   gem "rspec"
   gem "pry"
   gem "rb-readline"
   gem "chefstyle"
   gem "vcr"
   gem "webmock"
-  gem "berkshelf", " ~> 4.3"
+  gem 'berkshelf', '~> 7.0'
 end

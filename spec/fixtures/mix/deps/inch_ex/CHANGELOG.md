@@ -1,9 +1,7 @@
 # Changelog
 
-## 0.2.1
+## 2.0.0
 
-- Added more specific console output in case `mix inch.report` fails
-
-## 0.2.0
-
-- Initial release
+- make use of Elixir's adoption of EEP 48
+- require Elixir `>= 1.7.0`
+- this is not backwards compatible to InchEx v1!

@@ -1,9 +1,369 @@
-commit f6a3f5f14c86ee909f730c3adde5d4aad68f0387
+commit cec9e4d29e7a8ee0e9c9bd4b651cfff013affe66
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Fri Jul 6 15:31:34 2018 +0200
+
+    v0.99.1
+
+src/eper.app.src
+
+commit 987d81ba53d833971c339bbaf1affb40cf22ebd9
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Fri Jul 6 15:31:15 2018 +0200
+
+    metadata
+
+rebar.config
+src/eper.app.src
+
+commit f9ff7d32a2e437f5d14b697fd88922470fe16840
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Fri Jul 6 14:57:14 2018 +0200
+
+    v0.99.0
+
+AUTHORS
+ChangeLog
+src/eper.app.src
+
+commit 054f2cde5fe225430be42d718df7f5ee5ba7fcec
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Fri Jul 6 10:58:20 2018 +0200
+
+    fix for OTP16
+
+.gitignore
+rebar.config.script
+src/try_with_stack.hrl
+
+commit cf112a0f63b2132c786f56ac53050796025e5f8e
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Jul 5 14:49:04 2018 +0200
+
+    erlang21
+
+.travis.yml
+rebar.config.script
+src/gen_serv.erl
+src/gen_serv.hrl
+src/log.hrl
+src/redbug.erl
+src/redbug_msc.erl
+src/try_with_stack.hrl
+
+commit a4e6797827e4507b85a1f034a8e1f627a6a535ef
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Sat May 26 16:11:30 2018 +0200
+
+    announce parking of the project
+
+README.md
+
+commit 03d4be3ce7dd75ae332fc21ba7d5c18678affc5b
+Author: Hans Svensson <hans.svensson@quviq.com>
+Date:   Mon May 21 08:34:50 2018 +0200
+
+    process might die between pid_info and pidinfo
+
+src/prfPrc.erl
+
+commit 6c854cdcd009db56fb17ac4c70d0a34c2e04f311
+Author: getong <getong@users.noreply.github.com>
+Date:   Sat Apr 21 14:45:25 2018 +0800
+
+    update rebar3 version to 3.5.0
+
+rebar3
+
+commit 8613965900ccf7ed1a895d5453409a4bcb299562
+Author: getong <getong@users.noreply.github.com>
+Date:   Tue Aug 29 14:50:20 2017 +0800
+
+    add erlang 19, 20 for test
+
+.travis.yml
+
+commit f23776f716aaa8e8746ea4195a11df3605d6a885
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Apr 13 21:05:43 2017 +0200
+
+    v0.98.0
+
+ChangeLog
+src/eper.app.src
+
+commit 2d5744cf0f269b3e79047afc3d38114e3d890c9a
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Apr 13 21:04:39 2017 +0200
+
+    rebar3
+
+.gitignore
+.travis.yml
+Makefile
+rebar
+rebar3
+src/eper.app.src
+src/redbug_eunit.erl
+
+commit 805a58728a3258e78de7ae732397ffc74c91423c
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Tue Oct 18 13:11:46 2016 +0200
+
+    v0.97.6
+
+ChangeLog
+src/eper.app.src
+
+commit e3e8c505c394a8931b70a3c3174492975ce6388e
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Tue Oct 18 13:11:06 2016 +0200
+
+    generalize option 'print_file' to handle 'user'
+
+src/redbug.erl
+
+commit f3cd90a084db51cd6d022ad619a213fb6341e3ea
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Tue Aug 23 11:21:22 2016 +0200
+
+    v0.97.5
+
+ChangeLog
+src/eper.app.src
+
+commit dc3832da4302a95ecf21f82b6e8b7a2e59e67a16
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Tue Aug 23 11:17:06 2016 +0200
+
+    fix start/stop in mtop
+
+src/mtop.erl
+
+commit e9a2f3b9b9a1f3b4dc820ac1bea536ea9fa5130a
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Tue Aug 23 10:29:41 2016 +0200
+
+    add (primitive) mnesia top tool mtop
+
+src/mtop.erl
+src/prfMnesia.erl
+
+commit cb77c7c30c4cc644cab949ea4ae134c6c28ba906
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Wed Jul 20 11:36:39 2016 +0200
+
+    v0.97.4
+
+ChangeLog
+src/eper.app.src
+
+commit 776427de044d6752c091e639e3c929e0ae2e3f4d
+Author: mats cronqvist <masse@klarna.com>
+Date:   Wed Jul 20 11:01:58 2016 +0200
+
+    fixx bug in test
+
+src/prfDog.erl
+
+commit 79491844649ce33b6ee2285347b1a4ba605b1caf
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Apr 14 19:36:22 2016 +0200
+
+    fix buggy prfDog:config
+
+src/prfDog.erl
+
+commit 4ef899d898df3e80e690cd15d38cf3a2f5eec931
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Apr 14 13:53:03 2016 +0200
+
+    fix watchdog/prfDog connection over tcp
+
+src/prfDog.erl
+
+commit be051323575e7ca927ba36489d54d727ab0da6a4
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Apr 14 10:08:58 2016 +0200
+
+    docs
+
+doc/watchdog.txt
+
+commit f7a1b4504f5eefc61fb9da7101fdaccc687021cd
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Fri Mar 4 08:51:40 2016 +0100
+
+    v0.97.3
+
+ChangeLog
+src/eper.app.src
+
+commit 528ada7fe4f2b68b39a00a3d15a12c5905b8b76f
+Author: Dániel Szoboszlay <daniel.szoboszlay@klarna.com>
+Date:   Thu Mar 3 14:32:57 2016 +0100
+
+    Dialyze beams instead of sources
+    The source analysis doesn't play nice with conditional compilation
+    (e.g. the USE_NOW macro), because dialyzer would need to know about
+    the compile options used by rebar. Otherwise it may produce false
+    positive warnings, as it can check code intended for a different OTP
+    version.
+    Analysing the compiled beams solves this problem.
+
+Makefile
+
+commit caf8d9a3475d2bfe9088f609fdc1044d6c661cc4
+Author: Dániel Szoboszlay <daniel.szoboszlay@klarna.com>
+Date:   Tue Mar 1 16:55:26 2016 +0100
+
+    Build sysMon reports asynchronously
+
+src/watchdog.erl
+
+commit 337e7aece9fce01998a8aef7f143279dfe048000
+Author: Dániel Szoboszlay <daniel.szoboszlay@klarna.com>
+Date:   Tue Mar 1 16:30:17 2016 +0100
+
+    Send user data to watchdog asynchronously
+
+src/watchdog.erl
+
+commit b3ead6c210668dbb018feae6dea56b8b9018f3e3
+Author: Dániel Szoboszlay <daniel.szoboszlay@klarna.com>
+Date:   Tue Mar 1 16:26:41 2016 +0100
+
+    Preserve log type on reset
+
+src/watchdog.erl
+
+commit 3c4b13c77976d29c75d46d80090a08b26618bc9d
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Wed Mar 2 08:29:00 2016 +0100
+
+    v0.97.2
+
+ChangeLog
+src/eper.app.src
+
+commit 139a3378e91184a2f90e6031e565e0e8c1773b16
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Sat Feb 27 16:05:06 2016 +0100
+
+    fix dialyzer warning
+    port_command/2 -> true, while port_command/3 -> boolean()...
+    except for that, port_command(X,Y) == port_command(X,Y,[]).
+
+src/prfSys.erl
+
+commit 52d9f79f6cf41094469a96194794d678c73b18be
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Sat Feb 27 15:49:04 2016 +0100
+
+    fix typo (vss -> vsz)
+
+src/dtopConsumer.erl
+src/prfSys.erl
+
+commit ae1a2fe0a9aae872f2d27f4b0b479deab108cb4a
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Sat Feb 27 13:33:24 2016 +0100
+
+    darwin support
+
+src/prfSys.erl
+
+commit de68954175739818201945de1aae8eba9b77bb5a
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Feb 25 20:29:08 2016 +0100
+
+    re-did rebar.config.script to look nicer
+
+rebar.config.script
+
+commit a74a5da7c9d41ea50a8f7f7c94d5526c5257b52d
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Feb 25 19:53:53 2016 +0100
+
+    redo hiding of deprecated funcs in prf_crypto
+
+rebar.config.script
+src/prf_crypto.erl
+
+commit cd19b8619ca0ca91b3ef5e408fdf969f074e54af
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Feb 25 19:06:50 2016 +0100
+
+    change rebar hiding of erlang:now
+
+rebar.config.script
+src/prfTime.erl
+
+commit 1742031e12fb9e6eac0ffacfc593d5a7849fc07f
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Dec 24 21:04:34 2015 +0100
+
+    v0.97.1
+
+ChangeLog
+src/eper.app.src
+
+commit e0cae6beba6a3bd89d1555ec9f89825e92c6ccfe
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Dec 24 21:03:39 2015 +0100
+
+    doc
+
+doc/redbug.txt
+
+commit c43c4efa58442520a665f1c4d39e5689afd530fd
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Dec 24 17:42:57 2015 +0100
+
+    v0.97.0
+
+ChangeLog
+src/eper.app.src
+
+commit 44e64027f857c55ee0805dce182168165f029eaa
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Dec 24 14:39:33 2015 +0100
+
+    traced process check takes "new" into account
+
+src/prfTrc.erl
+
+commit b87691923f3bf4b062fe1f8aedcd142ce05e8186
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Dec 24 14:28:29 2015 +0100
+
+    handle all 3 PidSpecs in trace/3
+
+src/prfTrc.erl
+
+commit acb7e2922bcfd80befffe574332efa064a9b5698
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Wed Nov 25 09:51:04 2015 +0100
+
+    v0.96.4
+
+ChangeLog
+src/eper.app.src
+
+commit 0966b82545cb708a62d190a22a03da8ff7d951b2
+Author: mats cronqvist <masse@cronqvi.st>
+Date:   Thu Nov 19 11:38:02 2015 +0100
+
+    use process_info/2 with list of tags
+
+src/prfPrc.erl
+
+commit 43e0442863df9f713a5c88c9b43062b806d96adb
 Author: mats cronqvist <masse@cronqvi.st>
 Date:   Thu Oct 22 19:31:36 2015 +0200
 
     v0.96.3
 
+ChangeLog
 src/eper.app.src
 
 commit b6f7790a1e3782880891ff5f052dcefac789e0a1
@@ -921,7 +1281,6 @@ Date:   Thu Apr 10 15:25:00 2014 +0200
 
 Makefile
 bin/release.sh
-release.sh
 
 commit 8dc9c9e7ba21ce1b59bc370eab46cba64ca3c7cf
 Author: mats cronqvist <masse@klarna.com>
@@ -1088,7 +1447,6 @@ Date:   Fri Dec 6 17:46:15 2013 +0100
     renamed getopt to solve name clash
 
 src/eper.erl
-src/getopt.erl
 src/getoptw.erl
 
 commit 1bd0d0212a563c1249fb66e9acd5760be30ff438
@@ -2206,11 +2564,6 @@ Date:   Sat Oct 16 13:30:01 2010 -0600
     Moving bin scripts to priv/bin
 
 bin/Makefile.am
-bin/dtop
-bin/gperf
-bin/ntop
-bin/redbug
-bin/sherk
 priv/bin/dtop
 priv/bin/gperf
 priv/bin/ntop
@@ -3341,7 +3694,6 @@ Date:   Wed Nov 12 13:40:28 2008 +0000
 
 src/Makefile.am
 src/gen_serv.hrl
-src/gen_server.hrl
 src/prfDog.erl
 
 commit a0727b608efb4adcd5441389b7968fed224e69ad
@@ -3502,14 +3854,12 @@ Date:   Wed Oct 22 10:32:04 2008 +0000
       watchdog integegration
 
 src/Makefile.am
-src/prfClient.erl
 src/prfConsumer.erl
 src/prfDog.erl
 src/prfTarg.erl
 src/prfTrc.erl
 src/sherk.erl
 src/sherk_list.erl
-src/watchdog_proxy.erl
 
 commit c30664281574f17c3c3128279bb6ba33786fb819
 Author: mats cronqvist <mats.cronqvist@gmail.com>
@@ -3857,43 +4207,8 @@ bin/sherk
 configure.ac
 doc/redbug.txt
 dtop/Makefile.am
-dtop/dtop
-dtop/dtop.erl
-dtop/dtopConsumer.erl
 gperf/Makefile.am
-gperf/gperf
-gperf/gperf.erl
-gperf/gperf.glade
-gperf/gperf.gladep
-gperf/gperfConsumer.erl
-gperf/gperfGtk.erl
-ntop/ntop
-ntop/ntop.erl
-ntop/ntopConsumer.erl
-prf/prf.erl
-prf/prfClient.erl
-prf/prfHost.erl
-prf/prfNet.erl
-prf/prfPrc.erl
-prf/prfSys.erl
-prf/prfTarg.erl
-prf/prfTrc.erl
-redbug/redbug
-redbug/redbug.erl
-redbug/redbug.txt
-redbug/redbugConsumer.erl
-sherk/sherk
-sherk/sherk.erl
-sherk/sherk.glade
-sherk/sherk.gladep
-sherk/sherk_aquire.erl
-sherk/sherk_ets.erl
-sherk/sherk_list.erl
-sherk/sherk_prof.erl
-sherk/sherk_scan.erl
 sherk/sherk_tab.erl
-sherk/sherk_target.erl
-sherk/sherk_tree.erl
 src/Makefile.am
 src/dtop.erl
 src/dtopConsumer.erl
@@ -4185,7 +4500,6 @@ Date:   Tue Dec 12 09:45:26 2006 +0000
 dtop/Makefile.am
 dtop/dtop.erl
 dtop/dtopConsumer.erl
-dtop/prfDtop.erl
 gperf/gperfConsumer.erl
 prf/Makefile.am
 prf/prf.erl

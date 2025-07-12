@@ -4,18 +4,18 @@ defmodule InchEx.Mixfile do
   def project do
     [
       app: :inch_ex,
-      version: "0.4.0-dev",
-      elixir: "~> 1.0",
-      description: "Elixir wrapper for Inch",
+      version: "2.0.0",
+      elixir: ">= 1.7.0",
+      description: "Provides a Mix task that gives you hints where to improve your inline docs",
       source_url: "https://github.com/rrrene/inch_ex",
       package: [
-        contributors: ["René Föhring"],
+        maintainers: ["René Föhring"],
         licenses: ["MIT"],
         links: %{
-         "GitHub" => "https://github.com/rrrene/inch_ex",
+          "GitHub" => "https://github.com/rrrene/inch_ex"
         }
       ],
-      deps: deps
+      deps: deps()
     ]
   end
 
@@ -23,7 +23,7 @@ defmodule InchEx.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
+    [mod: {InchEx.Application, []}, applications: [:bunt, :logger, :inets]]
   end
 
   # Dependencies can be Hex packages:
@@ -37,7 +37,9 @@ defmodule InchEx.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:poison, "~> 1.2"}
+      {:jason, "~> 1.0"},
+      {:bunt, "~> 0.2"},
+      {:credo, "~> 0.10", only: :dev}
     ]
   end
 end

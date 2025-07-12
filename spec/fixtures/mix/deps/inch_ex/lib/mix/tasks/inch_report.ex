@@ -4,7 +4,9 @@ defmodule Mix.Tasks.Inch.Report do
   @recursive true
 
   @doc false
-  def run(_, config \\ Mix.Project.config, generator \\ &InchEx.generate_docs/4, reporter \\ InchEx.Reporter.Remote) do
-    Mix.Tasks.Inch.run([], config, generator, reporter)
+  def run(_argv) do
+    Mix.Task.run("compile")
+
+    InchEx.CLI.main(["report"])
   end
 end
