@@ -53,12 +53,16 @@ module LicenseScout
 
       def dependencies
         parse_rebar_config
-        # Run `rebar get-deps` to ensure dependencies are downloaded
-        puts "Running `rebar get-deps` to fetch dependencies..."
-        if system("rebar3 get-deps")
+
+        return [] unless @rebar_deps
+        puts "Running `rebar3 get-deps` to fetch dependencies..."
+        stdout, stderr, status = Open3.capture3("rebar3 get-deps")
+
+        if status.success?
           puts "Dependencies downloaded successfully."
         else
           puts "Failed to download dependencies."
+          puts "Error: #{stderr.strip}" unless stderr.strip.empty?
         end
 
         # Loop through the rebar_deps hash and process each dependency
@@ -101,13 +105,14 @@ module LicenseScout
 
         # Split output to get deps and profiles parts
         deps_str = stdout[/DEPS:(.*?)\nPROFILES:/m, 1]
-        profiles_str = stdout[/PROFILES:(.*)/m, 1]
+        profiles_str = stdout[/PROFILES:(.*)/m, 1] 
 
         # Parse top-level deps
         @rebar_deps = parse_erlang_deps(deps_str || "")
 
         # Parse nested deps inside profiles
         profiles_deps = parse_profiles_deps(profiles_str || "")
+        
 
         # Merge profile deps into @rebar_deps
         @rebar_deps.merge!(profiles_deps)
@@ -115,63 +120,56 @@ module LicenseScout
 
       def parse_erlang_deps(deps_str)
         deps = {}
-        # Match the Erlang term for each dependency
-        deps_str.scan(/\{([^,]+),\s*"(.*?)",\s*\{git,\s*"([^"]+)",\s*\{(branch|ref|tag),\s*"([^"]+)"\}\}\}/).each do |name, version, url, _, ref|
+      
+        # Match the Erlang term for each dependency with a branch/ref/tag
+        deps_str.scan(/\{([^,]+),\s*(?:".*?"|\[\]),\s*\{git,\s*"([^"]+)",\s*\{(branch|ref|tag),\s*"([^"]+)"\}\}\}/).each do |name, url, _, ref|
           dep_name = name.strip
           dep_version = ref.strip
           dep_url = url.strip
-          # Use the dep_url and version to build a unique path if necessary
-          dep_path = dep_url.gsub("https://", "").gsub(/\.git$/, "").strip
           deps[dep_name] = { version: dep_version, source: dep_url }
         end
+      
+        # Match the Erlang term for dependencies with a direct branch/tag (e.g., "main")
+        deps_str.scan(/\{([^,]+),\s*(?:".*?"|\[\]),\s*\{git,\s*"([^"]+)",\s*"([^"]+)"\}\}/).each do |name, url, ref|
+          dep_name = name.strip
+          dep_version = ref.strip
+          dep_url = url.strip
+          deps[dep_name] = { version: dep_version, source: dep_url }
+        end
+      
+        # Match the Erlang term for pkg dependencies
+        deps_str.scan(/\{([^,]+),\s*(?:".*?"|\[\]),\s*\{pkg,\s*"([^"]+)",\s*\{version,\s*"([^"]+)"\}\}\}/).each do |name, pkg_name, pkg_version|
+          dep_name = name.strip
+          dep_version = pkg_version.strip
+          deps[dep_name] = { version: dep_version, source: pkg_name }
+        end
+      
         deps
       end
-
-
+      
       def parse_profiles_deps(profiles_str)
         return {} if profiles_str.nil? || profiles_str.empty?
-
+      
         deps = {}
-
-        # Debug raw input
-        # puts "Raw profiles string:"
-        # puts profiles_str
-
-        # # Clean and normalize input
-        # cleaned_str = profiles_str.gsub(/%.*$/, '').gsub(/\s+/, ' ')
-
-        # # Debug cleaned input
-        # puts "\nCleaned profiles string:"
-        # puts cleaned_str
-
-        # # Extract test profile section
-        # if test_match = cleaned_str.match(/\{test,\s*\[(.*?{deps,\s*\[(.*?)\].*?}.*?)\]/m)
-        #   deps_content = test_match[2]
-
-        #   puts "\nFound deps content:"
-        #   puts deps_content
-
-        #   # Parse individual deps
-        #   deps_content.scan(/\{([^,]+),\s*\{git,\s*"([^"]+)",\s*\{(?:ref|branch|tag),\s*"([^"]+)"\}\}\}/) do |name, url, version|
-        #     dep_name = name.strip
-        #     dep_url = url.strip
-        #     dep_version = version.strip
-
-        #     puts "\nFound dependency:"
-        #     puts "Name: #{dep_name}"
-        #     puts "URL: #{dep_url}"
-        #     puts "Version: #{dep_version}"
-
-        #     deps[dep_name] = {
-        #       version: dep_version,
-        #       source: dep_url
-        #     }
-        #   end
-        # end
-
-        # puts "\nFinal deps hash:"
-        # puts deps.inspect
-
+      
+        # Match each profile and its `deps` key
+        profiles_str.scan(/\{(\w+),\s*\[\s*\{deps,\s*\[(.*?)\]\}\s*\]\}/m).each do |_profile_name, deps_content|
+          # Match each dependency with git source
+          deps_content.scan(/\{([^,]+),\s*\{git,\s*"([^"]+)",\s*\{branch,\s*"([^"]+)"\}\}\}/).each do |name, url, branch|
+            dep_name = name.strip
+            dep_version = branch.strip
+            dep_url = url.strip
+            deps[dep_name] = { version: dep_version, source: dep_url }
+          end
+      
+          # Match simple dependencies (e.g., `meck`) that are not part of a nested structure
+          deps_content.scan(/^\s*(\w+)\s*$/).each do |name|
+            dep_name = name[0].strip
+            next if deps.key?(dep_name) # Skip if already added
+            deps[dep_name] = { version: "N/A", source: "N/A" }
+          end
+        end
+      
         deps
       end
 
