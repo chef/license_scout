@@ -1,5 +1,10 @@
 # We currently use asdf to manage versions
 export ASDF_RUBY_VERSION=$(cat .ruby-version)
+
+asdf plugin-add ruby || true
+asdf install ruby "$ASDF_RUBY_VERSION"
+asdf global ruby "$ASDF_RUBY_VERSION"
+
 ruby --version
 bundler --version
 bundle config set path 'vendor/bundle'
