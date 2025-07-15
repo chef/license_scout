@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,31 +17,29 @@
 # limitations under the License.
 #
 
-require "license_scout/exporter/csv"
+require 'license_scout/exporter/csv'
 
 module LicenseScout
   class Exporter
-
-    attr_reader :json_file
-    attr_reader :export_format
-    attr_reader :exporter
+    attr_reader :json_file, :export_format, :exporter
 
     def initialize(json_file, export_format)
       @json_file = json_file
       @export_format = export_format
 
       @exporter = case export_format
-                  when "csv"
+                  when 'csv'
                     LicenseScout::Exporter::CSV.new(json_file)
                   else
                     # We shouldn't ever hit this, because the CLI filters out unsupported formats. But just in case...
-                    raise LicenseScout::Exceptions::UnsupportedExporter.new("'#{export_format}' is not a supported format. Please use one of the following: #{supported_formats.join(", ")}")
+                    raise LicenseScout::Exceptions::UnsupportedExporter,
+                          "'#{export_format}' is not a supported format. Please use one of the following: #{supported_formats.join(', ')}"
                   end
     end
 
     def self.supported_formats
       [
-        "csv",
+        'csv'
       ]
     end
 

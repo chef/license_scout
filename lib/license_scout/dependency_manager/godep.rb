@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,26 +17,25 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Godep < Base
-
       def name
-        "golang_godep"
+        'golang_godep'
       end
 
       def type
-        "golang"
+        'golang'
       end
 
       def signature
-        "Godeps/Godeps.json file"
+        'Godeps/Godeps.json file'
       end
 
       def install_command
-        "godep restore"
+        'godep restore'
       end
 
       def detected?
@@ -42,9 +43,9 @@ module LicenseScout
       end
 
       def dependencies
-        godeps["Deps"].map do |pkg_info|
-          dep_name = pkg_info["ImportPath"]
-          dep_version = pkg_info["Comment"] || pkg_info["Rev"]
+        godeps['Deps'].map do |pkg_info|
+          dep_name = pkg_info['ImportPath']
+          dep_version = pkg_info['Comment'] || pkg_info['Rev']
           dep_path = gopath(dep_name)
 
           new_dependency(dep_name, dep_version, dep_path)
@@ -60,11 +61,11 @@ module LicenseScout
       end
 
       def root_godeps_file
-        File.join(directory, "Godeps/Godeps.json")
+        File.join(directory, 'Godeps/Godeps.json')
       end
 
       def gopath(pkg)
-        "#{ENV["GOPATH"]}/src/#{pkg}"
+        "#{ENV['GOPATH']}/src/#{pkg}"
       end
     end
   end

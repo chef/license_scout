@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
@@ -16,59 +18,58 @@
 #
 
 RSpec.describe LicenseScout::DependencyManager::Mix do
-
-  let(:directory) { "/some/random/directory" }
+  let(:directory) { '/some/random/directory' }
   let(:subject) { described_class.new(directory) }
 
-  let(:mix_lock_path) { File.join(directory, "mix.lock") }
+  let(:mix_lock_path) { File.join(directory, 'mix.lock') }
 
-  describe ".new" do
-    it "creates new instance of a dependency manager" do
+  describe '.new' do
+    it 'creates new instance of a dependency manager' do
       expect(subject.directory).to eql(directory)
     end
   end
 
-  describe "#name" do
+  describe '#name' do
     it "equals 'elixir_mix'" do
-      expect(subject.name).to eql("elixir_mix")
+      expect(subject.name).to eql('elixir_mix')
     end
   end
 
-  describe "#type" do
+  describe '#type' do
     it "equals 'elixir'" do
-      expect(subject.type).to eql("elixir")
+      expect(subject.type).to eql('elixir')
     end
   end
 
-  describe "#signature" do
+  describe '#signature' do
     it "equals 'mix.lock file'" do
-      expect(subject.signature).to eql("mix.lock file")
+      expect(subject.signature).to eql('mix.lock file')
     end
   end
 
-  describe "#install_command" do
+  describe '#install_command' do
     it "returns 'mix deps'" do
-      expect(subject.install_command).to eql("mix deps.get")
+      expect(subject.install_command).to eql('mix deps.get')
     end
   end
 
-  describe "#detected?" do
+  describe '#detected?' do
     let(:mix_lock_exists) { true }
 
     before do
       expect(File).to receive(:exist?).with(mix_lock_path).and_return(mix_lock_exists)
     end
 
-    context "when mix.lock exists" do
-      it "returns true" do
+    context 'when mix.lock exists' do
+      it 'returns true' do
         expect(subject.detected?).to be true
       end
     end
 
-    context "when mix.lock is missing" do
+    context 'when mix.lock is missing' do
       let(:mix_lock_exists) { false }
 
-      it "returns false" do
+      it 'returns false' do
         expect(subject.detected?).to be false
       end
     end
@@ -98,64 +99,65 @@ RSpec.describe LicenseScout::DependencyManager::Mix do
   #   end
   # end
 
-  describe "#dependencies", :vcr do
+  describe '#dependencies', :vcr do
     let(:subject) { described_class.new(directory) }
-    let(:directory) { "/fake/project" }
+    let(:directory) { '/fake/project' }
 
     before do
       allow(subject).to receive(:parse_packaged_dependencies)
     end
 
-    context "when packaged_dependencies is empty" do
+    context 'when packaged_dependencies is empty' do
       before do
         allow(subject).to receive(:packaged_dependencies).and_return({})
       end
 
-      it "returns an empty array" do
+      it 'returns an empty array' do
         expect(subject.dependencies).to eq([])
       end
     end
 
-    context "when packaged_dependencies has entries" do
-      let(:packaged_deps) { { "dep1" => "1.0.0", "dep2" => "2.0.0" } }
-      let(:dep1_path) { "/fake/project/deps/dep1" }
-      let(:dep2_path) { "/fake/project/deps/dep2" }
+    context 'when packaged_dependencies has entries' do
+      let(:packaged_deps) { { 'dep1' => '1.0.0', 'dep2' => '2.0.0' } }
+      let(:dep1_path) { '/fake/project/deps/dep1' }
+      let(:dep2_path) { '/fake/project/deps/dep2' }
 
       before do
         allow(subject).to receive(:packaged_dependencies).and_return(packaged_deps)
-        allow(Dir).to receive(:glob).with(File.join(directory, "**", "deps", "dep1")).and_return([dep1_path])
-        allow(Dir).to receive(:glob).with(File.join(directory, "**", "deps", "dep2")).and_return([dep2_path])
+        allow(Dir).to receive(:glob).with(File.join(directory, '**', 'deps', 'dep1')).and_return([dep1_path])
+        allow(Dir).to receive(:glob).with(File.join(directory, '**', 'deps', 'dep2')).and_return([dep2_path])
         allow(subject).to receive(:new_dependency) do |name, version, path|
-          double(name: name, version: version, path: path, add_license: nil)
+          double(name:, version:, path:, add_license: nil)
         end
-        allow(subject).to receive(:hex_info).with("dep1").and_return({ "meta" => { "licenses" => ["MIT"] } })
-        allow(subject).to receive(:hex_info).with("dep2").and_return({ "meta" => { "licenses" => ["Apache-2.0", "BSD"] } })
+        allow(subject).to receive(:hex_info).with('dep1').and_return({ 'meta' => { 'licenses' => ['MIT'] } })
+        allow(subject).to receive(:hex_info).with('dep2').and_return({ 'meta' => { 'licenses' => ['Apache-2.0',
+                                                                                                  'BSD'] } })
       end
 
-      it "returns dependency objects with correct attributes" do
+      it 'returns dependency objects with correct attributes' do
         deps = subject.dependencies
         expect(deps.size).to eq(2)
-        expect(deps.map(&:name)).to contain_exactly("dep1", "dep2")
-        expect(deps.map(&:version)).to contain_exactly("1.0.0", "2.0.0")
+        expect(deps.map(&:name)).to contain_exactly('dep1', 'dep2')
+        expect(deps.map(&:version)).to contain_exactly('1.0.0', '2.0.0')
         expect(deps.map(&:path)).to contain_exactly(dep1_path, dep2_path)
       end
 
-      it "adds licenses to each dependency" do
+      it 'adds licenses to each dependency' do
         deps = subject.dependencies
-        expect(deps[0]).to have_received(:add_license).with("MIT", "https://hex.pm/api/packages/dep1")
-        expect(deps[1]).to have_received(:add_license).with("Apache-2.0", "https://hex.pm/api/packages/dep2")
-        expect(deps[1]).to have_received(:add_license).with("BSD", "https://hex.pm/api/packages/dep2")
+        expect(deps[0]).to have_received(:add_license).with('MIT', 'https://hex.pm/api/packages/dep1')
+        expect(deps[1]).to have_received(:add_license).with('Apache-2.0', 'https://hex.pm/api/packages/dep2')
+        expect(deps[1]).to have_received(:add_license).with('BSD', 'https://hex.pm/api/packages/dep2')
       end
     end
 
-    context "when a dependency path is missing" do
-      let(:packaged_deps) { { "dep1" => "1.0.0" } }
+    context 'when a dependency path is missing' do
+      let(:packaged_deps) { { 'dep1' => '1.0.0' } }
 
       before do
         allow(subject).to receive(:packaged_dependencies).and_return(packaged_deps)
-        allow(Dir).to receive(:glob).with(File.join(directory, "**", "deps", "dep1")).and_return([])
+        allow(Dir).to receive(:glob).with(File.join(directory, '**', 'deps', 'dep1')).and_return([])
         allow(subject).to receive(:new_dependency).and_return(nil)
-        allow(subject).to receive(:hex_info).with("dep1").and_return({ "meta" => { "licenses" => ["MIT"] } })
+        allow(subject).to receive(:hex_info).with('dep1').and_return({ 'meta' => { 'licenses' => ['MIT'] } })
       end
     end
   end

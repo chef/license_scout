@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2017, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,26 +17,25 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Glide < Base
-
       def name
-        "golang_glide"
+        'golang_glide'
       end
 
       def type
-        "golang"
+        'golang'
       end
 
       def signature
-        "glide.lock file"
+        'glide.lock file'
       end
 
       def install_command
-        "glide install"
+        'glide install'
       end
 
       def detected?
@@ -44,11 +45,11 @@ module LicenseScout
       def dependencies
         # We cannot use YAML.safe_load because Psych throws a fit about the
         # updated field. We should circle back and see what we can do to fix that.
-        dependencies = YAML.safe_load(File.read(glide_lock_path), permitted_classes: [Time])["imports"].map do |import|
-          dep_name = import["name"]
-          dep_version = import["version"]
+        YAML.safe_load(File.read(glide_lock_path), permitted_classes: [Time])['imports'].map do |import|
+          dep_name = import['name']
+          dep_version = import['version']
           dep_path = gopath(dep_name)
-        
+
           new_dependency(dep_name, dep_version, dep_path)
         end.compact
       end
@@ -56,11 +57,11 @@ module LicenseScout
       private
 
       def glide_lock_path
-        File.join(directory, "glide.lock")
+        File.join(directory, 'glide.lock')
       end
 
       def gopath(pkg)
-        "#{ENV["GOPATH"]}/src/#{pkg}"
+        "#{ENV['GOPATH']}/src/#{pkg}"
       end
     end
   end

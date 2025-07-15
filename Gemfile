@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,28 +17,28 @@
 # limitations under the License.
 #
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-#gem "rugged", "= 0.27" # Pin rugged to 0.27 as it breaks on windows https://github.com/libgit2/rugged/issues/791
-gem 'rugged', '~> 1.0'
-gem 'ostruct'
-gem 'csv'
-gem 'logger'
-gem 'httpclient', '~> 2.7.0'
-gem 'mutex_m'
-gem 'ffi', '~> 1.15'
-gem 'faraday', '~> 0.9'
-gem "berkshelf", "~> 8.0"
+# gem "rugged", "= 0.27" # Pin rugged to 0.27 as it breaks on windows https://github.com/libgit2/rugged/issues/791
 gem 'archive-tar-minitar'
+gem 'berkshelf', '~> 8.0'
+gem 'csv'
+gem 'faraday', '~> 0.9'
+gem 'ffi', '~> 1.15'
+gem 'httpclient', '~> 2.7.0'
+gem 'logger'
+gem 'mutex_m'
+gem 'ostruct'
+gem 'rugged', '~> 1.0'
 gemspec
 
 group :development do
-  #gem "rake", "~> 10.0"
+  # gem "rake", "~> 10.0"
+  gem 'chefstyle'
+  gem 'pry'
   gem 'rake', '~> 13.0'
-  gem "rspec"
-  gem "pry"
-  gem "rb-readline"
-  gem "chefstyle"
-  gem "vcr"
-  gem "webmock"
+  gem 'rb-readline'
+  gem 'rspec'
+  gem 'vcr'
+  gem 'webmock'
 end

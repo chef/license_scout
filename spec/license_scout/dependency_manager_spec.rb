@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
@@ -16,8 +18,7 @@
 #
 
 RSpec.describe LicenseScout::DependencyManager do
-
-  describe ".implementations" do
+  describe '.implementations' do
     let(:subject) { described_class.implementations }
     let(:expected_implementations) do
       [
@@ -32,7 +33,7 @@ RSpec.describe LicenseScout::DependencyManager do
         described_class::Habitat,
         described_class::Mix,
         described_class::Rebar,
-        described_class::Npm,
+        described_class::Npm
       ]
     end
 
