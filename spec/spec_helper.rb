@@ -26,6 +26,7 @@ class File
   end
 end
 
+
 SPEC_FIXTURES_DIR = File.expand_path("fixtures", File.dirname(__FILE__))
 
 VCR.configure do |config|
