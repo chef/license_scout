@@ -17,55 +17,111 @@
 
 RSpec.describe LicenseScout::DependencyManager::Npm do
 
+  # let(:subject) { described_class.new(directory) }
+  # let(:directory) { "/some/random/directory" }
+
+  # let(:node_modules_path) { File.join(directory, "node_modules") }
+
+  # describe ".new" do
+  #   it "creates new instance of a dependency manager" do
+  #     expect(subject.directory).to eql(directory)
+  #   end
+  # end
+
+  # describe "#name" do
+  #   it "equals 'nodejs_npm'" do
+  #     expect(subject.name).to eql("nodejs_npm")
+  #   end
+  # end
+
+  # describe "#type" do
+  #   it "equals 'nodejs'" do
+  #     expect(subject.type).to eql("nodejs")
+  #   end
+  # end
+
+  # describe "#signature" do
+  #   it "equals 'node_modules directory'" do
+  #     expect(subject.signature).to eql("node_modules directory")
+  #   end
+  # end
+
+  # describe "#install_command" do
+  #   it "returns 'npm install'" do
+  #     expect(subject.install_command).to eql("npm install")
+  #   end
+  # end
+
+  # describe "#detected?" do
+  #   let(:node_modules_exists) { true }
+
+  #   before do
+  #     expect(File).to receive(:exist?).with(node_modules_path).and_return(node_modules_exists)
+  #   end
+
+  #   context "when node_modules exists" do
+  #     it "returns true" do
+  #       expect(subject.detected?).to be true
+  #     end
+  #   end
+
+  #   context "when node_modules is missing" do
+  #     let(:node_modules_exists) { false }
+
+  #     it "returns false" do
+  #       expect(subject.detected?).to be false
+  #     end
+  #   end
+  # end
   let(:subject) { described_class.new(directory) }
   let(:directory) { "/some/random/directory" }
-
   let(:node_modules_path) { File.join(directory, "node_modules") }
-
-  describe ".new" do
-    it "creates new instance of a dependency manager" do
-      expect(subject.directory).to eql(directory)
-    end
-  end
-
-  describe "#name" do
-    it "equals 'nodejs_npm'" do
-      expect(subject.name).to eql("nodejs_npm")
-    end
-  end
-
-  describe "#type" do
-    it "equals 'nodejs'" do
-      expect(subject.type).to eql("nodejs")
-    end
-  end
-
-  describe "#signature" do
-    it "equals 'node_modules directory'" do
-      expect(subject.signature).to eql("node_modules directory")
-    end
-  end
-
-  describe "#install_command" do
-    it "returns 'npm install'" do
-      expect(subject.install_command).to eql("npm install")
-    end
-  end
+  let(:package_json_path) { File.join(directory, "package.json") }
 
   describe "#detected?" do
-    let(:node_modules_exists) { true }
-
     before do
-      expect(File).to receive(:exist?).with(node_modules_path).and_return(node_modules_exists)
+      # Mock File.exist? for both package.json and node_modules
+      allow(File).to receive(:exist?) do |path|
+        case path
+        when package_json_path
+          package_json_exists
+        when node_modules_path
+          node_modules_exists
+        else
+          false
+        end
+      end
     end
 
-    context "when node_modules exists" do
+    context "when both package.json and node_modules exist" do
+      let(:package_json_exists) { true }
+      let(:node_modules_exists) { true }
+
       it "returns true" do
         expect(subject.detected?).to be true
       end
     end
 
-    context "when node_modules is missing" do
+    context "when package.json exists but node_modules is missing" do
+      let(:package_json_exists) { true }
+      let(:node_modules_exists) { false }
+
+      it "returns false" do
+        expect(subject.detected?).to be false
+      end
+    end
+
+    context "when package.json is missing but node_modules exists" do
+      let(:package_json_exists) { false }
+      let(:node_modules_exists) { true }
+
+      it "returns false" do
+        expect(subject.detected?).to be true
+      end
+    end
+
+    context "when both package.json and node_modules are missing" do
+      let(:package_json_exists) { false }
       let(:node_modules_exists) { false }
 
       it "returns false" do

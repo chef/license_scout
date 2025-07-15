@@ -26,6 +26,8 @@ gem 'httpclient', '~> 2.7.0'
 gem 'mutex_m'
 gem 'ffi', '~> 1.15'
 gem 'faraday', '~> 0.9'
+gem "berkshelf", "~> 8.0"
+gem 'archive-tar-minitar'
 gemspec
 
 group :development do
@@ -37,5 +39,4 @@ group :development do
   gem "chefstyle"
   gem "vcr"
   gem "webmock"
-  gem "berkshelf", " ~> 4.3"
 end

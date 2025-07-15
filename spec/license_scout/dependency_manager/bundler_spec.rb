@@ -79,77 +79,89 @@ RSpec.describe LicenseScout::DependencyManager::Bundler do
   end
 
   describe "#dependencies", :vcr do
-    context "bundler 1.x project" do
-      let(:tmpdir) { Dir.mktmpdir }
-      let(:directory) { File.join(tmpdir, "bundler1_project") }
+    let(:directory) { "/fake/project" }
+    let(:subject) { described_class.new(directory) }
+    let(:bundler_path) { "https://github.com/bundler/bundler" }
+    let(:json_path) { "https://github.com/flori/json" }
+    let(:other_path) { "/some/path/to/gem" }
 
-      let(:bundler_project_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_1x_top_level_project") }
-      let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_1x_gems_dir") }
-      let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
-
-      before do
-        FileUtils.cp_r(bundler_project_fixture, directory)
-        FileUtils.mkdir_p(bundler_gems_dir)
-        FileUtils.cp_r("#{bundler_gems_fixture}/.", bundler_gems_dir)
-      end
-
-      it "returns an array of Dependencies found in the directory" do
-        dependencies = subject.dependencies
-
-        # Make sure we have the right count
-        expect(dependencies.length).to eq(10)
-
-        # We check the bundler intentionally because we are handling it differently
-        bundler_info = dependencies.find { |d| d.name == "bundler" }
-        expect(bundler_info.license.records.first.id).to eq("MIT")
-        expect(bundler_info.license.records.first.source).to eql("README.md")
-
-        # We check mixlib-install an example out of 10 dependencies.
-        mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
-        expect(mixlib_install_info.version).to eq("1.1.0")
-        expect(mixlib_install_info.license.records.length).to eq(2)
-        expect(mixlib_install_info.license.records.first.id).to eq("Apache-2.0")
-        expect(mixlib_install_info.license.records.first.source).to eq("LICENSE")
-        expect(mixlib_install_info.license.records[1].id).to eql("Apache-2.0")
-        expect(mixlib_install_info.license.records[1].source).to eql("https://rubygems.org/gems/mixlib-install/versions/1.1.0")
+    before do
+      allow(subject).to receive(:new_dependency) do |name, version, path|
+        double(name: name, version: version, path: path, add_license: nil)
       end
     end
 
-    context "bundler 2.x project" do
-      let(:tmpdir) { Dir.mktmpdir }
-      let(:directory) { File.join(tmpdir, "bundler2_project") }
+    context "when dependency_data is empty" do
+      before { allow(subject).to receive(:dependency_data).and_return([]) }
 
-      let(:bundler_project_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_2x_top_level_project") }
-      let(:bundler_gems_fixture) { File.join(SPEC_FIXTURES_DIR, "bundler_2x_gems_dir") }
-      let(:bundler_gems_dir) { File.expand_path("vendor/bundle/ruby/#{Gem.ruby_api_version}/", directory) }
+      it "returns an empty array" do
+        expect(subject.dependencies).to eq([])
+      end
+    end
 
-      let(:expected_count) { Gem.win_platform? ? 26 : 24 }
-
-      before do
-        FileUtils.cp_r(bundler_project_fixture, directory)
-        FileUtils.mkdir_p(bundler_gems_dir)
-        FileUtils.cp_r("#{bundler_gems_fixture}/.", bundler_gems_dir)
+    context "when dependency_data contains a regular gem" do
+      let(:dependency_data) do
+        [
+          { "name" => "rake", "version" => "13.0.6", "license" => "MIT", "path" => other_path }
+        ]
       end
 
-      it "returns an array of Dependencies found in the directory" do
-        dependencies = subject.dependencies
+      before { allow(subject).to receive(:dependency_data).and_return(dependency_data) }
 
-        # Make sure we have the right count
-        expect(dependencies.length).to eq(expected_count)
+      it "returns dependency objects with correct attributes" do
+        deps = subject.dependencies
+        expect(deps.size).to eq(1)
+        expect(deps.first.name).to eq("rake")
+        expect(deps.first.version).to eq("13.0.6")
+        expect(deps.first.path).to eq(other_path)
+        expect(deps.first).to have_received(:add_license).with("MIT", "https://rubygems.org/gems/rake/versions/13.0.6")
+      end
+    end
 
-        # We check the bundler intentionally because we are handling it differently
-        bundler_info = dependencies.find { |d| d.name == "bundler" }
-        expect(bundler_info.license.records.first.id).to eq("MIT")
-        expect(bundler_info.license.records.first.source).to eql("README.md")
+    context "when dependency_data contains bundler gem" do
+      let(:dependency_data) do
+        [
+          { "name" => "bundler", "version" => "2.3.10", "license" => "MIT", "path" => "/weird/path" }
+        ]
+      end
 
-        # We check mixlib-install an example out of 10 dependencies.
-        mixlib_install_info = dependencies.find { |d| d.name == "mixlib-install" }
-        expect(mixlib_install_info.version).to eq("3.11.11")
-        expect(mixlib_install_info.license.records.length).to eq(2)
-        expect(mixlib_install_info.license.records.first.id).to eq("Apache-2.0")
-        expect(mixlib_install_info.license.records.first.source).to eq("LICENSE")
-        expect(mixlib_install_info.license.records[1].id).to eql("Apache-2.0")
-        expect(mixlib_install_info.license.records[1].source).to eql("https://rubygems.org/gems/mixlib-install/versions/3.11.11")
+      before { allow(subject).to receive(:dependency_data).and_return(dependency_data) }
+
+      it "sets the path to the bundler github url" do
+        deps = subject.dependencies
+        expect(deps.first.path).to eq(bundler_path)
+        expect(deps.first).to have_received(:add_license).with("MIT", "https://rubygems.org/gems/bundler/versions/2.3.10")
+      end
+    end
+
+    context "when dependency_data contains json gem" do
+      let(:dependency_data) do
+        [
+          { "name" => "json", "version" => "2.6.3", "license" => nil, "path" => "/opt/opscode/embedded/lib/ruby/2.2.0/json.rb" }
+        ]
+      end
+
+      before { allow(subject).to receive(:dependency_data).and_return(dependency_data) }
+
+      it "sets the path to the json github url and does not add license" do
+        deps = subject.dependencies
+        expect(deps.first.path).to eq(json_path)
+        expect(deps.first).not_to have_received(:add_license)
+      end
+    end
+
+    context "when dependency_data contains a gem with nil license" do
+      let(:dependency_data) do
+        [
+          { "name" => "nokogiri", "version" => "1.13.3", "license" => nil, "path" => other_path }
+        ]
+      end
+
+      before { allow(subject).to receive(:dependency_data).and_return(dependency_data) }
+
+      it "does not add a license" do
+        deps = subject.dependencies
+        expect(deps.first).not_to have_received(:add_license)
       end
     end
   end

@@ -20,6 +20,12 @@
 require "vcr"
 require "license_scout"
 
+class File
+  def self.exists?(*args)
+    exist?(*args)
+  end
+end
+
 SPEC_FIXTURES_DIR = File.expand_path("fixtures", File.dirname(__FILE__))
 
 VCR.configure do |config|

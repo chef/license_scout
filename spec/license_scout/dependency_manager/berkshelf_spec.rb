@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+require 'berkshelf'
+
 RSpec.describe LicenseScout::DependencyManager::Berkshelf do
 
   let(:subject) { described_class.new(directory) }
