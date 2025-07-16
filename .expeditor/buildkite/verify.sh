@@ -1,4 +1,4 @@
-# We currently use asdf to manage versions
+#  We currently use asdf to manage versions
 export ASDF_RUBY_VERSION=$(cat .ruby-version)
 ruby --version
 bundler --version
