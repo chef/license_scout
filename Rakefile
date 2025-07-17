@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,32 +17,34 @@
 # limitations under the License.
 #
 
-require "bundler/gem_tasks"
-require "rspec/core/rake_task"
-require "open-uri"
+require 'bundler/gem_tasks'
+require 'rspec/core/rake_task'
+require 'open-uri'
 
 task default: :test
 
-desc "Run specs"
+desc 'Run specs'
 RSpec::Core::RakeTask.new(:spec) do |spec|
-  spec.pattern = "spec/**/*_spec.rb"
+  spec.pattern = 'spec/**/*_spec.rb'
 end
 
 begin
-  require "chefstyle"
-  require "rubocop/rake_task"
+  require 'chefstyle'
+  require 'rubocop/rake_task'
   RuboCop::RakeTask.new(:style) do |task|
-    task.options += ["--display-cop-names", "--no-color"]
+    task.options += ['--display-cop-names', '--no-color']
   end
 rescue LoadError
-  puts "chefstyle/rubocop is not available.  gem install chefstyle to do style checking."
+  puts 'chefstyle/rubocop is not available.  gem install chefstyle to do style checking.'
 end
 
-desc "Run all tests"
-task test: %i{spec style}
+desc 'Run all tests'
+task test: %i[spec style]
 
-desc "Refresh the SPDX JSON database"
+desc 'Refresh the SPDX JSON database'
 task :spdx do
-  IO.copy_stream(open("https://spdx.org/licenses/licenses.json"), File.expand_path("./lib/license_scout/data/licenses.json"))
-  IO.copy_stream(open("https://spdx.org/licenses/exceptions.json"), File.expand_path("./lib/license_scout/data/exceptions.json"))
+  IO.copy_stream(open('https://spdx.org/licenses/licenses.json'),
+                 File.expand_path('./lib/license_scout/data/licenses.json'))
+  IO.copy_stream(open('https://spdx.org/licenses/exceptions.json'),
+                 File.expand_path('./lib/license_scout/data/exceptions.json'))
 end

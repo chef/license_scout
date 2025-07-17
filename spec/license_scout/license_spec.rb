@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
@@ -19,39 +21,38 @@
 # tests just cover the condition cases.
 
 RSpec.describe LicenseScout::License do
+  let(:spdx) { 'Apache-2.0' }
+  let(:source) { 'LICENSE' }
 
-  let(:spdx) { "Apache-2.0" }
-  let(:source) { "LICENSE" }
-
-  let(:dependency_path) { File.join(SPEC_FIXTURES_DIR, "empty_project") }
-  let(:apache_license_content) { File.read(File.join(SPEC_FIXTURES_DIR, "empty_project", "LICENSE")) }
+  let(:dependency_path) { File.join(SPEC_FIXTURES_DIR, 'empty_project') }
+  let(:apache_license_content) { File.read(File.join(SPEC_FIXTURES_DIR, 'empty_project', 'LICENSE')) }
   let(:record) { described_class::Record.new(spdx, source, apache_license_content) }
 
-  describe ".new" do
+  describe '.new' do
     let(:subject) { described_class.new(dependency_path) }
 
     before do
       allow(described_class::Record).to receive(:new).with(spdx, source, apache_license_content).and_return(record)
     end
 
-    context "when path is nil" do
+    context 'when path is nil' do
       let(:dependency_path) { nil }
 
-      it "returns an empty License record" do
+      it 'returns an empty License record' do
         expect(subject.project).to be_nil
         expect(subject.records).to be_empty
       end
     end
 
-    context "when path is a URL or directory path" do
-      it "returns a hydrated License record" do
+    context 'when path is a URL or directory path' do
+      it 'returns a hydrated License record' do
         expect(subject.project).to be_a(Licensee::Projects::FSProject)
         expect(subject.records).to eql([record])
       end
     end
   end
 
-  describe "#is_allowed?" do
+  describe '#is_allowed?' do
     let(:subject) { described_class.new(dependency_path).is_allowed? }
     let(:allowed_licenses) { [] }
 
@@ -59,19 +60,19 @@ RSpec.describe LicenseScout::License do
       LicenseScout::Config.allowed_licenses = allowed_licenses
     end
 
-    context "when all of the licenses is allowed" do
-      let(:allowed_licenses) { [spdx, "MIT"] }
+    context 'when all of the licenses is allowed' do
+      let(:allowed_licenses) { [spdx, 'MIT'] }
       it { is_expected.to be true }
     end
 
-    context "when at least one of the licenses is not allowed" do
-      let(:allowed_licenses) { ["MIT"] }
+    context 'when at least one of the licenses is not allowed' do
+      let(:allowed_licenses) { ['MIT'] }
 
       it { is_expected.to be false }
     end
   end
 
-  describe "#is_flagged?" do
+  describe '#is_flagged?' do
     let(:subject) { described_class.new(dependency_path).is_flagged? }
     let(:flagged_licenses) { [] }
 
@@ -79,26 +80,26 @@ RSpec.describe LicenseScout::License do
       LicenseScout::Config.flagged_licenses = flagged_licenses
     end
 
-    context "when at least one of the licenses is flagged" do
+    context 'when at least one of the licenses is flagged' do
       let(:flagged_licenses) { [spdx] }
 
       it { is_expected.to be true }
     end
 
-    context "when all of the licenses are not flagged" do
-      let(:flagged_licenses) { ["MIT"] }
+    context 'when all of the licenses are not flagged' do
+      let(:flagged_licenses) { ['MIT'] }
 
       it { is_expected.to be false }
     end
   end
 
-  describe "#add_license" do
-    let(:license_url) { "https://url/to/license" }
+  describe '#add_license' do
+    let(:license_url) { 'https://url/to/license' }
     let(:options) { { a: 42 } }
 
     subject { described_class.new(dependency_path) }
 
-    it "downloads license body and adds a new record" do
+    it 'downloads license body and adds a new record' do
       expect(URI).to receive(:open).with(license_url).and_return(StringIO.new(apache_license_content))
 
       subject.add_license(spdx, source, license_url, options)

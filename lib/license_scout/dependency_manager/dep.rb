@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,27 +17,26 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     # dep(https://github.com/golang/dep) is a new dependency manger available from go 1.8
     class Dep < Base
-
       def name
-        "golang_dep"
+        'golang_dep'
       end
 
       def type
-        "golang"
+        'golang'
       end
 
       def signature
-        "Gopkg.lock file"
+        'Gopkg.lock file'
       end
 
       def install_command
-        "dep ensure"
+        'dep ensure'
       end
 
       def detected?
@@ -43,9 +44,9 @@ module LicenseScout
       end
 
       def dependencies
-        Array(gopkg.dig("projects")).map do |pkg_info|
-          dep_name = pkg_info["name"]
-          dep_version = pkg_info["version"] || pkg_info["revision"]
+        Array(gopkg['projects']).map do |pkg_info|
+          dep_name = pkg_info['name']
+          dep_version = pkg_info['version'] || pkg_info['revision']
           dep_path = package_path(dep_name)
 
           new_dependency(dep_name, dep_version, dep_path)
@@ -59,11 +60,11 @@ module LicenseScout
       end
 
       def gopkg_lock_path
-        File.join(directory, "Gopkg.lock")
+        File.join(directory, 'Gopkg.lock')
       end
 
       def gopath(pkg)
-        "#{ENV["GOPATH"]}/src/#{pkg}"
+        "#{ENV['GOPATH']}/src/#{pkg}"
       end
 
       def vendor_dir(pkg = nil)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,7 +17,7 @@
 # limitations under the License.
 #
 
-require "mixlib/log"
+require 'mixlib/log'
 
 module LicenseScout
   class Log

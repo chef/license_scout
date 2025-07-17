@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,57 +17,55 @@
 # limitations under the License.
 #
 
-require "csv" unless defined?(CSV)
+require 'csv' unless defined?(CSV)
 
 module LicenseScout
   class Exporter
     class CSV
-
-      attr_reader :json
-      attr_reader :output_file
+      attr_reader :json, :output_file
 
       def initialize(json_file)
         @json = FFI_Yajl::Parser.parse(File.read(json_file))
-        @output_file = json_file.gsub("json", "csv")
+        @output_file = json_file.gsub('json', 'csv')
       end
 
       def export
         headers = [
-          "Type",
-          "Name",
-          "Version",
-          "Has Exception",
-          "Exception Reason",
-          "License ID",
-          "License Source",
-          "License Content",
+          'Type',
+          'Name',
+          'Version',
+          'Has Exception',
+          'Exception Reason',
+          'License ID',
+          'License Source',
+          'License Content'
         ]
 
-        ::CSV.open(output_file, "w+") do |csv|
+        ::CSV.open(output_file, 'w+') do |csv|
           csv << headers
 
-          json["dependencies"].each do |dependency|
-            type = dependency["type"]
-            name = dependency["name"]
-            version = dependency["version"]
-            has_exception = dependency["has_exception"]
-            exception_reason = dependency["exception_reason"]
-            licenses = dependency["licenses"]
+          json['dependencies'].each do |dependency|
+            type = dependency['type']
+            name = dependency['name']
+            version = dependency['version']
+            has_exception = dependency['has_exception']
+            exception_reason = dependency['exception_reason']
+            licenses = dependency['licenses']
 
             licenses.each do |license|
-              id = license["id"]
-              source = license["source"]
-              content = license["content"]
+              id = license['id']
+              source = license['source']
+              content = license['content']
 
               csv << [
                 type,
                 name,
                 version,
-                (has_exception.nil? ? "Yes" : "No"),
-                (exception_reason.nil? ? "" : exception_reason),
+                (has_exception.nil? ? 'Yes' : 'No'),
+                (exception_reason.nil? ? '' : exception_reason),
                 id,
                 source,
-                content,
+                content
               ]
             end
           end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,17 +17,13 @@
 # limitations under the License.
 #
 
-require "license_scout/spdx"
+require 'license_scout/spdx'
 
 module LicenseScout
   class License
     # A class that represents the components that make up a license.
     class Record
-      attr_reader :id
-      attr_reader :parsed_expression
-      attr_reader :source
-      attr_reader :content
-      attr_reader :spdx_license_data
+      attr_reader :id, :parsed_expression, :source, :content, :spdx_license_data
 
       def initialize(license_id = nil, source = nil, content = nil, options = {})
         @id = LicenseScout::SPDX.find(license_id, options[:force])
@@ -38,13 +36,12 @@ module LicenseScout
         {
           id: id,
           source: source,
-          content: content,
+          content: content
         }
       end
     end
 
-    attr_reader :project
-    attr_reader :records
+    attr_reader :project, :records
 
     # @param path [String, nil] A path to give to Licensee to search for the license. Could be local path or GitHub URL.
     def initialize(path = nil)
@@ -93,7 +90,7 @@ module LicenseScout
 
     # @return [Boolean] Whether we were unable to determine a license
     def undetermined?
-      (records.map(&:parsed_expression).flatten.compact).empty?
+      records.map(&:parsed_expression).flatten.compact.empty?
     end
 
     private
@@ -110,14 +107,14 @@ module LicenseScout
         rescue RuntimeError => e
           if e.message =~ /redirection forbidden/
             m = /redirection forbidden:\s+(.+)\s+->\s+(.+)/.match(e.message)
-            new_https_url = m[2].gsub("http://", "https://")
+            new_https_url = m[2].gsub('http://', 'https://')
 
             LicenseScout::Log.debug("[license] Retrying download of #{license_id} from #{new_https_url}")
             license_content(license_id, new_https_url)
           else
             raise e
           end
-        rescue
+        rescue StandardError
           LicenseScout::Log.warn("[license] Unable to download license for #{license_id} from #{new_url}")
           nil
         end
@@ -127,7 +124,7 @@ module LicenseScout
     def raw_github_url(url)
       case url
       when %r{github.com/(.+)/blob/(.+)}
-        "https://raw.githubusercontent.com/#{$1}/#{$2}"
+        "https://raw.githubusercontent.com/#{Regexp.last_match(1)}/#{Regexp.last_match(2)}"
       else
         url
       end

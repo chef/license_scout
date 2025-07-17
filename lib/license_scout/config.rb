@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,12 +17,12 @@
 # limitations under the License.
 #
 
-require "mixlib/config"
-require "tmpdir" unless defined?(Dir.mktmpdir)
+require 'mixlib/config'
+require 'tmpdir' unless defined?(Dir.mktmpdir)
 
-require "license_scout/exceptions"
-require "license_scout/log"
-require "license_scout/license"
+require 'license_scout/exceptions'
+require 'license_scout/log'
+require 'license_scout/license'
 
 module LicenseScout
   module Config
@@ -30,7 +32,7 @@ module LicenseScout
     default :directories, [File.expand_path(Dir.pwd)]
     default :include_subdirectories, false
     default :name, File.basename(directories.first)
-    default :config_files, [File.join(File.expand_path(Dir.pwd), ".license_scout.yml")]
+    default :config_files, [File.join(File.expand_path(Dir.pwd), '.license_scout.yml')]
     default :exclude_collectors, []
 
     # Output
@@ -73,16 +75,15 @@ module LicenseScout
     # Runtime Parameters - if you add any bins, make sure to update the habitat/plan.sh
     # to ensure we override the defaults to scope to the Habitat path
     default :environment, {}
-    default :ruby_bin, "ruby"
-    default :escript_bin, "escript"
-    default :cpanm_root, "#{ENV["HOME"]}/.cpanm"
+    default :ruby_bin, 'ruby'
+    default :escript_bin, 'escript'
+    default :cpanm_root, "#{ENV['HOME']}/.cpanm"
 
     #
     # Helpers
     #
 
     class << self
-
       def all_directories
         if include_subdirectories
           new_directories = []
@@ -90,7 +91,9 @@ module LicenseScout
           directories.each do |old_directory|
             new_directories << old_directory
             Dir.chdir(old_directory) do
-              new_directories << Dir.glob("**/*").select { |f| File.directory?(f) }.map { |d| File.join(old_directory, d) }
+              new_directories << Dir.glob('**/*').select do |f|
+                                   File.directory?(f)
+                                 end.map { |d| File.join(old_directory, d) }
             end
           end
 
@@ -102,16 +105,17 @@ module LicenseScout
 
       def validate!
         if !allowed_licenses.empty? && !flagged_licenses.empty?
-          raise LicenseScout::Exceptions::ConfigError.new("You may specify a list of licenses to allow or flag. You may not specify both.")
+          raise LicenseScout::Exceptions::ConfigError,
+                'You may specify a list of licenses to allow or flag. You may not specify both.'
         end
 
         if (allowed_licenses.empty? && flagged_licenses.empty?) && dependency_exceptions?
-          LicenseScout::Log.warn("You have specified one or more dependency exceptions, but no allowed or flagged licenses. License Scout will ignore the depdendency exceptions.")
+          LicenseScout::Log.warn('You have specified one or more dependency exceptions, but no allowed or flagged licenses. License Scout will ignore the depdendency exceptions.')
         end
 
         directories.each do |dir|
           unless File.directory?(File.expand_path(dir))
-            raise LicenseScout::Exceptions::ConfigError.new("The '#{dir}' directory could not be found.")
+            raise LicenseScout::Exceptions::ConfigError, "The '#{dir}' directory could not be found."
           end
         end
       end

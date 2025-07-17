@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,26 +17,25 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Berkshelf < Base
-
       def name
-        "chef_berkshelf"
+        'chef_berkshelf'
       end
 
       def type
-        "chef_cookbook"
+        'chef_cookbook'
       end
 
       def signature
-        "Berksfile and Berksfile.lock files"
+        'Berksfile and Berksfile.lock files'
       end
 
       def install_command
-        "berks install"
+        'berks install'
       end
 
       def detected?
@@ -43,13 +44,14 @@ module LicenseScout
 
       def dependencies
         unless berkshelf_available?
-          raise LicenseScout::Exceptions::Error.new("Project at '#{directory}' is a Berkshelf project but berkshelf gem is not available in your bundle. Add berkshelf to your bundle in order to collect licenses for this project.")
+          raise LicenseScout::Exceptions::Error,
+                "Project at '#{directory}' is a Berkshelf project but berkshelf gem is not available in your bundle. Add berkshelf to your bundle in order to collect licenses for this project."
         end
 
         cookbook_dependencies = []
 
         Dir.chdir(directory) do
-          berksfile = ::Berkshelf::Berksfile.from_file("./Berksfile")
+          berksfile = ::Berkshelf::Berksfile.from_file('./Berksfile')
 
           # Berkshelf should not give an error when there are cookbooks in the
           # lockfile that are no longer in the berksfile. It handles this case in
@@ -69,7 +71,7 @@ module LicenseScout
 
       def berkshelf_available?
         begin
-          require "berkshelf"
+          require 'berkshelf'
         rescue LoadError
           return false
         end
@@ -78,11 +80,11 @@ module LicenseScout
       end
 
       def berksfile_path
-        File.join(directory, "Berksfile")
+        File.join(directory, 'Berksfile')
       end
 
       def lockfile_path
-        File.join(directory, "Berksfile.lock")
+        File.join(directory, 'Berksfile.lock')
       end
     end
   end

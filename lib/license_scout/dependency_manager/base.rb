@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,19 +17,19 @@
 # limitations under the License.
 #
 
-require "licensee"
-require "license_scout/dependency"
-require "license_scout/exceptions"
+require 'licensee'
+require 'license_scout/dependency'
+require 'license_scout/exceptions'
 
-require "bundler"
-require "ffi_yajl" unless defined?(FFI_Yajl)
-require "net/http" unless defined?(Net::HTTP)
-require "mixlib/shellout" unless defined?(Mixlib::ShellOut)
-require "pathname" unless defined?(Pathname)
-require "psych"
-require "set" unless defined?(Set)
-require "toml-rb"
-require "yaml" unless defined?(YAML)
+require 'bundler'
+require 'ffi_yajl' unless defined?(FFI_Yajl)
+require 'net/http' unless defined?(Net::HTTP)
+require 'mixlib/shellout' unless defined?(Mixlib::ShellOut)
+require 'pathname' unless defined?(Pathname)
+require 'psych'
+require 'set' unless defined?(Set)
+require 'toml-rb'
+require 'yaml' unless defined?(YAML)
 
 module LicenseScout
   # The DependencyManager module (or more accurately, implementations of it) are responsible for recognizing
@@ -35,7 +37,6 @@ module LicenseScout
   # in the given directory.
   module DependencyManager
     class Base
-
       attr_reader :directory
 
       # @param directory [String] The fully-qualified path to the directory to be inspected
@@ -58,35 +59,35 @@ module LicenseScout
       #
       # @return [String]
       def name
-        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#name` method")
+        raise LicenseScout::Exceptions::Error, 'All DependencyManagers must have a `#name` method'
       end
 
       # The "type" of dependencies this manager manages. This can be the language, tool, etc.
       #
       # @return [String]
       def type
-        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#type` method")
+        raise LicenseScout::Exceptions::Error, 'All DependencyManagers must have a `#type` method'
       end
 
       # A human-readable description of the files/folders that indicate this dependency manager is in use.
       #
       # @return [String]
       def signature
-        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#signature` method")
+        raise LicenseScout::Exceptions::Error, 'All DependencyManagers must have a `#signature` method'
       end
 
       # Whether or not we were able to detect that this dependency manager is currently in use in our directory
       #
       # @return [Boolean]
       def detected?
-        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#detected?` method")
+        raise LicenseScout::Exceptions::Error, 'All DependencyManagers must have a `#detected?` method'
       end
 
       # The command to run to install dependency if one or more is missing
       #
       # @return [String]
       def install_command
-        raise LicenseScout::Exceptions::Error.new("All DependencyManagers must have a `#install_command` method")
+        raise LicenseScout::Exceptions::Error, 'All DependencyManagers must have a `#install_command` method'
       end
 
       # Implementation's of this method in sub-classes are the methods that are responsible for all
