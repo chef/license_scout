@@ -1,22 +1,19 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.3.19 -->
-## [v1.3.19](https://github.com/chef/license_scout/tree/v1.3.19) (2025-07-31)
-
-#### Merged Pull Requests
-- Fix for omniauth-chef-oauth2 and mime-types [#332](https://github.com/chef/license_scout/pull/332) ([jashaik](https://github.com/jashaik))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=unstable -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix for omniauth-chef-oauth2 and mime-types [#332](https://github.com/chef/license_scout/pull/332) ([jashaik](https://github.com/jashaik)) <!-- 1.3.19 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
-## [vunstable](https://github.com/chef/license_scout/tree/vunstable) (2025-06-26)
+## [v1.3.19](https://github.com/chef/license_scout/tree/v1.3.19) (2025-08-28)
+
+#### Merged Pull Requests
+- Fix for omniauth-chef-oauth2 and mime-types [#332](https://github.com/chef/license_scout/pull/332) ([jashaik](https://github.com/jashaik))
 <!-- latest_stable_release -->
+
+## [vunstable](https://github.com/chef/license_scout/tree/vunstable) (2025-06-26)
 
 ## [v1.3.18](https://github.com/chef/license_scout/tree/v1.3.18) (2025-06-26)
 
