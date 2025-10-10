@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.4.0 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.4.0](https://github.com/chef/license_scout/tree/v1.4.0) (2025-10-10)
 
 #### Merged Pull Requests
 - adding a license override for the fiddle gem [#336](https://github.com/chef/license_scout/pull/336) ([johnmccrae](https://github.com/johnmccrae))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- adding a license override for the fiddle gem [#336](https://github.com/chef/license_scout/pull/336) ([johnmccrae](https://github.com/johnmccrae)) <!-- 1.4.0 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.3.19](https://github.com/chef/license_scout/tree/v1.3.19) (2025-08-28)
 
 #### Merged Pull Requests
 - Fix for omniauth-chef-oauth2 and mime-types [#332](https://github.com/chef/license_scout/pull/332) ([jashaik](https://github.com/jashaik))
-<!-- latest_stable_release -->
 
 ## [vunstable](https://github.com/chef/license_scout/tree/vunstable) (2025-06-26)
 
