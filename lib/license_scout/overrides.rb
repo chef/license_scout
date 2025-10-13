@@ -395,7 +395,7 @@ module LicenseScout
         ["lockfile", "Ruby", ["https://rubygems.org/gems/lockfile"]],
         ["logger", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/logger/master/BSDL"]],
         ["mime-types-data", "MIT", ["https://raw.githubusercontent.com/mime-types/mime-types-data/main/LICENCE.md"]],
-        ["mime-types", "MIT", ["https://github.com/mime-types/ruby-mime-types/blob/main/LICENCE.md"]],
+        ["mime-types", "MIT", ["https://raw.githubusercontent.com/mime-types/ruby-mime-types/refs/heads/main/LICENCE.md"]],
         ["minitar", "Ruby", ["https://raw.githubusercontent.com/atoulme/minitar/master/README"]],
         ["minitest", nil, ["https://raw.githubusercontent.com/seattlerb/minitest/master/README.rdoc"]],
         ["minitest-sprint", "MIT", ["https://raw.githubusercontent.com/seattlerb/minitest-sprint/master/README.rdoc"]],
