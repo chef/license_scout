@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.4.1 -->
+## [v1.4.1](https://github.com/chef/license_scout/tree/v1.4.1) (2025-11-13)
+
+#### Merged Pull Requests
+- Add licensing path for diff-lcs required in chef-server [#338](https://github.com/chef/license_scout/pull/338) ([neha-p6](https://github.com/neha-p6))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.10 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add licensing path for diff-lcs required in chef-server [#338](https://github.com/chef/license_scout/pull/338) ([neha-p6](https://github.com/neha-p6)) <!-- 1.4.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
