@@ -1,25 +1,22 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.4.1 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v1.4.1](https://github.com/chef/license_scout/tree/v1.4.1) (2025-11-13)
 
 #### Merged Pull Requests
 - Add licensing path for diff-lcs required in chef-server [#338](https://github.com/chef/license_scout/pull/338) ([neha-p6](https://github.com/neha-p6))
-<!-- latest_release -->
-
-<!-- release_rollup since=2.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add licensing path for diff-lcs required in chef-server [#338](https://github.com/chef/license_scout/pull/338) ([neha-p6](https://github.com/neha-p6)) <!-- 1.4.1 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v1.4.0](https://github.com/chef/license_scout/tree/v1.4.0) (2025-10-10)
 
 #### Merged Pull Requests
 - adding a license override for the fiddle gem [#336](https://github.com/chef/license_scout/pull/336) ([johnmccrae](https://github.com/johnmccrae))
-<!-- latest_stable_release -->
 
 ## [v1.3.19](https://github.com/chef/license_scout/tree/v1.3.19) (2025-08-28)
 
