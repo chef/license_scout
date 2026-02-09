@@ -1,9 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release -->
+<!-- latest_release 1.4.2 -->
+## [v1.4.2](https://github.com/chef/license_scout/tree/v1.4.2) (2026-02-09)
+
+#### Merged Pull Requests
+- Updating license details for Mime-types [#337](https://github.com/chef/license_scout/pull/337) ([johnmccrae](https://github.com/johnmccrae))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=2.6.10 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Updating license details for Mime-types [#337](https://github.com/chef/license_scout/pull/337) ([johnmccrae](https://github.com/johnmccrae)) <!-- 1.4.2 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
