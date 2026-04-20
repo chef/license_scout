@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
@@ -16,21 +18,20 @@
 #
 
 RSpec.describe LicenseScout::Dependency do
-
-  let(:name) { "artifactory" }
-  let(:version) { "2.3.3" }
-  let(:type) { "ruby" }
-  let(:path) { File.join(SPEC_FIXTURES_DIR, "bundler_1x_gems_dir", "gems", "#{name}-#{version}") }
+  let(:name) { 'artifactory' }
+  let(:version) { '2.3.3' }
+  let(:type) { 'ruby' }
+  let(:path) { File.join(SPEC_FIXTURES_DIR, 'bundler_1x_gems_dir', 'gems', "#{name}-#{version}") }
 
   let(:license) { LicenseScout::License.new }
 
   let(:subject) { described_class.new(name, version, path, type) }
 
-  describe ".new" do
-    context "when path is nil" do
+  describe '.new' do
+    context 'when path is nil' do
       let(:path) { nil }
 
-      it "returns an empty license" do
+      it 'returns an empty license' do
         expect(LicenseScout::License).to receive(:new).and_return(license)
         expect(subject.name).to eql(name)
         expect(subject.version).to eql(version)
@@ -40,12 +41,12 @@ RSpec.describe LicenseScout::Dependency do
       end
     end
 
-    context "when path is an HTTP url" do
-      let(:name) { "bundler" }
-      let(:version) { "1.16.0" }
-      let(:path) { "https://github.com/bundler/bundler" }
+    context 'when path is an HTTP url' do
+      let(:name) { 'bundler' }
+      let(:version) { '1.16.0' }
+      let(:path) { 'https://github.com/bundler/bundler' }
 
-      it "returns a complete license" do
+      it 'returns a complete license' do
         expect(LicenseScout::License).to receive(:new).with(path).and_return(license)
         expect(subject.name).to eql(name)
         expect(subject.version).to eql(version)
@@ -55,8 +56,8 @@ RSpec.describe LicenseScout::Dependency do
       end
     end
 
-    context "when path is a valid directory path" do
-      it "returns a complete license" do
+    context 'when path is a valid directory path' do
+      it 'returns a complete license' do
         expect(LicenseScout::License).to receive(:new).with(path).and_return(license)
         expect(subject.name).to eql(name)
         expect(subject.version).to eql(version)
@@ -66,28 +67,30 @@ RSpec.describe LicenseScout::Dependency do
       end
     end
 
-    context "when path is an invalid directory path" do
-      let(:path) { "invalid-path" }
+    context 'when path is an invalid directory path' do
+      let(:path) { 'invalid-path' }
 
-      it "raises an error" do
-        expect { subject }.to raise_error(LicenseScout::Exceptions::MissingSourceDirectory, /Could not find the source for '#{name}'/)
+      it 'raises an error' do
+        expect do
+          subject
+        end.to raise_error(LicenseScout::Exceptions::MissingSourceDirectory, /Could not find the source for '#{name}'/)
       end
     end
 
-    context "when there is a fallback license specified for the dependency", :vcr do
-      let(:license_file) { "https://raw.githubusercontent.com/bundler/bundler/master/LICENSE.md" }
+    context 'when there is a fallback license specified for the dependency', :vcr do
+      let(:license_file) { 'https://raw.githubusercontent.com/bundler/bundler/master/LICENSE.md' }
 
       before do
         LicenseScout::Config.fallbacks.ruby = [{
-          "name" => name,
-          "license_id" => "MIT",
-          "license_file" => license_file,
+          'name' => name,
+          'license_id' => 'MIT',
+          'license_file' => license_file
         }]
       end
 
-      it "includes that license" do
+      it 'includes that license' do
         expect(LicenseScout::License).to receive(:new).with(path).and_return(license)
-        expect(license).to receive(:add_license).with("MIT", "license_scout fallback", license_file, force: true)
+        expect(license).to receive(:add_license).with('MIT', 'license_scout fallback', license_file, force: true)
         expect(subject.name).to eql(name)
         expect(subject.version).to eql(version)
         expect(subject.type).to eql(type)
@@ -97,65 +100,64 @@ RSpec.describe LicenseScout::Dependency do
     end
   end
 
-  describe "#uid" do
-    it "returns the identifying string" do
+  describe '#uid' do
+    it 'returns the identifying string' do
       expect(subject.uid).to eql("#{name} (#{version})")
     end
   end
 
-  describe "#uid_regexp" do
-    it "matches the various forms of the UID" do
-      expect(subject.uid_regexp.match?("#{name}")).to be true
+  describe '#uid_regexp' do
+    it 'matches the various forms of the UID' do
+      expect(subject.uid_regexp.match?(name.to_s)).to be true
       expect(subject.uid_regexp.match?("#{name} (#{version})")).to be true
-      expect(subject.uid_regexp.match?("other-dep (other-version)")).to be false
+      expect(subject.uid_regexp.match?('other-dep (other-version)')).to be false
     end
   end
 
-  describe "#has_exception?" do
-    context "when dependency has exceptions" do
+  describe '#has_exception?' do
+    context 'when dependency has exceptions' do
       before do
-        LicenseScout::Config.exceptions.ruby = [{ "name" => name }]
+        LicenseScout::Config.exceptions.ruby = [{ 'name' => name }]
       end
 
-      it "returns true" do
+      it 'returns true' do
         expect(subject.has_exception?).to be true
       end
     end
 
-    context "when dependency has no exceptions" do
-      it "returns false" do
+    context 'when dependency has no exceptions' do
+      it 'returns false' do
         expect(subject.has_exception?).to be false
       end
     end
   end
 
-  describe "#exception_reason" do
-    context "when there is no exception" do
-      it "returns nil" do
+  describe '#exception_reason' do
+    context 'when there is no exception' do
+      it 'returns nil' do
         expect(subject.exception_reason).to be_nil
       end
     end
 
-    context "when there is an exception but no reason" do
+    context 'when there is an exception but no reason' do
       before do
-        LicenseScout::Config.exceptions.ruby = [{ "name" => name }]
+        LicenseScout::Config.exceptions.ruby = [{ 'name' => name }]
       end
 
-      it "returns nil" do
+      it 'returns nil' do
         expect(subject.exception_reason).to be_nil
       end
     end
 
-    context "when there is an exception with a reason" do
-      let(:reason) { "Reason why there is an exception" }
+    context 'when there is an exception with a reason' do
+      let(:reason) { 'Reason why there is an exception' }
       before do
-        LicenseScout::Config.exceptions.ruby = [{ "name" => name, "reason" => reason }]
+        LicenseScout::Config.exceptions.ruby = [{ 'name' => name, 'reason' => reason }]
       end
 
-      it "returns the reason" do
+      it 'returns the reason' do
         expect(subject.exception_reason).to eql(reason)
       end
     end
   end
-
 end

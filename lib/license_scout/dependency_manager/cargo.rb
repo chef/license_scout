@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,25 +17,25 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Cargo < Base
       def name
-        "rust_cargo"
+        'rust_cargo'
       end
 
       def type
-        "rust"
+        'rust'
       end
 
       def signature
-        "Cargo and Cargo.lock files"
+        'Cargo and Cargo.lock files'
       end
 
       def install_command
-        "cargo build"
+        'cargo build'
       end
 
       def detected?
@@ -42,9 +44,9 @@ module LicenseScout
 
       def dependencies
         dependency_data.map do |crate_data|
-          dep_name = crate_data["name"]
-          dep_version = crate_data["version"]
-          dep_license = crate_data["license"]
+          dep_name = crate_data['name']
+          dep_version = crate_data['version']
+          dep_license = crate_data['license']
 
           dependency = new_dependency(dep_name, dep_version, nil)
           dependency.add_license(dep_license, "https://crates.io/crates/#{dep_name}/#{dep_version}")
@@ -59,7 +61,7 @@ module LicenseScout
         Dir.chdir(directory) do
           install_cargo_license_crate
 
-          s = Mixlib::ShellOut.new("cargo-license -d -j")
+          s = Mixlib::ShellOut.new('cargo-license -d -j')
           s.run_command
           s.error!
 
@@ -70,26 +72,23 @@ module LicenseScout
 
       def install_cargo_license_crate
         # Attempt to install cargo-license
-        s = Mixlib::ShellOut.new("cargo install cargo-license")
+        s = Mixlib::ShellOut.new('cargo install cargo-license')
         s.run_command
 
         # If cargo-license is already installed, it will return an error
         # but we can ignore it
         # Any other error, however, should halt the process and be returned
         # to the user
-        if s.stderr != "" && s.stderr !~ /binary `cargo-license` already exists/
-          s.error!
-        end
+        s.error! if s.stderr != '' && s.stderr !~ /binary `cargo-license` already exists/
       end
 
       def cargo_file_path
-        File.join(directory, "Cargo.toml")
+        File.join(directory, 'Cargo.toml')
       end
 
       def cargo_lockfile_path
-        File.join(directory, "Cargo.lock")
+        File.join(directory, 'Cargo.lock')
       end
-
     end
   end
 end

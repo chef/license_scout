@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -17,16 +19,7 @@
 
 module LicenseScout
   class Dependency
-
-    attr_reader :name
-
-    attr_reader :version
-
-    attr_reader :path
-
-    attr_reader :type
-
-    attr_reader :license
+    attr_reader :name, :version, :path, :type, :license
 
     def initialize(name, version, path, type)
       @name = name
@@ -39,12 +32,13 @@ module LicenseScout
       elsif path =~ /^http/ || File.directory?(path)
         @license = LicenseScout::License.new(path)
       else
-        raise LicenseScout::Exceptions::MissingSourceDirectory.new("Could not find the source for '#{name}' in the following directories:\n\t * #{path}")
+        raise LicenseScout::Exceptions::MissingSourceDirectory,
+              "Could not find the source for '#{name}' in the following directories:\n\t * #{path}"
       end
 
-      fallbacks = LicenseScout::Config.fallbacks.send(type.to_sym).select { |f| f["name"] =~ uid_regexp }
+      fallbacks = LicenseScout::Config.fallbacks.send(type.to_sym).select { |f| f['name'] =~ uid_regexp }
       fallbacks.each do |fallback|
-        license.add_license(fallback["license_id"], "license_scout fallback", fallback["license_file"], force: true)
+        license.add_license(fallback['license_id'], 'license_scout fallback', fallback['license_file'], force: true)
       end
     end
 
@@ -59,7 +53,7 @@ module LicenseScout
     end
 
     def exceptions
-      @exceptions ||= LicenseScout::Config.exceptions.send(type.to_sym).select { |e| e["name"] =~ uid_regexp }
+      @exceptions ||= LicenseScout::Config.exceptions.send(type.to_sym).select { |e| e['name'] =~ uid_regexp }
     end
 
     # Capture a license that was specified in metadata
@@ -80,11 +74,7 @@ module LicenseScout
     end
 
     def exception_reason
-      if has_exception?
-        exceptions.first.dig("reason")
-      else
-        nil
-      end
+      exceptions.first['reason'] if has_exception?
     end
 
     # Be able to sort dependencies by type, then name, then version

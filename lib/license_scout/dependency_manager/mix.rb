@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,12 +17,11 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Mix < Base
-
       attr_reader :packaged_dependencies
 
       def initialize(directory)
@@ -30,19 +31,19 @@ module LicenseScout
       end
 
       def name
-        "elixir_mix"
+        'elixir_mix'
       end
 
       def type
-        "elixir"
+        'elixir'
       end
 
       def signature
-        "mix.lock file"
+        'mix.lock file'
       end
 
       def install_command
-        "mix deps.get"
+        'mix deps.get'
       end
 
       def detected?
@@ -56,11 +57,11 @@ module LicenseScout
         # dependencies include their version in the rebar.lock file. Here we
         # parse the rebar.lock and remember all the versions we find.
         packaged_dependencies.map do |dep_name, dep_version|
-          dep_path = Dir.glob(File.join(directory, "**", "deps", dep_name)).first
+          dep_path = Dir.glob(File.join(directory, '**', 'deps', dep_name)).first
 
           dependency = new_dependency(dep_name, dep_version, dep_path)
 
-          Array(hex_info(dep_name).dig("meta", "licenses")).each do |license|
+          Array(hex_info(dep_name).dig('meta', 'licenses')).each do |license|
             dependency.add_license(license, "https://hex.pm/api/packages/#{dep_name}")
           end
 
@@ -71,8 +72,9 @@ module LicenseScout
       private
 
       def parse_packaged_dependencies
-        mix_lock_to_json_path = File.expand_path("../../../bin/mix_lock_json", File.dirname(__FILE__))
-        s = Mixlib::ShellOut.new("#{LicenseScout::Config.escript_bin} #{mix_lock_to_json_path} #{mix_lock_path}", environment: LicenseScout::Config.environment)
+        mix_lock_to_json_path = File.expand_path('../../../bin/mix_lock_json', File.dirname(__FILE__))
+        s = Mixlib::ShellOut.new("#{LicenseScout::Config.escript_bin} #{mix_lock_to_json_path} #{mix_lock_path}",
+                                 environment: LicenseScout::Config.environment)
         s.run_command
         s.error!
 
@@ -87,7 +89,7 @@ module LicenseScout
       end
 
       def mix_lock_path
-        File.join(directory, "mix.lock")
+        File.join(directory, 'mix.lock')
       end
 
       def hex_info(package_name)
@@ -97,11 +99,12 @@ module LicenseScout
           FFI_Yajl::Parser.parse(response.body)
         else
           case response.code
-          when "404"
+          when '404'
             LicenseScout::Log.debug("[elixir] Unable to download hex.pm info for #{package_name}")
             {}
           else
-            raise LicenseScout::Exceptions::UpstreamFetchError.new("Received \"#{response.code} #{response.msg}\" when attempting to fetch package information for the #{package_name} Hex package")
+            raise LicenseScout::Exceptions::UpstreamFetchError,
+                  "Received \"#{response.code} #{response.msg}\" when attempting to fetch package information for the #{package_name} Hex package"
           end
         end
       end

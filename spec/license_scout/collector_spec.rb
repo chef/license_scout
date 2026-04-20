@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
@@ -18,49 +20,54 @@
 RSpec.describe LicenseScout::Collector do
   let(:subject) { described_class.new }
 
-  describe "#collect" do
-    context "when there are no dependency managers detected" do
+  describe '#collect' do
+    context 'when there are no dependency managers detected' do
       before do
-        LicenseScout::Config.directories = [ File.join(SPEC_FIXTURES_DIR, "empty_project") ]
+        LicenseScout::Config.directories = [File.join(SPEC_FIXTURES_DIR, 'empty_project')]
       end
 
-      it "raises an error" do
-        expect { subject.collect }.to raise_error(LicenseScout::Exceptions::Error, /Failed to find any files associated with known dependency managers/)
+      it 'raises an error' do
+        expect do
+          subject.collect
+        end.to raise_error(LicenseScout::Exceptions::Error,
+                           /Failed to find any files associated with known dependency managers/)
       end
     end
 
-    context "when one of the dependencies is missing a source directory" do
+    context 'when one of the dependencies is missing a source directory' do
       before do
-        LicenseScout::Config.directories = [ File.join(SPEC_FIXTURES_DIR, "godep") ]
+        LicenseScout::Config.directories = [File.join(SPEC_FIXTURES_DIR, 'godep')]
       end
 
-      it "raises an error" do
+      it 'raises an error' do
         expect { subject.collect }.to raise_error(LicenseScout::Exceptions::Error, /Please try running `godep restore`/)
       end
     end
 
-    context "when one or more valid directories are specified", :vcr do
+    context 'when one or more valid directories are specified', :vcr do
       before do
-        LicenseScout::Config.directories = [ File.join(SPEC_FIXTURES_DIR, "habitat"), File.join(SPEC_FIXTURES_DIR, "empty_project") ]
+        LicenseScout::Config.directories = [File.join(SPEC_FIXTURES_DIR, 'habitat'),
+                                            File.join(SPEC_FIXTURES_DIR, 'empty_project')]
       end
 
-      it "collects all of the dependencies for all the supported implementations", :no_windows do
+      it 'collects all of the dependencies for all the supported implementations', :no_windows do
         subject.collect
         expect(subject.dependencies.length).to eql(3)
-        expect(subject.dependencies.map(&:name)).to eql(["core/glibc", "core/linux-headers", "core/musl"])
+        expect(subject.dependencies.map(&:name)).to eql(['core/glibc', 'core/linux-headers', 'core/musl'])
       end
     end
 
-    context "when dependency managers are skipped through config file" do
+    context 'when dependency managers are skipped through config file' do
       before do
-        LicenseScout::Config.exclude_collectors = ["habitat"]
-        LicenseScout::Config.directories = [ File.join(SPEC_FIXTURES_DIR, "habitat"), File.join(SPEC_FIXTURES_DIR, "gomod")]
+        LicenseScout::Config.exclude_collectors = ['habitat']
+        LicenseScout::Config.directories = [File.join(SPEC_FIXTURES_DIR, 'habitat'),
+                                            File.join(SPEC_FIXTURES_DIR, 'gomod')]
       end
 
-      it "collects all of the dependencies for all the supported implementations except skipped dependency manager" do
+      it 'collects all of the dependencies for all the supported implementations except skipped dependency manager' do
         subject.collect
         expect(subject.dependencies.length).to eql(2)
-        expect(subject.dependencies.map(&:name)).to eql(["github.com/klauspost/compress", "github.com/oklog/ulid"])
+        expect(subject.dependencies.map(&:name)).to eql(['github.com/klauspost/compress', 'github.com/oklog/ulid'])
       end
     end
   end

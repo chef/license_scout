@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,14 +17,13 @@
 # limitations under the License.
 #
 
-require "ffi_yajl" unless defined?(FFI_Yajl)
-require "terminal-table"
+require 'ffi_yajl' unless defined?(FFI_Yajl)
+require 'terminal-table'
 
-require "license_scout/exceptions"
+require 'license_scout/exceptions'
 
 module LicenseScout
   class Reporter
-
     class Result
       class << self
         def success(dependency)
@@ -34,8 +35,7 @@ module LicenseScout
         end
       end
 
-      attr_reader :dependency
-      attr_reader :reason
+      attr_reader :dependency, :reason
 
       def initialize(dependency, reason, did_succeed)
         @dependency = dependency
@@ -56,28 +56,26 @@ module LicenseScout
       end
 
       def license_string
-        dependency.license.records.map(&:id).compact.uniq.join(", ")
+        dependency.license.records.map(&:id).compact.uniq.join(', ')
       end
 
       def reason_string
         case reason
         when :not_allowed
-          "Not Allowed"
+          'Not Allowed'
         when :flagged
-          "Flagged"
+          'Flagged'
         when :undetermined
-          "Undetermined"
+          'Undetermined'
         when :missing
-          "Missing"
+          'Missing'
         else
-          "OK"
+          'OK'
         end
       end
     end
 
-    attr_reader :all_dependencies
-    attr_reader :results
-    attr_reader :dependency_license_manifest
+    attr_reader :all_dependencies, :results, :dependency_license_manifest
 
     def initialize(all_dependencies)
       @all_dependencies = all_dependencies.sort
@@ -98,7 +96,7 @@ module LicenseScout
 
     def save_manifest_file
       LicenseScout::Log.info("[reporter] Writing dependency license manifest written to #{license_manifest_path}")
-      File.open(license_manifest_path, "w+") do |file|
+      File.open(license_manifest_path, 'w+') do |file|
         file.print(FFI_Yajl::Encoder.encode(dependency_license_manifest, pretty: true))
       end
     end
@@ -106,8 +104,12 @@ module LicenseScout
     def detect_problems
       LicenseScout::Log.info("[reporter] Analyzing dependency's license information against requirements")
 
-      LicenseScout::Log.info("[reporter] Allowed licenses: #{LicenseScout::Config.allowed_licenses.join(", ")}") unless LicenseScout::Config.allowed_licenses.empty?
-      LicenseScout::Log.info("[reporter] Flagged licenses: #{LicenseScout::Config.flagged_licenses.join(", ")}") unless LicenseScout::Config.flagged_licenses.empty?
+      unless LicenseScout::Config.allowed_licenses.empty?
+        LicenseScout::Log.info("[reporter] Allowed licenses: #{LicenseScout::Config.allowed_licenses.join(', ')}")
+      end
+      unless LicenseScout::Config.flagged_licenses.empty?
+        LicenseScout::Log.info("[reporter] Flagged licenses: #{LicenseScout::Config.flagged_licenses.join(', ')}")
+      end
 
       all_dependencies.each do |dependency|
         @results[dependency.type] ||= []
@@ -121,20 +123,20 @@ module LicenseScout
           @did_fail = true
           @needs_fallback = true
         elsif !LicenseScout::Config.allowed_licenses.empty? && !dependency.license.is_allowed?
-          unless dependency.has_exception?
+          if dependency.has_exception?
+            @results[dependency.type] << Result.success(dependency)
+          else
             @results[dependency.type] << Result.failure(dependency, :not_allowed)
             @did_fail = true
             @needs_exception = true
-          else
-            @results[dependency.type] << Result.success(dependency)
           end
         elsif dependency.license.is_flagged?
-          unless dependency.has_exception?
+          if dependency.has_exception?
+            @results[dependency.type] << Result.success(dependency)
+          else
             @results[dependency.type] << Result.failure(dependency, :flagged)
             @did_fail = true
             @needs_exception = true
-          else
-            @results[dependency.type] << Result.success(dependency)
           end
         else
           @results[dependency.type] << Result.success(dependency)
@@ -144,7 +146,7 @@ module LicenseScout
 
     def evaluate_results
       table = Terminal::Table.new
-      table.headings = ["Type", "Dependency", "License(s)", "Results"]
+      table.headings = ['Type', 'Dependency', 'License(s)', 'Results']
       table.style = { border_bottom: false } # the extra :separator will add this
 
       results.each do |type, results_for_type|
@@ -154,7 +156,7 @@ module LicenseScout
           next if LicenseScout::Config.only_show_failures && result.succeeded?
 
           modified_row = []
-          modified_row << (type_in_table ? "" : type)
+          modified_row << (type_in_table ? '' : type)
           modified_row << result.dependency_string
           modified_row << result.license_string
           modified_row << result.reason_string
@@ -170,13 +172,13 @@ module LicenseScout
 
       if @did_fail
         puts
-        puts "Additional steps are required in order to pass Open Source license compliance:"
+        puts 'Additional steps are required in order to pass Open Source license compliance:'
         puts "  * Please add fallback licenses for the 'Missing' or 'Undetermined' dependencies"   if @needs_fallback
-        puts "         https://github.com/chef/license_scout#fallback-licenses"                    if @needs_fallback
+        puts '         https://github.com/chef/license_scout#fallback-licenses'                    if @needs_fallback
         puts "  * Please add exceptions for the 'Flagged' or 'Not Allowed' dependencies"           if @needs_exception
-        puts "         https://github.com/chef/license_scout#dependency-exceptions"                if @needs_exception
+        puts '         https://github.com/chef/license_scout#dependency-exceptions'                if @needs_exception
 
-        raise Exceptions::FailExit.new("missing or not allowed licenses detected")
+        raise Exceptions::FailExit, 'missing or not allowed licenses detected'
       end
     end
 
@@ -185,7 +187,7 @@ module LicenseScout
         license_manifest_version: 2,
         generated_on: DateTime.now.to_s,
         name: LicenseScout::Config.name,
-        dependencies: [],
+        dependencies: []
       }
 
       all_dependencies.each do |dep|
@@ -195,7 +197,7 @@ module LicenseScout
           version: dep.version,
           has_exception: dep.has_exception?,
           exception_reason: dep.exception_reason,
-          licenses: dep.license.records.map(&:to_h),
+          licenses: dep.license.records.map(&:to_h)
         }
       end
     end

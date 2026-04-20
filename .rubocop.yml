@@ -3,3 +3,56 @@ AllCops:
     - 'bundle/**/*'
     - 'vendor/bundle/**/*'
     - 'spec/fixtures/**/*'
+    - 'spec/**/*'
+  SuggestExtensions: false
+
+Layout/LineLength:
+  Max: 160
+
+Metrics/BlockLength:
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+Style/ClassVars:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Layout/BlockAlignment:
+  Enabled: false
+
+Chef/Ruby/UnlessDefinedRequire:
+  Enabled: false

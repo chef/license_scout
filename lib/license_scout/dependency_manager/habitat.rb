@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,28 +17,28 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Habitat < Base
-      DEFAULT_CHANNEL = "stable".freeze
-      FALLBACK_CHANNEL_FOR_FQ = "unstable".freeze
+      DEFAULT_CHANNEL = 'stable'
+      FALLBACK_CHANNEL_FOR_FQ = 'unstable'
 
       def name
-        "habitat"
+        'habitat'
       end
 
       def type
-        "habitat"
+        'habitat'
       end
 
       def signature
-        File.exist?(habitat_plan_sh_path) ? "habitat/plan.sh file" : "plan.sh file"
+        File.exist?(habitat_plan_sh_path) ? 'habitat/plan.sh file' : 'plan.sh file'
       end
 
       def install_command
-        ""
+        ''
       end
 
       def detected?
@@ -48,15 +50,13 @@ module LicenseScout
 
         if pkg_deps.any?
           pkg_deps.each do |pkg_dep|
-            unless pkg_info(pkg_dep).nil?
-              pkg_info(pkg_dep)["tdeps"].each { |dep| tdeps << to_ident(dep) }
-            end
+            pkg_info(pkg_dep)['tdeps'].each { |dep| tdeps << to_ident(dep) } unless pkg_info(pkg_dep).nil?
           end
 
           tdeps.delete(nil)
 
           tdeps.sort.map do |tdep|
-            o, n, v, r = tdep.split("/")
+            o, n, v, r = tdep.split('/')
             dep_name = "#{o}/#{n}"
             dep_version = "#{v}-#{r}"
 
@@ -65,7 +65,7 @@ module LicenseScout
             if pkg_info(tdep).nil?
               LicenseScout::Log.warn("Could not find information for #{tdep} -- skipping")
             else
-              license_from_manifest(pkg_info(tdep)["manifest"]).each do |spdx|
+              license_from_manifest(pkg_info(tdep)['manifest']).each do |spdx|
                 # We hard code the channel to "unstable" because a package could be
                 # demoted from any given channel except unstable in the future and
                 # we want the url metadata to be stable in order to give end users
@@ -90,20 +90,22 @@ module LicenseScout
         @pkg_deps ||= begin
           plan_path = File.exist?(plan_sh_path) ? plan_sh_path : habitat_plan_sh_path
 
-          c = Mixlib::ShellOut.new("bash -ec 'export PLAN_CONTEXT=\"#{File.dirname(plan_path)}\"; source #{plan_path}; echo ${pkg_deps[*]}'", LicenseScout::Config.environment)
+          c = Mixlib::ShellOut.new(
+            "bash -ec 'export PLAN_CONTEXT=\"#{File.dirname(plan_path)}\"; source #{plan_path}; echo ${pkg_deps[*]}'", LicenseScout::Config.environment
+          )
           c.run_command
           c.error!
           pkg_deps = c.stdout.split("\s")
 
           # Fetch the fully-qualified pkg_ident for each pkg
           pkg_deps.map do |dep|
-            to_ident(pkg_info(dep)["ident"]) unless pkg_info(dep).nil?
+            to_ident(pkg_info(dep)['ident']) unless pkg_info(dep).nil?
           end
         end
       end
 
       def to_ident(ident_hash)
-        "#{ident_hash["origin"]}/#{ident_hash["name"]}/#{ident_hash["version"]}/#{ident_hash["release"]}"
+        "#{ident_hash['origin']}/#{ident_hash['name']}/#{ident_hash['version']}/#{ident_hash['release']}"
       end
 
       def pkg_info(pkg_ident)
@@ -113,7 +115,7 @@ module LicenseScout
 
       def pkg_info_with_channel_fallbacks(pkg_ident)
         unless pkg_ident.nil?
-          pkg_origin, pkg_name, pkg_version, pkg_release = pkg_ident.split("/")
+          pkg_origin, pkg_name, pkg_version, pkg_release = pkg_ident.split('/')
           pkg_channel = channel_for_origin(pkg_origin)
 
           # Channel selection here is similar to the logic that
@@ -141,13 +143,13 @@ module LicenseScout
 
       def get_pkg_info(origin, channel, name, version, release)
         base_api_uri = "https://bldr.habitat.sh/v1/depot/channels/#{origin}/#{channel}/pkgs/#{name}"
-        if version.nil? && release.nil?
-          base_api_uri += "/latest"
-        elsif release.nil?
-          base_api_uri += "/#{version}/latest"
-        else
-          base_api_uri += "/#{version}/#{release}"
-        end
+        base_api_uri += if version.nil? && release.nil?
+                          '/latest'
+                        elsif release.nil?
+                          "/#{version}/latest"
+                        else
+                          "/#{version}/#{release}"
+                        end
 
         LicenseScout::Log.debug("[habitat] Fetching pkg_info from #{base_api_uri}")
         response = Net::HTTP.get_response(URI(base_api_uri))
@@ -156,29 +158,30 @@ module LicenseScout
           FFI_Yajl::Parser.parse(response.body)
         else
           case response.code
-          when "404"
+          when '404'
             nil
           else
-            raise LicenseScout::Exceptions::UpstreamFetchError.new("Received \"#{response.code} #{response.msg}\" when attempting to fetch package information for the #{origin}/#{name} Habitat package")
+            raise LicenseScout::Exceptions::UpstreamFetchError,
+                  "Received \"#{response.code} #{response.msg}\" when attempting to fetch package information for the #{origin}/#{name} Habitat package"
           end
         end
       end
 
       def channel_for_origin(pkg_origin)
-        override = LicenseScout::Config.habitat.channel_for_origin.find { |t| t["origin"] == pkg_origin }
+        override = LicenseScout::Config.habitat.channel_for_origin.find { |t| t['origin'] == pkg_origin }
         if override
-          override["channel"]
+          override['channel']
         else
           DEFAULT_CHANNEL
         end
       end
 
       def plan_sh_path
-        File.join(directory, "plan.sh")
+        File.join(directory, 'plan.sh')
       end
 
       def habitat_plan_sh_path
-        File.join(directory, "habitat", "plan.sh")
+        File.join(directory, 'habitat', 'plan.sh')
       end
     end
   end

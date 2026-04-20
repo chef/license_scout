@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,26 +17,25 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Cpanm < Base
-
       def name
-        "perl_cpanm"
+        'perl_cpanm'
       end
 
       def type
-        "perl"
+        'perl'
       end
 
       def signature
-        File.exist?(meta_json_path) ? "META.json file" : "META.yml file"
+        File.exist?(meta_json_path) ? 'META.json file' : 'META.yml file'
       end
 
       def install_command
-        "cpanm --installdeps ."
+        'cpanm --installdeps .'
       end
 
       # NOTE: it's possible that projects won't have a META.yml, but the two
@@ -49,16 +50,16 @@ module LicenseScout
           next unless File.directory?(dep_path)
 
           dep_data = manifest(dep_path)
-          metafile = dep_data["metafile"]
-          dep_name = dep_data["name"]
-          dep_version = dep_data["version"]
+          metafile = dep_data['metafile']
+          dep_name = dep_data['name']
+          dep_version = dep_data['version']
 
           dependency = new_dependency(dep_name, dep_version, dep_path)
 
           # CPANM projects contain license metadata - include it!
-          unless dep_data["license"].nil?
-            Array(dep_data["license"]).each do |license|
-              next if license == "unknown"
+          unless dep_data['license'].nil?
+            Array(dep_data['license']).each do |license|
+              next if license == 'unknown'
 
               dependency.add_license(license, metafile)
             end
@@ -71,11 +72,11 @@ module LicenseScout
       private
 
       def meta_yml_path
-        File.join(directory, "META.yml")
+        File.join(directory, 'META.yml')
       end
 
       def meta_json_path
-        File.join(directory, "META.json")
+        File.join(directory, 'META.json')
       end
 
       # Packages can contain metadata files named META.yml, META.json,
@@ -85,15 +86,16 @@ module LicenseScout
       # files are enough. And for no good reason we prioritize json files
       # over yml files.
       def manifest(unpack_path)
-        json_path = File.join(unpack_path, "META.json")
-        yml_path = File.join(unpack_path, "META.yml")
+        json_path = File.join(unpack_path, 'META.json')
+        yml_path = File.join(unpack_path, 'META.yml')
 
         if File.exist?(json_path)
-          FFI_Yajl::Parser.parse(File.read(json_path)).merge({ "metafile" => "META.json" })
+          FFI_Yajl::Parser.parse(File.read(json_path)).merge({ 'metafile' => 'META.json' })
         elsif File.exist?(yml_path)
-          Psych.safe_load(File.read(yml_path)).merge({ "metafile" => "META.yml" })
+          Psych.safe_load(File.read(yml_path)).merge({ 'metafile' => 'META.yml' })
         else
-          raise LicenseScout::Exceptions::Error.new("Can not find a metadata file for the perl package at '#{unpack_path}'.")
+          raise LicenseScout::Exceptions::Error,
+                "Can not find a metadata file for the perl package at '#{unpack_path}'."
         end
       end
 

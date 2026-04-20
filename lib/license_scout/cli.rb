@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,13 +17,13 @@
 # limitations under the License.
 #
 
-require "zlib" unless defined?(Zlib) # Temporarily require before rugged to fix https://github.com/prontolabs/pronto/issues/23
+require 'zlib' unless defined?(Zlib) # Temporarily require before rugged to fix https://github.com/prontolabs/pronto/issues/23
 
-require "mixlib/cli" unless defined?(Mixlib::CLI)
-require "license_scout/config"
-require "license_scout/exporter"
-require "license_scout/collector"
-require "license_scout/reporter"
+require 'mixlib/cli' unless defined?(Mixlib::CLI)
+require 'license_scout/config'
+require 'license_scout/exporter'
+require 'license_scout/collector'
+require 'license_scout/reporter'
 
 module LicenseScout
   class CLI
@@ -31,49 +33,49 @@ module LicenseScout
     # These config values should match values available in LicenseScout::Config
     #
     option :config_files,
-      short: "-c CONFIG_FILES",
-      long: "--config-files CONFIG_FILES",
-      description: "Comma-separated list of local (or remote) YAML configuration file(s) evaluated in order specified (priority goes to last file)",
-      proc: Proc.new { |c| c.split(",") }
+           short: '-c CONFIG_FILES',
+           long: '--config-files CONFIG_FILES',
+           description: 'Comma-separated list of local (or remote) YAML configuration file(s) evaluated in order specified (priority goes to last file)',
+           proc: proc { |c| c.split(',') }
 
     option :directories,
-      short: "-d DIRECTORIES",
-      long: "--directories DIRECTORIES",
-      description: "Comma-separated list of directories to scan",
-      proc: Proc.new { |d| d.split(",") }
+           short: '-d DIRECTORIES',
+           long: '--directories DIRECTORIES',
+           description: 'Comma-separated list of directories to scan',
+           proc: proc { |d| d.split(',') }
 
     option :include_subdirectories,
-      long: "--include-sub-directories",
-      description: "Include all sub-directories of 'directories' in the analysis",
-      boolean: true
+           long: '--include-sub-directories',
+           description: "Include all sub-directories of 'directories' in the analysis",
+           boolean: true
 
     option :format,
-      long: "--format FORMAT",
-      description: "When exporting a Dependency Manifest, export to this format",
-      in: LicenseScout::Exporter.supported_formats,
-      default: "csv"
+           long: '--format FORMAT',
+           description: 'When exporting a Dependency Manifest, export to this format',
+           in: LicenseScout::Exporter.supported_formats,
+           default: 'csv'
 
     option :log_level,
-      short: "-l LEVEL",
-      long: "--log-level LEVEL",
-      description: "Set the log level",
-      in: %i{debug info warn error fatal},
-      default: :info,
-      proc: Proc.new { |l| l.to_sym }
+           short: '-l LEVEL',
+           long: '--log-level LEVEL',
+           description: 'Set the log level',
+           in: %i[debug info warn error fatal],
+           default: :info,
+           proc: proc { |l| l.to_sym }
 
     option :only_show_failures,
-      long: "--only-show-failures",
-      description: "Only print results for dependencies with licenses that failed checks",
-      boolean: true
+           long: '--only-show-failures',
+           description: 'Only print results for dependencies with licenses that failed checks',
+           boolean: true
 
     option :help,
-      short: "-h",
-      long: "--help",
-      description: "Show this message",
-      on: :tail,
-      boolean: true,
-      show_options: true,
-      exit: 0
+           short: '-h',
+           long: '--help',
+           description: 'Show this message',
+           on: :tail,
+           boolean: true,
+           show_options: true,
+           exit: 0
 
     def run(argv = ARGV)
       parse_options(argv)
@@ -85,7 +87,7 @@ module LicenseScout
 
       LicenseScout::Config.config_files.each do |config_file|
         if config_file =~ /^http/
-          require "open-uri" unless defined?(OpenURI)
+          require 'open-uri' unless defined?(OpenURI)
 
           LicenseScout::Log.info("[cli] Loading config from #{config_file}")
 
@@ -109,7 +111,7 @@ module LicenseScout
       LicenseScout::Config.validate!
 
       case cli_arguments[0]
-      when "export"
+      when 'export'
         json_file = cli_arguments[1]
         export_format = config[:format]
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
@@ -16,48 +18,60 @@
 #
 
 RSpec.describe LicenseScout::DependencyManager::Base do
-
   let(:subject) { described_class.new(directory) }
-  let(:directory) { "/some/random/directory" }
+  let(:directory) { '/some/random/directory' }
 
-  describe ".new" do
-    it "creates new instance of a dependency manager" do
+  describe '.new' do
+    it 'creates new instance of a dependency manager' do
       expect(subject.directory).to eql(directory)
     end
   end
 
-  describe "#name" do
-    it "raises an error" do
-      expect { subject.name }.to raise_error(LicenseScout::Exceptions::Error, "All DependencyManagers must have a `#name` method")
+  describe '#name' do
+    it 'raises an error' do
+      expect do
+        subject.name
+      end.to raise_error(LicenseScout::Exceptions::Error, 'All DependencyManagers must have a `#name` method')
     end
   end
 
-  describe "#type" do
-    it "raises an error" do
-      expect { subject.type }.to raise_error(LicenseScout::Exceptions::Error, "All DependencyManagers must have a `#type` method")
+  describe '#type' do
+    it 'raises an error' do
+      expect do
+        subject.type
+      end.to raise_error(LicenseScout::Exceptions::Error, 'All DependencyManagers must have a `#type` method')
     end
   end
 
-  describe "#signature" do
-    it "raises an error" do
-      expect { subject.signature }.to raise_error(LicenseScout::Exceptions::Error, "All DependencyManagers must have a `#signature` method")
+  describe '#signature' do
+    it 'raises an error' do
+      expect do
+        subject.signature
+      end.to raise_error(LicenseScout::Exceptions::Error,
+                         'All DependencyManagers must have a `#signature` method')
     end
   end
 
-  describe "#install_command" do
-    it "raises an error" do
-      expect { subject.install_command }.to raise_error(LicenseScout::Exceptions::Error, "All DependencyManagers must have a `#install_command` method")
+  describe '#install_command' do
+    it 'raises an error' do
+      expect do
+        subject.install_command
+      end.to raise_error(LicenseScout::Exceptions::Error,
+                         'All DependencyManagers must have a `#install_command` method')
     end
   end
 
-  describe "#detected?" do
-    it "raises an error" do
-      expect { subject.detected? }.to raise_error(LicenseScout::Exceptions::Error, "All DependencyManagers must have a `#detected?` method")
+  describe '#detected?' do
+    it 'raises an error' do
+      expect do
+        subject.detected?
+      end.to raise_error(LicenseScout::Exceptions::Error,
+                         'All DependencyManagers must have a `#detected?` method')
     end
   end
 
-  describe "#dependencies" do
-    it "returns an empty array" do
+  describe '#dependencies' do
+    it 'returns an empty array' do
       expect(subject.dependencies).to eql([])
     end
   end

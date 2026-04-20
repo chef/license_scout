@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -18,4 +20,4 @@
 module LicenseScout
 end
 
-require "license_scout/cli"
+require 'license_scout/cli'

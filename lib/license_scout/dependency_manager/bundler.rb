@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,26 +17,25 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Bundler < Base
-
       def name
-        "ruby_bundler"
+        'ruby_bundler'
       end
 
       def type
-        "ruby"
+        'ruby'
       end
 
       def signature
-        "Gemfile and Gemfile.lock files"
+        'Gemfile and Gemfile.lock files'
       end
 
       def install_command
-        "bundle install"
+        'bundle install'
       end
 
       def detected?
@@ -49,25 +50,26 @@ module LicenseScout
 
       def dependencies
         dependency_data.map do |gem_data|
-          dep_name = gem_data["name"]
-          dep_version = gem_data["version"]
-          dep_license = gem_data["license"]
+          dep_name = gem_data['name']
+          dep_version = gem_data['version']
+          dep_license = gem_data['license']
 
-          dep_path = if dep_name == "bundler"
+          dep_path = case dep_name
+                     when 'bundler'
                        # Bundler is weird. It inserts itself as a dependency, but is a
                        # special case, so rubygems cannot correctly report the license.
                        # Additionally, rubygems reports the gem path as a path inside
                        # bundler's lib/ dir, so we have to munge it.
-                       "https://github.com/bundler/bundler"
-                     elsif dep_name == "json"
+                       'https://github.com/bundler/bundler'
+                     when 'json'
                        # json is different weird. When project is using the json that is prepackaged with
                        # Ruby, its included not as a full fledged gem but an *.rb file at:
                        # /opt/opscode/embedded/lib/ruby/2.2.0/json.rb
                        # Because of this its license is reported as nil and its license files can not be
                        # found. That is why we need to provide them manually here.
-                       "https://github.com/flori/json"
+                       'https://github.com/flori/json'
                      else
-                       gem_data["path"]
+                       gem_data['path']
                      end
 
           dependency = new_dependency(dep_name, dep_version, dep_path)
@@ -84,11 +86,12 @@ module LicenseScout
       private
 
       def dependency_data
-        gemfile_to_json_path = File.expand_path("../../../bin/gemfile_json", File.dirname(__FILE__))
+        gemfile_to_json_path = File.expand_path('../../../bin/gemfile_json', File.dirname(__FILE__))
 
         Dir.chdir(directory) do
           json_dep_data = with_clean_env do
-            s = Mixlib::ShellOut.new("#{LicenseScout::Config.ruby_bin} #{gemfile_to_json_path}", environment: LicenseScout::Config.environment)
+            s = Mixlib::ShellOut.new("#{LicenseScout::Config.ruby_bin} #{gemfile_to_json_path}",
+                                     environment: LicenseScout::Config.environment)
             s.run_command
             s.error!
             s.stdout
@@ -121,13 +124,13 @@ module LicenseScout
       # @param [Proc] block
       #   the block to execute with the cleaned environment
       #
-      def with_clean_env(&block)
+      def with_clean_env
         original = ENV.to_hash
 
-        ENV.delete("_ORIGINAL_GEM_PATH")
-        ENV.delete_if { |k, _| k.start_with?("BUNDLE_") }
-        ENV.delete_if { |k, _| k.start_with?("GEM_") }
-        ENV.delete_if { |k, _| k.start_with?("RUBY") }
+        ENV.delete('_ORIGINAL_GEM_PATH')
+        ENV.delete_if { |k, _| k.start_with?('BUNDLE_') }
+        ENV.delete_if { |k, _| k.start_with?('GEM_') }
+        ENV.delete_if { |k, _| k.start_with?('RUBY') }
 
         yield
       ensure
@@ -135,13 +138,12 @@ module LicenseScout
       end
 
       def gemfile_path
-        File.join(directory, "Gemfile")
+        File.join(directory, 'Gemfile')
       end
 
       def lockfile_path
-        File.join(directory, "Gemfile.lock")
+        File.join(directory, 'Gemfile.lock')
       end
-
     end
   end
 end

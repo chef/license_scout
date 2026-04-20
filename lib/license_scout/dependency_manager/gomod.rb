@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,26 +17,25 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Gomod < Base
-
       def name
-        "golang_modules"
+        'golang_modules'
       end
 
       def type
-        "golang"
+        'golang'
       end
 
       def signature
-        "go.sum file"
+        'go.sum file'
       end
 
       def install_command
-        "go mod download"
+        'go mod download'
       end
 
       def detected?
@@ -43,26 +44,26 @@ module LicenseScout
 
       def dependencies
         go_modules.map do |mod|
-          next if mod["Main"] == true
+          next if mod['Main'] == true
 
-          dep_name = mod["Path"]
-          dep_version = mod["Version"]
-          dep_path = mod["Dir"]
+          dep_name = mod['Path']
+          dep_version = mod['Version']
+          dep_path = mod['Dir']
 
           new_dependency(dep_name, dep_version, dep_path)
         end.compact
       end
 
       def go_sum_file
-        File.join(directory, "go.sum")
+        File.join(directory, 'go.sum')
       end
 
       def vendor_dir
-        File.join(directory, "vendor")
+        File.join(directory, 'vendor')
       end
 
       def modules_txt_file
-        File.join(vendor_dir, "modules.txt")
+        File.join(vendor_dir, 'modules.txt')
       end
 
       def go_modules
@@ -74,17 +75,15 @@ module LicenseScout
       end
 
       def vendor_mode
-        if @vendor_mode.nil?
-          @vendor_mode = File.directory?(vendor_dir)
-        end
+        @vendor_mode = File.directory?(vendor_dir) if @vendor_mode.nil?
         @vendor_mode
       end
 
       def go_modules_json
-        s = Mixlib::ShellOut.new("go list -m -json all", cwd: directory, environment: LicenseScout::Config.environment)
+        s = Mixlib::ShellOut.new('go list -m -json all', cwd: directory, environment: LicenseScout::Config.environment)
         s.run_command
         s.error!
-        "[" + s.stdout.gsub("}\n{", "},\n{") + "]"
+        "[#{s.stdout.gsub("}\n{", "},\n{")}]"
       end
     end
   end
@@ -98,15 +97,15 @@ module LicenseScout
     # list -m -json all` output.
     def self.parse(data, base_path)
       data.lines.map do |l|
-        if l.start_with?("#")
-          parts = l.split
-          {
-            "Main" => false,
-            "Path" => parts[1],
-            "Version" => parts[2],
-            "Dir" => File.join(base_path, parts[1]),
-          }
-        end
+        next unless l.start_with?('#')
+
+        parts = l.split
+        {
+          'Main' => false,
+          'Path' => parts[1],
+          'Version' => parts[2],
+          'Dir' => File.join(base_path, parts[1])
+        }
       end.compact
     end
   end

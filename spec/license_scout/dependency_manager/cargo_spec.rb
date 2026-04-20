@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018 Chef Software, Inc.
 # License:: Apache License, Version 2.0
@@ -16,44 +18,43 @@
 #
 
 RSpec.describe LicenseScout::DependencyManager::Cargo do
-
   let(:subject) { described_class.new(directory) }
-  let(:directory) { "/some/random/directory" }
+  let(:directory) { '/some/random/directory' }
 
-  let(:cargo_file_path) { File.join(directory, "Cargo.toml") }
-  let(:cargo_lockfile_path) { File.join(directory, "Cargo.lock") }
+  let(:cargo_file_path) { File.join(directory, 'Cargo.toml') }
+  let(:cargo_lockfile_path) { File.join(directory, 'Cargo.lock') }
 
-  describe ".new" do
-    it "creates new instance of a dependency manager" do
+  describe '.new' do
+    it 'creates new instance of a dependency manager' do
       expect(subject.directory).to eql(directory)
     end
   end
 
-  describe "#name" do
+  describe '#name' do
     it "equals 'rust_cargo'" do
-      expect(subject.name).to eql("rust_cargo")
+      expect(subject.name).to eql('rust_cargo')
     end
   end
 
-  describe "#type" do
+  describe '#type' do
     it "equals 'rust'" do
-      expect(subject.type).to eql("rust")
+      expect(subject.type).to eql('rust')
     end
   end
 
-  describe "#signature" do
+  describe '#signature' do
     it "equals 'Cargo and Cargo.lock files'" do
-      expect(subject.signature).to eql("Cargo and Cargo.lock files")
+      expect(subject.signature).to eql('Cargo and Cargo.lock files')
     end
   end
 
-  describe "#install_command" do
+  describe '#install_command' do
     it "returns 'cargo build'" do
-      expect(subject.install_command).to eql("cargo build")
+      expect(subject.install_command).to eql('cargo build')
     end
   end
 
-  describe "#detected?" do
+  describe '#detected?' do
     let(:cargo_file_exists) { true }
     let(:cargo_file_lock_exists) { true }
 
@@ -62,28 +63,28 @@ RSpec.describe LicenseScout::DependencyManager::Cargo do
       expect(File).to receive(:exist?).with(cargo_lockfile_path).and_return(cargo_file_lock_exists)
     end
 
-    context "when Cargo and Cargo.lock exist" do
-      it "returns true" do
+    context 'when Cargo and Cargo.lock exist' do
+      it 'returns true' do
         expect(subject.detected?).to be true
       end
     end
 
-    context "when either Cargo or Cargo.lock is missing" do
+    context 'when either Cargo or Cargo.lock is missing' do
       let(:cargo_file_exists) { true }
       let(:cargo_file_lock_exists) { false }
 
-      it "returns false" do
+      it 'returns false' do
         expect(subject.detected?).to be false
       end
     end
   end
 
-  describe "#dependencies" do
-    context "cargo project" do
-      let(:directory) { File.join(SPEC_FIXTURES_DIR, "cargo") }
+  describe '#dependencies' do
+    context 'cargo project' do
+      let(:directory) { File.join(SPEC_FIXTURES_DIR, 'cargo') }
       let(:expected_count) { 35 }
 
-      it "returns an array of Dependencies found in the directory" , :no_windows do
+      it 'returns an array of Dependencies found in the directory', :no_windows do
         dependencies = subject.dependencies
 
         # Make sure we have the right count

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,34 +17,35 @@
 # limitations under the License.
 #
 
-require "license_scout/log"
-require "license_scout/exceptions"
-require "license_scout/dependency_manager"
-require "license_scout/license"
+require 'license_scout/log'
+require 'license_scout/exceptions'
+require 'license_scout/dependency_manager'
+require 'license_scout/license'
 
 module LicenseScout
   class Collector
-
     attr_reader :dependencies
 
     def collect
       @dependencies = Set.new
 
       if dependency_managers.empty?
-        raise LicenseScout::Exceptions::Error.new("Failed to find any files associated with known dependency managers in the following directories:\n#{LicenseScout::Config.directories.map { |dir| "\t• #{dir}" }.join("\n")}\n")
+        raise LicenseScout::Exceptions::Error, "Failed to find any files associated with known dependency managers in the following directories:\n#{LicenseScout::Config.directories.map do |dir|
+                                                                                                                                                      "\t• #{dir}"
+                                                                                                                                                    end.join("\n")}\n"
       end
 
       dependency_managers.each { |d| collect_licenses_from(d) }
 
-      LicenseScout::Log.info("[collector] All licenses successfully collected")
+      LicenseScout::Log.info('[collector] All licenses successfully collected')
     rescue Exceptions::UpstreamFetchError => e
-      LicenseScout::Log.error("[collector] Encountered an error attempting to fetch package metadata from upstream source:")
+      LicenseScout::Log.error('[collector] Encountered an error attempting to fetch package metadata from upstream source:')
       LicenseScout::Log.error("[collector] #{e}")
-      raise Exceptions::FailExit.new(e)
+      raise Exceptions::FailExit, e
     rescue Exceptions::PackageNotFound => e
       LicenseScout::Log.error("[collector] One of the project's transitive dependencies could not be found:")
       LicenseScout::Log.error("[collector] #{e}")
-      raise Exceptions::FailExit.new(e)
+      raise Exceptions::FailExit, e
     end
 
     private
@@ -53,7 +56,8 @@ module LicenseScout
         @dependencies << dep
       end
     rescue LicenseScout::Exceptions::MissingSourceDirectory => e
-      raise LicenseScout::Exceptions::Error.new("#{e.message}\n\n\tPlease try running `#{dep_mgr.install_command}` to download the dependency.\n")
+      raise LicenseScout::Exceptions::Error,
+            "#{e.message}\n\n\tPlease try running `#{dep_mgr.install_command}` to download the dependency.\n"
     end
 
     def dependency_managers
@@ -63,8 +67,6 @@ module LicenseScout
           if dep_mgr.detected? && !(LicenseScout::Config.exclude_collectors.include? dep_mgr.name)
             LicenseScout::Log.info("[collector] Found #{dep_mgr.signature} in #{dir}")
             dep_mgr
-          else
-            nil
           end
         end
       end.flatten.compact

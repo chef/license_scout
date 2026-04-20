@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2018, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -28,11 +30,11 @@
 
 # We need to load the target project's bundler config, so we have to do a full
 # bundler setup:
-require "bundler"
-require "bundler/setup"
+require 'bundler'
+require 'bundler/setup'
 
 # We're only using things that are in the stdlib.
-require "json"
+require 'json'
 
 dependencies = []
 
@@ -44,7 +46,7 @@ Bundler.load.specs.each do |gem_spec|
     version: gem_spec.version.to_s,
     license: gem_license,
     path: gem_spec.full_gem_path,
-    homepage: gem_spec.homepage,
+    homepage: gem_spec.homepage
   }
 end
 

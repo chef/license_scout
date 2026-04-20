@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2016, Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -15,26 +17,25 @@
 # limitations under the License.
 #
 
-require "license_scout/dependency_manager/base"
+require 'license_scout/dependency_manager/base'
 
 module LicenseScout
   module DependencyManager
     class Npm < Base
-
       def name
-        "nodejs_npm"
+        'nodejs_npm'
       end
 
       def type
-        "nodejs"
+        'nodejs'
       end
 
       def signature
-        "node_modules directory"
+        'node_modules directory'
       end
 
       def install_command
-        "npm install"
+        'npm install'
       end
 
       def detected?
@@ -47,26 +48,26 @@ module LicenseScout
             FFI_Yajl::Parser.parse(f)
           end
 
-          dep_name = pkg_info["name"]
-          dep_version = pkg_info["version"]
+          dep_name = pkg_info['name']
+          dep_version = pkg_info['version']
           dep_path = File.dirname(package_json_file)
 
           dependency = new_dependency(dep_name, dep_version, dep_path)
 
-          license_info = pkg_info["license"] || pkg_info["licenses"]
+          license_info = pkg_info['license'] || pkg_info['licenses']
 
           case license_info
           when String
-            dependency.add_license(license_info, "package.json")
+            dependency.add_license(license_info, 'package.json')
           when Hash
-            dependency.add_license(license_info["type"], "package.json", license_info["url"])
+            dependency.add_license(license_info['type'], 'package.json', license_info['url'])
           when Array
             license_info.each do |license|
               case license
               when String
-                dependency.add_license(license, "package.json")
+                dependency.add_license(license, 'package.json')
               when Hash
-                dependency.add_license(license["type"], "package.json", license["url"])
+                dependency.add_license(license['type'], 'package.json', license['url'])
               end
             end
           end
@@ -98,22 +99,38 @@ module LicenseScout
           break if package_dirs.empty?
 
           package_dir = package_dirs.pop
-          package_json_path = File.join(package_dir, "package.json")
+          package_json_path = File.join(package_dir, 'package.json')
 
           all_files << package_json_path if File.exist?(package_json_path)
 
-          node_modules_dir = File.join(package_dir, "node_modules")
+          node_modules_dir = File.join(package_dir, 'node_modules')
           if File.exist?(node_modules_dir)
             # Sort makes deduplication of identical deps deterministic
-            package_dirs.concat(Dir[File.join(node_modules_dir, "*")].sort)
+            package_dirs.concat(Dir[File.join(node_modules_dir, '*')].sort)
           end
         end
 
         all_files
       end
 
+      # def root_node_modules_path
+      #   File.join(directory, "node_modules")
+      # end
+
       def root_node_modules_path
-        File.join(directory, "node_modules")
+        # Check if node_modules directory does not exist
+        if File.exist?(File.join(directory, 'package.json'))
+          unless File.exist?(File.join(directory, 'node_modules'))
+            puts 'node_modules directory not found. Running npm install --legacy-peer-deps'
+            system('npm install --legacy-peer-deps')
+          end
+        else
+          puts 'package.json file not found in the directory.'
+          # You can handle this case accordingly, like raising an error or exiting.
+        end
+
+        # Return the path to node_modules (whether it existed before or was just installed)
+        File.join(directory, 'node_modules')
       end
     end
   end
