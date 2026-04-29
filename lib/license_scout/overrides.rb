@@ -369,6 +369,7 @@ module LicenseScout
         ["dep_selector", nil, ["https://raw.githubusercontent.com/chef/dep-selector/master/LICENSE"]],
         ["enumerable-lazy", "MIT", ["https://raw.githubusercontent.com/yhara/enumerable-lazy/master/README.md"]],
         ["fast_xs", "MIT", ["https://raw.githubusercontent.com/brianmario/fast_xs/master/LICENSE"]],
+        ["fiddle", "Ruby", ["https://raw.githubusercontent.com/ruby/fiddle/master/COPYING"]],
         ["fuzzyurl", nil, ["https://raw.githubusercontent.com/gamache/fuzzyurl/master/LICENSE.txt"]],
         ["github_changelog_generator", nil, ["https://raw.githubusercontent.com/skywinder/github-changelog-generator/master/LICENSE"]],
         ["google-cloud-spanner", "Apache-2.0", ["https://raw.githubusercontent.com/GoogleCloudPlatform/google-cloud-ruby/master/LICENSE"]],
