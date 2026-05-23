@@ -260,3 +260,6 @@ OCTOKIT_ACCESS_TOKEN=your_token_value
 
 - [Dan DeLeo](https://github.com/danielsdeleo)
 - [Tom Duffield](https://github.com/tduffield)
+
+# Copyright
+See [COPYRIGHT.md](./COPYRIGHT.md).
