@@ -1,26 +1,23 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.4.4 -->
-## [v1.4.4](https://github.com/chef/license_scout/tree/v1.4.4) (2026-08-05)
-
-#### Merged Pull Requests
-- update readme url [#343](https://github.com/chef/license_scout/pull/343) ([muthuja](https://github.com/muthuja))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=2.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- update readme url [#343](https://github.com/chef/license_scout/pull/343) ([muthuja](https://github.com/muthuja)) <!-- 1.4.4 -->
-- Fix fiddle license override [#342](https://github.com/chef/license_scout/pull/342) ([lbakerchef](https://github.com/lbakerchef)) <!-- 1.4.3 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v1.4.4](https://github.com/chef/license_scout/tree/v1.4.4) (2026-08-05)
+
+#### Merged Pull Requests
+- Fix fiddle license override [#342](https://github.com/chef/license_scout/pull/342) ([lbakerchef](https://github.com/lbakerchef))
+- update readme url [#343](https://github.com/chef/license_scout/pull/343) ([muthuja](https://github.com/muthuja))
+<!-- latest_stable_release -->
+
 ## [v1.4.2](https://github.com/chef/license_scout/tree/v1.4.2) (2026-02-09)
 
 #### Merged Pull Requests
 - Updating license details for Mime-types [#337](https://github.com/chef/license_scout/pull/337) ([johnmccrae](https://github.com/johnmccrae))
-<!-- latest_stable_release -->
 
 ## [v1.4.1](https://github.com/chef/license_scout/tree/v1.4.1) (2025-11-13)
 
