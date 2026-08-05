@@ -1,16 +1,17 @@
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
 
-<!-- latest_release 1.4.3 -->
-## [v1.4.3](https://github.com/chef/license_scout/tree/v1.4.3) (2026-05-07)
+<!-- latest_release 1.4.4 -->
+## [v1.4.4](https://github.com/chef/license_scout/tree/v1.4.4) (2026-08-05)
 
 #### Merged Pull Requests
-- Fix fiddle license override [#342](https://github.com/chef/license_scout/pull/342) ([lbakerchef](https://github.com/lbakerchef))
+- update readme url [#343](https://github.com/chef/license_scout/pull/343) ([muthuja](https://github.com/muthuja))
 <!-- latest_release -->
 
 <!-- release_rollup since=2.6.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- update readme url [#343](https://github.com/chef/license_scout/pull/343) ([muthuja](https://github.com/muthuja)) <!-- 1.4.4 -->
 - Fix fiddle license override [#342](https://github.com/chef/license_scout/pull/342) ([lbakerchef](https://github.com/lbakerchef)) <!-- 1.4.3 -->
 <!-- release_rollup -->
 
