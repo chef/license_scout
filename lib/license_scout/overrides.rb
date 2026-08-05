@@ -448,7 +448,7 @@ module LicenseScout
         ["websocket-extensions", nil, ["https://raw.githubusercontent.com/faye/websocket-extensions-ruby/master/LICENSE.md"]],
         ["win32-api", "Artistic-2.0", ["https://raw.githubusercontent.com/cosmo0920/win32-api/master/README.md"]],
         ["win32-dir", "Artistic-2.0", ["https://raw.githubusercontent.com/chef/win32-dir/ffi/README.md"]],
-        ["win32-event", "Artistic-2.0", ["https://raw.githubusercontent.com/chef/win32-event/ffi/README"]],
+        ["win32-event", "Artistic-2.0", ["https://raw.githubusercontent.com/chef/win32-event/ffi/README.md"]],
         ["win32-eventlog", "Artistic-2.0", ["https://raw.githubusercontent.com/chef/win32-eventlog/ffi/README"]],
         ["win32-ipc", "Artistic-2.0", ["https://raw.githubusercontent.com/chef/win32-ipc/ffi/README.md"]],
         ["win32-mmap", "Artistic-2.0", ["https://raw.githubusercontent.com/chef/win32-mmap/ffi/README.md"]],
