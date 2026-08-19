@@ -368,6 +368,7 @@ module LicenseScout
         ["date", "BSD-2-Clause", ["https://raw.githubusercontent.com/ruby/date/master/README.md"]],
         ["diff-lcs", "MIT", ["https://raw.githubusercontent.com/halostatue/diff-lcs/main/LICENCE.md"]],
         ["dep_selector", nil, ["https://raw.githubusercontent.com/chef/dep-selector/master/LICENSE"]],
+        ["diff-lcs", nil, ["https://raw.githubusercontent.com/halostatue/diff-lcs/main/LICENCE.md"]],
         ["enumerable-lazy", "MIT", ["https://raw.githubusercontent.com/yhara/enumerable-lazy/master/README.md"]],
         ["fast_xs", "MIT", ["https://raw.githubusercontent.com/brianmario/fast_xs/master/LICENSE"]],
         ["fiddle", "Ruby", ["https://raw.githubusercontent.com/ruby/fiddle/master/COPYING"]],
